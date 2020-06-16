@@ -16,6 +16,8 @@ grant create table to ADM;
 
 grant create any trigger to ADM;
 
+grant create any sequence to ADM;
+
 ---------------------------------------------------------
 
 CREATE USER APP
@@ -34,6 +36,8 @@ grant create table to APP;
 
 grant create any trigger to APP;
 
+grant create any sequence to APP;
+
 ---------------------------------------------------------
 
 CREATE USER LOG
@@ -51,3 +55,5 @@ grant create session to LOG;
 grant create table to LOG;
 
 grant create any trigger to LOG;
+
+grant create any sequence to LOG;
