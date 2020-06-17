@@ -3,7 +3,7 @@
 CREATE OR REPLACE PACKAGE adminUser IS
 
 PROCEDURE createUser (pnUsername VARCHAR2, pnPassword VARCHAR2, pnUsertype NUMBER);
-PROCEDURE createBanned (pnIspermanent VARCHAR2, pnDateStart DATE, pnDateFinish DATE, pnUsername VARCHAR2, pnBannerReason NUMBER);
+PROCEDURE createBanned (pnIspermanent VARCHAR2, pnDateStart DATE, pnDateFinish DATE, pnUsername VARCHAR2, pnBannedReason NUMBER);
 PROCEDURE createBannedReason (pnDescription VARCHAR2);
 PROCEDURE createUsertype (pnDescription VARCHAR2);
 PROCEDURE editUserPassword (pnUsername VARCHAR2, pnOldPassword VARCHAR2, pnNewPassword VARCHAR2);
