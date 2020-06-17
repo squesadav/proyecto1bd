@@ -2,7 +2,11 @@
 CREATE TABLE gender(
 
     id      NUMBER(6),
-    name    NUMBER(6)
+    name    NUMBER(6),
+    creation_date     DATE,
+    creation_user     VARCHAR2(15),
+    last_change_date  DATE,
+    last_change_user  VARCHAR2(15)
 );
 
 ALTER TABLE gender
