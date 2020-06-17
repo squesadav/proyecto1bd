@@ -10,9 +10,10 @@ CREATE OR REPLACE PACKAGE BODY admin_gender AS
             INSERT INTO gender(id, name)
             VALUES (app.seq_gender.nextval, pnName);
         END;
-    PROCEDURE remove_gender(pnId NUMBER) IS
+    PROCEDURE remove_gender(pnIdGender NUMBER) IS
         BEGIN
             DELETE FROM gender
-            WHERE id = pnId;
+            WHERE id = pnIdGender;
         END;
 END admin_gender;
+/
