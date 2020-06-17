@@ -27,6 +27,3 @@ MINVALUE 0
 MAXVALUE 10000000
 NOCACHE
 NOCYCLE;
-
-alter table usertype
-add last_change_date DATE;
