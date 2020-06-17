@@ -1,3 +1,5 @@
+-- Conectado desde APP
+
 CREATE OR REPLACE PACKAGE admin_gender IS
     PROCEDURE insert_gender(pnName VARCHAR2);
     PROCEDURE remove_gender(pnIdGender NUMBER);
