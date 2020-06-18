@@ -1,18 +1,18 @@
--- Conectado desde LOG
+-- Conectado desde LOGS
 
-CREATE OR REPLACE TRIGGER log.beforeInsertLog
+CREATE OR REPLACE TRIGGER logs.beforeInsertLogPasswords
 BEFORE INSERT
-ON log.log
+ON logs.logPasswords
 FOR EACH ROW
 BEGIN
     :NEW.creation_user := USER;
     :NEW.creation_date := SYSDATE;
-END beforeInsertLog;
+END beforeInsertLogPasswords;
 /
 
-CREATE OR REPLACE TRIGGER log.beforeUpdateLog
+CREATE OR REPLACE TRIGGER logs.beforeUpdateLogPasswords
 BEFORE UPDATE
-ON log.log
+ON logs.logPasswords
 FOR EACH ROW
 BEGIN
     :NEW.last_change_user := USER;

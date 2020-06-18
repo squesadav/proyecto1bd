@@ -44,22 +44,22 @@ grant create any procedure to APP;
 
 ---------------------------------------------------------
 
-CREATE USER LOG
-   IDENTIFIED BY LOG
+CREATE USER LOGS
+   IDENTIFIED BY LOGS
    DEFAULT TABLESPACE LOG_DATA
    QUOTA 10M ON LOG_DATA
    QUOTA UNLIMITED ON LOG_IND
    TEMPORARY TABLESPACE temp
    QUOTA 5M ON system;
    
-grant connect to LOG;
+grant connect to LOGS;
 
-grant create session to LOG;
+grant create session to LOGS;
 
-grant create table to LOG;
+grant create table to LOGS;
 
-grant create any trigger to LOG;
+grant create any trigger to LOGS;
 
-grant create any sequence to LOG;
+grant create any sequence to LOGS;
 
-grant create any procedure to LOG;
+grant create any procedure to LOGS;
