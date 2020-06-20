@@ -2,7 +2,7 @@
 CREATE TABLE community(
     id                NUMBER(4),
     name              VARCHAR2(20) NOT NULL,
-    id_district        NUMBER(4) NOT NULL,
+    id_district       NUMBER(4) NOT NULL,
     creation_date     DATE,
     creation_user     VARCHAR2(15),
     last_change_date  DATE,

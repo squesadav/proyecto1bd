@@ -29,11 +29,3 @@ ALTER TABLE record
 ALTER TABLE record
     ADD CONSTRAINT fk_record_person FOREIGN KEY(id_person) 
     references person(id);
-
-CREATE SEQUENCE seq_record
-START WITH 0
-INCREMENT BY 1
-MINVALUE 0
-MAXVALUE 10000000
-NOCACHE
-NOCYCLE;
