@@ -7,7 +7,7 @@ END admin_veredict;
 /
 
 CREATE OR REPLACE PACKAGE BODY admin_veredict AS
-    PROCEDURE insert_veredict(pnName VARCHAR2, pnYears NUMBER, pnIdPlace NUMBER, pnDateStart DATE, pnDateEnd DATE) IS
+    PROCEDURE insert_veredict(pnYears NUMBER, pnIdPlace NUMBER, pnDateStart DATE, pnDateEnd DATE) IS
         BEGIN
             INSERT INTO veredict(id, years, id_place, date_start, date_end)
             VALUES (app.seq_veredict.nextval, pnYears, pnIdPlace, pnDateStart, pnDateEnd);

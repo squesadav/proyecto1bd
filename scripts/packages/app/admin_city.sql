@@ -3,7 +3,7 @@
 CREATE OR REPLACE PACKAGE admin_city IS
     PROCEDURE insert_city(pnName VARCHAR2, pnState NUMBER);
     PROCEDURE remove_city(pnIdCity NUMBER);
-END admin_gender;
+END admin_city;
 /
 
 CREATE OR REPLACE PACKAGE BODY admin_city AS

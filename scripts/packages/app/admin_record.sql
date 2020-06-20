@@ -15,7 +15,7 @@ CREATE OR REPLACE PACKAGE BODY admin_record AS
     PROCEDURE remove_record(pnIdRecord NUMBER) IS
         BEGIN
             DELETE FROM record
-            WHERE id = pnIdRecord;
+            WHERE numberr = pnIdRecord;
         END;
 END admin_record;
 /
