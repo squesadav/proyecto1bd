@@ -17,5 +17,16 @@ CREATE OR REPLACE PACKAGE BODY admin_gender AS
             DELETE FROM gender
             WHERE id = pnIdGender;
         END;
+
+    FUNCTION getName (vId NUMBER) RETURN VARCHAR2
+        IS rName VARCHAR2(6);
+    BEGIN
+        SELECT name
+        INTO rName
+        FROM gender
+        WHERE id = vId;
+        RETURN rName;
+    END;
+
 END admin_gender;
 /

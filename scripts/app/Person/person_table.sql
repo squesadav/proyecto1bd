@@ -1,4 +1,4 @@
-s----En el esquema APP-----
+----En el esquema APP-----
 CREATE TABLE Person(
     id                NUMBER(9),
     name              VARCHAR2(30) NOT NULL,

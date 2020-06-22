@@ -17,5 +17,15 @@ CREATE OR REPLACE PACKAGE BODY admin_type AS
             DELETE FROM type
             WHERE id = pnIdType;
         END;
+
+    FUNCTION getName (vId NUMBER) RETURN VARCHAR2
+        IS rName VARCHAR2(30);
+    BEGIN
+        SELECT name
+        INTO rName
+        FROM type
+        WHERE id = vId;
+        RETURN rName;
+    END;
 END admin_type;
 /

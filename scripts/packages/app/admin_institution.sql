@@ -17,5 +17,15 @@ CREATE OR REPLACE PACKAGE BODY admin_institution AS
             DELETE FROM institution
             WHERE id = pnIdInstitution;
         END;
+
+    FUNCTION getName (vId NUMBER) RETURN VARCHAR2
+        IS rName VARCHAR2(50);
+    BEGIN
+        SELECT name
+        INTO rName
+        FROM institution
+        WHERE id = vId;
+        RETURN rName;
+    END;
 END admin_institution;
 /

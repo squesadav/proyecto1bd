@@ -17,5 +17,26 @@ CREATE OR REPLACE PACKAGE BODY admin_city AS
             DELETE FROM city
             WHERE id = pnIdCity;
         END;
+
+    FUNCTION getName (vId NUMBER) RETURN VARCHAR2
+        IS rName VARCHAR2(20);
+    BEGIN
+        SELECT name
+        INTO rName
+        FROM city
+        WHERE id = vId;
+        RETURN rName;
+    END;
+
+    FUNCTION getIdState (vId NUMBER) RETURN NUMBER
+        IS rIdState NUMBER(4);
+    BEGIN
+        SELECT id_state
+        INTO rIdState
+        FROM city
+        WHERE id = vId;
+        RETURN rIdState;
+    END;
 END admin_city;
+
 /

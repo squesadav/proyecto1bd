@@ -17,5 +17,25 @@ CREATE OR REPLACE PACKAGE BODY admin_community AS
             DELETE FROM community
             WHERE id = pnIdCommunity;
         END;
+
+    FUNCTION getName (vId NUMBER) RETURN VARCHAR2
+        IS rName VARCHAR2(20);
+    BEGIN
+        SELECT name
+        INTO rName
+        FROM community
+        WHERE id = vId;
+        RETURN rName;
+    END;
+
+    FUNCTION getIdDistrict (vId NUMBER) RETURN NUMBER
+        IS rIdDistrict NUMBER(4);
+    BEGIN
+        SELECT id_district
+        INTO rIdDistrict
+        FROM community
+        WHERE id = vId;
+        RETURN rIdDistrict;
+    END;
 END admin_community;
 /

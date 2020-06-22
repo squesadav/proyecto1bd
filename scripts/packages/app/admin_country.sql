@@ -17,5 +17,16 @@ CREATE OR REPLACE PACKAGE BODY admin_country AS
             DELETE FROM country
             WHERE id = pnIdCountry;
         END;
+
+    FUNCTION getName (vId NUMBER) RETURN VARCHAR2
+        IS rName VARCHAR2(20);
+    BEGIN
+        SELECT name
+        INTO rName
+        FROM country
+        WHERE id = vId;
+        RETURN rName;
+    END;
+
 END admin_country;
 /

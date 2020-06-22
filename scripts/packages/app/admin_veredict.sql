@@ -17,5 +17,41 @@ CREATE OR REPLACE PACKAGE BODY admin_veredict AS
             DELETE FROM veredict
             WHERE id = pnIdVeredict;
         END;
+
+    FUNCTION getYears (vId NUMBER) RETURN NUMBER IS rYears NUMBER(3);
+        BEGIN
+            SELECT years
+            INTO rYears
+            FROM veredict
+            WHERE id = vId;
+            RETURN rYears;
+        END;  
+
+    FUNCTION getIdPlace (vId NUMBER) RETURN NUMBER IS rIdPlace NUMBER(4);
+        BEGIN
+            SELECT id_place
+            INTO rIdPlace
+            FROM veredict
+            WHERE id = vId;
+            RETURN rIdPlace;
+        END;  
+
+    FUNCTION getDateStart (vId NUMBER) RETURN DATE IS rDateStart DATE;
+        BEGIN
+            SELECT date_start
+            INTO rDateStart
+            FROM veredict
+            WHERE id = vId;
+            RETURN rDateStart;
+        END;  
+
+    FUNCTION getDateEnd (vId NUMBER) RETURN DATE IS rDateEnd DATE;
+        BEGIN
+            SELECT date_end
+            INTO rDateEnd
+            FROM veredict
+            WHERE id = vId;
+            RETURN rDateEnd;
+        END;   
 END admin_veredict;
 /

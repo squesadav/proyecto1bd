@@ -17,5 +17,25 @@ CREATE OR REPLACE PACKAGE BODY admin_state AS
             DELETE FROM state
             WHERE id = pnIdState;
         END;
+
+    FUNCTION getName (vId NUMBER) RETURN VARCHAR2
+        IS rName VARCHAR2(20);
+    BEGIN
+        SELECT name
+        INTO rName
+        FROM state
+        WHERE id = vId;
+        RETURN rName;
+    END;
+
+    FUNCTION getIdCountry (vId NUMBER) RETURN NUMBER
+        IS rIdCountry NUMBER(4);
+    BEGIN
+        SELECT id_country
+        INTO rIdCountry
+        FROM state
+        WHERE id = vId;
+        RETURN rIdCountry;
+    END;
 END admin_state;
 /
