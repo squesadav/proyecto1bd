@@ -1,5 +1,6 @@
--- Connected from APP
--- Autor: Sebastián Quesada Calderón
+-- Conected from APP
+-- Author: Sebastián Quesada Calderón
+-- Creation date: 17/06/2020
 CREATE TABLE record(
     numberr                 VARCHAR2(10),
     description_crime       VARCHAR2(30) NOT NULL,

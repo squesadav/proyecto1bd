@@ -1,5 +1,6 @@
--- Connected from APP
--- Autor: Sebastián Quesada Calderón
+-- Conected from APP
+-- Author: Sebastián Quesada Calderón
+-- Creation date: 20/06/2020
 
 CREATE OR REPLACE PACKAGE admin_person IS
     PROCEDURE insert_person(pnId NUMBER, pnName VARCHAR2, pnMiddle_Name VARCHAR2, pnLast_Name VARCHAR2, pnBirthday DATE, pnIdGender NUMBER, pnIdInstitution NUMBER, pnIdCommunity NUMBER);

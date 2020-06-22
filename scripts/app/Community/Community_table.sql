@@ -1,5 +1,6 @@
--- Connected from APP
--- Autor: Sebastián Quesada Calderón
+-- Conected from APP
+-- Author: Sebastián Quesada Calderón
+-- Creation date: 17/06/2020
 CREATE TABLE community(
     id                NUMBER(4),
     name              VARCHAR2(20) NOT NULL,

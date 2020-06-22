@@ -1,5 +1,6 @@
--- Connected from APP
--- Autor: Sebastián Quesada Calderón
+-- Conected from APP
+-- Author: Sebastián Quesada Calderón
+-- Creation date: 17/06/2020
 CREATE TABLE veredict(
     id                NUMBER(4),
     years             NUMBER(3) NOT NULL,
