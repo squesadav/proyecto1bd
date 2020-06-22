@@ -1,4 +1,5 @@
--- Conectado desde APP
+-- Connected from APP
+-- Autor: Sebastián Quesada Calderón
 
 CREATE OR REPLACE PACKAGE admin_institution IS
     PROCEDURE insert_institution(pnName VARCHAR2);

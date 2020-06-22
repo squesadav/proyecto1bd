@@ -1,5 +1,5 @@
 -- Connected from APP
-
+-- Autor: Sebastián Quesada Calderón
 CREATE OR REPLACE TRIGGER app.beforeInsertCommunity
 BEFORE INSERT
 ON app.community

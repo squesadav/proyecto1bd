@@ -1,5 +1,5 @@
--- Conectado desde APP
-
+-- Connected from APP
+-- Autor: Sebastián Quesada Calderón
 CREATE OR REPLACE PACKAGE admin_type IS
     PROCEDURE insert_type(pnName VARCHAR2);
     PROCEDURE remove_type(pnIdType NUMBER);

@@ -1,4 +1,6 @@
-----En el esquema APP-----
+-- Connected from APP
+-- Autor: Sebastián Quesada Calderón
+
 CREATE TABLE place(
     id                NUMBER(4),
     name              VARCHAR2(30) NOT NULL,

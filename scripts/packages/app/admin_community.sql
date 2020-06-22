@@ -1,4 +1,5 @@
--- Conectado desde APP
+-- Connected from APP
+-- Autor: Sebastián Quesada Calderón
 
 CREATE OR REPLACE PACKAGE admin_community IS
     PROCEDURE insert_community(pnName VARCHAR2, pnDistrict NUMBER);

@@ -1,4 +1,5 @@
--- Conectado desde APP
+-- Connected from APP
+-- Autor: Sebastián Quesada Calderón
 
 CREATE OR REPLACE PACKAGE admin_veredict IS
     PROCEDURE insert_veredict(pnYears NUMBER, pnIdPlace NUMBER, pnDateStart DATE, pnDateEnd DATE);

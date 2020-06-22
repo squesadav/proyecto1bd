@@ -1,4 +1,5 @@
-----En el esquema APP-----
+-- Connected from APP
+-- Autor: Sebastián Quesada Calderón
 CREATE TABLE gender(
 
     id      NUMBER(6),

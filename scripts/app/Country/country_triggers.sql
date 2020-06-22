@@ -1,4 +1,5 @@
 -- Connected from APP
+-- Autor: Sebastián Quesada Calderón
 
 CREATE OR REPLACE TRIGGER app.beforeInsertCountry
 BEFORE INSERT

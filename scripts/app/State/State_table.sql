@@ -1,4 +1,5 @@
-----En el esquema APP-----
+-- Connected from APP
+-- Autor: Sebastián Quesada Calderón
 CREATE TABLE state(
     id                NUMBER(4),
     name              VARCHAR2(20) NOT NULL,

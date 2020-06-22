@@ -1,4 +1,5 @@
-----En el esquema APP-----
+-- Connected from APP
+-- Autor: Sebastián Quesada Calderón
 CREATE TABLE veredict(
     id                NUMBER(4),
     years             NUMBER(3) NOT NULL,

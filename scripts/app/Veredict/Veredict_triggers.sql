@@ -1,5 +1,5 @@
 -- Connected from APP
-
+-- Autor: Sebastián Quesada Calderón
 CREATE OR REPLACE TRIGGER app.beforeInsertVeredict
 BEFORE INSERT
 ON app.veredict

@@ -1,5 +1,5 @@
--- Conectado desde APP
-
+-- Connected from APP
+-- Autor: Sebastián Quesada Calderón
 CREATE OR REPLACE PACKAGE admin_record IS
     PROCEDURE insert_record(pnNumberr NUMBER, pnDescriptionCrime VARCHAR2, pnDateCrime DATE, pnResolution VARCHAR2, pnCrimeExpirationDate DATE, pnPicture VARCHAR2, pnIdType NUMBER, pnIdVeredict NUMBER, pnIdPerson NUMBER);
     PROCEDURE remove_record(pnIdRecord NUMBER);

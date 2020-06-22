@@ -1,4 +1,5 @@
-----En el esquema APP-----
+-- Connected from APP
+-- Autor: Sebastián Quesada Calderón
 CREATE TABLE record(
     numberr                 VARCHAR2(10),
     description_crime       VARCHAR2(30) NOT NULL,

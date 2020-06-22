@@ -1,4 +1,5 @@
--- Conectado desde APP
+-- Connected from APP
+-- Autor: Sebastián Quesada Calderón
 
 CREATE OR REPLACE PACKAGE admin_place IS
     PROCEDURE insert_place(pnName VARCHAR2);

@@ -1,4 +1,5 @@
--- Conectado desde APP
+-- Connected from APP
+-- Autor: Sebastián Quesada Calderón
 
 CREATE OR REPLACE PACKAGE admin_city IS
     PROCEDURE insert_city(pnName VARCHAR2, pnState NUMBER);
