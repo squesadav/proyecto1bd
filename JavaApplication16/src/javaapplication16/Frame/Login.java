@@ -54,6 +54,7 @@ public class Login extends javax.swing.JFrame {
         ButtonLogOut = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
         setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -61,6 +62,14 @@ public class Login extends javax.swing.JFrame {
         JPWelcome.setBackground(new java.awt.Color(255, 255, 255));
         JPWelcome.setForeground(new java.awt.Color(255, 255, 255));
         JPWelcome.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        JPWelcome.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JPWelcomeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                JPWelcomeMouseExited(evt);
+            }
+        });
         JPWelcome.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         LabelWelcome.setBackground(new java.awt.Color(255, 255, 255));
@@ -558,7 +567,6 @@ public class Login extends javax.swing.JFrame {
 
     private void ButtonCloseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCloseMouseEntered
         ButtonClose.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
-        JPWelcome.setVisible(false);
     }//GEN-LAST:event_ButtonCloseMouseEntered
 
     private void ButtonCloseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCloseMouseExited
@@ -567,7 +575,6 @@ public class Login extends javax.swing.JFrame {
 
     private void ButtonMinimizeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonMinimizeMouseEntered
         ButtonMinimize.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
-        JPWelcome.setVisible(false);
     }//GEN-LAST:event_ButtonMinimizeMouseEntered
 
     private void ButtonMinimizeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonMinimizeMouseExited
@@ -583,6 +590,20 @@ public class Login extends javax.swing.JFrame {
         Cursor cursor = new Cursor(Cursor.DEFAULT_CURSOR);
         ButtonSignUp.setCursor(cursor);
     }//GEN-LAST:event_ButtonSignUpMouseExited
+
+    private void JPWelcomeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPWelcomeMouseExited
+        JPWelcome.setVisible(true);
+        JPSignUp.setVisible(false);
+        JPAdminMenu.setVisible(false);
+        JPUserMenu.setVisible(false);
+    }//GEN-LAST:event_JPWelcomeMouseExited
+
+    private void JPWelcomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPWelcomeMouseEntered
+        JPWelcome.setVisible(true);
+        JPSignUp.setVisible(false);
+        JPAdminMenu.setVisible(false);
+        JPUserMenu.setVisible(false);
+    }//GEN-LAST:event_JPWelcomeMouseEntered
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
