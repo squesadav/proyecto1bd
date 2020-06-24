@@ -1,5 +1,6 @@
--- Connected from SYSTEM
-
+-- Conected from ADM
+-- Author: Diana Sofía Reyes Soto
+-- Creation date: 20/06/2020
 CREATE OR REPLACE PACKAGE adminUser IS
 
 PROCEDURE createUser (pnUsername VARCHAR2, pnPassword VARCHAR2, pnUsertype NUMBER);

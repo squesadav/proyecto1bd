@@ -1,5 +1,6 @@
--- Conectado desde ADM
-
+-- Conected from ADM
+-- Author: Sebastián Quesada Velluti
+-- Creation date: 18/06/2020
 CREATE OR REPLACE TRIGGER adm.beforeUpdatePassword
 BEFORE UPDATE OF password
 ON appuser
