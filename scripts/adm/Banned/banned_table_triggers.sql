@@ -1,7 +1,6 @@
 -- Conected from ADM
 -- Author: Diana Sofía Reyes Soto
 -- Creation date: 17/06/2020
-
 CREATE OR REPLACE TRIGGER adm.beforeInsertBanned
 BEFORE INSERT
 ON adm.banned
