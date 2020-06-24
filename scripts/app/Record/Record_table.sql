@@ -8,7 +8,7 @@ CREATE TABLE record(
     resolution              VARCHAR2(30) NOT NULL,
     crime_expiration_date   DATE NOT NULL,
     picture                 VARCHAR2(50),
-    approved                CHAR(1),
+    approved                VARCHAR2(1),
     id_type                 NUMBER(3),
     id_veredict             NUMBER(4),
     id_person               NUMBER(9),
