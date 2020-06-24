@@ -29,7 +29,7 @@ public class ConnectDB {
         stmnt.execute();
     }
     
-        public static void getUserType(String name) throws SQLException {
+        public static void getUserType(String user_name) throws SQLException {
         String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "ADM";
         String uPass = "ADM";
@@ -49,6 +49,62 @@ public class ConnectDB {
         stmnt.execute();
         int typeUser = (int) stmnt.getObject(1);
         
+    }
+    
+             
+    public static void insertRecord(String schema,String function,HashMap<String,String> attributes) throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
+        String uName = schema;
+        String uPass = schema;
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        if (attibutes.size() == 9)
+        {
+            CallableStatement stmnt = con.prepareCall("{? = call ?(?,?,?,?,?,?,?,?,?)}");
+            stmnt.setString(3, attributes.get("description_crime"));
+            String date_crimeS = attributes.get("date_crime");
+            Date date_crime = new SimpleDateFormat("yyyy/MM/dd").parseDate(attributes.get("date_crime"));
+            
+        }
+        stmnt.registerOutParameter(1, OracleTypes.Cursor);
+        
+        stmnt.setString(2, function);
+        
+        stmnt.executeQuery(); 
+        ResultSet user = (ResultSet) stmnt.getObject(1);
+    }
+        
+    public static void query(String schema,String function,String atributo) throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
+        String uName = schema;
+        String uPass = schema;
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ ? = call ?(?) } ");
+        
+        stmnt.registerOutParameter(1, OracleTypes.Cursor);
+        stmnt.setString(2, function);
+        stmnt.setString(3, atributo);
+        stmnt.executeQuery(); 
+        ResultSet user = (ResultSet) stmnt.getObject(1);
+    }
+    
+    public static void query(String schema,String function,int atributo) throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
+        String uName = schema;
+        String uPass = schema;
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ ? = call ?(?) } ");
+        
+        stmnt.registerOutParameter(1, OracleTypes.Cursor);
+        stmnt.setString(2, function);
+        stmnt.setInt(3, atributo);
+        stmnt.executeQuery(); 
+        ResultSet user = (ResultSet) stmnt.getObject(1);
     }
 }
 
