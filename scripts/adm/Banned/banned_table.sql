@@ -1,3 +1,6 @@
+-- Conected from ADM
+-- Author: Diana Sofía Reyes Soto
+-- Creation date: 17/06/2020
 CREATE TABLE banned
 (
     id_banned NUMBER(20),
