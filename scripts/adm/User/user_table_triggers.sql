@@ -1,5 +1,6 @@
--- Connected from ADM
-
+-- Conected from ADM
+-- Author: Diana Sofía Reyes Soto
+-- Creation date: 17/06/2020
 create or replace TRIGGER adm.beforeInsertUser
 BEFORE INSERT
 ON adm.appuser
