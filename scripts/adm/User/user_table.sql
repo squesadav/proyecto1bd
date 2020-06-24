@@ -2,8 +2,8 @@
 
 CREATE TABLE appuser
 (
-    username VARCHAR2(10),
-    password VARCHAR2(8),
+    username VARCHAR2(20),
+    password VARCHAR2(40),
     id_userType NUMBER(4),
     creation_user VARCHAR2(15),
     creation_date DATE,

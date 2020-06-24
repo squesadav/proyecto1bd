@@ -5,7 +5,7 @@ CREATE OR REPLACE PACKAGE BODY adminUser AS
 PROCEDURE createUser (pnUsername VARCHAR2, pnPassword VARCHAR2, pnUsertype NUMBER) IS
 BEGIN
 	INSERT INTO adm.appuser(username, password, id_usertype)
-	VALUES(pnUsername,  pnPassword, 2);
+	VALUES(pnUsername,  encrypt_decrypt.encrypt(pnPassword), pnUsertype);
 	COMMIT;
 END;
 
@@ -38,7 +38,7 @@ END;
 PROCEDURE editUserPassword (pnUsername VARCHAR2, pnOldPassword VARCHAR2, pnNewPassword VARCHAR2) IS
 BEGIN
 	UPDATE adm.appuser
-	SET password = pnNewPassword
+	SET password = encrypt_decrypt.encrypt(pnNewPassword)
 	WHERE username = pnUsername;
 	COMMIT;
 END;

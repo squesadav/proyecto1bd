@@ -1,6 +1,6 @@
 -- Connected from ADM
 
-CREATE OR REPLACE TRIGGER adm.beforeInsertUser
+create or replace TRIGGER adm.beforeInsertUser
 BEFORE INSERT
 ON adm.appuser
 FOR EACH ROW
