@@ -4,20 +4,20 @@
 
 
 CREATE OR REPLACE PACKAGE user_publishing IS
-    FUNCTION dangerous_places(vquantity INTEGER) RETURN rcursor;
-    FUNCTION recordInformation() RETURN rcursor;
-    FUNCTION user_list RETURN rcursor;
-    FUNCTION user_banned RETURN rcursor;
-    FUNCTION user_banned RETURN rcursor;
-    FUNCTION record_list(daterange DATE) RETURN rcursor;
+    FUNCTION dangerous_places(vquantity INTEGER) RETURN sys_refcursor;
+    FUNCTION recordInformation() RETURN sys_refcursor;
+    FUNCTION user_list RETURN sys_refcursor;
+    FUNCTION user_banned RETURN sys_refcursor;
+    FUNCTION user_banned RETURN sys_refcursor;
+    FUNCTION record_list(daterange DATE) RETURN sys_refcursor;
 END;
 /
 
 
 CREATE OR REPLACE PACKAGE BODY user_publishing IS
-    FUNCTION dangerous_places(vquantity INTEGER) RETURN rcursor
+    FUNCTION dangerous_places(vquantity INTEGER) RETURN sys_refcursor
     AS 
-        cplaces rcursor;
+        cplaces sys_refcursor;
         BEGIN
             OPEN cplaces FOR
                 SELECT *
@@ -28,9 +28,9 @@ CREATE OR REPLACE PACKAGE BODY user_publishing IS
             RETURN cplaces;
         END;
 
-    FUNCTION recordInformation RETURN rcursor
+    FUNCTION recordInformation RETURN sys_refcursor
     AS 
-        crecords rcursor;
+        crecords sys_refcursor;
         BEGIN
             OPEN crecords FOR
                 SELECT *
@@ -40,9 +40,9 @@ CREATE OR REPLACE PACKAGE BODY user_publishing IS
             RETURN crecords;
         END;
 
-    FUNCTION user_list RETURN rcursor
+    FUNCTION user_list RETURN sys_refcursor
     AS
-        cusers rcursor;
+        cusers sys_refcursor;
         BEGIN
             OPEN cusers FOR
                 SELECT *
@@ -50,9 +50,9 @@ CREATE OR REPLACE PACKAGE BODY user_publishing IS
             RETURN cusers;
         END;
 
-    FUNCTION user_banned RETURN rcursor
+    FUNCTION user_banned RETURN sys_refcursor
     AS
-        cusersBanned rcursor;
+        cusersBanned sys_refcursor;
         BEGIN
             OPEN cusersBanned FOR
                 SELECT *
@@ -61,9 +61,9 @@ CREATE OR REPLACE PACKAGE BODY user_publishing IS
             RETURN cusersBanned;
         END;
 
-    FUNCTION record_list(daterange DATE) RETURN rcursor
+    FUNCTION record_list(daterange DATE) RETURN sys_refcursor
     AS
-        crecords rcursor;
+        crecords sys_refcursor;
         BEGIN
             OPEN crecords FOR
                 SELECT *

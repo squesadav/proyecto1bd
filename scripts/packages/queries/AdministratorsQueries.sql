@@ -3,17 +3,17 @@
 -- Creation date: 23/06/2020
 
 CREATE OR REPLACE PACKAGE admin_publishing IS
-	FUNCTION no_longer_change_password (vnumberDays INTEGER) return rcursor;
-	FUNCTION YetToBeApproved() return rcursor;
+	FUNCTION no_longer_change_password (vnumberDays INTEGER) return sys_refcursor;
+	FUNCTION YetToBeApproved() return sys_refcursor;
 
 END;
 /
 
 
 CREATE OR REPLACE PACKAGE BODY admin_publishing IS
-    FUNCTION no_longer_change_password (vnumberDays INTEGER) RETURN rcursor
+    FUNCTION no_longer_change_password (vnumberDays INTEGER) RETURN sys_refcursor
     AS 
-        cpassword rcursor;
+        cpassword sys_refcursor;
         BEGIN
             OPEN cpassword FOR
                 SELECT *
@@ -23,9 +23,9 @@ CREATE OR REPLACE PACKAGE BODY admin_publishing IS
             RETURN cpassword;
         END no_longer_change_password;
 
-    FUNCTION YetToBeApproved() RETURN rcursor
+    FUNCTION YetToBeApproved() RETURN sys_refcursor
     AS 
-        capproved rcursor;
+        capproved sys_refcursor;
         BEGIN
             OPEN capproved FOR
                 SELECT *
