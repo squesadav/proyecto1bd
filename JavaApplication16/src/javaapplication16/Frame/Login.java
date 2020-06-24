@@ -2,6 +2,7 @@
 package javaapplication16.Frame;
 import java.awt.Color;
 import java.awt.Cursor;
+import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
 
@@ -36,9 +37,15 @@ public class Login extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         JPSignUp = new javax.swing.JPanel();
         LabelSignUp = new javax.swing.JLabel();
-        LabelUsername1 = new javax.swing.JLabel();
-        LabelPassword1 = new javax.swing.JLabel();
         ButtonRollback = new javax.swing.JButton();
+        LabelNewUserPassword = new javax.swing.JLabel();
+        LabelNewUsername = new javax.swing.JLabel();
+        LineNewUsername = new javax.swing.JSeparator();
+        NewUsernameField = new javax.swing.JTextField();
+        LineNewUserPassword = new javax.swing.JSeparator();
+        NewUserPasswordField = new javax.swing.JTextField();
+        ButtonCancel = new javax.swing.JButton();
+        ButtonJoin = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         ButtonMinimize = new javax.swing.JButton();
         ButtonClose = new javax.swing.JButton();
@@ -65,9 +72,6 @@ public class Login extends javax.swing.JFrame {
         JPWelcome.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 JPWelcomeMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                JPWelcomeMouseExited(evt);
             }
         });
         JPWelcome.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -156,26 +160,21 @@ public class Login extends javax.swing.JFrame {
 
         JPSignUp.setBackground(new java.awt.Color(255, 255, 255));
         JPSignUp.setForeground(new java.awt.Color(255, 255, 255));
+        JPSignUp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JPSignUpMouseEntered(evt);
+            }
+        });
         JPSignUp.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         LabelSignUp.setBackground(new java.awt.Color(255, 255, 255));
-        LabelSignUp.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 48)); // NOI18N
+        LabelSignUp.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
         LabelSignUp.setForeground(new java.awt.Color(29, 41, 81));
         LabelSignUp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/AddUser.png"))); // NOI18N
         LabelSignUp.setText("Welcome");
-        JPSignUp.add(LabelSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 360, 140));
-
-        LabelUsername1.setBackground(new java.awt.Color(255, 255, 255));
-        LabelUsername1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        LabelUsername1.setForeground(new java.awt.Color(29, 41, 81));
-        LabelUsername1.setText("Password:");
-        JPSignUp.add(LabelUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 100, 30));
-
-        LabelPassword1.setBackground(new java.awt.Color(255, 255, 255));
-        LabelPassword1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        LabelPassword1.setForeground(new java.awt.Color(29, 41, 81));
-        LabelPassword1.setText("Username:");
-        JPSignUp.add(LabelPassword1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 100, 30));
+        LabelSignUp.setMaximumSize(new java.awt.Dimension(240, 128));
+        LabelSignUp.setMinimumSize(new java.awt.Dimension(240, 128));
+        JPSignUp.add(LabelSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 240, 140));
 
         ButtonRollback.setBackground(new java.awt.Color(255, 255, 255));
         ButtonRollback.setForeground(new java.awt.Color(255, 255, 255));
@@ -196,6 +195,74 @@ public class Login extends javax.swing.JFrame {
             }
         });
         JPSignUp.add(ButtonRollback, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
+
+        LabelNewUserPassword.setBackground(new java.awt.Color(255, 255, 255));
+        LabelNewUserPassword.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelNewUserPassword.setForeground(new java.awt.Color(29, 41, 81));
+        LabelNewUserPassword.setText("Password:");
+        JPSignUp.add(LabelNewUserPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 330, 100, 30));
+
+        LabelNewUsername.setBackground(new java.awt.Color(255, 255, 255));
+        LabelNewUsername.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelNewUsername.setForeground(new java.awt.Color(29, 41, 81));
+        LabelNewUsername.setText("Username:");
+        JPSignUp.add(LabelNewUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 100, 30));
+
+        LineNewUsername.setForeground(new java.awt.Color(29, 41, 81));
+        JPSignUp.add(LineNewUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, 220, 20));
+
+        NewUsernameField.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
+        NewUsernameField.setBorder(null);
+        JPSignUp.add(NewUsernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 269, 220, 30));
+
+        LineNewUserPassword.setForeground(new java.awt.Color(29, 41, 81));
+        JPSignUp.add(LineNewUserPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 400, 220, 20));
+
+        NewUserPasswordField.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
+        NewUserPasswordField.setBorder(null);
+        JPSignUp.add(NewUserPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, 220, 30));
+
+        ButtonCancel.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonCancel.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        ButtonCancel.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonCancel.setText("Cancel");
+        ButtonCancel.setBorder(null);
+        ButtonCancel.setContentAreaFilled(false);
+        ButtonCancel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonCancelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonCancelMouseExited(evt);
+            }
+        });
+        ButtonCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonCancelActionPerformed(evt);
+            }
+        });
+        JPSignUp.add(ButtonCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, 100, 40));
+
+        ButtonJoin.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonJoin.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        ButtonJoin.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonJoin.setText("Join");
+        ButtonJoin.setBorder(null);
+        ButtonJoin.setContentAreaFilled(false);
+        ButtonJoin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonJoinMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonJoinMouseExited(evt);
+            }
+        });
+        ButtonJoin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonJoinActionPerformed(evt);
+            }
+        });
+        JPSignUp.add(ButtonJoin, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 440, 100, 40));
 
         getContentPane().add(JPSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
 
@@ -245,6 +312,11 @@ public class Login extends javax.swing.JFrame {
 
         JPAdminMenu.setBackground(new java.awt.Color(255, 255, 255));
         JPAdminMenu.setForeground(new java.awt.Color(255, 255, 255));
+        JPAdminMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JPAdminMenuMouseEntered(evt);
+            }
+        });
         JPAdminMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ButtonStatistics.setBackground(new java.awt.Color(255, 255, 255));
@@ -350,6 +422,11 @@ public class Login extends javax.swing.JFrame {
 
         JPUserMenu.setBackground(new java.awt.Color(255, 255, 255));
         JPUserMenu.setForeground(new java.awt.Color(255, 255, 255));
+        JPUserMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JPUserMenuMouseEntered(evt);
+            }
+        });
         JPUserMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ButtonQuery.setBackground(new java.awt.Color(255, 255, 255));
@@ -430,6 +507,8 @@ public class Login extends javax.swing.JFrame {
         JPUserMenu.setVisible(false);
         JPAdminMenu.setVisible(false);
         JPSignUp.setVisible(false);
+        UsernameField.setText(null);
+        PasswordField.setText(null);
     }//GEN-LAST:event_ButtonLogOutActionPerformed
 
     private void ButtonStatisticsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonStatisticsActionPerformed
@@ -467,13 +546,23 @@ public class Login extends javax.swing.JFrame {
         JPUserMenu.setVisible(false);
         JPAdminMenu.setVisible(false);
         JPSignUp.setVisible(false);
+        NewUsernameField.setText(null);
+        NewUserPasswordField.setText(null);
     }//GEN-LAST:event_ButtonRollbackActionPerformed
 
     private void ButtonEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEnterActionPerformed
-        Animacion.Animacion.mover_derecha(290, 1100, 1, 1, JPWelcome);
-        JPUserMenu.setVisible(true);
-        JPSignUp.setVisible(false);
-        JPAdminMenu.setVisible(false);
+        String user_field = UsernameField.getText();
+        String user_password = new String(PasswordField.getPassword());
+        if(user_field.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Fill the user field.");
+        } else if(user_password.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Fill the password field.");
+        } else {
+            Animacion.Animacion.mover_derecha(290, 1100, 1, 1, JPWelcome);
+            JPUserMenu.setVisible(true);
+            JPSignUp.setVisible(false);
+            JPAdminMenu.setVisible(false);
+        }
     }//GEN-LAST:event_ButtonEnterActionPerformed
 
     private void ButtonCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCloseActionPerformed
@@ -591,19 +680,75 @@ public class Login extends javax.swing.JFrame {
         ButtonSignUp.setCursor(cursor);
     }//GEN-LAST:event_ButtonSignUpMouseExited
 
-    private void JPWelcomeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPWelcomeMouseExited
-        JPWelcome.setVisible(true);
-        JPSignUp.setVisible(false);
-        JPAdminMenu.setVisible(false);
-        JPUserMenu.setVisible(false);
-    }//GEN-LAST:event_JPWelcomeMouseExited
-
     private void JPWelcomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPWelcomeMouseEntered
         JPWelcome.setVisible(true);
         JPSignUp.setVisible(false);
         JPAdminMenu.setVisible(false);
         JPUserMenu.setVisible(false);
     }//GEN-LAST:event_JPWelcomeMouseEntered
+
+    private void ButtonCancelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelMouseEntered
+        ButtonCancel.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_ButtonCancelMouseEntered
+
+    private void ButtonCancelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelMouseExited
+        ButtonCancel.setBorder(null);
+    }//GEN-LAST:event_ButtonCancelMouseExited
+
+    private void ButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelActionPerformed
+        NewUsernameField.setText(null);
+        NewUserPasswordField.setText(null);
+        JPWelcome.setVisible(true);
+        JPUserMenu.setVisible(false);
+        JPAdminMenu.setVisible(false);
+        JPSignUp.setVisible(false);
+    }//GEN-LAST:event_ButtonCancelActionPerformed
+
+    private void ButtonJoinMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonJoinMouseEntered
+        ButtonJoin.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_ButtonJoinMouseEntered
+
+    private void ButtonJoinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonJoinMouseExited
+        ButtonJoin.setBorder(null);
+    }//GEN-LAST:event_ButtonJoinMouseExited
+
+    private void ButtonJoinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonJoinActionPerformed
+        String new_user = NewUsernameField.getText();
+        String new_user_password = NewUserPasswordField.getText();
+        if(new_user.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Fill the username field.");
+        } else if(new_user_password.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Fill the password field.");
+        } else {
+            JPWelcome.setVisible(true);
+            JPUserMenu.setVisible(false);
+            JPAdminMenu.setVisible(false);
+            JPSignUp.setVisible(false);
+            NewUsernameField.setText(null);
+            NewUserPasswordField.setText(null);
+        }
+    }//GEN-LAST:event_ButtonJoinActionPerformed
+
+    private void JPSignUpMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPSignUpMouseEntered
+        JPWelcome.setVisible(false);
+        JPSignUp.setVisible(true);
+        JPAdminMenu.setVisible(false);
+        JPUserMenu.setVisible(false);
+    }//GEN-LAST:event_JPSignUpMouseEntered
+
+    private void JPAdminMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPAdminMenuMouseEntered
+        JPWelcome.setVisible(false);
+        JPSignUp.setVisible(false);
+        JPAdminMenu.setVisible(true);
+        JPUserMenu.setVisible(false);
+    }//GEN-LAST:event_JPAdminMenuMouseEntered
+
+    private void JPUserMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPUserMenuMouseEntered
+        JPWelcome.setVisible(false);
+        JPSignUp.setVisible(false);
+        JPAdminMenu.setVisible(false);
+        JPUserMenu.setVisible(true);
+    }//GEN-LAST:event_JPUserMenuMouseEntered
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -638,10 +783,12 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ButtonCancel;
     private javax.swing.JButton ButtonClose;
     private javax.swing.JButton ButtonConfiguration;
     private javax.swing.JButton ButtonConfiguration1;
     private javax.swing.JButton ButtonEnter;
+    private javax.swing.JButton ButtonJoin;
     private javax.swing.JButton ButtonLogOut;
     private javax.swing.JButton ButtonLogOut1;
     private javax.swing.JButton ButtonMinimize;
@@ -659,14 +806,18 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel JPSignUp;
     private javax.swing.JPanel JPUserMenu;
     private javax.swing.JPanel JPWelcome;
+    private javax.swing.JLabel LabelNewUserPassword;
+    private javax.swing.JLabel LabelNewUsername;
     private javax.swing.JLabel LabelPassword;
-    private javax.swing.JLabel LabelPassword1;
     private javax.swing.JLabel LabelSignUp;
     private javax.swing.JLabel LabelUsername;
-    private javax.swing.JLabel LabelUsername1;
     private javax.swing.JLabel LabelWelcome;
+    private javax.swing.JSeparator LineNewUserPassword;
+    private javax.swing.JSeparator LineNewUsername;
     private javax.swing.JSeparator LinePassword;
     private javax.swing.JSeparator LineUsername;
+    private javax.swing.JTextField NewUserPasswordField;
+    private javax.swing.JTextField NewUsernameField;
     private javax.swing.JPasswordField PasswordField;
     private javax.swing.JTextField UsernameField;
     private javax.swing.JPanel jPanel2;
