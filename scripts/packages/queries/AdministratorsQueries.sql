@@ -18,7 +18,7 @@ CREATE OR REPLACE PACKAGE BODY admin_publishing IS
             OPEN cpassword FOR
                 SELECT *
                 FROM appuser
-                 inner join logs.logPasswords on username = logPasswords.username
+                 inner join logs.logPasswords on appuser.username = logPasswords.username
                 WHERE (sysdate - logs.logPasswords.last_change_date)< vnumberDays;
             RETURN cpassword;
         END no_longer_change_password;
