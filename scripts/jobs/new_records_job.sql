@@ -15,7 +15,7 @@ BEGIN
                        FROM record
                        WHERE creation_date > trunc(sysdate-1); 
                    END;' ,
-    start_date      => to_date('2020/06/29 12:00:01AM', 'yyyy/mm/dd hh:mi:ssam'),
+    start_date      => to_date('2020/06/25 11:00:00PM', 'yyyy/mm/dd hh:mi:sspm'),
     repeat_interval => 'freq=daily',
     end_date        => NULL,
     enabled         => TRUE,

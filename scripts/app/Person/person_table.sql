@@ -5,7 +5,7 @@
 CREATE TABLE Person(
     id                NUMBER(9),
     name              VARCHAR2(30) NOT NULL,
-    middle_name       VARCHAR2(30) NOT NULL,
+    middle_name       VARCHAR2(30),
     last_name         VARCHAR2(30) NOT NULL,
     birthday          DATE NOT NULL,
     age               NUMBER(2),
