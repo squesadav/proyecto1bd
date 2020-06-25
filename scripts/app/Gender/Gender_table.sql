@@ -4,7 +4,7 @@
 CREATE TABLE gender(
 
     id      NUMBER(6),
-    name    NUMBER(6),
+    name    VARCHAR2(20) NOT NULL,
     creation_date     DATE,
     creation_user     VARCHAR2(15),
     last_change_date  DATE,

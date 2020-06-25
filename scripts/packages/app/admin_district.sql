@@ -5,6 +5,8 @@
 CREATE OR REPLACE PACKAGE admin_district IS
     PROCEDURE insert_district(pnName VARCHAR2, pnCity NUMBER);
     PROCEDURE remove_district(pnIdDistrict NUMBER);
+    FUNCTION getName (vId NUMBER) RETURN VARCHAR2;
+    FUNCTION getIdCity (vId NUMBER) RETURN NUMBER;
 END admin_district;
 /
 

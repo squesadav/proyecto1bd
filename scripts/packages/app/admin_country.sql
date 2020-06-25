@@ -5,6 +5,7 @@
 CREATE OR REPLACE PACKAGE admin_country IS
     PROCEDURE insert_country(pnName VARCHAR2);
     PROCEDURE remove_country(pnIdCountry NUMBER);
+    FUNCTION getName (vId NUMBER) RETURN VARCHAR2;
 END admin_country;
 /
 

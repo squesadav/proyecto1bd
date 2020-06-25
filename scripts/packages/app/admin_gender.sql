@@ -5,6 +5,7 @@
 CREATE OR REPLACE PACKAGE admin_gender IS
     PROCEDURE insert_gender(pnName VARCHAR2);
     PROCEDURE remove_gender(pnIdGender NUMBER);
+    FUNCTION getName (vId NUMBER) RETURN VARCHAR2;
 END admin_gender;
 /
 

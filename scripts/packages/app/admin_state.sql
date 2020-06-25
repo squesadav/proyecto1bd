@@ -5,6 +5,8 @@
 CREATE OR REPLACE PACKAGE admin_state IS
     PROCEDURE insert_state(pnName VARCHAR2, pnIdCountry NUMBER);
     PROCEDURE remove_state(pnIdState NUMBER);
+    FUNCTION getName (vId NUMBER) RETURN VARCHAR2;
+    FUNCTION getIdCountry (vId NUMBER) RETURN NUMBER;
 END admin_state;
 /
 

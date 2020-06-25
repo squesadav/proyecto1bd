@@ -5,6 +5,7 @@
 CREATE OR REPLACE PACKAGE admin_institution IS
     PROCEDURE insert_institution(pnName VARCHAR2);
     PROCEDURE remove_institution(pnIdInstitution NUMBER);
+    FUNCTION getName (vId NUMBER) RETURN VARCHAR2;
 END admin_institution;
 /
 

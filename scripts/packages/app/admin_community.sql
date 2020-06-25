@@ -5,6 +5,8 @@
 CREATE OR REPLACE PACKAGE admin_community IS
     PROCEDURE insert_community(pnName VARCHAR2, pnDistrict NUMBER);
     PROCEDURE remove_community(pnIdCommunity NUMBER);
+    FUNCTION getName (vId NUMBER) RETURN VARCHAR2;
+    FUNCTION getIdDistrict (vId NUMBER) RETURN NUMBER;
 END admin_community;
 /
 

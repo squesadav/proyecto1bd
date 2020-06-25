@@ -5,6 +5,10 @@
 CREATE OR REPLACE PACKAGE admin_veredict IS
     PROCEDURE insert_veredict(pnYears NUMBER, pnIdPlace NUMBER, pnDateStart DATE, pnDateEnd DATE);
     PROCEDURE remove_veredict(pnIdVeredict NUMBER);
+    FUNCTION getYears (vId NUMBER) RETURN NUMBER;
+    FUNCTION getIdPlace (vId NUMBER) RETURN NUMBER;
+    FUNCTION getDateStart (vId NUMBER) RETURN DATE;
+    FUNCTION getDateEnd (vId NUMBER) RETURN DATE;
 END admin_veredict;
 /
 
@@ -20,7 +24,8 @@ CREATE OR REPLACE PACKAGE BODY admin_veredict AS
             WHERE id = pnIdVeredict;
         END;
 
-    FUNCTION getYears (vId NUMBER) RETURN NUMBER IS rYears NUMBER(3);
+    FUNCTION getYears (vId NUMBER) RETURN NUMBER
+    IS rYears NUMBER(3);
         BEGIN
             SELECT years
             INTO rYears
@@ -29,7 +34,8 @@ CREATE OR REPLACE PACKAGE BODY admin_veredict AS
             RETURN rYears;
         END;  
 
-    FUNCTION getIdPlace (vId NUMBER) RETURN NUMBER IS rIdPlace NUMBER(4);
+    FUNCTION getIdPlace (vId NUMBER) RETURN NUMBER 
+    IS rIdPlace NUMBER(4);
         BEGIN
             SELECT id_place
             INTO rIdPlace
@@ -38,7 +44,8 @@ CREATE OR REPLACE PACKAGE BODY admin_veredict AS
             RETURN rIdPlace;
         END;  
 
-    FUNCTION getDateStart (vId NUMBER) RETURN DATE IS rDateStart DATE;
+    FUNCTION getDateStart (vId NUMBER) RETURN DATE 
+    IS rDateStart DATE;
         BEGIN
             SELECT date_start
             INTO rDateStart
@@ -47,7 +54,8 @@ CREATE OR REPLACE PACKAGE BODY admin_veredict AS
             RETURN rDateStart;
         END;  
 
-    FUNCTION getDateEnd (vId NUMBER) RETURN DATE IS rDateEnd DATE;
+    FUNCTION getDateEnd (vId NUMBER) RETURN DATE 
+    IS rDateEnd DATE;
         BEGIN
             SELECT date_end
             INTO rDateEnd

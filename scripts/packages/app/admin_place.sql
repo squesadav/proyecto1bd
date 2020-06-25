@@ -5,6 +5,7 @@
 CREATE OR REPLACE PACKAGE admin_place IS
     PROCEDURE insert_place(pnName VARCHAR2);
     PROCEDURE remove_place(pnIdPlace NUMBER);
+    FUNCTION getName (vId NUMBER) RETURN VARCHAR2;
 END admin_place;
 /
 

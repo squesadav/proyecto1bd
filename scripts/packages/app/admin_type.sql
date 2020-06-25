@@ -4,6 +4,7 @@
 CREATE OR REPLACE PACKAGE admin_type IS
     PROCEDURE insert_type(pnName VARCHAR2);
     PROCEDURE remove_type(pnIdType NUMBER);
+    FUNCTION getName (vId NUMBER) RETURN VARCHAR2;
 END admin_type;
 /
 

@@ -5,6 +5,8 @@
 CREATE OR REPLACE PACKAGE admin_city IS
     PROCEDURE insert_city(pnName VARCHAR2, pnState NUMBER);
     PROCEDURE remove_city(pnIdCity NUMBER);
+    FUNCTION getName(vId NUMBER) RETURN VARCHAR2;
+    FUNCTION getIdState (vId NUMBER) RETURN NUMBER;
 END admin_city;
 /
 
