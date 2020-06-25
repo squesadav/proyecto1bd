@@ -1,13 +1,15 @@
 -- Conected from ADM
 -- Author: Sebastián Quesada Velluti
 -- Creation date: 18/06/2020
+
 CREATE OR REPLACE TRIGGER adm.beforeUpdatePassword
 BEFORE UPDATE OF password
 ON appuser
 FOR EACH ROW
 BEGIN
-    INSERT INTO logs.logPasswords(id, username, prev_password, current_password)
-    VALUES (logs.seq_logPasswords.nextval, :new.username, :old.password, :new.password);
+    UPDATE logs.logpasswords l
+    SET prev_password = :old.password, current_password = :new.password, pass_change_date = SYSDATE
+    WHERE l.username = username;
 END beforeUpdatePassword;
 /
 
@@ -37,7 +39,7 @@ AFTER INSERT
 ON adm.appuser
 FOR EACH ROW
 BEGIN
-    INSERT INTO logs.logPasswords(id, username, current_password)
-    VALUES (logs.seq_logPasswords.nextval, :new.username, :new.password);
+    INSERT INTO logs.logPasswords(id, username, current_password, pass_change_date)
+    VALUES (logs.seq_logPasswords.nextval, :new.username, :new.password, SYSDATE);
 END afterInsertUser;
 /
