@@ -22,7 +22,8 @@ CREATE OR REPLACE PACKAGE BODY admin_queries IS
             OPEN cpassword FOR
                 SELECT username, trunc(sysdate) - pass_change_date days_since_pass_change
                 FROM logs.logpasswords
-                WHERE pass_change_date >= trunc(sysdate-vnumberDays);
+                WHERE pass_change_date <= trunc(sysdate-vnumberDays)
+                GROUP BY username, trunc(sysdate) - pass_change_date;
             RETURN cpassword;
         END passwords_not_changed;
 
