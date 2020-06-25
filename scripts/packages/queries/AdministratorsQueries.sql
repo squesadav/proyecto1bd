@@ -2,8 +2,12 @@
 -- Author: Sebastián Quesada Calderón
 -- Creation date: 23/06/2020
 
+-- From SYSTEM
+grant all on logs.logPasswords to app;
+
+--From APP
 CREATE OR REPLACE PACKAGE admin_queries IS
-	--FUNCTION no_longer_change_password (vnumberDays INTEGER) return sys_refcursor;
+	FUNCTION passwords_not_changed (vnumberDays INTEGER) return sys_refcursor;
 	FUNCTION not_approved return sys_refcursor;
     FUNCTION get_new_records return sys_refcursor;
 END admin_queries;
@@ -11,17 +15,17 @@ END admin_queries;
 
 
 CREATE OR REPLACE PACKAGE BODY admin_queries IS
-    /*FUNCTION no_longer_change_password (vnumberDays INTEGER) RETURN sys_refcursor
+    FUNCTION passwords_not_changed (vnumberDays INTEGER) RETURN sys_refcursor
     AS 
         cpassword sys_refcursor;
         BEGIN
             OPEN cpassword FOR
-                SELECT *
-                FROM appuser
-                 inner join logs.logPasswords on appuser.username = logPasswords.username
-                WHERE (sysdate - logs.logPasswords.last_change_date)< vnumberDays;
+                SELECT username, trunc(sysdate) - pass_change_date days_since_pass_change
+                FROM logs.logpasswords
+                WHERE pass_change_date <= trunc(sysdate-vnumberDays)
+                GROUP BY username, trunc(sysdate) - pass_change_date;
             RETURN cpassword;
-        END no_longer_change_password;*/
+        END passwords_not_changed;
 
     FUNCTION not_approved RETURN sys_refcursor
     AS 

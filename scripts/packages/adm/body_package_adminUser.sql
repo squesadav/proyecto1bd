@@ -218,6 +218,15 @@ BEGIN
     RETURN rUserTypeDesc;
 END;
 
+FUNCTION getPersonId (vUsername VARCHAR2) RETURN NUMBER
+    IS rPersonId NUMBER(9);
+BEGIN
+    SELECT id_person
+    INTO rPersonId
+    FROM appuser
+    WHERE username = vUsername;
+    RETURN rPersonId;
+END;
 END adminUser;
 
 

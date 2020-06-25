@@ -7,6 +7,7 @@ CREATE TABLE logPasswords
     username          VARCHAR2(20) NOT NULL,
     prev_password     VARCHAR2(40),
     current_password  VARCHAR2(40) NOT NULL,
+    pass_change_date  DATE NOT NULL,
     creation_date     DATE,
     creation_user     VARCHAR2(15),
     last_change_date  DATE,
