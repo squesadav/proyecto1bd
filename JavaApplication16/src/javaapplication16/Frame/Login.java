@@ -3,6 +3,7 @@ package javaapplication16.Frame;
 import java.awt.Color;
 import java.awt.Cursor;
 import javax.swing.JOptionPane;
+import java.util.Date;
 
 public class Login extends javax.swing.JFrame {
 
@@ -37,18 +38,41 @@ public class Login extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         JPSignUp = new javax.swing.JPanel();
         LabelSignUp = new javax.swing.JLabel();
-        ButtonRollback = new javax.swing.JButton();
         LabelNewUserPassword = new javax.swing.JLabel();
         LabelNewUsername = new javax.swing.JLabel();
+        LabelIdNewUser = new javax.swing.JLabel();
+        LabelNameNewUser = new javax.swing.JLabel();
+        LabelMiddleNameNewUser = new javax.swing.JLabel();
+        LabelLastNameNewUser = new javax.swing.JLabel();
+        LabelNewUserGender = new javax.swing.JLabel();
+        LabelNewUserBirthday = new javax.swing.JLabel();
+        LabelCommunityNewUser = new javax.swing.JLabel();
+        LabelInstitutionNewUser = new javax.swing.JLabel();
         LineNewUsername = new javax.swing.JSeparator();
         NewUsernameField = new javax.swing.JTextField();
         LineNewUserPassword = new javax.swing.JSeparator();
         NewUserPasswordField = new javax.swing.JTextField();
+        LineNewUserId = new javax.swing.JSeparator();
+        IdNewUserField = new javax.swing.JTextField();
+        LineNewUserName = new javax.swing.JSeparator();
+        NameNewUserField = new javax.swing.JTextField();
+        LineNewUserMiddleName = new javax.swing.JSeparator();
+        MiddleNameNewUserField = new javax.swing.JTextField();
+        LineNewUserLastName = new javax.swing.JSeparator();
+        LastNameNewUserField = new javax.swing.JTextField();
+        LineNewUserBirthday = new javax.swing.JSeparator();
+        BirthdayNewUserField = new javax.swing.JFormattedTextField();
+        BoxGenderNewUser = new javax.swing.JComboBox<>();
+        BoxNewUserCommunity = new javax.swing.JComboBox<>();
+        BoxInstitutionNewUser = new javax.swing.JComboBox<>();
         ButtonCancel = new javax.swing.JButton();
         ButtonJoin = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        JPWindow = new javax.swing.JPanel();
         ButtonMinimize = new javax.swing.JButton();
         ButtonClose = new javax.swing.JButton();
+        JPLogged = new javax.swing.JPanel();
+        IconLogged = new javax.swing.JLabel();
+        Username = new javax.swing.JLabel();
         JPAdminMenu = new javax.swing.JPanel();
         ButtonStatistics = new javax.swing.JButton();
         ButtonReports = new javax.swing.JButton();
@@ -59,6 +83,73 @@ public class Login extends javax.swing.JFrame {
         ButtonQuery = new javax.swing.JButton();
         ButtonConfiguration = new javax.swing.JButton();
         ButtonLogOut = new javax.swing.JButton();
+        ButtonCreateRecord = new javax.swing.JButton();
+        JPCreateOffender = new javax.swing.JPanel();
+        LabelIdOffender = new javax.swing.JLabel();
+        LabelNameOffender = new javax.swing.JLabel();
+        LabelMiddleNameOffender = new javax.swing.JLabel();
+        LabelLastNameOffender = new javax.swing.JLabel();
+        LabelCommunityOffender = new javax.swing.JLabel();
+        LabelInstitutionOffender = new javax.swing.JLabel();
+        LabelOffenderGender = new javax.swing.JLabel();
+        LabelOffenderBirthday = new javax.swing.JLabel();
+        LineOffenderId = new javax.swing.JSeparator();
+        IdOffenderField = new javax.swing.JTextField();
+        LineOffenderName = new javax.swing.JSeparator();
+        NameOffenderField = new javax.swing.JTextField();
+        LineOffenderMiddleName = new javax.swing.JSeparator();
+        MiddleNameOffenderField = new javax.swing.JTextField();
+        LineOffenderLastName = new javax.swing.JSeparator();
+        LastNameOffenderField = new javax.swing.JTextField();
+        LineOffenderBirthday = new javax.swing.JSeparator();
+        BirthdayOffenderField = new javax.swing.JFormattedTextField();
+        BoxCommunityOffender = new javax.swing.JComboBox<>();
+        BoxInstitutionOffender = new javax.swing.JComboBox<>();
+        BoxGenderOffender = new javax.swing.JComboBox<>();
+        ButtonCancelOffender = new javax.swing.JButton();
+        ButtonConfirmOffender = new javax.swing.JButton();
+        IconOffender = new javax.swing.JLabel();
+        JPCreateRecord = new javax.swing.JPanel();
+        ButtonRollbackCreateRecord = new javax.swing.JButton();
+        UserQuery = new javax.swing.JTabbedPane();
+        PlacesMoreRecords = new javax.swing.JPanel();
+        LabelTop = new javax.swing.JLabel();
+        NumberTopField = new javax.swing.JTextField();
+        NumberTopLine = new javax.swing.JSeparator();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        PlacesList = new javax.swing.JList<>();
+        ButtonShowPlaces = new javax.swing.JButton();
+        ButtonRollbackQueryPlaces = new javax.swing.JButton();
+        Records = new javax.swing.JPanel();
+        LabelChooseFilterRecords = new javax.swing.JLabel();
+        BoxFilter = new javax.swing.JComboBox<>();
+        BoxFilterSpecify = new javax.swing.JComboBox<>();
+        ButtonShowRecords = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        RecordsList = new javax.swing.JList<>();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        RecordDescriptionText = new javax.swing.JTextArea();
+        BoxStartDate = new javax.swing.JComboBox<>();
+        BoxFinishDate = new javax.swing.JComboBox<>();
+        ButtonRollbackQueryRecords = new javax.swing.JButton();
+        UsersList = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        ListUsers = new javax.swing.JTextArea();
+        ButtonRollbackQueryUsers = new javax.swing.JButton();
+        BannedUsers = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        ListBannedUsers = new javax.swing.JTextArea();
+        ButtonRollbackQueryBanned = new javax.swing.JButton();
+        RecordsConvictionsToExpireOrExpired = new javax.swing.JPanel();
+        BoxStartDate1 = new javax.swing.JComboBox<>();
+        BoxFinishDate1 = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        RecordDescriptionTextExpire = new javax.swing.JTextArea();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        RecordsExpireList = new javax.swing.JList<>();
+        ButtonShowRecordsDate = new javax.swing.JButton();
+        ButtonRollbackQueryExpire = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -86,6 +177,11 @@ public class Login extends javax.swing.JFrame {
 
         JPLogin.setBackground(new java.awt.Color(29, 41, 81));
         JPLogin.setForeground(new java.awt.Color(255, 255, 255));
+        JPLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JPLoginMouseEntered(evt);
+            }
+        });
         JPLogin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         LabelPassword.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
@@ -174,53 +270,138 @@ public class Login extends javax.swing.JFrame {
         LabelSignUp.setText("Welcome");
         LabelSignUp.setMaximumSize(new java.awt.Dimension(240, 128));
         LabelSignUp.setMinimumSize(new java.awt.Dimension(240, 128));
-        JPSignUp.add(LabelSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 240, 140));
-
-        ButtonRollback.setBackground(new java.awt.Color(255, 255, 255));
-        ButtonRollback.setForeground(new java.awt.Color(255, 255, 255));
-        ButtonRollback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/Rollback.png"))); // NOI18N
-        ButtonRollback.setBorder(null);
-        ButtonRollback.setContentAreaFilled(false);
-        ButtonRollback.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                ButtonRollbackMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                ButtonRollbackMouseExited(evt);
-            }
-        });
-        ButtonRollback.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonRollbackActionPerformed(evt);
-            }
-        });
-        JPSignUp.add(ButtonRollback, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
+        JPSignUp.add(LabelSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 260, 130));
 
         LabelNewUserPassword.setBackground(new java.awt.Color(255, 255, 255));
         LabelNewUserPassword.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         LabelNewUserPassword.setForeground(new java.awt.Color(29, 41, 81));
         LabelNewUserPassword.setText("Password:");
-        JPSignUp.add(LabelNewUserPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 330, 100, 30));
+        JPSignUp.add(LabelNewUserPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 100, 30));
 
         LabelNewUsername.setBackground(new java.awt.Color(255, 255, 255));
         LabelNewUsername.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         LabelNewUsername.setForeground(new java.awt.Color(29, 41, 81));
         LabelNewUsername.setText("Username:");
-        JPSignUp.add(LabelNewUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 100, 30));
+        JPSignUp.add(LabelNewUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 100, 30));
+
+        LabelIdNewUser.setBackground(new java.awt.Color(255, 255, 255));
+        LabelIdNewUser.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelIdNewUser.setForeground(new java.awt.Color(29, 41, 81));
+        LabelIdNewUser.setText("Id:");
+        JPSignUp.add(LabelIdNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 20, 100, 30));
+
+        LabelNameNewUser.setBackground(new java.awt.Color(255, 255, 255));
+        LabelNameNewUser.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelNameNewUser.setForeground(new java.awt.Color(29, 41, 81));
+        LabelNameNewUser.setText("Name:");
+        JPSignUp.add(LabelNameNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 100, 100, 30));
+
+        LabelMiddleNameNewUser.setBackground(new java.awt.Color(255, 255, 255));
+        LabelMiddleNameNewUser.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelMiddleNameNewUser.setForeground(new java.awt.Color(29, 41, 81));
+        LabelMiddleNameNewUser.setText("Middle name:");
+        JPSignUp.add(LabelMiddleNameNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 180, 120, 30));
+
+        LabelLastNameNewUser.setBackground(new java.awt.Color(255, 255, 255));
+        LabelLastNameNewUser.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelLastNameNewUser.setForeground(new java.awt.Color(29, 41, 81));
+        LabelLastNameNewUser.setText("Last name:");
+        JPSignUp.add(LabelLastNameNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 260, 90, 30));
+
+        LabelNewUserGender.setBackground(new java.awt.Color(255, 255, 255));
+        LabelNewUserGender.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelNewUserGender.setForeground(new java.awt.Color(29, 41, 81));
+        LabelNewUserGender.setText("Gender:");
+        JPSignUp.add(LabelNewUserGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 100, 30));
+
+        LabelNewUserBirthday.setBackground(new java.awt.Color(255, 255, 255));
+        LabelNewUserBirthday.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelNewUserBirthday.setForeground(new java.awt.Color(29, 41, 81));
+        LabelNewUserBirthday.setText("Birthday:");
+        JPSignUp.add(LabelNewUserBirthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 100, 30));
+
+        LabelCommunityNewUser.setBackground(new java.awt.Color(255, 255, 255));
+        LabelCommunityNewUser.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelCommunityNewUser.setForeground(new java.awt.Color(29, 41, 81));
+        LabelCommunityNewUser.setText("Community:");
+        JPSignUp.add(LabelCommunityNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 350, 100, 30));
+
+        LabelInstitutionNewUser.setBackground(new java.awt.Color(255, 255, 255));
+        LabelInstitutionNewUser.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelInstitutionNewUser.setForeground(new java.awt.Color(29, 41, 81));
+        LabelInstitutionNewUser.setText("Institution:");
+        JPSignUp.add(LabelInstitutionNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 400, 90, 30));
 
         LineNewUsername.setForeground(new java.awt.Color(29, 41, 81));
-        JPSignUp.add(LineNewUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, 220, 20));
+        JPSignUp.add(LineNewUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 220, 20));
 
-        NewUsernameField.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
+        NewUsernameField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        NewUsernameField.setForeground(new java.awt.Color(29, 41, 81));
         NewUsernameField.setBorder(null);
-        JPSignUp.add(NewUsernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 269, 220, 30));
+        JPSignUp.add(NewUsernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 220, 30));
 
         LineNewUserPassword.setForeground(new java.awt.Color(29, 41, 81));
-        JPSignUp.add(LineNewUserPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 400, 220, 20));
+        JPSignUp.add(LineNewUserPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 220, 20));
 
-        NewUserPasswordField.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
+        NewUserPasswordField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        NewUserPasswordField.setForeground(new java.awt.Color(29, 41, 81));
         NewUserPasswordField.setBorder(null);
-        JPSignUp.add(NewUserPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, 220, 30));
+        JPSignUp.add(NewUserPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 220, 30));
+
+        LineNewUserId.setForeground(new java.awt.Color(29, 41, 81));
+        JPSignUp.add(LineNewUserId, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, 220, 20));
+
+        IdNewUserField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        IdNewUserField.setForeground(new java.awt.Color(29, 41, 81));
+        IdNewUserField.setBorder(null);
+        JPSignUp.add(IdNewUserField, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, 220, 30));
+
+        LineNewUserName.setForeground(new java.awt.Color(29, 41, 81));
+        JPSignUp.add(LineNewUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 160, 220, 20));
+
+        NameNewUserField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        NameNewUserField.setForeground(new java.awt.Color(29, 41, 81));
+        NameNewUserField.setBorder(null);
+        JPSignUp.add(NameNewUserField, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 130, 220, 30));
+
+        LineNewUserMiddleName.setForeground(new java.awt.Color(29, 41, 81));
+        JPSignUp.add(LineNewUserMiddleName, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 240, 220, 20));
+
+        MiddleNameNewUserField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        MiddleNameNewUserField.setForeground(new java.awt.Color(29, 41, 81));
+        MiddleNameNewUserField.setBorder(null);
+        JPSignUp.add(MiddleNameNewUserField, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 210, 220, 30));
+
+        LineNewUserLastName.setForeground(new java.awt.Color(29, 41, 81));
+        JPSignUp.add(LineNewUserLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 320, 220, 20));
+
+        LastNameNewUserField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        LastNameNewUserField.setForeground(new java.awt.Color(29, 41, 81));
+        LastNameNewUserField.setBorder(null);
+        JPSignUp.add(LastNameNewUserField, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, 220, 30));
+
+        LineNewUserBirthday.setForeground(new java.awt.Color(29, 41, 81));
+        JPSignUp.add(LineNewUserBirthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 430, 130, 20));
+
+        BirthdayNewUserField.setBorder(null);
+        BirthdayNewUserField.setForeground(new java.awt.Color(29, 41, 81));
+        BirthdayNewUserField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        JPSignUp.add(BirthdayNewUserField, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 400, 130, 30));
+
+        BoxGenderNewUser.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
+        BoxGenderNewUser.setForeground(new java.awt.Color(29, 41, 81));
+        BoxGenderNewUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        JPSignUp.add(BoxGenderNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 120, 30));
+
+        BoxNewUserCommunity.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
+        BoxNewUserCommunity.setForeground(new java.awt.Color(29, 41, 81));
+        BoxNewUserCommunity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        JPSignUp.add(BoxNewUserCommunity, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 350, 170, 30));
+
+        BoxInstitutionNewUser.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
+        BoxInstitutionNewUser.setForeground(new java.awt.Color(29, 41, 81));
+        BoxInstitutionNewUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        JPSignUp.add(BoxInstitutionNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 400, 170, 30));
 
         ButtonCancel.setBackground(new java.awt.Color(255, 255, 255));
         ButtonCancel.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
@@ -241,7 +422,7 @@ public class Login extends javax.swing.JFrame {
                 ButtonCancelActionPerformed(evt);
             }
         });
-        JPSignUp.add(ButtonCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, 100, 40));
+        JPSignUp.add(ButtonCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 460, 100, 40));
 
         ButtonJoin.setBackground(new java.awt.Color(255, 255, 255));
         ButtonJoin.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
@@ -262,13 +443,13 @@ public class Login extends javax.swing.JFrame {
                 ButtonJoinActionPerformed(evt);
             }
         });
-        JPSignUp.add(ButtonJoin, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 440, 100, 40));
+        JPSignUp.add(ButtonJoin, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 460, 100, 40));
 
         getContentPane().add(JPSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        JPWindow.setBackground(new java.awt.Color(255, 255, 255));
+        JPWindow.setForeground(new java.awt.Color(255, 255, 255));
+        JPWindow.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ButtonMinimize.setBackground(new java.awt.Color(255, 255, 255));
         ButtonMinimize.setForeground(new java.awt.Color(255, 255, 255));
@@ -287,7 +468,7 @@ public class Login extends javax.swing.JFrame {
                 ButtonMinimizeActionPerformed(evt);
             }
         });
-        jPanel2.add(ButtonMinimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 0, 40, 30));
+        JPWindow.add(ButtonMinimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 0, 40, 30));
 
         ButtonClose.setBackground(new java.awt.Color(255, 255, 255));
         ButtonClose.setForeground(new java.awt.Color(255, 255, 255));
@@ -306,9 +487,28 @@ public class Login extends javax.swing.JFrame {
                 ButtonCloseActionPerformed(evt);
             }
         });
-        jPanel2.add(ButtonClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 0, 40, 30));
+        JPWindow.add(ButtonClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 0, 40, 30));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 760, 50));
+        getContentPane().add(JPWindow, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 760, 50));
+
+        JPLogged.setBackground(new java.awt.Color(29, 41, 81));
+        JPLogged.setForeground(new java.awt.Color(255, 255, 255));
+        JPLogged.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JPLoggedMouseEntered(evt);
+            }
+        });
+        JPLogged.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        IconLogged.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/User.png"))); // NOI18N
+        JPLogged.add(IconLogged, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        Username.setBackground(new java.awt.Color(29, 41, 81));
+        Username.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        Username.setForeground(new java.awt.Color(255, 255, 255));
+        JPLogged.add(Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 100, 40));
+
+        getContentPane().add(JPLogged, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 580));
 
         JPAdminMenu.setBackground(new java.awt.Color(255, 255, 255));
         JPAdminMenu.setForeground(new java.awt.Color(255, 255, 255));
@@ -447,7 +647,7 @@ public class Login extends javax.swing.JFrame {
                 ButtonQueryActionPerformed(evt);
             }
         });
-        JPUserMenu.add(ButtonQuery, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 180, 170));
+        JPUserMenu.add(ButtonQuery, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 180, 170));
 
         ButtonConfiguration.setBackground(new java.awt.Color(255, 255, 255));
         ButtonConfiguration.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/Configuration.png"))); // NOI18N
@@ -466,7 +666,7 @@ public class Login extends javax.swing.JFrame {
                 ButtonConfigurationActionPerformed(evt);
             }
         });
-        JPUserMenu.add(ButtonConfiguration, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, 170, 150));
+        JPUserMenu.add(ButtonConfiguration, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 150, 180, 170));
 
         ButtonLogOut.setBackground(new java.awt.Color(255, 255, 255));
         ButtonLogOut.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
@@ -489,13 +689,579 @@ public class Login extends javax.swing.JFrame {
         });
         JPUserMenu.add(ButtonLogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 450, 110, 40));
 
+        ButtonCreateRecord.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonCreateRecord.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/CreateFile.png"))); // NOI18N
+        ButtonCreateRecord.setBorder(null);
+        ButtonCreateRecord.setContentAreaFilled(false);
+        ButtonCreateRecord.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ButtonCreateRecord.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonCreateRecordMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonCreateRecordMouseExited(evt);
+            }
+        });
+        ButtonCreateRecord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonCreateRecordActionPerformed(evt);
+            }
+        });
+        JPUserMenu.add(ButtonCreateRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 180, 170));
+
         getContentPane().add(JPUserMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
+
+        JPCreateOffender.setBackground(new java.awt.Color(255, 255, 255));
+        JPCreateOffender.setForeground(new java.awt.Color(255, 255, 255));
+        JPCreateOffender.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JPCreateOffenderMouseEntered(evt);
+            }
+        });
+        JPCreateOffender.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        LabelIdOffender.setBackground(new java.awt.Color(255, 255, 255));
+        LabelIdOffender.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelIdOffender.setForeground(new java.awt.Color(29, 41, 81));
+        LabelIdOffender.setText("Id:");
+        JPCreateOffender.add(LabelIdOffender, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 100, 30));
+
+        LabelNameOffender.setBackground(new java.awt.Color(255, 255, 255));
+        LabelNameOffender.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelNameOffender.setForeground(new java.awt.Color(29, 41, 81));
+        LabelNameOffender.setText("Name:");
+        JPCreateOffender.add(LabelNameOffender, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 100, 30));
+
+        LabelMiddleNameOffender.setBackground(new java.awt.Color(255, 255, 255));
+        LabelMiddleNameOffender.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelMiddleNameOffender.setForeground(new java.awt.Color(29, 41, 81));
+        LabelMiddleNameOffender.setText("Middle name:");
+        JPCreateOffender.add(LabelMiddleNameOffender, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 120, 30));
+
+        LabelLastNameOffender.setBackground(new java.awt.Color(255, 255, 255));
+        LabelLastNameOffender.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelLastNameOffender.setForeground(new java.awt.Color(29, 41, 81));
+        LabelLastNameOffender.setText("Last name:");
+        JPCreateOffender.add(LabelLastNameOffender, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 90, 30));
+
+        LabelCommunityOffender.setBackground(new java.awt.Color(255, 255, 255));
+        LabelCommunityOffender.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelCommunityOffender.setForeground(new java.awt.Color(29, 41, 81));
+        LabelCommunityOffender.setText("Community:");
+        JPCreateOffender.add(LabelCommunityOffender, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 310, 100, 30));
+
+        LabelInstitutionOffender.setBackground(new java.awt.Color(255, 255, 255));
+        LabelInstitutionOffender.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelInstitutionOffender.setForeground(new java.awt.Color(29, 41, 81));
+        LabelInstitutionOffender.setText("Institution:");
+        JPCreateOffender.add(LabelInstitutionOffender, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 370, 90, 30));
+
+        LabelOffenderGender.setBackground(new java.awt.Color(255, 255, 255));
+        LabelOffenderGender.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelOffenderGender.setForeground(new java.awt.Color(29, 41, 81));
+        LabelOffenderGender.setText("Gender:");
+        JPCreateOffender.add(LabelOffenderGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 190, 100, 30));
+
+        LabelOffenderBirthday.setBackground(new java.awt.Color(255, 255, 255));
+        LabelOffenderBirthday.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelOffenderBirthday.setForeground(new java.awt.Color(29, 41, 81));
+        LabelOffenderBirthday.setText("Birthday:");
+        JPCreateOffender.add(LabelOffenderBirthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, 100, 30));
+
+        LineOffenderId.setForeground(new java.awt.Color(29, 41, 81));
+        JPCreateOffender.add(LineOffenderId, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 220, 20));
+
+        IdOffenderField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        IdOffenderField.setForeground(new java.awt.Color(29, 41, 81));
+        IdOffenderField.setBorder(null);
+        JPCreateOffender.add(IdOffenderField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 220, 30));
+
+        LineOffenderName.setForeground(new java.awt.Color(29, 41, 81));
+        JPCreateOffender.add(LineOffenderName, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 220, 20));
+
+        NameOffenderField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        NameOffenderField.setForeground(new java.awt.Color(29, 41, 81));
+        NameOffenderField.setBorder(null);
+        JPCreateOffender.add(NameOffenderField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 220, 30));
+
+        LineOffenderMiddleName.setForeground(new java.awt.Color(29, 41, 81));
+        JPCreateOffender.add(LineOffenderMiddleName, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, 220, 20));
+
+        MiddleNameOffenderField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        MiddleNameOffenderField.setForeground(new java.awt.Color(29, 41, 81));
+        MiddleNameOffenderField.setBorder(null);
+        JPCreateOffender.add(MiddleNameOffenderField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 220, 30));
+
+        LineOffenderLastName.setForeground(new java.awt.Color(29, 41, 81));
+        JPCreateOffender.add(LineOffenderLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 420, 220, 20));
+
+        LastNameOffenderField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        LastNameOffenderField.setForeground(new java.awt.Color(29, 41, 81));
+        LastNameOffenderField.setBorder(null);
+        JPCreateOffender.add(LastNameOffenderField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, 220, 30));
+
+        LineOffenderBirthday.setForeground(new java.awt.Color(29, 41, 81));
+        JPCreateOffender.add(LineOffenderBirthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 280, 130, 20));
+
+        BirthdayOffenderField.setBorder(null);
+        BirthdayOffenderField.setForeground(new java.awt.Color(29, 41, 81));
+        BirthdayOffenderField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        JPCreateOffender.add(BirthdayOffenderField, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 250, 130, 30));
+
+        BoxCommunityOffender.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
+        BoxCommunityOffender.setForeground(new java.awt.Color(29, 41, 81));
+        BoxCommunityOffender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        JPCreateOffender.add(BoxCommunityOffender, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 310, 170, 30));
+
+        BoxInstitutionOffender.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
+        BoxInstitutionOffender.setForeground(new java.awt.Color(29, 41, 81));
+        BoxInstitutionOffender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        JPCreateOffender.add(BoxInstitutionOffender, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 370, 170, 30));
+
+        BoxGenderOffender.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
+        BoxGenderOffender.setForeground(new java.awt.Color(29, 41, 81));
+        BoxGenderOffender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        JPCreateOffender.add(BoxGenderOffender, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 190, 120, 30));
+
+        ButtonCancelOffender.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonCancelOffender.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        ButtonCancelOffender.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonCancelOffender.setText("Cancel");
+        ButtonCancelOffender.setBorder(null);
+        ButtonCancelOffender.setContentAreaFilled(false);
+        ButtonCancelOffender.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonCancelOffenderMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonCancelOffenderMouseExited(evt);
+            }
+        });
+        ButtonCancelOffender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonCancelOffenderActionPerformed(evt);
+            }
+        });
+        JPCreateOffender.add(ButtonCancelOffender, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 460, 100, 40));
+
+        ButtonConfirmOffender.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonConfirmOffender.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        ButtonConfirmOffender.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonConfirmOffender.setText("Confirm");
+        ButtonConfirmOffender.setBorder(null);
+        ButtonConfirmOffender.setContentAreaFilled(false);
+        ButtonConfirmOffender.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonConfirmOffenderMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonConfirmOffenderMouseExited(evt);
+            }
+        });
+        ButtonConfirmOffender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonConfirmOffenderActionPerformed(evt);
+            }
+        });
+        JPCreateOffender.add(ButtonConfirmOffender, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 460, 100, 40));
+
+        IconOffender.setBackground(new java.awt.Color(255, 255, 255));
+        IconOffender.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
+        IconOffender.setForeground(new java.awt.Color(29, 41, 81));
+        IconOffender.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/AddUser.png"))); // NOI18N
+        IconOffender.setText("Offender Information");
+        IconOffender.setMaximumSize(new java.awt.Dimension(240, 128));
+        IconOffender.setMinimumSize(new java.awt.Dimension(240, 128));
+        JPCreateOffender.add(IconOffender, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 380, 130));
+
+        getContentPane().add(JPCreateOffender, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
+
+        JPCreateRecord.setBackground(new java.awt.Color(255, 255, 255));
+        JPCreateRecord.setForeground(new java.awt.Color(255, 255, 255));
+        JPCreateRecord.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JPCreateRecordMouseEntered(evt);
+            }
+        });
+        JPCreateRecord.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ButtonRollbackCreateRecord.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonRollbackCreateRecord.setForeground(new java.awt.Color(255, 255, 255));
+        ButtonRollbackCreateRecord.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/Rollback.png"))); // NOI18N
+        ButtonRollbackCreateRecord.setBorder(null);
+        ButtonRollbackCreateRecord.setContentAreaFilled(false);
+        ButtonRollbackCreateRecord.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonRollbackCreateRecordMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonRollbackCreateRecordMouseExited(evt);
+            }
+        });
+        ButtonRollbackCreateRecord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonRollbackCreateRecordActionPerformed(evt);
+            }
+        });
+        JPCreateRecord.add(ButtonRollbackCreateRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
+
+        getContentPane().add(JPCreateRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
+
+        UserQuery.setBackground(new java.awt.Color(255, 255, 255));
+        UserQuery.setForeground(new java.awt.Color(29, 41, 81));
+        UserQuery.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                UserQueryMouseEntered(evt);
+            }
+        });
+
+        PlacesMoreRecords.setBackground(new java.awt.Color(255, 255, 255));
+        PlacesMoreRecords.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                PlacesMoreRecordsMouseEntered(evt);
+            }
+        });
+        PlacesMoreRecords.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        LabelTop.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        LabelTop.setForeground(new java.awt.Color(29, 41, 81));
+        LabelTop.setText("Write the number of the top: ");
+        PlacesMoreRecords.add(LabelTop, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
+
+        NumberTopField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        NumberTopField.setForeground(new java.awt.Color(29, 41, 81));
+        NumberTopField.setBorder(null);
+        PlacesMoreRecords.add(NumberTopField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 80, 20));
+
+        NumberTopLine.setForeground(new java.awt.Color(29, 41, 81));
+        PlacesMoreRecords.add(NumberTopLine, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 80, 20));
+
+        PlacesList.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
+        PlacesList.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        PlacesList.setForeground(new java.awt.Color(29, 41, 81));
+        jScrollPane1.setViewportView(PlacesList);
+
+        PlacesMoreRecords.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 450, 220));
+
+        ButtonShowPlaces.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonShowPlaces.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ButtonShowPlaces.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonShowPlaces.setText("Enter");
+        ButtonShowPlaces.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
+        ButtonShowPlaces.setContentAreaFilled(false);
+        ButtonShowPlaces.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonShowPlacesActionPerformed(evt);
+            }
+        });
+        PlacesMoreRecords.add(ButtonShowPlaces, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, 100, 30));
+
+        ButtonRollbackQueryPlaces.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonRollbackQueryPlaces.setForeground(new java.awt.Color(255, 255, 255));
+        ButtonRollbackQueryPlaces.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/Rollback.png"))); // NOI18N
+        ButtonRollbackQueryPlaces.setBorder(null);
+        ButtonRollbackQueryPlaces.setContentAreaFilled(false);
+        ButtonRollbackQueryPlaces.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonRollbackQueryPlacesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonRollbackQueryPlacesMouseExited(evt);
+            }
+        });
+        ButtonRollbackQueryPlaces.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonRollbackQueryPlacesActionPerformed(evt);
+            }
+        });
+        PlacesMoreRecords.add(ButtonRollbackQueryPlaces, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 50));
+
+        UserQuery.addTab("Places with more records", PlacesMoreRecords);
+
+        Records.setBackground(new java.awt.Color(255, 255, 255));
+        Records.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                RecordsMouseEntered(evt);
+            }
+        });
+        Records.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        LabelChooseFilterRecords.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        LabelChooseFilterRecords.setForeground(new java.awt.Color(29, 41, 81));
+        LabelChooseFilterRecords.setText("Choose the filter");
+        Records.add(LabelChooseFilterRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, -1, 30));
+
+        BoxFilter.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        BoxFilter.setForeground(new java.awt.Color(29, 41, 81));
+        BoxFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default", "Type", "Date", "Place" }));
+        BoxFilter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BoxFilterActionPerformed(evt);
+            }
+        });
+        Records.add(BoxFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 140, 30));
+
+        BoxFilterSpecify.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        BoxFilterSpecify.setForeground(new java.awt.Color(29, 41, 81));
+        BoxFilterSpecify.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        BoxFilterSpecify.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BoxFilterSpecifyActionPerformed(evt);
+            }
+        });
+        Records.add(BoxFilterSpecify, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 140, 30));
+
+        ButtonShowRecords.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonShowRecords.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ButtonShowRecords.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonShowRecords.setText("Enter");
+        ButtonShowRecords.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
+        ButtonShowRecords.setContentAreaFilled(false);
+        ButtonShowRecords.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonShowRecordsActionPerformed(evt);
+            }
+        });
+        Records.add(ButtonShowRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, 100, 30));
+
+        jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
+        jScrollPane2.setForeground(new java.awt.Color(29, 41, 81));
+        jScrollPane2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        RecordsList.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
+        RecordsList.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        RecordsList.setForeground(new java.awt.Color(29, 41, 81));
+        RecordsList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RecordsListMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(RecordsList);
+
+        Records.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 40, 350, 150));
+
+        jScrollPane3.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
+        jScrollPane3.setForeground(new java.awt.Color(29, 41, 81));
+
+        RecordDescriptionText.setColumns(20);
+        RecordDescriptionText.setRows(5);
+        jScrollPane3.setViewportView(RecordDescriptionText);
+
+        Records.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 240, 350, 190));
+
+        BoxStartDate.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        BoxStartDate.setForeground(new java.awt.Color(29, 41, 81));
+        BoxStartDate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Start Date" }));
+        BoxStartDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BoxStartDateActionPerformed(evt);
+            }
+        });
+        Records.add(BoxStartDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 240, -1, 30));
+
+        BoxFinishDate.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        BoxFinishDate.setForeground(new java.awt.Color(29, 41, 81));
+        BoxFinishDate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "End Date" }));
+        BoxFinishDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BoxFinishDateActionPerformed(evt);
+            }
+        });
+        Records.add(BoxFinishDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, -1, 30));
+
+        ButtonRollbackQueryRecords.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonRollbackQueryRecords.setForeground(new java.awt.Color(255, 255, 255));
+        ButtonRollbackQueryRecords.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/Rollback.png"))); // NOI18N
+        ButtonRollbackQueryRecords.setBorder(null);
+        ButtonRollbackQueryRecords.setContentAreaFilled(false);
+        ButtonRollbackQueryRecords.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonRollbackQueryRecordsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonRollbackQueryRecordsMouseExited(evt);
+            }
+        });
+        ButtonRollbackQueryRecords.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonRollbackQueryRecordsActionPerformed(evt);
+            }
+        });
+        Records.add(ButtonRollbackQueryRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 50));
+
+        UserQuery.addTab("Records", Records);
+
+        UsersList.setBackground(new java.awt.Color(255, 255, 255));
+        UsersList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                UsersListMouseEntered(evt);
+            }
+        });
+        UsersList.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jScrollPane4.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
+        jScrollPane4.setForeground(new java.awt.Color(29, 41, 81));
+
+        ListUsers.setColumns(20);
+        ListUsers.setRows(5);
+        jScrollPane4.setViewportView(ListUsers);
+
+        UsersList.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, 260, 410));
+
+        ButtonRollbackQueryUsers.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonRollbackQueryUsers.setForeground(new java.awt.Color(255, 255, 255));
+        ButtonRollbackQueryUsers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/Rollback.png"))); // NOI18N
+        ButtonRollbackQueryUsers.setBorder(null);
+        ButtonRollbackQueryUsers.setContentAreaFilled(false);
+        ButtonRollbackQueryUsers.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonRollbackQueryUsersMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonRollbackQueryUsersMouseExited(evt);
+            }
+        });
+        ButtonRollbackQueryUsers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonRollbackQueryUsersActionPerformed(evt);
+            }
+        });
+        UsersList.add(ButtonRollbackQueryUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 50));
+
+        UserQuery.addTab("Users list", UsersList);
+
+        BannedUsers.setBackground(new java.awt.Color(255, 255, 255));
+        BannedUsers.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BannedUsersMouseEntered(evt);
+            }
+        });
+        BannedUsers.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jScrollPane5.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
+        jScrollPane5.setForeground(new java.awt.Color(29, 41, 81));
+
+        ListBannedUsers.setColumns(20);
+        ListBannedUsers.setRows(5);
+        jScrollPane5.setViewportView(ListBannedUsers);
+
+        BannedUsers.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 380, 410));
+
+        ButtonRollbackQueryBanned.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonRollbackQueryBanned.setForeground(new java.awt.Color(255, 255, 255));
+        ButtonRollbackQueryBanned.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/Rollback.png"))); // NOI18N
+        ButtonRollbackQueryBanned.setBorder(null);
+        ButtonRollbackQueryBanned.setContentAreaFilled(false);
+        ButtonRollbackQueryBanned.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonRollbackQueryBannedMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonRollbackQueryBannedMouseExited(evt);
+            }
+        });
+        ButtonRollbackQueryBanned.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonRollbackQueryBannedActionPerformed(evt);
+            }
+        });
+        BannedUsers.add(ButtonRollbackQueryBanned, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 50));
+
+        UserQuery.addTab("Banned Users", BannedUsers);
+
+        RecordsConvictionsToExpireOrExpired.setBackground(new java.awt.Color(255, 255, 255));
+        RecordsConvictionsToExpireOrExpired.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                RecordsConvictionsToExpireOrExpiredMouseEntered(evt);
+            }
+        });
+        RecordsConvictionsToExpireOrExpired.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        BoxStartDate1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        BoxStartDate1.setForeground(new java.awt.Color(29, 41, 81));
+        BoxStartDate1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Start Date" }));
+        RecordsConvictionsToExpireOrExpired.add(BoxStartDate1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, -1, 30));
+
+        BoxFinishDate1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        BoxFinishDate1.setForeground(new java.awt.Color(29, 41, 81));
+        BoxFinishDate1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "End Date" }));
+        RecordsConvictionsToExpireOrExpired.add(BoxFinishDate1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, -1, 30));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(29, 41, 81));
+        jLabel1.setText("Date Range");
+        RecordsConvictionsToExpireOrExpired.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, 80, 30));
+
+        jScrollPane7.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
+        jScrollPane7.setForeground(new java.awt.Color(29, 41, 81));
+
+        RecordDescriptionTextExpire.setColumns(20);
+        RecordDescriptionTextExpire.setRows(5);
+        jScrollPane7.setViewportView(RecordDescriptionTextExpire);
+
+        RecordsConvictionsToExpireOrExpired.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 190, 370, 270));
+
+        jScrollPane8.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
+        jScrollPane8.setForeground(new java.awt.Color(29, 41, 81));
+        jScrollPane8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        RecordsExpireList.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
+        RecordsExpireList.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        RecordsExpireList.setForeground(new java.awt.Color(29, 41, 81));
+        jScrollPane8.setViewportView(RecordsExpireList);
+
+        RecordsConvictionsToExpireOrExpired.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 280, 270));
+
+        ButtonShowRecordsDate.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonShowRecordsDate.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ButtonShowRecordsDate.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonShowRecordsDate.setText("Enter");
+        ButtonShowRecordsDate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
+        ButtonShowRecordsDate.setContentAreaFilled(false);
+        RecordsConvictionsToExpireOrExpired.add(ButtonShowRecordsDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, 100, 30));
+
+        ButtonRollbackQueryExpire.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonRollbackQueryExpire.setForeground(new java.awt.Color(255, 255, 255));
+        ButtonRollbackQueryExpire.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/Rollback.png"))); // NOI18N
+        ButtonRollbackQueryExpire.setBorder(null);
+        ButtonRollbackQueryExpire.setContentAreaFilled(false);
+        ButtonRollbackQueryExpire.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonRollbackQueryExpireMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonRollbackQueryExpireMouseExited(evt);
+            }
+        });
+        ButtonRollbackQueryExpire.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonRollbackQueryExpireActionPerformed(evt);
+            }
+        });
+        RecordsConvictionsToExpireOrExpired.add(ButtonRollbackQueryExpire, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 50));
+
+        UserQuery.addTab("Records with convictions about to expire or expired", RecordsConvictionsToExpireOrExpired);
+
+        getContentPane().add(UserQuery, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void ButtonQueryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonQueryActionPerformed
-        // TODO add your handling code here:
+        Animacion.Animacion.mover_derecha(290, 1100, 1, 1, JPUserMenu);
+        JPAdminMenu.setVisible(false);
+        JPWelcome.setVisible(false);
+        JPSignUp.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        UserQuery.setVisible(true);
+        JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonQueryActionPerformed
 
     private void ButtonConfigurationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfigurationActionPerformed
@@ -504,9 +1270,13 @@ public class Login extends javax.swing.JFrame {
 
     private void ButtonLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonLogOutActionPerformed
         JPWelcome.setVisible(true);
+        JPLogin.setVisible(true);
         JPUserMenu.setVisible(false);
         JPAdminMenu.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPCreateRecord.setVisible(false);
         JPSignUp.setVisible(false);
+        JPLogged.setVisible(false);
         UsernameField.setText(null);
         PasswordField.setText(null);
     }//GEN-LAST:event_ButtonLogOutActionPerformed
@@ -524,6 +1294,10 @@ public class Login extends javax.swing.JFrame {
         JPUserMenu.setVisible(false);
         JPAdminMenu.setVisible(false);
         JPSignUp.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        UserQuery.setVisible(false);
+        JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonLogOut1ActionPerformed
 
     private void ButtonQuery1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonQuery1ActionPerformed
@@ -538,17 +1312,12 @@ public class Login extends javax.swing.JFrame {
         Animacion.Animacion.mover_derecha(290, 1100, 1, 1, JPWelcome);
         JPUserMenu.setVisible(false);
         JPAdminMenu.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        UserQuery.setVisible(false);
         JPSignUp.setVisible(true);
+        JPLogged.setVisible(false);
     }//GEN-LAST:event_ButtonSignUpActionPerformed
-
-    private void ButtonRollbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackActionPerformed
-        JPWelcome.setVisible(true);
-        JPUserMenu.setVisible(false);
-        JPAdminMenu.setVisible(false);
-        JPSignUp.setVisible(false);
-        NewUsernameField.setText(null);
-        NewUserPasswordField.setText(null);
-    }//GEN-LAST:event_ButtonRollbackActionPerformed
 
     private void ButtonEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEnterActionPerformed
         String user_field = UsernameField.getText();
@@ -558,10 +1327,16 @@ public class Login extends javax.swing.JFrame {
         } else if(user_password.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Fill the password field.");
         } else {
+            Username.setText(user_field);
             Animacion.Animacion.mover_derecha(290, 1100, 1, 1, JPWelcome);
+            Animacion.Animacion.mover_izquierda(0, -1100, 1, 1, JPLogin);
+            JPLogged.setVisible(true);
             JPUserMenu.setVisible(true);
             JPSignUp.setVisible(false);
             JPAdminMenu.setVisible(false);
+            JPCreateOffender.setVisible(false);
+            JPCreateRecord.setVisible(false);
+            UserQuery.setVisible(false);
         }
     }//GEN-LAST:event_ButtonEnterActionPerformed
 
@@ -572,15 +1347,6 @@ public class Login extends javax.swing.JFrame {
     private void ButtonMinimizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonMinimizeActionPerformed
         this.setExtendedState(ICONIFIED);
     }//GEN-LAST:event_ButtonMinimizeActionPerformed
-
-    private void ButtonRollbackMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackMouseEntered
-        ButtonRollback.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
-        JPWelcome.setVisible(false);
-    }//GEN-LAST:event_ButtonRollbackMouseEntered
-
-    private void ButtonRollbackMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackMouseExited
-        ButtonRollback.setBorder(null);
-    }//GEN-LAST:event_ButtonRollbackMouseExited
 
     private void ButtonQuery1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonQuery1MouseEntered
         ButtonQuery1.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
@@ -685,6 +1451,9 @@ public class Login extends javax.swing.JFrame {
         JPSignUp.setVisible(false);
         JPAdminMenu.setVisible(false);
         JPUserMenu.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        UserQuery.setVisible(false);
     }//GEN-LAST:event_JPWelcomeMouseEntered
 
     private void ButtonCancelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelMouseEntered
@@ -700,6 +1469,9 @@ public class Login extends javax.swing.JFrame {
         NewUserPasswordField.setText(null);
         JPWelcome.setVisible(true);
         JPUserMenu.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        UserQuery.setVisible(false);
         JPAdminMenu.setVisible(false);
         JPSignUp.setVisible(false);
     }//GEN-LAST:event_ButtonCancelActionPerformed
@@ -715,11 +1487,30 @@ public class Login extends javax.swing.JFrame {
     private void ButtonJoinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonJoinActionPerformed
         String new_user = NewUsernameField.getText();
         String new_user_password = NewUserPasswordField.getText();
+        String new_user_id = IdNewUserField.getText();
+        String new_user_name = NameNewUserField.getText();
+        String new_user_last_name = LastNameNewUserField.getText();
+        String new_user_birthday = BirthdayNewUserField.getText();
         if(new_user.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Fill the username field.");
         } else if(new_user_password.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Fill the password field.");
+        } else if(new_user_id.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Fill the id field.");
+        } else if(new_user_name.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Fill the name field.");
+        } else if(new_user_last_name.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Fill the last name field.");
+        } else if(new_user_birthday.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Fill the birthday field.");
+        } else if(BoxGenderNewUser.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(this, "Choose a valid option.");
+        } else if(BoxNewUserCommunity.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(this, "Choose a valid option.");
+        } else if(BoxInstitutionNewUser.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(this, "Choose a valid option.");
         } else {
+            JOptionPane.showMessageDialog(this, "The user was created successfully.");
             JPWelcome.setVisible(true);
             JPUserMenu.setVisible(false);
             JPAdminMenu.setVisible(false);
@@ -734,6 +1525,9 @@ public class Login extends javax.swing.JFrame {
         JPSignUp.setVisible(true);
         JPAdminMenu.setVisible(false);
         JPUserMenu.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        UserQuery.setVisible(false);
     }//GEN-LAST:event_JPSignUpMouseEntered
 
     private void JPAdminMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPAdminMenuMouseEntered
@@ -741,14 +1535,435 @@ public class Login extends javax.swing.JFrame {
         JPSignUp.setVisible(false);
         JPAdminMenu.setVisible(true);
         JPUserMenu.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        UserQuery.setVisible(false);
     }//GEN-LAST:event_JPAdminMenuMouseEntered
 
     private void JPUserMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPUserMenuMouseEntered
         JPWelcome.setVisible(false);
         JPSignUp.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        UserQuery.setVisible(false);
         JPAdminMenu.setVisible(false);
         JPUserMenu.setVisible(true);
     }//GEN-LAST:event_JPUserMenuMouseEntered
+
+    private void JPLoggedMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPLoggedMouseEntered
+        JPLogin.setVisible(false);
+        JPLogged.setVisible(true);
+        JPWelcome.setVisible(false);
+    }//GEN-LAST:event_JPLoggedMouseEntered
+
+    private void JPLoginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPLoginMouseEntered
+        JPLogin.setVisible(true);
+        JPLogged.setVisible(false);
+    }//GEN-LAST:event_JPLoginMouseEntered
+
+    private void UserQueryMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UserQueryMouseEntered
+        JPWelcome.setVisible(false);
+        JPSignUp.setVisible(false);
+        JPAdminMenu.setVisible(false);
+        JPUserMenu.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        JPLogin.setVisible(false);
+        JPLogged.setVisible(true);
+        UserQuery.setVisible(true);
+        ListUsers.setText("Users with tabs");
+        ListBannedUsers.setText("Banned Users - Reason with tabs");
+    }//GEN-LAST:event_UserQueryMouseEntered
+
+    private void ButtonShowPlacesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowPlacesActionPerformed
+        String number_top = NumberTopField.getText();
+        if(number_top.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Fill the field for show the top.");
+        }
+    }//GEN-LAST:event_ButtonShowPlacesActionPerformed
+
+    private void BoxFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoxFilterActionPerformed
+        int index_filter = BoxFilter.getSelectedIndex();
+        BoxStartDate.setEnabled(false);
+        BoxFinishDate.setEnabled(false);
+        if(index_filter == 0){
+            BoxStartDate.setEnabled(false);
+            BoxFinishDate.setEnabled(false);
+            JOptionPane.showMessageDialog(this, "Choose a valid option.");
+        } else if(index_filter == 1){
+            BoxFilterSpecify.addItem("Example");
+        } else if(index_filter == 2){
+            BoxStartDate.setEnabled(true);
+            BoxFinishDate.setEnabled(true);
+            BoxFilterSpecify.setEnabled(false);
+            BoxStartDate.addItem("2020");
+            BoxFinishDate.addItem("2020");
+        } else {
+            BoxStartDate.setEnabled(false);
+            BoxFinishDate.setEnabled(false);
+            BoxFilterSpecify.addItem("Example");
+        }
+    }//GEN-LAST:event_BoxFilterActionPerformed
+
+    private void BoxFilterSpecifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoxFilterSpecifyActionPerformed
+        int index_filter = BoxFilterSpecify.getSelectedIndex();
+        if(index_filter == 0){
+            JOptionPane.showMessageDialog(this, "Choose a valid option.");
+        } else {
+            BoxFilterSpecify.getItemAt(index_filter);
+        } 
+    }//GEN-LAST:event_BoxFilterSpecifyActionPerformed
+
+    private void BoxStartDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoxStartDateActionPerformed
+        int index_filter = BoxStartDate.getSelectedIndex();
+        if(index_filter == 0){
+            JOptionPane.showMessageDialog(this, "Choose a valid option.");
+        } else {
+            BoxStartDate.getItemAt(index_filter);
+        }
+    }//GEN-LAST:event_BoxStartDateActionPerformed
+
+    private void BoxFinishDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoxFinishDateActionPerformed
+        int index_filter = BoxFinishDate.getSelectedIndex();
+        if(index_filter == 0){
+            JOptionPane.showMessageDialog(this, "Choose a valid option.");
+        } else {
+            BoxFinishDate.getItemAt(index_filter);
+        }
+    }//GEN-LAST:event_BoxFinishDateActionPerformed
+
+    private void ButtonShowRecordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowRecordsActionPerformed
+        int index_filter = BoxFilter.getSelectedIndex();
+        int index_filter_specify = BoxFilterSpecify.getSelectedIndex();
+        int index_start = BoxStartDate.getSelectedIndex();
+        int index_finish = BoxFinishDate.getSelectedIndex();
+        if(index_filter == 0){
+            JOptionPane.showMessageDialog(this, "Choose a valid option.");
+        } else if(index_filter_specify == 0){
+            JOptionPane.showMessageDialog(this, "Choose a valid option.");
+        } else if(index_start == 0){
+            JOptionPane.showMessageDialog(this, "Choose a valid option.");
+        } else if(index_finish == 0){
+            JOptionPane.showMessageDialog(this, "Choose a valid option.");
+        } else {
+            String example[] = {"3D", "a5"};
+            RecordsList.setListData(example);
+        }
+    }//GEN-LAST:event_ButtonShowRecordsActionPerformed
+
+    private void RecordsListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RecordsListMouseClicked
+        String record_number = RecordsList.getSelectedValue();
+        RecordDescriptionText.setText(record_number);
+    }//GEN-LAST:event_RecordsListMouseClicked
+
+    private void ButtonCreateRecordMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCreateRecordMouseEntered
+        ButtonCreateRecord.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_ButtonCreateRecordMouseEntered
+
+    private void ButtonCreateRecordMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCreateRecordMouseExited
+        ButtonCreateRecord.setBorder(null);
+    }//GEN-LAST:event_ButtonCreateRecordMouseExited
+
+    private void ButtonCreateRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCreateRecordActionPerformed
+        Animacion.Animacion.mover_derecha(290, 1100, 1, 1, JPUserMenu);
+        JPAdminMenu.setVisible(false);
+        JPWelcome.setVisible(false);
+        JPSignUp.setVisible(false);
+        UserQuery.setVisible(false);
+        JPLogin.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        JPCreateOffender.setVisible(true);
+        JPLogged.setVisible(true);
+    }//GEN-LAST:event_ButtonCreateRecordActionPerformed
+
+    private void JPCreateRecordMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPCreateRecordMouseEntered
+        JPUserMenu.setVisible(false);
+        JPAdminMenu.setVisible(false);
+        JPWelcome.setVisible(false);
+        JPSignUp.setVisible(false);
+        UserQuery.setVisible(false);
+        JPCreateRecord.setVisible(true);
+        JPLogin.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPLogged.setVisible(true);
+    }//GEN-LAST:event_JPCreateRecordMouseEntered
+
+    private void JPCreateOffenderMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPCreateOffenderMouseEntered
+        JPUserMenu.setVisible(false);
+        JPAdminMenu.setVisible(false);
+        JPWelcome.setVisible(false);
+        JPSignUp.setVisible(false);
+        UserQuery.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        JPLogin.setVisible(false);
+        JPCreateOffender.setVisible(true);
+        JPLogged.setVisible(true);
+    }//GEN-LAST:event_JPCreateOffenderMouseEntered
+
+    private void ButtonRollbackCreateRecordMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackCreateRecordMouseEntered
+        ButtonRollbackCreateRecord.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_ButtonRollbackCreateRecordMouseEntered
+
+    private void ButtonRollbackCreateRecordMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackCreateRecordMouseExited
+        ButtonRollbackCreateRecord.setBorder(null);
+    }//GEN-LAST:event_ButtonRollbackCreateRecordMouseExited
+
+    private void ButtonRollbackCreateRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackCreateRecordActionPerformed
+        JPCreateOffender.setVisible(true);
+        JPCreateRecord.setVisible(false);
+    }//GEN-LAST:event_ButtonRollbackCreateRecordActionPerformed
+
+    private void ButtonCancelOffenderMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelOffenderMouseEntered
+        ButtonCancelOffender.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_ButtonCancelOffenderMouseEntered
+
+    private void ButtonCancelOffenderMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelOffenderMouseExited
+        ButtonCancelOffender.setBorder(null);
+    }//GEN-LAST:event_ButtonCancelOffenderMouseExited
+
+    private void ButtonCancelOffenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelOffenderActionPerformed
+        JPWelcome.setVisible(false);
+        JPUserMenu.setVisible(true);
+        JPAdminMenu.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPSignUp.setVisible(false);
+        IdOffenderField.setText(null);
+        NameOffenderField.setText(null);
+        MiddleNameOffenderField.setText(null);
+        LastNameOffenderField.setText(null);
+        BirthdayNewUserField.setText(null);
+        BoxGenderOffender.setSelectedIndex(0);
+        BoxCommunityOffender.setSelectedIndex(0);
+        BoxInstitutionOffender.setSelectedIndex(0);
+    }//GEN-LAST:event_ButtonCancelOffenderActionPerformed
+
+    private void ButtonConfirmOffenderMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonConfirmOffenderMouseEntered
+        ButtonConfirmOffender.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_ButtonConfirmOffenderMouseEntered
+
+    private void ButtonConfirmOffenderMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonConfirmOffenderMouseExited
+        ButtonConfirmOffender.setBorder(null);
+    }//GEN-LAST:event_ButtonConfirmOffenderMouseExited
+
+    private void ButtonConfirmOffenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmOffenderActionPerformed
+        String offender_id = IdOffenderField.getText();
+        String offender_name = NameOffenderField.getText();
+        String offender_last_name = LastNameOffenderField.getText();
+        String offender_birthday = BirthdayOffenderField.getText();
+        if(offender_id.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Fill the id field.");
+        } else if(offender_name.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Fill the name field.");
+        } else if(offender_last_name.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Fill the last name field.");
+        } else if(offender_birthday.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Fill the birthday field.");
+        } else if(BoxGenderOffender.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(this, "Choose a valid option.");
+        } else if(BoxCommunityOffender.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(this, "Choose a valid option.");
+        } else if(BoxInstitutionOffender.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(this, "Choose a valid option.");
+        } else {
+            JOptionPane.showMessageDialog(this, "The person was created successfully in the system.");
+            Animacion.Animacion.mover_derecha(290, 1100, 1, 1, JPCreateOffender);
+            JPAdminMenu.setVisible(false);
+            JPUserMenu.setVisible(false);
+            JPWelcome.setVisible(false);
+            JPSignUp.setVisible(false);
+            UserQuery.setVisible(false);
+            JPCreateRecord.setVisible(true);
+            JPLogin.setVisible(false);
+            JPLogged.setVisible(true);
+        }
+    }//GEN-LAST:event_ButtonConfirmOffenderActionPerformed
+
+    private void ButtonRollbackQueryPlacesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryPlacesMouseEntered
+        ButtonRollbackQueryPlaces.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_ButtonRollbackQueryPlacesMouseEntered
+
+    private void ButtonRollbackQueryPlacesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryPlacesMouseExited
+        ButtonRollbackQueryPlaces.setBorder(null);
+    }//GEN-LAST:event_ButtonRollbackQueryPlacesMouseExited
+
+    private void ButtonRollbackQueryPlacesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryPlacesActionPerformed
+        JPWelcome.setVisible(false);
+        JPUserMenu.setVisible(true);
+        JPAdminMenu.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPSignUp.setVisible(false);
+        JPLogged.setVisible(true);
+        NumberTopField.setText(null);
+        PlacesList.removeAll();
+    }//GEN-LAST:event_ButtonRollbackQueryPlacesActionPerformed
+
+    private void ButtonRollbackQueryRecordsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryRecordsMouseEntered
+        ButtonRollbackQueryRecords.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_ButtonRollbackQueryRecordsMouseEntered
+
+    private void ButtonRollbackQueryRecordsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryRecordsMouseExited
+        ButtonRollbackQueryRecords.setBorder(null);
+    }//GEN-LAST:event_ButtonRollbackQueryRecordsMouseExited
+
+    private void ButtonRollbackQueryRecordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryRecordsActionPerformed
+        JPWelcome.setVisible(false);
+        JPUserMenu.setVisible(true);
+        JPAdminMenu.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPSignUp.setVisible(false);
+        JPLogged.setVisible(true);
+        RecordsList.removeAll();
+        RecordDescriptionText.setText(null);
+        BoxFilter.setSelectedIndex(0);
+        BoxFilterSpecify.setSelectedIndex(0);
+        BoxStartDate.setSelectedIndex(0);
+        BoxFinishDate.setSelectedIndex(0);
+    }//GEN-LAST:event_ButtonRollbackQueryRecordsActionPerformed
+
+    private void ButtonRollbackQueryUsersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryUsersMouseEntered
+        ButtonRollbackQueryUsers.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_ButtonRollbackQueryUsersMouseEntered
+
+    private void ButtonRollbackQueryUsersMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryUsersMouseExited
+        ButtonRollbackQueryUsers.setBorder(null);
+    }//GEN-LAST:event_ButtonRollbackQueryUsersMouseExited
+
+    private void ButtonRollbackQueryUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryUsersActionPerformed
+        JPWelcome.setVisible(false);
+        JPUserMenu.setVisible(true);
+        JPAdminMenu.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPSignUp.setVisible(false);
+    }//GEN-LAST:event_ButtonRollbackQueryUsersActionPerformed
+
+    private void ButtonRollbackQueryBannedMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryBannedMouseEntered
+        ButtonRollbackQueryBanned.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_ButtonRollbackQueryBannedMouseEntered
+
+    private void ButtonRollbackQueryBannedMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryBannedMouseExited
+        ButtonRollbackQueryBanned.setBorder(null);
+    }//GEN-LAST:event_ButtonRollbackQueryBannedMouseExited
+
+    private void ButtonRollbackQueryBannedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryBannedActionPerformed
+        JPWelcome.setVisible(false);
+        JPUserMenu.setVisible(true);
+        JPAdminMenu.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPSignUp.setVisible(false);
+        JPLogged.setVisible(true);
+    }//GEN-LAST:event_ButtonRollbackQueryBannedActionPerformed
+
+    private void ButtonRollbackQueryExpireMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryExpireMouseEntered
+        ButtonRollbackQueryExpire.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_ButtonRollbackQueryExpireMouseEntered
+
+    private void ButtonRollbackQueryExpireMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryExpireMouseExited
+        ButtonRollbackQueryExpire.setBorder(null);
+    }//GEN-LAST:event_ButtonRollbackQueryExpireMouseExited
+
+    private void ButtonRollbackQueryExpireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryExpireActionPerformed
+        JPWelcome.setVisible(false);
+        JPUserMenu.setVisible(true);
+        JPAdminMenu.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPSignUp.setVisible(false);
+        JPLogged.setVisible(true);
+        RecordsExpireList.removeAll();
+        RecordDescriptionTextExpire.setText(null);
+        BoxStartDate1.setSelectedIndex(0);
+        BoxFinishDate1.setSelectedIndex(0);
+    }//GEN-LAST:event_ButtonRollbackQueryExpireActionPerformed
+
+    private void PlacesMoreRecordsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlacesMoreRecordsMouseEntered
+        JPWelcome.setVisible(false);
+        JPSignUp.setVisible(false);
+        JPAdminMenu.setVisible(false);
+        JPUserMenu.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        JPLogin.setVisible(false);
+        JPLogged.setVisible(true);
+        UserQuery.setVisible(true);
+        PlacesMoreRecords.setVisible(true);
+        Records.setVisible(false);
+        UsersList.setVisible(false);
+        BannedUsers.setVisible(false);
+        RecordsConvictionsToExpireOrExpired.setVisible(false);
+    }//GEN-LAST:event_PlacesMoreRecordsMouseEntered
+
+    private void RecordsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RecordsMouseEntered
+        JPWelcome.setVisible(false);
+        JPSignUp.setVisible(false);
+        JPAdminMenu.setVisible(false);
+        JPUserMenu.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        JPLogin.setVisible(false);
+        JPLogged.setVisible(true);
+        UserQuery.setVisible(true);
+        PlacesMoreRecords.setVisible(false);
+        Records.setVisible(true);
+        UsersList.setVisible(false);
+        BannedUsers.setVisible(false);
+        RecordsConvictionsToExpireOrExpired.setVisible(false);
+    }//GEN-LAST:event_RecordsMouseEntered
+
+    private void UsersListMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsersListMouseEntered
+        JPWelcome.setVisible(false);
+        JPSignUp.setVisible(false);
+        JPAdminMenu.setVisible(false);
+        JPUserMenu.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        JPLogin.setVisible(false);
+        JPLogged.setVisible(true);
+        UserQuery.setVisible(true);
+        PlacesMoreRecords.setVisible(false);
+        Records.setVisible(false);
+        UsersList.setVisible(true);
+        BannedUsers.setVisible(false);
+        RecordsConvictionsToExpireOrExpired.setVisible(false);
+    }//GEN-LAST:event_UsersListMouseEntered
+
+    private void BannedUsersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BannedUsersMouseEntered
+        JPWelcome.setVisible(false);
+        JPSignUp.setVisible(false);
+        JPAdminMenu.setVisible(false);
+        JPUserMenu.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        JPLogin.setVisible(false);
+        JPLogged.setVisible(true);
+        UserQuery.setVisible(true);
+        PlacesMoreRecords.setVisible(false);
+        Records.setVisible(false);
+        UsersList.setVisible(false);
+        BannedUsers.setVisible(true);
+        RecordsConvictionsToExpireOrExpired.setVisible(false);
+    }//GEN-LAST:event_BannedUsersMouseEntered
+
+    private void RecordsConvictionsToExpireOrExpiredMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RecordsConvictionsToExpireOrExpiredMouseEntered
+        JPWelcome.setVisible(false);
+        JPSignUp.setVisible(false);
+        JPAdminMenu.setVisible(false);
+        JPUserMenu.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        JPLogin.setVisible(false);
+        JPLogged.setVisible(true);
+        UserQuery.setVisible(true);
+        PlacesMoreRecords.setVisible(false);
+        Records.setVisible(false);
+        UsersList.setVisible(false);
+        BannedUsers.setVisible(false);
+        RecordsConvictionsToExpireOrExpired.setVisible(true);
+    }//GEN-LAST:event_RecordsConvictionsToExpireOrExpiredMouseEntered
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -783,10 +1998,28 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel BannedUsers;
+    private javax.swing.JFormattedTextField BirthdayNewUserField;
+    private javax.swing.JFormattedTextField BirthdayOffenderField;
+    private javax.swing.JComboBox<String> BoxCommunityOffender;
+    private javax.swing.JComboBox<String> BoxFilter;
+    private javax.swing.JComboBox<String> BoxFilterSpecify;
+    private javax.swing.JComboBox<String> BoxFinishDate;
+    private javax.swing.JComboBox<String> BoxFinishDate1;
+    private javax.swing.JComboBox<String> BoxGenderNewUser;
+    private javax.swing.JComboBox<String> BoxGenderOffender;
+    private javax.swing.JComboBox<String> BoxInstitutionNewUser;
+    private javax.swing.JComboBox<String> BoxInstitutionOffender;
+    private javax.swing.JComboBox<String> BoxNewUserCommunity;
+    private javax.swing.JComboBox<String> BoxStartDate;
+    private javax.swing.JComboBox<String> BoxStartDate1;
     private javax.swing.JButton ButtonCancel;
+    private javax.swing.JButton ButtonCancelOffender;
     private javax.swing.JButton ButtonClose;
     private javax.swing.JButton ButtonConfiguration;
     private javax.swing.JButton ButtonConfiguration1;
+    private javax.swing.JButton ButtonConfirmOffender;
+    private javax.swing.JButton ButtonCreateRecord;
     private javax.swing.JButton ButtonEnter;
     private javax.swing.JButton ButtonJoin;
     private javax.swing.JButton ButtonLogOut;
@@ -795,32 +2028,104 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton ButtonQuery;
     private javax.swing.JButton ButtonQuery1;
     private javax.swing.JButton ButtonReports;
-    private javax.swing.JButton ButtonRollback;
+    private javax.swing.JButton ButtonRollbackCreateRecord;
+    private javax.swing.JButton ButtonRollbackQueryBanned;
+    private javax.swing.JButton ButtonRollbackQueryExpire;
+    private javax.swing.JButton ButtonRollbackQueryPlaces;
+    private javax.swing.JButton ButtonRollbackQueryRecords;
+    private javax.swing.JButton ButtonRollbackQueryUsers;
+    private javax.swing.JButton ButtonShowPlaces;
+    private javax.swing.JButton ButtonShowRecords;
+    private javax.swing.JButton ButtonShowRecordsDate;
     private javax.swing.JButton ButtonSignUp;
     private javax.swing.JButton ButtonStatistics;
+    private javax.swing.JLabel IconLogged;
+    private javax.swing.JLabel IconOffender;
     private javax.swing.JLabel IconPassword;
     private javax.swing.JLabel IconUser;
     private javax.swing.JLabel IconUsername;
+    private javax.swing.JTextField IdNewUserField;
+    private javax.swing.JTextField IdOffenderField;
     private javax.swing.JPanel JPAdminMenu;
+    private javax.swing.JPanel JPCreateOffender;
+    private javax.swing.JPanel JPCreateRecord;
+    private javax.swing.JPanel JPLogged;
     private javax.swing.JPanel JPLogin;
     private javax.swing.JPanel JPSignUp;
     private javax.swing.JPanel JPUserMenu;
     private javax.swing.JPanel JPWelcome;
+    private javax.swing.JPanel JPWindow;
+    private javax.swing.JLabel LabelChooseFilterRecords;
+    private javax.swing.JLabel LabelCommunityNewUser;
+    private javax.swing.JLabel LabelCommunityOffender;
+    private javax.swing.JLabel LabelIdNewUser;
+    private javax.swing.JLabel LabelIdOffender;
+    private javax.swing.JLabel LabelInstitutionNewUser;
+    private javax.swing.JLabel LabelInstitutionOffender;
+    private javax.swing.JLabel LabelLastNameNewUser;
+    private javax.swing.JLabel LabelLastNameOffender;
+    private javax.swing.JLabel LabelMiddleNameNewUser;
+    private javax.swing.JLabel LabelMiddleNameOffender;
+    private javax.swing.JLabel LabelNameNewUser;
+    private javax.swing.JLabel LabelNameOffender;
+    private javax.swing.JLabel LabelNewUserBirthday;
+    private javax.swing.JLabel LabelNewUserGender;
     private javax.swing.JLabel LabelNewUserPassword;
     private javax.swing.JLabel LabelNewUsername;
+    private javax.swing.JLabel LabelOffenderBirthday;
+    private javax.swing.JLabel LabelOffenderGender;
     private javax.swing.JLabel LabelPassword;
     private javax.swing.JLabel LabelSignUp;
+    private javax.swing.JLabel LabelTop;
     private javax.swing.JLabel LabelUsername;
     private javax.swing.JLabel LabelWelcome;
+    private javax.swing.JTextField LastNameNewUserField;
+    private javax.swing.JTextField LastNameOffenderField;
+    private javax.swing.JSeparator LineNewUserBirthday;
+    private javax.swing.JSeparator LineNewUserId;
+    private javax.swing.JSeparator LineNewUserLastName;
+    private javax.swing.JSeparator LineNewUserMiddleName;
+    private javax.swing.JSeparator LineNewUserName;
     private javax.swing.JSeparator LineNewUserPassword;
     private javax.swing.JSeparator LineNewUsername;
+    private javax.swing.JSeparator LineOffenderBirthday;
+    private javax.swing.JSeparator LineOffenderId;
+    private javax.swing.JSeparator LineOffenderLastName;
+    private javax.swing.JSeparator LineOffenderMiddleName;
+    private javax.swing.JSeparator LineOffenderName;
     private javax.swing.JSeparator LinePassword;
     private javax.swing.JSeparator LineUsername;
+    private javax.swing.JTextArea ListBannedUsers;
+    private javax.swing.JTextArea ListUsers;
+    private javax.swing.JTextField MiddleNameNewUserField;
+    private javax.swing.JTextField MiddleNameOffenderField;
+    private javax.swing.JTextField NameNewUserField;
+    private javax.swing.JTextField NameOffenderField;
     private javax.swing.JTextField NewUserPasswordField;
     private javax.swing.JTextField NewUsernameField;
+    private javax.swing.JTextField NumberTopField;
+    private javax.swing.JSeparator NumberTopLine;
     private javax.swing.JPasswordField PasswordField;
+    private javax.swing.JList<String> PlacesList;
+    private javax.swing.JPanel PlacesMoreRecords;
+    private javax.swing.JTextArea RecordDescriptionText;
+    private javax.swing.JTextArea RecordDescriptionTextExpire;
+    private javax.swing.JPanel Records;
+    private javax.swing.JPanel RecordsConvictionsToExpireOrExpired;
+    private javax.swing.JList<String> RecordsExpireList;
+    private javax.swing.JList<String> RecordsList;
+    private javax.swing.JTabbedPane UserQuery;
+    private javax.swing.JLabel Username;
     private javax.swing.JTextField UsernameField;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel UsersList;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }
