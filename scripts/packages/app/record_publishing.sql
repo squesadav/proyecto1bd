@@ -27,7 +27,7 @@ CREATE OR REPLACE PACKAGE BODY record_publishing IS
             OPEN crecord FOR
                 SELECT *
                 FROM record
-                WHERE numberr = vnumberr;
+                WHERE numberr = vnumberr AND approved = 'Y';
             RETURN crecord;
         END with_numberr;
     FUNCTION filter_records_by(vdate_crime DATE DEFAULT NULL,
@@ -46,7 +46,8 @@ CREATE OR REPLACE PACKAGE BODY record_publishing IS
             OPEN crecord FOR
                 SELECT numberr
                 FROM record
-                WHERE (date_crime = NVL(vdate_crime, date_crime) OR date_crime IS NULL) AND
+                WHERE approved = 'Y' AND
+                      (date_crime = NVL(vdate_crime, date_crime) OR date_crime IS NULL) AND
                       (crime_expiration_date = NVL(vdate_expiration, crime_expiration_date) OR crime_expiration_date IS NULL) AND
                       (id_type = NVL(vid_type, id_type) OR id_type IS NULL) AND
                       (id_veredict = NVL(vid_veredict, id_veredict) OR id_veredict IS NULL) AND
