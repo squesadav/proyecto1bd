@@ -193,7 +193,7 @@ public class ConnectDB {
         String uPass = "APP";
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ call admin_city.insert_community(?, ? ) } ");
+        CallableStatement stmnt = con.prepareCall("{ call admin_community.insert_community(?, ? ) } ");
         
         stmnt.setString(1, community.getName());
         stmnt.setInt(2, community.getId_district());
@@ -207,13 +207,68 @@ public class ConnectDB {
         String uPass = "APP";
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ call admin_city.insert_c(?, ? ) } ");
+        CallableStatement stmnt = con.prepareCall("{ call admin_city.update_community(?, ? ) } ");
         
         stmnt.setString(1, community.getName());
         stmnt.setInt(2, community.getId_district());
         stmnt.execute();
     }
     
+    public static void insert_country(Country country) throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ call admin_country.insert_country(?) } ");
+        
+        stmnt.setString(1, country.getName());
+        stmnt.execute();
+    }
+    
+    public static void update_country(Country country) throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ call admin_country.update_country(?,?) } ");
+        
+        stmnt.setInt(1,country.getId());
+        stmnt.setString(2, country.getName());
+        stmnt.execute();
+    }
+    
+    public static void insert_district(District district) throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ call admin_district.insert_district(?,?) } ");
+        
+        stmnt.setString(1, district.getName());
+        stmnt.setInt(2, district.getId_city());
+        stmnt.execute();
+    }
+    
+    public static void update_district(District district) throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ call admin_district.update_district(?,?,?) } ");
+        
+        stmnt.setInt(1, district.getId());
+        stmnt.setString(2, district.getName());
+        stmnt.setInt(3, district.getId_city());
+        stmnt.execute();
+    }
 
     
     
