@@ -240,39 +240,7 @@ public class ConnectDB {
         stmnt.executeQuery(); 
         Date result = (Date) stmnt.getObject(1);
         return result;
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    /*public void getUserType(String user_name) throws SQLException 
-    {
-        String uName = "ADM";
-        String uPass = "ADM";
-        //Lo dejo así porque no se si hay una funcion que devuelva cursor con todos los datos de user
-        //Voy a suponer que esa funcion si existe
-        Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ ? = call adminUser.getUserType(?) } ");
-        //CallableStatement stmnt = con.prepareCall("{ ? = call adminUser.getUserAll(?)}");
-     
-        stmnt.registerOutParameter(1, OracleTypes.NUMBER);
-        //stmnt.registerOutParameter(1, OracleTypes.Cursor);
-        //stmnt.executeQuery(); creo que es igual a stmnt.execute();
-        //ResultSet user = (ResultSet) stmnt.getObject(1);
-        //string password = user.getString("password");
-        //int idType = (int) user.getString("id_type");
-        stmnt.setString(2, user_name);
-        stmnt.execute();
-        int typeUser = (int) stmnt.getObject(1);
-        
-    }*/
-    
+    } 
      
     public static ResultSet query(String schema,String function,String atributo) throws SQLException 
     {
