@@ -2,30 +2,30 @@
 -- Author: Sebastián Quesada Calderón
 -- Creation date: 20/06/2020
 CREATE OR REPLACE PACKAGE admin_record IS
-    PROCEDURE insert_record(pnNumberr NUMBER, pnDescriptionCrime VARCHAR2, pnDateCrime DATE, pnResolution VARCHAR2, pnCrimeExpirationDate DATE, pnPicture VARCHAR2 DEFAULT ' ', pnIdType NUMBER, pnIdVeredict NUMBER, pnIdPerson NUMBER);
-    PROCEDURE update_record(pnNumberr NUMBER, pnDescriptionCrime VARCHAR2, pnDateCrime DATE, pnResolution VARCHAR2, pnCrimeExpirationDate DATE, pnPicture VARCHAR2 DEFAULT ' ', pnIdType NUMBER, pnIdVeredict NUMBER, pnIdPerson NUMBER);
-    PROCEDURE remove_record(pnNumberr NUMBER);
-    FUNCTION getDescriptionCrime (pnNumberr NUMBER) RETURN VARCHAR2;
-    FUNCTION getDateCrime (pnNumberr NUMBER) RETURN DATE;
-    FUNCTION getResolution (pnNumberr NUMBER) RETURN VARCHAR2;
-    FUNCTION getCrimeExpirationDate (pnNumberr NUMBER) RETURN DATE;
-    FUNCTION getPicture (pnNumberr NUMBER) RETURN VARCHAR2;
-    FUNCTION getAproved (pnNumberr NUMBER) RETURN VARCHAR2;
-    FUNCTION getIdType (pnNumberr NUMBER) RETURN NUMBER;
-    FUNCTION getIdVeredict (pnNumberr NUMBER) RETURN NUMBER;
-    FUNCTION getIdPerson (pnNumberr NUMBER) RETURN NUMBER;
-    PROCEDURE approve_record(pnNumberr NUMBER);
+    PROCEDURE insert_record(pnNumberr VARCHAR2, pnDescriptionCrime VARCHAR2, pnDateCrime DATE, pnResolution VARCHAR2, pnCrimeExpirationDate DATE, pnPicture VARCHAR2 DEFAULT ' ', pnIdType NUMBER, pnIdVeredict NUMBER, pnIdPerson NUMBER);
+    PROCEDURE update_record(pnNumberr VARCHAR2, pnDescriptionCrime VARCHAR2, pnDateCrime DATE, pnResolution VARCHAR2, pnCrimeExpirationDate DATE, pnPicture VARCHAR2 DEFAULT ' ', pnIdType NUMBER, pnIdVeredict NUMBER, pnIdPerson NUMBER);
+    PROCEDURE remove_record(pnNumberr VARCHAR2);
+    FUNCTION getDescriptionCrime (pnNumberr VARCHAR2) RETURN VARCHAR2;
+    FUNCTION getDateCrime (pnNumberr VARCHAR2) RETURN DATE;
+    FUNCTION getResolution (pnNumberr VARCHAR2) RETURN VARCHAR2;
+    FUNCTION getCrimeExpirationDate (pnNumberr VARCHAR2) RETURN DATE;
+    FUNCTION getPicture (pnNumberr VARCHAR2) RETURN VARCHAR2;
+    FUNCTION getAproved (pnNumberr VARCHAR2) RETURN VARCHAR2;
+    FUNCTION getIdType (pnNumberr VARCHAR2) RETURN NUMBER;
+    FUNCTION getIdVeredict (pnNumberr VARCHAR2) RETURN NUMBER;
+    FUNCTION getIdPerson (pnNumberr VARCHAR2) RETURN NUMBER;
+    PROCEDURE approve_record(pnNumberr VARCHAR2);
 END admin_record;
 /
 
 CREATE OR REPLACE PACKAGE BODY admin_record AS
-    PROCEDURE insert_record(pnNumberr NUMBER, pnDescriptionCrime VARCHAR2, pnDateCrime DATE, pnResolution VARCHAR2, pnCrimeExpirationDate DATE, pnPicture VARCHAR2 DEFAULT ' ', pnApproved VARCHAR2,pnIdType NUMBER, pnIdVeredict NUMBER, pnIdPerson NUMBER) IS
+    PROCEDURE insert_record(pnNumberr VARCHAR2, pnDescriptionCrime VARCHAR2, pnDateCrime DATE, pnResolution VARCHAR2, pnCrimeExpirationDate DATE, pnPicture VARCHAR2 DEFAULT ' ', pnApproved VARCHAR2,pnIdType NUMBER, pnIdVeredict NUMBER, pnIdPerson NUMBER) IS
         BEGIN
             INSERT INTO record(numberr, description_crime, date_crime, resolution, crime_expiration_date, picture, approved, id_type, id_veredict, id_person, approved)
             VALUES (pnNumberr, pnDescriptionCrime, pnDateCrime, pnResolution, pnCrimeExpirationDate, pnPicture, pnApproved, pnIdType, pnIdVeredict, pnIdPerson, 'N');
         END;
 
-    PROCEDURE update_record(pnNumberr NUMBER, pnDescriptionCrime VARCHAR2, pnDateCrime DATE, pnResolution VARCHAR2, pnCrimeExpirationDate DATE, pnPicture VARCHAR2 DEFAULT ' ', pnApproved VARCHAR2, pnIdType NUMBER, pnIdVeredict NUMBER, pnIdPerson NUMBER) IS
+    PROCEDURE update_record(pnNumberr VARCHAR2, pnDescriptionCrime VARCHAR2, pnDateCrime DATE, pnResolution VARCHAR2, pnCrimeExpirationDate DATE, pnPicture VARCHAR2 DEFAULT ' ', pnApproved VARCHAR2, pnIdType NUMBER, pnIdVeredict NUMBER, pnIdPerson NUMBER) IS
         BEGIN
             UPDATE record
             SET numberr = pnNumberr,
@@ -41,13 +41,13 @@ CREATE OR REPLACE PACKAGE BODY admin_record AS
             WHERE id = pnId;
         END;
 
-    PROCEDURE remove_record(pnNumberr NUMBER) IS
+    PROCEDURE remove_record(pnNumberr VARCHAR2) IS
         BEGIN
             DELETE FROM record
             WHERE numberr = pnNumberr;
         END;
 
-    FUNCTION getDescriptionCrime (pnNumberr NUMBER) RETURN VARCHAR2 
+    FUNCTION getDescriptionCrime (pnNumberr VARCHAR2) RETURN VARCHAR2 
     IS rDescriptionCrime VARCHAR2(30);
         BEGIN
             SELECT description_crime
@@ -57,7 +57,7 @@ CREATE OR REPLACE PACKAGE BODY admin_record AS
             RETURN rDescriptionCrime;
         END;
 
-    FUNCTION getDateCrime (pnNumberr NUMBER) RETURN DATE 
+    FUNCTION getDateCrime (pnNumberr VARCHAR2) RETURN DATE 
     IS rDateCrime DATE;
         BEGIN
             SELECT date_crime
@@ -67,7 +67,7 @@ CREATE OR REPLACE PACKAGE BODY admin_record AS
             RETURN rDateCrime;
         END;
 
-    FUNCTION getResolution (pnNumberr NUMBER) RETURN VARCHAR2 
+    FUNCTION getResolution (pnNumberr VARCHAR2) RETURN VARCHAR2 
     IS rResolution VARCHAR2(30);
         BEGIN
             SELECT resolution
@@ -77,7 +77,7 @@ CREATE OR REPLACE PACKAGE BODY admin_record AS
             RETURN rResolution;
         END;
 
-    FUNCTION getCrimeExpirationDate (pnNumberr NUMBER) RETURN DATE 
+    FUNCTION getCrimeExpirationDate (pnNumberr VARCHAR2) RETURN DATE 
     IS rCrimeExpirationDate DATE;
         BEGIN
             SELECT crime_expiration_date
@@ -87,7 +87,7 @@ CREATE OR REPLACE PACKAGE BODY admin_record AS
             RETURN rCrimeExpirationDate;
         END;
 
-    FUNCTION getPicture (pnNumberr NUMBER) RETURN VARCHAR2 
+    FUNCTION getPicture (pnNumberr VARCHAR2) RETURN VARCHAR2 
     IS rPicture VARCHAR2(50);
         BEGIN
             SELECT picture
@@ -97,7 +97,7 @@ CREATE OR REPLACE PACKAGE BODY admin_record AS
             RETURN rPicture;
         END; 
 
-    FUNCTION getAproved (pnNumberr NUMBER) RETURN VARCHAR2 
+    FUNCTION getAproved (pnNumberr VARCHAR2) RETURN VARCHAR2 
     IS rApproved VARCHAR2(1);
         BEGIN
             SELECT approved
@@ -107,7 +107,7 @@ CREATE OR REPLACE PACKAGE BODY admin_record AS
             RETURN rApproved;
         END;
 
-    FUNCTION getIdType (pnNumberr NUMBER) RETURN NUMBER
+    FUNCTION getIdType (pnNumberr VARCHAR2) RETURN NUMBER
     IS rIdType NUMBER(3);
         BEGIN
             SELECT id_type
@@ -117,7 +117,7 @@ CREATE OR REPLACE PACKAGE BODY admin_record AS
             RETURN rIdType;
         END;    
 
-    FUNCTION getIdVeredict (pnNumberr NUMBER) RETURN NUMBER 
+    FUNCTION getIdVeredict (pnNumberr VARCHAR2) RETURN NUMBER 
     IS rIdVeredict NUMBER(4);
         BEGIN
             SELECT id_veredict
@@ -127,7 +127,7 @@ CREATE OR REPLACE PACKAGE BODY admin_record AS
             RETURN rIdVeredict;
         END;  
 
-    FUNCTION getIdPerson (pnNumberr NUMBER) RETURN NUMBER 
+    FUNCTION getIdPerson (pnNumberr VARCHAR2) RETURN NUMBER 
     IS rIdPerson NUMBER(9);
         BEGIN
             SELECT id_person
@@ -137,7 +137,7 @@ CREATE OR REPLACE PACKAGE BODY admin_record AS
             RETURN rIdPerson;
         END;  
 
-    PROCEDURE approve_record(pnNumberr NUMBER) IS
+    PROCEDURE approve_record(pnNumberr VARCHAR2) IS
         BEGIN
             UPDATE record
             SET approved = 'Y'
