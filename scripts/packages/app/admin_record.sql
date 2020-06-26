@@ -3,12 +3,14 @@
 -- Creation date: 20/06/2020
 CREATE OR REPLACE PACKAGE admin_record IS
     PROCEDURE insert_record(pnNumberr NUMBER, pnDescriptionCrime VARCHAR2, pnDateCrime DATE, pnResolution VARCHAR2, pnCrimeExpirationDate DATE, pnPicture VARCHAR2 DEFAULT ' ', pnIdType NUMBER, pnIdVeredict NUMBER, pnIdPerson NUMBER);
+    PROCEDURE update_record(pnNumberr NUMBER, pnDescriptionCrime VARCHAR2, pnDateCrime DATE, pnResolution VARCHAR2, pnCrimeExpirationDate DATE, pnPicture VARCHAR2 DEFAULT ' ', pnIdType NUMBER, pnIdVeredict NUMBER, pnIdPerson NUMBER);
     PROCEDURE remove_record(pnNumberr NUMBER);
     FUNCTION getDescriptionCrime (pnNumberr NUMBER) RETURN VARCHAR2;
     FUNCTION getDateCrime (pnNumberr NUMBER) RETURN DATE;
     FUNCTION getResolution (pnNumberr NUMBER) RETURN VARCHAR2;
     FUNCTION getCrimeExpirationDate (pnNumberr NUMBER) RETURN DATE;
     FUNCTION getPicture (pnNumberr NUMBER) RETURN VARCHAR2;
+    FUNCTION getAproved (pnNumberr NUMBER) RETURN VARCHAR2;
     FUNCTION getIdType (pnNumberr NUMBER) RETURN NUMBER;
     FUNCTION getIdVeredict (pnNumberr NUMBER) RETURN NUMBER;
     FUNCTION getIdPerson (pnNumberr NUMBER) RETURN NUMBER;
@@ -17,11 +19,28 @@ END admin_record;
 /
 
 CREATE OR REPLACE PACKAGE BODY admin_record AS
-    PROCEDURE insert_record(pnNumberr NUMBER, pnDescriptionCrime VARCHAR2, pnDateCrime DATE, pnResolution VARCHAR2, pnCrimeExpirationDate DATE, pnPicture VARCHAR2 DEFAULT ' ', pnIdType NUMBER, pnIdVeredict NUMBER, pnIdPerson NUMBER) IS
+    PROCEDURE insert_record(pnNumberr NUMBER, pnDescriptionCrime VARCHAR2, pnDateCrime DATE, pnResolution VARCHAR2, pnCrimeExpirationDate DATE, pnPicture VARCHAR2 DEFAULT ' ', pnApproved VARCHAR2,pnIdType NUMBER, pnIdVeredict NUMBER, pnIdPerson NUMBER) IS
         BEGIN
-            INSERT INTO record(numberr, description_crime, date_crime, resolution, crime_expiration_date, picture, id_type, id_veredict, id_person, approved)
-            VALUES (pnNumberr, pnDescriptionCrime, pnDateCrime, pnResolution, pnCrimeExpirationDate, pnPicture, pnIdType, pnIdVeredict, pnIdPerson, 'N');
+            INSERT INTO record(numberr, description_crime, date_crime, resolution, crime_expiration_date, picture, approved, id_type, id_veredict, id_person, approved)
+            VALUES (pnNumberr, pnDescriptionCrime, pnDateCrime, pnResolution, pnCrimeExpirationDate, pnPicture, pnApproved, pnIdType, pnIdVeredict, pnIdPerson, 'N');
         END;
+
+    PROCEDURE update_record(pnNumberr NUMBER, pnDescriptionCrime VARCHAR2, pnDateCrime DATE, pnResolution VARCHAR2, pnCrimeExpirationDate DATE, pnPicture VARCHAR2 DEFAULT ' ', pnApproved VARCHAR2, pnIdType NUMBER, pnIdVeredict NUMBER, pnIdPerson NUMBER) IS
+        BEGIN
+            UPDATE record
+            SET numberr = pnNumberr,
+            SET description_crime = pnDescriptionCrime,
+            SET date_crime = pnDateCrime,
+            SET resolution = pnResolution,
+            SET crime_expiration_date = pnCrimeExpirationDate,
+            SET picture = pnPicture,
+            SET approved = pnApproved,
+            SET id_type = pnIdType,
+            SET id_veredict = pnIdVeredict,
+            SET id_person = pnIdPerson
+            WHERE id = pnId;
+        END;
+
     PROCEDURE remove_record(pnNumberr NUMBER) IS
         BEGIN
             DELETE FROM record
@@ -77,6 +96,16 @@ CREATE OR REPLACE PACKAGE BODY admin_record AS
             WHERE numberr = pnNumberr;
             RETURN rPicture;
         END; 
+
+    FUNCTION getAproved (pnNumberr NUMBER) RETURN VARCHAR2 
+    IS rApproved VARCHAR2(1);
+        BEGIN
+            SELECT approved
+            INTO rApproved
+            FROM record
+            WHERE numberr = pnNumberr;
+            RETURN rApproved;
+        END;
 
     FUNCTION getIdType (pnNumberr NUMBER) RETURN NUMBER
     IS rIdType NUMBER(3);

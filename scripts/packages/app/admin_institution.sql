@@ -4,6 +4,7 @@
 
 CREATE OR REPLACE PACKAGE admin_institution IS
     PROCEDURE insert_institution(pnName VARCHAR2);
+    PROCEDURE update_institution(pnId NUMBER, pnName VARCHAR2);
     PROCEDURE remove_institution(pnIdInstitution NUMBER);
     FUNCTION getName (vId NUMBER) RETURN VARCHAR2;
 END admin_institution;
@@ -15,6 +16,14 @@ CREATE OR REPLACE PACKAGE BODY admin_institution AS
             INSERT INTO institution(id, name)
             VALUES (app.seq_institution.nextval, pnName);
         END;
+
+    PROCEDURE update_institution(pnId NUMBER, pnName VARCHAR2) IS
+        BEGIN
+            UPDATE insittution
+            SET name = pnName
+            WHERE id = pnId;
+        END;
+
     PROCEDURE remove_institution(pnIdInstitution NUMBER) IS
         BEGIN
             DELETE FROM institution

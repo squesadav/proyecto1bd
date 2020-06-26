@@ -4,6 +4,7 @@
 
 CREATE OR REPLACE PACKAGE admin_state IS
     PROCEDURE insert_state(pnName VARCHAR2, pnIdCountry NUMBER);
+    PROCEDURE update_state(pnId NUMBER, pnName VARCHAR2, pnIdCountry NUMBER);
     PROCEDURE remove_state(pnIdState NUMBER);
     FUNCTION getName (vId NUMBER) RETURN VARCHAR2;
     FUNCTION getIdCountry (vId NUMBER) RETURN NUMBER;
@@ -16,6 +17,14 @@ CREATE OR REPLACE PACKAGE BODY admin_state AS
             INSERT INTO state(id, name, id_country)
             VALUES (app.seq_state.nextval, pnName, pnIdCountry);
         END;
+
+    PROCEDURE update_state(pnId NUMBER, pnName VARCHAR2, pnIdCountry NUMBER) IS
+        BEGIN
+            UPDATE state
+            SET name = pnName, SET id_country = pnIdCountry
+            WHERE id = pnId;
+        END;
+
     PROCEDURE remove_state(pnIdState NUMBER) IS
         BEGIN
             DELETE FROM state

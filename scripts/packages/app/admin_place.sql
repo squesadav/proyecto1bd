@@ -4,6 +4,7 @@
 
 CREATE OR REPLACE PACKAGE admin_place IS
     PROCEDURE insert_place(pnName VARCHAR2);
+    PROCEDURE update_place(pnId NUMBER, pnName VARCHAR2);
     PROCEDURE remove_place(pnIdPlace NUMBER);
     FUNCTION getName (vId NUMBER) RETURN VARCHAR2;
 END admin_place;
@@ -15,6 +16,14 @@ CREATE OR REPLACE PACKAGE BODY admin_place AS
             INSERT INTO place(id, name)
             VALUES (app.seq_place.nextval, pnName);
         END;
+
+    PROCEDURE update_place(pnId NUMBER, pnName VARCHAR2) IS
+        BEGIN
+            UPDATE place
+            SET name = pnName
+            WHERE id = pnId;
+        END;
+
     PROCEDURE remove_place(pnIdPlace NUMBER) IS
         BEGIN
             DELETE FROM place
