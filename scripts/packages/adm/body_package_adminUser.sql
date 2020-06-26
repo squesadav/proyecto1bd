@@ -227,6 +227,48 @@ BEGIN
     WHERE username = vUsername;
     RETURN rPersonId;
 END;
+
+FUNCTION isBanned (vUsername VARCHAR2) RETURN VARCHAR2
+    IS rBanned VARCHAR2(1);
+BEGIN
+    declare
+        rows_found number;
+    begin
+        select count(*)
+        into   rows_found
+        from   banned
+        where  username = vUsername AND (ispermanent = 'Y' OR NVL(date_finish, SYSDATE) > SYSDATE);
+    
+        if rows_found > 0 then
+            rBanned := 'Y';
+        else
+            rBanned := 'N';
+        end if;
+    END;
+    RETURN rBanned;
+END isBanned;
+
+FUNCTION checkLogin (vUsername VARCHAR2, vPassword VARCHAR2) RETURN NUMBER
+    IS rUserType NUMBER(8);
+    /*Returns the usertype id or 0 if the user or password is incorrect or -1 if the user is banned*/
+BEGIN
+    BEGIN
+        SELECT id_usertype
+        INTO rUserType
+        FROM appuser au
+        WHERE au.username = vUsername AND au.password = encrypt_decrypt.encrypt(vPassword);
+        
+        EXCEPTION
+        WHEN NO_DATA_FOUND THEN
+            rUserType := 0;
+            RETURN rUserType;
+        END;
+        
+        IF isBanned(vUsername) = 'Y' THEN
+            rUserType := -1;
+        END IF;
+        RETURN rUserType;
+    END checkLogin;
 END adminUser;
 
 
