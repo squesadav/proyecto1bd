@@ -4,6 +4,7 @@
 
 CREATE OR REPLACE PACKAGE admin_community IS
     PROCEDURE insert_community(pnName VARCHAR2, pnDistrict NUMBER);
+    PROCEDURE update_community(pnId NUMBER, pnName VARCHAR2, pnDistrict NUMBER);
     PROCEDURE remove_community(pnIdCommunity NUMBER);
     FUNCTION getName (vId NUMBER) RETURN VARCHAR2;
     FUNCTION getIdDistrict (vId NUMBER) RETURN NUMBER;
@@ -16,6 +17,14 @@ CREATE OR REPLACE PACKAGE BODY admin_community AS
             INSERT INTO community(id, name, id_district)
             VALUES (app.seq_community.nextval, pnName, pnDistrict);
         END;
+
+    PROCEDURE update_community(pnId NUMBER, pnName VARCHAR2, pnDistrict NUMBER) IS
+        BEGIN
+            UPDATE community
+            SET name = pnName, SET id_district = pnDistrict
+            WHERE id = pnId:
+        END;
+
     PROCEDURE remove_community(pnIdCommunity NUMBER) IS
         BEGIN
             DELETE FROM community

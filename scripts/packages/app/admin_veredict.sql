@@ -4,6 +4,7 @@
 
 CREATE OR REPLACE PACKAGE admin_veredict IS
     PROCEDURE insert_veredict(pnYears NUMBER, pnIdPlace NUMBER, pnDateStart DATE, pnDateEnd DATE);
+    PROCEDURE update_veredict(pnYears NUMBER, pnIdPlace NUMBER, pnDateStart DATE, pnDateEnd DATE);
     PROCEDURE remove_veredict(pnIdVeredict NUMBER);
     FUNCTION getYears (vId NUMBER) RETURN NUMBER;
     FUNCTION getIdPlace (vId NUMBER) RETURN NUMBER;
@@ -18,6 +19,17 @@ CREATE OR REPLACE PACKAGE BODY admin_veredict AS
             INSERT INTO veredict(id, years, id_place, date_start, date_end)
             VALUES (app.seq_veredict.nextval, pnYears, pnIdPlace, pnDateStart, pnDateEnd);
         END;
+
+    PROCEDURE update_veredict(pnYears NUMBER, pnIdPlace NUMBER, pnDateStart DATE, pnDateEnd DATE) IS
+        BEGIN
+            UPDATE veredict
+            SET years = pnYears,
+            SET id_place = pnIdPlace,
+            SET date_start = pnDateStart,
+            SET date_end = pnDateEnd
+            WHERE id = pnId;
+        END;
+
     PROCEDURE remove_veredict(pnIdVeredict NUMBER) IS
         BEGIN
             DELETE FROM veredict

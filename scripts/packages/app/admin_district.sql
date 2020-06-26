@@ -4,6 +4,7 @@
 
 CREATE OR REPLACE PACKAGE admin_district IS
     PROCEDURE insert_district(pnName VARCHAR2, pnCity NUMBER);
+    PROCEDURE update_district(pnId NUMBER, pnName VARCHAR2, pnCity NUMBER);
     PROCEDURE remove_district(pnIdDistrict NUMBER);
     FUNCTION getName (vId NUMBER) RETURN VARCHAR2;
     FUNCTION getIdCity (vId NUMBER) RETURN NUMBER;
@@ -16,6 +17,14 @@ CREATE OR REPLACE PACKAGE BODY admin_district AS
             INSERT INTO district(id, name, id_city)
             VALUES (app.seq_district.nextval, pnName, pnCity);
         END;
+
+    PROCEDURE update_country(pnId NUMBER, pnName VARCHAR2, pnCity NUMBER) IS
+        BEGIN
+            UPDATE district
+            SET name = pnName, SET id_city = pnCity
+            WHERE id = pnId;
+        END;
+
     PROCEDURE remove_district(pnIdDistrict NUMBER) IS
         BEGIN
             DELETE FROM district

@@ -4,6 +4,7 @@
 
 CREATE OR REPLACE PACKAGE admin_country IS
     PROCEDURE insert_country(pnName VARCHAR2);
+    PROCEDURE update_country(pnId NUMBER, pnName VARCHAR2);
     PROCEDURE remove_country(pnIdCountry NUMBER);
     FUNCTION getName (vId NUMBER) RETURN VARCHAR2;
 END admin_country;
@@ -15,6 +16,14 @@ CREATE OR REPLACE PACKAGE BODY admin_country AS
             INSERT INTO country(id, name)
             VALUES (app.seq_country.nextval, pnName);
         END;
+
+    PROCEDURE update_country(pnId NUMBER, pnName VARCHAR2) IS
+        BEGIN
+            UPDATE country
+            SET name = pnName
+            WHERE id = pnId;
+        END;
+
     PROCEDURE remove_country(pnIdCountry NUMBER) IS
         BEGIN
             DELETE FROM country
