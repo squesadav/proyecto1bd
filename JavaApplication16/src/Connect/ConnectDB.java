@@ -270,8 +270,266 @@ public class ConnectDB {
         stmnt.execute();
     }
 
+    public static void insert_gender(Gender gender) throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ call admin_gender.insert_gender(?) } ");
+        
+        stmnt.setString(1, gender.getName());
+        stmnt.execute();
+    }
+
+    public static void update_gender(Gender gender) throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ call admin_gender.update_gender(?,?) } ");
+        
+        stmnt.setInt(1, gender.getId());
+        stmnt.setString(2, gender.getName());
+        stmnt.execute();
+    }
+
+    public static void insert_institution(Institution institution) throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ call admin_intitution.insert_institution(?) } ");
+        
+        stmnt.setString(1, institution.getName());
+        stmnt.execute();
+    }
+
+    public static void update_institution(Institution institution) throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ call admin_institution.update_institution(?,?) } ");
+        
+        stmnt.setInt(1, institution.getId());
+        stmnt.setString(2, institution.getName());
+        stmnt.execute();
+    }
     
-    
+    public static void insert_person(Person person) throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ call admin_person.insert_person(?,?,?,?,?,?,?,?) } ");
+        
+        stmnt.setInt(1, person.getId());
+        stmnt.setString(2, person.getName());
+        stmnt.setString(3, person.getMiddle_name());
+        stmnt.setString(4, person.getLast_name());
+        stmnt.setDate(5, person.getBirthday());
+        stmnt.setInt(6, person.getId_gender());
+        stmnt.setInt(7, person.getId_institution());
+        stmnt.setInt(8, person.getId_community());
+        stmnt.execute();
+    }
+
+    public static void update_person(Person person) throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ call admin_person.update_person(?,?,?,?,?,?,?,?) } ");
+        
+        stmnt.setInt(1, person.getId());
+        stmnt.setString(2, person.getName());
+        stmnt.setString(3, person.getMiddle_name());
+        stmnt.setString(4, person.getLast_name());
+        stmnt.setDate(5, person.getBirthday());
+        stmnt.setInt(6, person.getId_gender());
+        stmnt.setInt(7, person.getId_institution());
+        stmnt.setInt(8, person.getId_community());
+        stmnt.execute();
+    }
+
+    public static void insert_place(Place place) throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ call admin_place.insert_place(?) } ");
+        
+        stmnt.setString(1, place.getName());
+        stmnt.execute();
+    }
+
+    public static void update_place(Place place) throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ call admin_place.update_place(?,?) } ");
+        
+        stmnt.setInt(1, place.getId());
+        stmnt.setString(2, place.getName());
+        stmnt.execute();
+    }
+
+    public static void insert_record(Record record) throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ call admin_record.insert_record(?,?,?,?,?,?,?,?,?)}");
+        
+        stmnt.setString(1, record.getNumberr());
+        stmnt.setString(2, record.getDescription_crime());
+        stmnt.setDate(3, record.getDate_crime());
+        stmnt.setString(4, record.getResolution());
+        stmnt.setDate(5, record.getCrime_expiration_date());
+        stmnt.setString(6, record.getPicture());
+        stmnt.setString(7, record.getApproved());
+        stmnt.setInt(8, record.getId_type());
+        stmnt.setInt(9, record.getId_veredict());
+        stmnt.setInt(10, record.getId_person());
+        stmnt.execute();
+    }
+
+    public static void update_record(Record record) throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ call admin_record.update_record(?,?,?,?,?,?,?,?,?)}");
+        
+        stmnt.setString(1, record.getNumberr());
+        stmnt.setString(2, record.getDescription_crime());
+        stmnt.setDate(3, record.getDate_crime());
+        stmnt.setString(4, record.getResolution());
+        stmnt.setDate(5, record.getCrime_expiration_date());
+        stmnt.setString(6, record.getPicture());
+        stmnt.setString(7, record.getApproved());
+        stmnt.setInt(8, record.getId_type());
+        stmnt.setInt(9, record.getId_veredict());
+        stmnt.setInt(10, record.getId_person());
+        stmnt.execute();
+    }
+
+    public static void insert_state(State state) throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ call admin_state.insert_state(?,?) } ");
+        
+        stmnt.setString(1, state.getName());
+        stmnt.setInt(2, state.getId_country());
+        stmnt.execute();
+    }
+
+    public static void update_state(State state) throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ call admin_state.update_state(?,?) } ");
+        
+        stmnt.setInt(1, state.getId());
+        stmnt.setString(2, state.getName());
+        stmnt.setInt(3, state.getId_country());
+        stmnt.execute();
+    }
+
+    public static void insert_type(Type type) throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ call admin_type.insert_type(?) } ");
+        
+        stmnt.setString(1, type.getName());
+        stmnt.execute();
+    }
+
+    public static void update_type(Type type) throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ call admin_type.update_type(?,?) } ");
+        
+        stmnt.setInt(1, type.getId());
+        stmnt.setString(1, type.getName());
+        stmnt.execute();
+    }
+
+    public static void insert_veredict(Veredict veredict) throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ call admin_veredict.insert_veredict(?,?,?,?) } ");
+        
+        stmnt.setInt(1, veredict.getYears());
+        stmnt.setInt(2, veredict.getId_place());
+        stmnt.setDate(3, veredict.getDate_start());
+        stmnt.setDate(4, veredict.getDate_end());
+        stmnt.execute();
+    }
+
+    public static void update_veredict(Veredict veredict) throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ call admin_veredict.update_veredict(?,?,?,?,?) } ");
+        
+        stmnt.setInt(1, veredict.getId());
+        stmnt.setInt(2, veredict.getYears());
+        stmnt.setInt(3, veredict.getId_place());
+        stmnt.setDate(4, veredict.getDate_start());
+        stmnt.setDate(5, veredict.getDate_end());
+        stmnt.execute();
+    }
+
+
+
+
+
+
+
     
     public static String getString(String schema, String function, int atributo) throws SQLException 
     {

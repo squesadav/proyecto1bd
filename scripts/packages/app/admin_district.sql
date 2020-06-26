@@ -18,7 +18,7 @@ CREATE OR REPLACE PACKAGE BODY admin_district AS
             VALUES (app.seq_district.nextval, pnName, pnCity);
         END;
 
-    PROCEDURE update_country(pnId NUMBER, pnName VARCHAR2, pnCity NUMBER) IS
+    PROCEDURE update_district(pnId NUMBER, pnName VARCHAR2, pnCity NUMBER) IS
         BEGIN
             UPDATE district
             SET name = pnName, SET id_city = pnCity
