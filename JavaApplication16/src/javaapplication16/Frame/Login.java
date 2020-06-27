@@ -1,9 +1,13 @@
 
 package javaapplication16.Frame;
+import Connect.ConnectDB;
 import java.awt.Color;
 import java.awt.Cursor;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Login extends javax.swing.JFrame {
 
@@ -1326,18 +1330,25 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Fill the user field.");
         } else if(user_password.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Fill the password field.");
-        } else {
-            Username.setText(user_field);
-            Animacion.Animacion.mover_derecha(290, 1100, 1, 1, JPWelcome);
-            Animacion.Animacion.mover_izquierda(0, -1100, 1, 1, JPLogin);
-            JPLogged.setVisible(true);
-            JPUserMenu.setVisible(true);
-            JPSignUp.setVisible(false);
-            JPAdminMenu.setVisible(false);
-            JPCreateOffender.setVisible(false);
-            JPCreateRecord.setVisible(false);
-            UserQuery.setVisible(false);
+        } else try {
+            if(ConnectDB.checkLogin(user_field, user_password) != -1){
+                Username.setText(user_field);
+                Animacion.Animacion.mover_derecha(290, 1100, 1, 1, JPWelcome);
+                Animacion.Animacion.mover_izquierda(0, -1100, 1, 1, JPLogin);
+                JPLogged.setVisible(true);
+                JPUserMenu.setVisible(true);
+                JPSignUp.setVisible(false);
+                JPAdminMenu.setVisible(false);
+                JPCreateOffender.setVisible(false);
+                JPCreateRecord.setVisible(false);
+                UserQuery.setVisible(false);
+            } else{
+                JOptionPane.showMessageDialog(this, "User or password incorrect","Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }//GEN-LAST:event_ButtonEnterActionPerformed
 
     private void ButtonCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCloseActionPerformed

@@ -58,11 +58,11 @@ public class Veredict {
     }
 
     public Date getDate_end() {
-        return ate_end;
+        return date_end;
     }
 
     public void setDate_end(Date ate_end) {
-        this.ate_end = ate_end;
+        this.date_end = ate_end;
     }
     
     

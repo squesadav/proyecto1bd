@@ -337,7 +337,7 @@ public class ConnectDB {
         stmnt.setString(2, person.getName());
         stmnt.setString(3, person.getMiddle_name());
         stmnt.setString(4, person.getLast_name());
-        stmnt.setDate(5, person.getBirthday());
+        stmnt.setDate(5, (Date) person.getBirthday());
         stmnt.setInt(6, person.getId_gender());
         stmnt.setInt(7, person.getId_institution());
         stmnt.setInt(8, person.getId_community());
@@ -357,7 +357,7 @@ public class ConnectDB {
         stmnt.setString(2, person.getName());
         stmnt.setString(3, person.getMiddle_name());
         stmnt.setString(4, person.getLast_name());
-        stmnt.setDate(5, person.getBirthday());
+        stmnt.setDate(5, (Date) person.getBirthday());
         stmnt.setInt(6, person.getId_gender());
         stmnt.setInt(7, person.getId_institution());
         stmnt.setInt(8, person.getId_community());
@@ -391,7 +391,7 @@ public class ConnectDB {
         stmnt.execute();
     }
 
-    public static void insert_record(Record record) throws SQLException 
+    public static void insert_record(BL.Record record) throws SQLException 
     {
         String host = "jdbc:oracle:thin:@localhost:1521:DB";
         String uName = "APP";
@@ -400,20 +400,20 @@ public class ConnectDB {
         Connection con = DriverManager.getConnection(host, uName, uPass);
         CallableStatement stmnt = con.prepareCall("{ call admin_record.insert_record(?,?,?,?,?,?,?,?,?)}");
         
-        stmnt.setString(1, record.getNumberr());
+        stmnt.setString(1, record.getNumber());
         stmnt.setString(2, record.getDescription_crime());
-        stmnt.setDate(3, record.getDate_crime());
+        stmnt.setDate(3, (Date) record.getDate_crime());
         stmnt.setString(4, record.getResolution());
-        stmnt.setDate(5, record.getCrime_expiration_date());
+        stmnt.setDate(5, (Date) record.getCrime_expiration_date());
         stmnt.setString(6, record.getPicture());
-        stmnt.setString(7, record.getApproved());
+        stmnt.setString(7, record.isApproved());
         stmnt.setInt(8, record.getId_type());
         stmnt.setInt(9, record.getId_veredict());
         stmnt.setInt(10, record.getId_person());
         stmnt.execute();
     }
 
-    public static void update_record(Record record) throws SQLException 
+    public static void update_record(BL.Record record) throws SQLException 
     {
         String host = "jdbc:oracle:thin:@localhost:1521:DB";
         String uName = "APP";
@@ -422,13 +422,13 @@ public class ConnectDB {
         Connection con = DriverManager.getConnection(host, uName, uPass);
         CallableStatement stmnt = con.prepareCall("{ call admin_record.update_record(?,?,?,?,?,?,?,?,?)}");
         
-        stmnt.setString(1, record.getNumberr());
+        stmnt.setString(1, record.getNumber());
         stmnt.setString(2, record.getDescription_crime());
-        stmnt.setDate(3, record.getDate_crime());
+        stmnt.setDate(3, (Date) record.getDate_crime());
         stmnt.setString(4, record.getResolution());
-        stmnt.setDate(5, record.getCrime_expiration_date());
+        stmnt.setDate(5, (Date) record.getCrime_expiration_date());
         stmnt.setString(6, record.getPicture());
-        stmnt.setString(7, record.getApproved());
+        stmnt.setString(7, record.isApproved());
         stmnt.setInt(8, record.getId_type());
         stmnt.setInt(9, record.getId_veredict());
         stmnt.setInt(10, record.getId_person());
@@ -502,8 +502,8 @@ public class ConnectDB {
         
         stmnt.setInt(1, veredict.getYears());
         stmnt.setInt(2, veredict.getId_place());
-        stmnt.setDate(3, veredict.getDate_start());
-        stmnt.setDate(4, veredict.getDate_end());
+        stmnt.setDate(3, (Date) veredict.getDate_start());
+        stmnt.setDate(4, (Date) veredict.getDate_end());
         stmnt.execute();
     }
 
@@ -519,17 +519,10 @@ public class ConnectDB {
         stmnt.setInt(1, veredict.getId());
         stmnt.setInt(2, veredict.getYears());
         stmnt.setInt(3, veredict.getId_place());
-        stmnt.setDate(4, veredict.getDate_start());
-        stmnt.setDate(5, veredict.getDate_end());
+        stmnt.setDate(4, (Date) veredict.getDate_start());
+        stmnt.setDate(5, (Date) veredict.getDate_end());
         stmnt.execute();
     }
-
-
-
-
-
-
-
     
     public static String getString(String schema, String function, int atributo) throws SQLException 
     {
@@ -695,7 +688,7 @@ public class ConnectDB {
         stmnt.executeQuery(); 
     }
 
-    public static void isBanned(String username) throws SQLException 
+    public static String isBanned(String username) throws SQLException 
     {
         String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "ADM";
@@ -704,15 +697,16 @@ public class ConnectDB {
         Connection con = DriverManager.getConnection(host, uName, uPass);
         CallableStatement stmnt = con.prepareCall("{ ? = call adminUser.isBanned(?) } ");
         
-        stmnt.setString(1, OracleTypes.VARCHAR);
-        stmnt.setString(2, usrname);
+        stmnt.registerOutParameter(1, OracleTypes.VARCHAR);
+        stmnt.setString(2, username);
         String result = (String) stmnt.getObject(1);
         stmnt.executeQuery(); 
-        return result:
+        return result;
     }
 
-    public static void checkLogin(String username, String password) throws SQLException 
+    public static int checkLogin(String username, String password) throws SQLException 
     {
+        int result = -1;
         String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "ADM";
         String uPass = "ADM";
@@ -720,11 +714,17 @@ public class ConnectDB {
         Connection con = DriverManager.getConnection(host, uName, uPass);
         CallableStatement stmnt = con.prepareCall("{ ? = call adminUser.checkLogin(?,?) } ");
         
-        stmnt.setString(1, OracleTypes.VARCHAR);
+        stmnt.registerOutParameter(1, OracleTypes.VARCHAR);
         stmnt.setString(2, username);
         stmnt.setString(2, password);
-        int result = (int) stmnt.getObject(1);
         stmnt.executeQuery(); 
-        return result:
+        try
+        {
+            result = (int) stmnt.getObject(1);
+        }
+        catch(Exception e){}
+        
+        
+        return result;
     }
 }
