@@ -139,12 +139,24 @@ public class Login extends javax.swing.JFrame {
         ExpireDateField = new javax.swing.JFormattedTextField();
         LineExpireDate = new javax.swing.JSeparator();
         LabelExpireDate = new javax.swing.JLabel();
-        Picture = new javax.swing.JButton();
+        PictureNewRecord = new javax.swing.JButton();
         ResolutionField = new javax.swing.JTextField();
         RightNewRecord = new javax.swing.JButton();
         LeftNewRecord = new javax.swing.JButton();
         AddNewRecord = new javax.swing.JButton();
         RemoveNewRecord = new javax.swing.JButton();
+        UserConfiguration = new javax.swing.JTabbedPane();
+        UpdateLoginInfo = new javax.swing.JPanel();
+        LabelUserPasswordUpdateLogin = new javax.swing.JLabel();
+        LabelUserUpdateLogin = new javax.swing.JLabel();
+        LineUpdateUsername = new javax.swing.JSeparator();
+        UpdateUsernameField = new javax.swing.JTextField();
+        LineUpdatePassword = new javax.swing.JSeparator();
+        UpdatePasswordField = new javax.swing.JTextField();
+        ButtonCancelUpdatesUserLogin = new javax.swing.JButton();
+        ButtonConfirmChanges = new javax.swing.JButton();
+        UpdatePersonalInfo = new javax.swing.JPanel();
+        ButtonRollbackUpdatePersonalInfo = new javax.swing.JButton();
         UserQuery = new javax.swing.JTabbedPane();
         PlacesMoreRecords = new javax.swing.JPanel();
         LabelTop = new javax.swing.JLabel();
@@ -166,6 +178,9 @@ public class Login extends javax.swing.JFrame {
         BoxStartDate = new javax.swing.JComboBox<>();
         BoxFinishDate = new javax.swing.JComboBox<>();
         ButtonRollbackQueryRecords = new javax.swing.JButton();
+        PictureShowRecords = new javax.swing.JButton();
+        RightPicShowRecords = new javax.swing.JButton();
+        LeftPicShowRecords = new javax.swing.JButton();
         UsersList = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         ListUsers = new javax.swing.JTextArea();
@@ -184,6 +199,9 @@ public class Login extends javax.swing.JFrame {
         RecordsExpireList = new javax.swing.JList<>();
         ButtonShowRecordsDate = new javax.swing.JButton();
         ButtonRollbackQueryExpire = new javax.swing.JButton();
+        PictureRecordToExpire = new javax.swing.JButton();
+        RightPicRecordToExpire = new javax.swing.JButton();
+        LeftPicRecordToExpire = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -1092,18 +1110,18 @@ public class Login extends javax.swing.JFrame {
         LabelExpireDate.setText("Expire date:");
         JPCreateRecord.add(LabelExpireDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 410, 100, 30));
 
-        Picture.setBackground(new java.awt.Color(255, 255, 255));
-        Picture.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        Picture.setForeground(new java.awt.Color(29, 41, 81));
-        Picture.setText("Picture");
-        Picture.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
-        Picture.setContentAreaFilled(false);
-        Picture.addActionListener(new java.awt.event.ActionListener() {
+        PictureNewRecord.setBackground(new java.awt.Color(255, 255, 255));
+        PictureNewRecord.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        PictureNewRecord.setForeground(new java.awt.Color(29, 41, 81));
+        PictureNewRecord.setText("Picture");
+        PictureNewRecord.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
+        PictureNewRecord.setContentAreaFilled(false);
+        PictureNewRecord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PictureActionPerformed(evt);
+                PictureNewRecordActionPerformed(evt);
             }
         });
-        JPCreateRecord.add(Picture, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 60, 130, 150));
+        JPCreateRecord.add(PictureNewRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 60, 130, 150));
 
         ResolutionField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         ResolutionField.setForeground(new java.awt.Color(29, 41, 81));
@@ -1130,7 +1148,7 @@ public class Login extends javax.swing.JFrame {
         JPCreateRecord.add(RightNewRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 120, 40, 40));
 
         LeftNewRecord.setBackground(new java.awt.Color(255, 255, 255));
-        LeftNewRecord.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/leftPic.png"))); // NOI18N
+        LeftNewRecord.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/LeftPic.png"))); // NOI18N
         LeftNewRecord.setBorder(null);
         LeftNewRecord.setContentAreaFilled(false);
         LeftNewRecord.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1185,6 +1203,113 @@ public class Login extends javax.swing.JFrame {
         JPCreateRecord.add(RemoveNewRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, 40, 40));
 
         getContentPane().add(JPCreateRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
+
+        UpdateLoginInfo.setBackground(new java.awt.Color(255, 255, 255));
+        UpdateLoginInfo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                UpdateLoginInfoMouseEntered(evt);
+            }
+        });
+        UpdateLoginInfo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        LabelUserPasswordUpdateLogin.setBackground(new java.awt.Color(255, 255, 255));
+        LabelUserPasswordUpdateLogin.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelUserPasswordUpdateLogin.setForeground(new java.awt.Color(29, 41, 81));
+        LabelUserPasswordUpdateLogin.setText("Password:");
+        UpdateLoginInfo.add(LabelUserPasswordUpdateLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(345, 230, 90, 30));
+
+        LabelUserUpdateLogin.setBackground(new java.awt.Color(255, 255, 255));
+        LabelUserUpdateLogin.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelUserUpdateLogin.setForeground(new java.awt.Color(29, 41, 81));
+        LabelUserUpdateLogin.setText("Username:");
+        UpdateLoginInfo.add(LabelUserUpdateLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, 100, 30));
+
+        LineUpdateUsername.setForeground(new java.awt.Color(29, 41, 81));
+        UpdateLoginInfo.add(LineUpdateUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 220, 20));
+
+        UpdateUsernameField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        UpdateUsernameField.setForeground(new java.awt.Color(29, 41, 81));
+        UpdateUsernameField.setBorder(null);
+        UpdateLoginInfo.add(UpdateUsernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, 220, 30));
+
+        LineUpdatePassword.setForeground(new java.awt.Color(29, 41, 81));
+        UpdateLoginInfo.add(LineUpdatePassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, 220, 20));
+
+        UpdatePasswordField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        UpdatePasswordField.setForeground(new java.awt.Color(29, 41, 81));
+        UpdatePasswordField.setBorder(null);
+        UpdateLoginInfo.add(UpdatePasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, 220, 30));
+
+        ButtonCancelUpdatesUserLogin.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonCancelUpdatesUserLogin.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        ButtonCancelUpdatesUserLogin.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonCancelUpdatesUserLogin.setText("Cancel");
+        ButtonCancelUpdatesUserLogin.setBorder(null);
+        ButtonCancelUpdatesUserLogin.setContentAreaFilled(false);
+        ButtonCancelUpdatesUserLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonCancelUpdatesUserLoginMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonCancelUpdatesUserLoginMouseExited(evt);
+            }
+        });
+        ButtonCancelUpdatesUserLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonCancelUpdatesUserLoginActionPerformed(evt);
+            }
+        });
+        UpdateLoginInfo.add(ButtonCancelUpdatesUserLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 420, 100, 40));
+
+        ButtonConfirmChanges.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonConfirmChanges.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        ButtonConfirmChanges.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonConfirmChanges.setText("Confirm Changes");
+        ButtonConfirmChanges.setBorder(null);
+        ButtonConfirmChanges.setContentAreaFilled(false);
+        ButtonConfirmChanges.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonConfirmChangesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonConfirmChangesMouseExited(evt);
+            }
+        });
+        ButtonConfirmChanges.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonConfirmChangesActionPerformed(evt);
+            }
+        });
+        UpdateLoginInfo.add(ButtonConfirmChanges, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, 150, 40));
+
+        UserConfiguration.addTab("Update login information", UpdateLoginInfo);
+
+        UpdatePersonalInfo.setBackground(new java.awt.Color(255, 255, 255));
+        UpdatePersonalInfo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ButtonRollbackUpdatePersonalInfo.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonRollbackUpdatePersonalInfo.setForeground(new java.awt.Color(255, 255, 255));
+        ButtonRollbackUpdatePersonalInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/Rollback.png"))); // NOI18N
+        ButtonRollbackUpdatePersonalInfo.setBorder(null);
+        ButtonRollbackUpdatePersonalInfo.setContentAreaFilled(false);
+        ButtonRollbackUpdatePersonalInfo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonRollbackUpdatePersonalInfoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonRollbackUpdatePersonalInfoMouseExited(evt);
+            }
+        });
+        ButtonRollbackUpdatePersonalInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonRollbackUpdatePersonalInfoActionPerformed(evt);
+            }
+        });
+        UpdatePersonalInfo.add(ButtonRollbackUpdatePersonalInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 50));
+
+        UserConfiguration.addTab("Update personal information", UpdatePersonalInfo);
+
+        getContentPane().add(UserConfiguration, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
 
         UserQuery.setBackground(new java.awt.Color(255, 255, 255));
         UserQuery.setForeground(new java.awt.Color(29, 41, 81));
@@ -1267,8 +1392,8 @@ public class Login extends javax.swing.JFrame {
 
         LabelChooseFilterRecords.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         LabelChooseFilterRecords.setForeground(new java.awt.Color(29, 41, 81));
-        LabelChooseFilterRecords.setText("Choose the filter");
-        Records.add(LabelChooseFilterRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, -1, 30));
+        LabelChooseFilterRecords.setText("Choose the filter:");
+        Records.add(LabelChooseFilterRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, 30));
 
         BoxFilter.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         BoxFilter.setForeground(new java.awt.Color(29, 41, 81));
@@ -1278,7 +1403,7 @@ public class Login extends javax.swing.JFrame {
                 BoxFilterActionPerformed(evt);
             }
         });
-        Records.add(BoxFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 140, 30));
+        Records.add(BoxFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 140, 30));
 
         BoxFilterSpecify.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         BoxFilterSpecify.setForeground(new java.awt.Color(29, 41, 81));
@@ -1288,7 +1413,7 @@ public class Login extends javax.swing.JFrame {
                 BoxFilterSpecifyActionPerformed(evt);
             }
         });
-        Records.add(BoxFilterSpecify, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 140, 30));
+        Records.add(BoxFilterSpecify, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 140, 30));
 
         ButtonShowRecords.setBackground(new java.awt.Color(255, 255, 255));
         ButtonShowRecords.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -1301,7 +1426,7 @@ public class Login extends javax.swing.JFrame {
                 ButtonShowRecordsActionPerformed(evt);
             }
         });
-        Records.add(ButtonShowRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, 100, 30));
+        Records.add(ButtonShowRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 100, 30));
 
         jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
@@ -1338,7 +1463,7 @@ public class Login extends javax.swing.JFrame {
                 BoxStartDateActionPerformed(evt);
             }
         });
-        Records.add(BoxStartDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 240, -1, 30));
+        Records.add(BoxStartDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, 30));
 
         BoxFinishDate.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         BoxFinishDate.setForeground(new java.awt.Color(29, 41, 81));
@@ -1348,7 +1473,7 @@ public class Login extends javax.swing.JFrame {
                 BoxFinishDateActionPerformed(evt);
             }
         });
-        Records.add(BoxFinishDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, -1, 30));
+        Records.add(BoxFinishDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, -1, 30));
 
         ButtonRollbackQueryRecords.setBackground(new java.awt.Color(255, 255, 255));
         ButtonRollbackQueryRecords.setForeground(new java.awt.Color(255, 255, 255));
@@ -1369,6 +1494,57 @@ public class Login extends javax.swing.JFrame {
             }
         });
         Records.add(ButtonRollbackQueryRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 50));
+
+        PictureShowRecords.setBackground(new java.awt.Color(255, 255, 255));
+        PictureShowRecords.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        PictureShowRecords.setForeground(new java.awt.Color(29, 41, 81));
+        PictureShowRecords.setText("Picture");
+        PictureShowRecords.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
+        PictureShowRecords.setContentAreaFilled(false);
+        PictureShowRecords.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PictureShowRecordsActionPerformed(evt);
+            }
+        });
+        Records.add(PictureShowRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 130, 150));
+
+        RightPicShowRecords.setBackground(new java.awt.Color(255, 255, 255));
+        RightPicShowRecords.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/RightPic.png"))); // NOI18N
+        RightPicShowRecords.setBorder(null);
+        RightPicShowRecords.setContentAreaFilled(false);
+        RightPicShowRecords.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                RightPicShowRecordsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                RightPicShowRecordsMouseExited(evt);
+            }
+        });
+        RightPicShowRecords.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RightPicShowRecordsActionPerformed(evt);
+            }
+        });
+        Records.add(RightPicShowRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 380, 40, 40));
+
+        LeftPicShowRecords.setBackground(new java.awt.Color(255, 255, 255));
+        LeftPicShowRecords.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/LeftPic.png"))); // NOI18N
+        LeftPicShowRecords.setBorder(null);
+        LeftPicShowRecords.setContentAreaFilled(false);
+        LeftPicShowRecords.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                LeftPicShowRecordsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                LeftPicShowRecordsMouseExited(evt);
+            }
+        });
+        LeftPicShowRecords.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LeftPicShowRecordsActionPerformed(evt);
+            }
+        });
+        Records.add(LeftPicShowRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 40, 40));
 
         UserQuery.addTab("Records", Records);
 
@@ -1463,17 +1639,17 @@ public class Login extends javax.swing.JFrame {
         BoxStartDate1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         BoxStartDate1.setForeground(new java.awt.Color(29, 41, 81));
         BoxStartDate1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Start Date" }));
-        RecordsConvictionsToExpireOrExpired.add(BoxStartDate1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, -1, 30));
+        RecordsConvictionsToExpireOrExpired.add(BoxStartDate1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, 30));
 
         BoxFinishDate1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         BoxFinishDate1.setForeground(new java.awt.Color(29, 41, 81));
         BoxFinishDate1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "End Date" }));
-        RecordsConvictionsToExpireOrExpired.add(BoxFinishDate1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, -1, 30));
+        RecordsConvictionsToExpireOrExpired.add(BoxFinishDate1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, -1, 30));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(29, 41, 81));
-        jLabel1.setText("Date Range");
-        RecordsConvictionsToExpireOrExpired.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, 80, 30));
+        jLabel1.setText("Date Range:");
+        RecordsConvictionsToExpireOrExpired.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 80, 30));
 
         jScrollPane7.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
@@ -1503,7 +1679,7 @@ public class Login extends javax.swing.JFrame {
         ButtonShowRecordsDate.setText("Enter");
         ButtonShowRecordsDate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
         ButtonShowRecordsDate.setContentAreaFilled(false);
-        RecordsConvictionsToExpireOrExpired.add(ButtonShowRecordsDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, 100, 30));
+        RecordsConvictionsToExpireOrExpired.add(ButtonShowRecordsDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 100, 30));
 
         ButtonRollbackQueryExpire.setBackground(new java.awt.Color(255, 255, 255));
         ButtonRollbackQueryExpire.setForeground(new java.awt.Color(255, 255, 255));
@@ -1525,6 +1701,57 @@ public class Login extends javax.swing.JFrame {
         });
         RecordsConvictionsToExpireOrExpired.add(ButtonRollbackQueryExpire, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 50));
 
+        PictureRecordToExpire.setBackground(new java.awt.Color(255, 255, 255));
+        PictureRecordToExpire.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        PictureRecordToExpire.setForeground(new java.awt.Color(29, 41, 81));
+        PictureRecordToExpire.setText("Picture");
+        PictureRecordToExpire.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
+        PictureRecordToExpire.setContentAreaFilled(false);
+        PictureRecordToExpire.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PictureRecordToExpireActionPerformed(evt);
+            }
+        });
+        RecordsConvictionsToExpireOrExpired.add(PictureRecordToExpire, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, 130, 150));
+
+        RightPicRecordToExpire.setBackground(new java.awt.Color(255, 255, 255));
+        RightPicRecordToExpire.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/RightPic.png"))); // NOI18N
+        RightPicRecordToExpire.setBorder(null);
+        RightPicRecordToExpire.setContentAreaFilled(false);
+        RightPicRecordToExpire.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                RightPicRecordToExpireMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                RightPicRecordToExpireMouseExited(evt);
+            }
+        });
+        RightPicRecordToExpire.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RightPicRecordToExpireActionPerformed(evt);
+            }
+        });
+        RecordsConvictionsToExpireOrExpired.add(RightPicRecordToExpire, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, 40, 40));
+
+        LeftPicRecordToExpire.setBackground(new java.awt.Color(255, 255, 255));
+        LeftPicRecordToExpire.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/LeftPic.png"))); // NOI18N
+        LeftPicRecordToExpire.setBorder(null);
+        LeftPicRecordToExpire.setContentAreaFilled(false);
+        LeftPicRecordToExpire.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                LeftPicRecordToExpireMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                LeftPicRecordToExpireMouseExited(evt);
+            }
+        });
+        LeftPicRecordToExpire.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LeftPicRecordToExpireActionPerformed(evt);
+            }
+        });
+        RecordsConvictionsToExpireOrExpired.add(LeftPicRecordToExpire, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 40, 40));
+
         UserQuery.addTab("Records with convictions about to expire or expired", RecordsConvictionsToExpireOrExpired);
 
         getContentPane().add(UserQuery, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
@@ -1540,11 +1767,21 @@ public class Login extends javax.swing.JFrame {
         JPCreateOffender.setVisible(false);
         JPCreateRecord.setVisible(false);
         UserQuery.setVisible(true);
+        UserConfiguration.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonQueryActionPerformed
 
     private void ButtonConfigurationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfigurationActionPerformed
-        // TODO add your handling code here:
+        Animacion.Animacion.mover_derecha(290, 1100, 1, 1, JPUserMenu);
+        JPAdminMenu.setVisible(false);
+        JPWelcome.setVisible(false);
+        JPSignUp.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        UserQuery.setVisible(false);
+        UserConfiguration.setVisible(true);
+        JPLogged.setVisible(true);
+        UpdateUsernameField.setText(Username.getText());
     }//GEN-LAST:event_ButtonConfigurationActionPerformed
 
     private void ButtonLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonLogOutActionPerformed
@@ -1556,6 +1793,8 @@ public class Login extends javax.swing.JFrame {
         JPCreateRecord.setVisible(false);
         JPSignUp.setVisible(false);
         JPLogged.setVisible(false);
+        UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
         UsernameField.setText(null);
         PasswordField.setText(null);
     }//GEN-LAST:event_ButtonLogOutActionPerformed
@@ -1576,6 +1815,7 @@ public class Login extends javax.swing.JFrame {
         JPCreateOffender.setVisible(false);
         JPCreateRecord.setVisible(false);
         UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonLogOut1ActionPerformed
 
@@ -1594,6 +1834,7 @@ public class Login extends javax.swing.JFrame {
         JPCreateOffender.setVisible(false);
         JPCreateRecord.setVisible(false);
         UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
         JPSignUp.setVisible(true);
         JPLogged.setVisible(false);
     }//GEN-LAST:event_ButtonSignUpActionPerformed
@@ -1617,6 +1858,7 @@ public class Login extends javax.swing.JFrame {
                 JPCreateOffender.setVisible(false);
                 JPCreateRecord.setVisible(false);
                 UserQuery.setVisible(false);
+                UserConfiguration.setVisible(false);
             } else{
                 JOptionPane.showMessageDialog(this, "User or password incorrect","Error", JOptionPane.ERROR_MESSAGE);
             }
@@ -1739,6 +1981,7 @@ public class Login extends javax.swing.JFrame {
         JPCreateOffender.setVisible(false);
         JPCreateRecord.setVisible(false);
         UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
     }//GEN-LAST:event_JPWelcomeMouseEntered
 
     private void ButtonCancelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelMouseEntered
@@ -1757,6 +2000,7 @@ public class Login extends javax.swing.JFrame {
         JPCreateOffender.setVisible(false);
         JPCreateRecord.setVisible(false);
         UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
         JPAdminMenu.setVisible(false);
         JPSignUp.setVisible(false);
     }//GEN-LAST:event_ButtonCancelActionPerformed
@@ -1802,6 +2046,8 @@ public class Login extends javax.swing.JFrame {
             JPSignUp.setVisible(false);
             NewUsernameField.setText(null);
             NewUserPasswordField.setText(null);
+            UserQuery.setVisible(false);
+            UserConfiguration.setVisible(false);
         }
     }//GEN-LAST:event_ButtonJoinActionPerformed
 
@@ -1813,24 +2059,31 @@ public class Login extends javax.swing.JFrame {
         JPCreateOffender.setVisible(false);
         JPCreateRecord.setVisible(false);
         UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
     }//GEN-LAST:event_JPSignUpMouseEntered
 
     private void JPAdminMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPAdminMenuMouseEntered
         JPWelcome.setVisible(false);
         JPSignUp.setVisible(false);
+        JPLogged.setVisible(true);
+        JPLogin.setVisible(false);
         JPAdminMenu.setVisible(true);
         JPUserMenu.setVisible(false);
         JPCreateOffender.setVisible(false);
         JPCreateRecord.setVisible(false);
         UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
     }//GEN-LAST:event_JPAdminMenuMouseEntered
 
     private void JPUserMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPUserMenuMouseEntered
         JPWelcome.setVisible(false);
         JPSignUp.setVisible(false);
+        JPLogged.setVisible(true);
+        JPLogin.setVisible(false);
         JPCreateOffender.setVisible(false);
         JPCreateRecord.setVisible(false);
         UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
         JPAdminMenu.setVisible(false);
         JPUserMenu.setVisible(true);
     }//GEN-LAST:event_JPUserMenuMouseEntered
@@ -1856,6 +2109,7 @@ public class Login extends javax.swing.JFrame {
         JPLogin.setVisible(false);
         JPLogged.setVisible(true);
         UserQuery.setVisible(true);
+        UserConfiguration.setVisible(false);
         ListUsers.setText("Users with tabs");
         ListBannedUsers.setText("Banned Users - Reason with tabs");
     }//GEN-LAST:event_UserQueryMouseEntered
@@ -1955,6 +2209,7 @@ public class Login extends javax.swing.JFrame {
         JPWelcome.setVisible(false);
         JPSignUp.setVisible(false);
         UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
         JPLogin.setVisible(false);
         JPCreateRecord.setVisible(false);
         JPCreateOffender.setVisible(true);
@@ -1967,6 +2222,7 @@ public class Login extends javax.swing.JFrame {
         JPWelcome.setVisible(false);
         JPSignUp.setVisible(false);
         UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
         JPCreateRecord.setVisible(true);
         JPLogin.setVisible(false);
         JPCreateOffender.setVisible(false);
@@ -1980,6 +2236,7 @@ public class Login extends javax.swing.JFrame {
         JPWelcome.setVisible(false);
         JPSignUp.setVisible(false);
         UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
         JPCreateRecord.setVisible(false);
         JPLogin.setVisible(false);
         JPCreateOffender.setVisible(true);
@@ -2014,6 +2271,8 @@ public class Login extends javax.swing.JFrame {
         JPCreateRecord.setVisible(false);
         JPCreateOffender.setVisible(false);
         JPSignUp.setVisible(false);
+        UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
         IdOffenderField.setText(null);
         NameOffenderField.setText(null);
         MiddleNameOffenderField.setText(null);
@@ -2059,6 +2318,7 @@ public class Login extends javax.swing.JFrame {
             JPWelcome.setVisible(false);
             JPSignUp.setVisible(false);
             UserQuery.setVisible(false);
+            UserConfiguration.setVisible(false);
             JPCreateRecord.setVisible(true);
             JPLogin.setVisible(false);
             JPLogged.setVisible(true);
@@ -2081,6 +2341,8 @@ public class Login extends javax.swing.JFrame {
         JPCreateOffender.setVisible(false);
         JPSignUp.setVisible(false);
         JPLogged.setVisible(true);
+        UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
         NumberTopField.setText(null);
         PlacesList.removeAll();
     }//GEN-LAST:event_ButtonRollbackQueryPlacesActionPerformed
@@ -2101,6 +2363,8 @@ public class Login extends javax.swing.JFrame {
         JPCreateOffender.setVisible(false);
         JPSignUp.setVisible(false);
         JPLogged.setVisible(true);
+        UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
         RecordsList.removeAll();
         RecordDescriptionText.setText(null);
         BoxFilter.setSelectedIndex(0);
@@ -2124,6 +2388,10 @@ public class Login extends javax.swing.JFrame {
         JPCreateRecord.setVisible(false);
         JPCreateOffender.setVisible(false);
         JPSignUp.setVisible(false);
+        JPLogin.setVisible(false);
+        JPLogged.setVisible(true);
+        UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
     }//GEN-LAST:event_ButtonRollbackQueryUsersActionPerformed
 
     private void ButtonRollbackQueryBannedMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryBannedMouseEntered
@@ -2142,6 +2410,8 @@ public class Login extends javax.swing.JFrame {
         JPCreateOffender.setVisible(false);
         JPSignUp.setVisible(false);
         JPLogged.setVisible(true);
+        UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
     }//GEN-LAST:event_ButtonRollbackQueryBannedActionPerformed
 
     private void ButtonRollbackQueryExpireMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryExpireMouseEntered
@@ -2160,6 +2430,8 @@ public class Login extends javax.swing.JFrame {
         JPCreateOffender.setVisible(false);
         JPSignUp.setVisible(false);
         JPLogged.setVisible(true);
+        UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
         RecordsExpireList.removeAll();
         RecordDescriptionTextExpire.setText(null);
         BoxStartDate1.setSelectedIndex(0);
@@ -2176,6 +2448,7 @@ public class Login extends javax.swing.JFrame {
         JPLogin.setVisible(false);
         JPLogged.setVisible(true);
         UserQuery.setVisible(true);
+        UserConfiguration.setVisible(false);
         PlacesMoreRecords.setVisible(true);
         Records.setVisible(false);
         UsersList.setVisible(false);
@@ -2193,6 +2466,7 @@ public class Login extends javax.swing.JFrame {
         JPLogin.setVisible(false);
         JPLogged.setVisible(true);
         UserQuery.setVisible(true);
+        UserConfiguration.setVisible(false);
         PlacesMoreRecords.setVisible(false);
         Records.setVisible(true);
         UsersList.setVisible(false);
@@ -2210,6 +2484,7 @@ public class Login extends javax.swing.JFrame {
         JPLogin.setVisible(false);
         JPLogged.setVisible(true);
         UserQuery.setVisible(true);
+        UserConfiguration.setVisible(false);
         PlacesMoreRecords.setVisible(false);
         Records.setVisible(false);
         UsersList.setVisible(true);
@@ -2227,6 +2502,7 @@ public class Login extends javax.swing.JFrame {
         JPLogin.setVisible(false);
         JPLogged.setVisible(true);
         UserQuery.setVisible(true);
+        UserConfiguration.setVisible(false);
         PlacesMoreRecords.setVisible(false);
         Records.setVisible(false);
         UsersList.setVisible(false);
@@ -2244,6 +2520,7 @@ public class Login extends javax.swing.JFrame {
         JPLogin.setVisible(false);
         JPLogged.setVisible(true);
         UserQuery.setVisible(true);
+        UserConfiguration.setVisible(false);
         PlacesMoreRecords.setVisible(false);
         Records.setVisible(false);
         UsersList.setVisible(false);
@@ -2266,6 +2543,10 @@ public class Login extends javax.swing.JFrame {
         JPCreateRecord.setVisible(false);
         JPCreateOffender.setVisible(false);
         JPSignUp.setVisible(false);
+        UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
+        JPLogged.setVisible(true);
+        JPLogin.setVisible(false);
         IdOffenderField.setText(null);
         NameOffenderField.setText(null);
         MiddleNameOffenderField.setText(null);
@@ -2313,6 +2594,7 @@ public class Login extends javax.swing.JFrame {
             JPWelcome.setVisible(false);
             JPSignUp.setVisible(false);
             UserQuery.setVisible(false);
+            UserConfiguration.setVisible(false);
             JPCreateRecord.setVisible(false);
             JPCreateOffender.setVisible(false);
             JPLogin.setVisible(false);
@@ -2368,9 +2650,127 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_AddNewRecordActionPerformed
 
-    private void PictureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PictureActionPerformed
+    private void PictureNewRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PictureNewRecordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PictureActionPerformed
+    }//GEN-LAST:event_PictureNewRecordActionPerformed
+
+    private void PictureShowRecordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PictureShowRecordsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PictureShowRecordsActionPerformed
+
+    private void RightPicShowRecordsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RightPicShowRecordsMouseEntered
+        RightPicShowRecords.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_RightPicShowRecordsMouseEntered
+
+    private void RightPicShowRecordsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RightPicShowRecordsMouseExited
+        RightPicShowRecords.setBorder(null);
+    }//GEN-LAST:event_RightPicShowRecordsMouseExited
+
+    private void RightPicShowRecordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RightPicShowRecordsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RightPicShowRecordsActionPerformed
+
+    private void LeftPicShowRecordsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LeftPicShowRecordsMouseEntered
+        LeftPicShowRecords.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_LeftPicShowRecordsMouseEntered
+
+    private void LeftPicShowRecordsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LeftPicShowRecordsMouseExited
+        LeftPicShowRecords.setBorder(null);
+    }//GEN-LAST:event_LeftPicShowRecordsMouseExited
+
+    private void LeftPicShowRecordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LeftPicShowRecordsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LeftPicShowRecordsActionPerformed
+
+    private void PictureRecordToExpireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PictureRecordToExpireActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PictureRecordToExpireActionPerformed
+
+    private void RightPicRecordToExpireMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RightPicRecordToExpireMouseEntered
+        RightPicRecordToExpire.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_RightPicRecordToExpireMouseEntered
+
+    private void RightPicRecordToExpireMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RightPicRecordToExpireMouseExited
+        RightPicRecordToExpire.setBorder(null);
+    }//GEN-LAST:event_RightPicRecordToExpireMouseExited
+
+    private void RightPicRecordToExpireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RightPicRecordToExpireActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RightPicRecordToExpireActionPerformed
+
+    private void LeftPicRecordToExpireMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LeftPicRecordToExpireMouseEntered
+        LeftPicRecordToExpire.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_LeftPicRecordToExpireMouseEntered
+
+    private void LeftPicRecordToExpireMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LeftPicRecordToExpireMouseExited
+        LeftPicRecordToExpire.setBorder(null);
+    }//GEN-LAST:event_LeftPicRecordToExpireMouseExited
+
+    private void LeftPicRecordToExpireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LeftPicRecordToExpireActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LeftPicRecordToExpireActionPerformed
+
+    private void ButtonRollbackUpdatePersonalInfoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackUpdatePersonalInfoMouseEntered
+        ButtonRollbackUpdatePersonalInfo.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_ButtonRollbackUpdatePersonalInfoMouseEntered
+
+    private void ButtonRollbackUpdatePersonalInfoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackUpdatePersonalInfoMouseExited
+        ButtonRollbackUpdatePersonalInfo.setBorder(null);
+    }//GEN-LAST:event_ButtonRollbackUpdatePersonalInfoMouseExited
+
+    private void ButtonRollbackUpdatePersonalInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackUpdatePersonalInfoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonRollbackUpdatePersonalInfoActionPerformed
+
+    private void ButtonCancelUpdatesUserLoginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelUpdatesUserLoginMouseEntered
+        ButtonCancelUpdatesUserLogin.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_ButtonCancelUpdatesUserLoginMouseEntered
+
+    private void ButtonCancelUpdatesUserLoginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelUpdatesUserLoginMouseExited
+        ButtonCancelUpdatesUserLogin.setBorder(null);
+    }//GEN-LAST:event_ButtonCancelUpdatesUserLoginMouseExited
+
+    private void ButtonCancelUpdatesUserLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelUpdatesUserLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonCancelUpdatesUserLoginActionPerformed
+
+    private void ButtonConfirmChangesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonConfirmChangesMouseEntered
+        ButtonConfirmChanges.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_ButtonConfirmChangesMouseEntered
+
+    private void ButtonConfirmChangesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonConfirmChangesMouseExited
+        ButtonConfirmChanges.setBorder(null);
+    }//GEN-LAST:event_ButtonConfirmChangesMouseExited
+
+    private void ButtonConfirmChangesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmChangesActionPerformed
+        String new_username = UpdateUsernameField.getText();
+        String actual_password = (String) JOptionPane.showInputDialog(null,"Nombre del ingrediente: ","",JOptionPane.INFORMATION_MESSAGE);
+        //Que revise si es la contraseña igual
+        JPAdminMenu.setVisible(true);
+        JPUserMenu.setVisible(false);
+        JPWelcome.setVisible(false);
+        JPSignUp.setVisible(false);
+        UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPLogin.setVisible(false);
+        JPLogged.setVisible(true);
+        Username.setText(new_username);
+    }//GEN-LAST:event_ButtonConfirmChangesActionPerformed
+
+    private void UpdateLoginInfoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UpdateLoginInfoMouseEntered
+        JPAdminMenu.setVisible(false);
+        JPUserMenu.setVisible(false);
+        JPWelcome.setVisible(false);
+        JPSignUp.setVisible(false);
+        UserQuery.setVisible(false);
+        UserConfiguration.setVisible(true);
+        JPCreateRecord.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPLogin.setVisible(false);
+        JPLogged.setVisible(true);
+    }//GEN-LAST:event_UpdateLoginInfoMouseEntered
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -2427,9 +2827,11 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton ButtonCancel;
     private javax.swing.JButton ButtonCancelNewRecord;
     private javax.swing.JButton ButtonCancelOffender;
+    private javax.swing.JButton ButtonCancelUpdatesUserLogin;
     private javax.swing.JButton ButtonClose;
     private javax.swing.JButton ButtonConfiguration;
     private javax.swing.JButton ButtonConfiguration1;
+    private javax.swing.JButton ButtonConfirmChanges;
     private javax.swing.JButton ButtonConfirmNewRecord;
     private javax.swing.JButton ButtonConfirmOffender;
     private javax.swing.JButton ButtonCreateRecord;
@@ -2447,6 +2849,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton ButtonRollbackQueryPlaces;
     private javax.swing.JButton ButtonRollbackQueryRecords;
     private javax.swing.JButton ButtonRollbackQueryUsers;
+    private javax.swing.JButton ButtonRollbackUpdatePersonalInfo;
     private javax.swing.JButton ButtonShowPlaces;
     private javax.swing.JButton ButtonShowRecords;
     private javax.swing.JButton ButtonShowRecordsDate;
@@ -2502,12 +2905,16 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel LabelResolution;
     private javax.swing.JLabel LabelSignUp;
     private javax.swing.JLabel LabelTop;
+    private javax.swing.JLabel LabelUserPasswordUpdateLogin;
+    private javax.swing.JLabel LabelUserUpdateLogin;
     private javax.swing.JLabel LabelUsername;
     private javax.swing.JLabel LabelVeredict;
     private javax.swing.JLabel LabelWelcome;
     private javax.swing.JTextField LastNameNewUserField;
     private javax.swing.JTextField LastNameOffenderField;
     private javax.swing.JButton LeftNewRecord;
+    private javax.swing.JButton LeftPicRecordToExpire;
+    private javax.swing.JButton LeftPicShowRecords;
     private javax.swing.JSeparator LineDateCrime;
     private javax.swing.JSeparator LineExpireDate;
     private javax.swing.JSeparator LineNewUserBirthday;
@@ -2525,6 +2932,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JSeparator LineOffenderName;
     private javax.swing.JSeparator LinePassword;
     private javax.swing.JSeparator LineResolution;
+    private javax.swing.JSeparator LineUpdatePassword;
+    private javax.swing.JSeparator LineUpdateUsername;
     private javax.swing.JSeparator LineUsername;
     private javax.swing.JTextArea ListBannedUsers;
     private javax.swing.JTextArea ListUsers;
@@ -2537,7 +2946,9 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField NumberTopField;
     private javax.swing.JSeparator NumberTopLine;
     private javax.swing.JPasswordField PasswordField;
-    private javax.swing.JButton Picture;
+    private javax.swing.JButton PictureNewRecord;
+    private javax.swing.JButton PictureRecordToExpire;
+    private javax.swing.JButton PictureShowRecords;
     private javax.swing.JList<String> PlacesList;
     private javax.swing.JPanel PlacesMoreRecords;
     private javax.swing.JTextArea RecordDescriptionText;
@@ -2550,6 +2961,13 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton RemoveNewRecord;
     private javax.swing.JTextField ResolutionField;
     private javax.swing.JButton RightNewRecord;
+    private javax.swing.JButton RightPicRecordToExpire;
+    private javax.swing.JButton RightPicShowRecords;
+    private javax.swing.JPanel UpdateLoginInfo;
+    private javax.swing.JTextField UpdatePasswordField;
+    private javax.swing.JPanel UpdatePersonalInfo;
+    private javax.swing.JTextField UpdateUsernameField;
+    private javax.swing.JTabbedPane UserConfiguration;
     private javax.swing.JTabbedPane UserQuery;
     private javax.swing.JLabel Username;
     private javax.swing.JTextField UsernameField;
