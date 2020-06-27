@@ -111,6 +111,36 @@ public class Login extends javax.swing.JFrame {
         IconOffender = new javax.swing.JLabel();
         JPCreateRecord = new javax.swing.JPanel();
         ButtonRollbackCreateRecord = new javax.swing.JButton();
+        LabelRecordNumber = new javax.swing.JLabel();
+        LabelCrimeDescription = new javax.swing.JLabel();
+        LabelResolution = new javax.swing.JLabel();
+        LabelVeredict = new javax.swing.JLabel();
+        LabelOffender = new javax.swing.JLabel();
+        LabelCrimeType = new javax.swing.JLabel();
+        LabelDateCrime = new javax.swing.JLabel();
+        LineNumberRecord = new javax.swing.JSeparator();
+        RecordNumberField = new javax.swing.JTextField();
+        LineResolution = new javax.swing.JSeparator();
+        LineDateCrime = new javax.swing.JSeparator();
+        DateCrimeField = new javax.swing.JFormattedTextField();
+        BoxVeredict = new javax.swing.JComboBox<>();
+        BoxOffender = new javax.swing.JComboBox<>();
+        BoxCrimeType = new javax.swing.JComboBox<>();
+        ButtonCancelNewRecord = new javax.swing.JButton();
+        ButtonConfirmNewRecord = new javax.swing.JButton();
+        IconOffender1 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        CrimeDescriptionField = new javax.swing.JTextArea();
+        CheckBoxApproved = new javax.swing.JCheckBox();
+        ExpireDateField = new javax.swing.JFormattedTextField();
+        LineExpireDate = new javax.swing.JSeparator();
+        LabelExpireDate = new javax.swing.JLabel();
+        Picture = new javax.swing.JButton();
+        ResolutionField = new javax.swing.JTextField();
+        RightNewRecord = new javax.swing.JButton();
+        LeftNewRecord = new javax.swing.JButton();
+        AddNewRecord = new javax.swing.JButton();
+        RemoveNewRecord = new javax.swing.JButton();
         UserQuery = new javax.swing.JTabbedPane();
         PlacesMoreRecords = new javax.swing.JPanel();
         LabelTop = new javax.swing.JLabel();
@@ -905,6 +935,251 @@ public class Login extends javax.swing.JFrame {
         });
         JPCreateRecord.add(ButtonRollbackCreateRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
 
+        LabelRecordNumber.setBackground(new java.awt.Color(255, 255, 255));
+        LabelRecordNumber.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelRecordNumber.setForeground(new java.awt.Color(29, 41, 81));
+        LabelRecordNumber.setText("Record number:");
+        JPCreateRecord.add(LabelRecordNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 140, 30));
+
+        LabelCrimeDescription.setBackground(new java.awt.Color(255, 255, 255));
+        LabelCrimeDescription.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelCrimeDescription.setForeground(new java.awt.Color(29, 41, 81));
+        LabelCrimeDescription.setText("Crime Description:");
+        JPCreateRecord.add(LabelCrimeDescription, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 160, 30));
+
+        LabelResolution.setBackground(new java.awt.Color(255, 255, 255));
+        LabelResolution.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelResolution.setForeground(new java.awt.Color(29, 41, 81));
+        LabelResolution.setText("Resolution:");
+        JPCreateRecord.add(LabelResolution, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 290, 90, 30));
+
+        LabelVeredict.setBackground(new java.awt.Color(255, 255, 255));
+        LabelVeredict.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelVeredict.setForeground(new java.awt.Color(29, 41, 81));
+        LabelVeredict.setText("Veredict:");
+        JPCreateRecord.add(LabelVeredict, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, 100, 30));
+
+        LabelOffender.setBackground(new java.awt.Color(255, 255, 255));
+        LabelOffender.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelOffender.setForeground(new java.awt.Color(29, 41, 81));
+        LabelOffender.setText("Offender:");
+        JPCreateRecord.add(LabelOffender, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 90, 30));
+
+        LabelCrimeType.setBackground(new java.awt.Color(255, 255, 255));
+        LabelCrimeType.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelCrimeType.setForeground(new java.awt.Color(29, 41, 81));
+        LabelCrimeType.setText("Type:");
+        JPCreateRecord.add(LabelCrimeType, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, 100, 30));
+
+        LabelDateCrime.setBackground(new java.awt.Color(255, 255, 255));
+        LabelDateCrime.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelDateCrime.setForeground(new java.awt.Color(29, 41, 81));
+        LabelDateCrime.setText("Date crime:");
+        JPCreateRecord.add(LabelDateCrime, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 100, 30));
+
+        LineNumberRecord.setForeground(new java.awt.Color(29, 41, 81));
+        JPCreateRecord.add(LineNumberRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 220, 20));
+
+        RecordNumberField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        RecordNumberField.setForeground(new java.awt.Color(29, 41, 81));
+        RecordNumberField.setBorder(null);
+        JPCreateRecord.add(RecordNumberField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 220, 30));
+
+        LineResolution.setForeground(new java.awt.Color(29, 41, 81));
+        JPCreateRecord.add(LineResolution, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 350, 220, 20));
+
+        LineDateCrime.setForeground(new java.awt.Color(29, 41, 81));
+        JPCreateRecord.add(LineDateCrime, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, 110, 20));
+
+        DateCrimeField.setBorder(null);
+        DateCrimeField.setForeground(new java.awt.Color(29, 41, 81));
+        DateCrimeField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        JPCreateRecord.add(DateCrimeField, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 110, 30));
+
+        BoxVeredict.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
+        BoxVeredict.setForeground(new java.awt.Color(29, 41, 81));
+        BoxVeredict.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        JPCreateRecord.add(BoxVeredict, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 250, 170, 30));
+
+        BoxOffender.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
+        BoxOffender.setForeground(new java.awt.Color(29, 41, 81));
+        BoxOffender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        JPCreateRecord.add(BoxOffender, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, 170, 30));
+
+        BoxCrimeType.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
+        BoxCrimeType.setForeground(new java.awt.Color(29, 41, 81));
+        BoxCrimeType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        JPCreateRecord.add(BoxCrimeType, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 420, 120, 30));
+
+        ButtonCancelNewRecord.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonCancelNewRecord.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        ButtonCancelNewRecord.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonCancelNewRecord.setText("Cancel");
+        ButtonCancelNewRecord.setBorder(null);
+        ButtonCancelNewRecord.setContentAreaFilled(false);
+        ButtonCancelNewRecord.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonCancelNewRecordMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonCancelNewRecordMouseExited(evt);
+            }
+        });
+        ButtonCancelNewRecord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonCancelNewRecordActionPerformed(evt);
+            }
+        });
+        JPCreateRecord.add(ButtonCancelNewRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 460, 100, 40));
+
+        ButtonConfirmNewRecord.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonConfirmNewRecord.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        ButtonConfirmNewRecord.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonConfirmNewRecord.setText("Confirm");
+        ButtonConfirmNewRecord.setBorder(null);
+        ButtonConfirmNewRecord.setContentAreaFilled(false);
+        ButtonConfirmNewRecord.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonConfirmNewRecordMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonConfirmNewRecordMouseExited(evt);
+            }
+        });
+        ButtonConfirmNewRecord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonConfirmNewRecordActionPerformed(evt);
+            }
+        });
+        JPCreateRecord.add(ButtonConfirmNewRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 460, 100, 40));
+
+        IconOffender1.setBackground(new java.awt.Color(255, 255, 255));
+        IconOffender1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 18)); // NOI18N
+        IconOffender1.setForeground(new java.awt.Color(29, 41, 81));
+        IconOffender1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/AddFile.png"))); // NOI18N
+        IconOffender1.setText("Create Record");
+        IconOffender1.setMaximumSize(new java.awt.Dimension(240, 128));
+        IconOffender1.setMinimumSize(new java.awt.Dimension(240, 128));
+        JPCreateRecord.add(IconOffender1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 300, 90));
+
+        CrimeDescriptionField.setColumns(20);
+        CrimeDescriptionField.setRows(5);
+        jScrollPane6.setViewportView(CrimeDescriptionField);
+
+        JPCreateRecord.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 220, 40));
+
+        CheckBoxApproved.setBackground(new java.awt.Color(255, 255, 255));
+        CheckBoxApproved.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        CheckBoxApproved.setForeground(new java.awt.Color(29, 41, 81));
+        CheckBoxApproved.setText("Approved");
+        JPCreateRecord.add(CheckBoxApproved, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 370, 220, -1));
+
+        ExpireDateField.setBorder(null);
+        ExpireDateField.setForeground(new java.awt.Color(29, 41, 81));
+        ExpireDateField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        JPCreateRecord.add(ExpireDateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 410, 110, 30));
+
+        LineExpireDate.setForeground(new java.awt.Color(29, 41, 81));
+        JPCreateRecord.add(LineExpireDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 440, 110, 20));
+
+        LabelExpireDate.setBackground(new java.awt.Color(255, 255, 255));
+        LabelExpireDate.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelExpireDate.setForeground(new java.awt.Color(29, 41, 81));
+        LabelExpireDate.setText("Expire date:");
+        JPCreateRecord.add(LabelExpireDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 410, 100, 30));
+
+        Picture.setBackground(new java.awt.Color(255, 255, 255));
+        Picture.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        Picture.setForeground(new java.awt.Color(29, 41, 81));
+        Picture.setText("Picture");
+        Picture.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
+        Picture.setContentAreaFilled(false);
+        Picture.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PictureActionPerformed(evt);
+            }
+        });
+        JPCreateRecord.add(Picture, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 60, 130, 150));
+
+        ResolutionField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ResolutionField.setForeground(new java.awt.Color(29, 41, 81));
+        ResolutionField.setBorder(null);
+        JPCreateRecord.add(ResolutionField, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 320, 220, 30));
+
+        RightNewRecord.setBackground(new java.awt.Color(255, 255, 255));
+        RightNewRecord.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/RightPic.png"))); // NOI18N
+        RightNewRecord.setBorder(null);
+        RightNewRecord.setContentAreaFilled(false);
+        RightNewRecord.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                RightNewRecordMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                RightNewRecordMouseExited(evt);
+            }
+        });
+        RightNewRecord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RightNewRecordActionPerformed(evt);
+            }
+        });
+        JPCreateRecord.add(RightNewRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 120, 40, 40));
+
+        LeftNewRecord.setBackground(new java.awt.Color(255, 255, 255));
+        LeftNewRecord.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/leftPic.png"))); // NOI18N
+        LeftNewRecord.setBorder(null);
+        LeftNewRecord.setContentAreaFilled(false);
+        LeftNewRecord.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                LeftNewRecordMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                LeftNewRecordMouseExited(evt);
+            }
+        });
+        LeftNewRecord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LeftNewRecordActionPerformed(evt);
+            }
+        });
+        JPCreateRecord.add(LeftNewRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, 40, 40));
+
+        AddNewRecord.setBackground(new java.awt.Color(255, 255, 255));
+        AddNewRecord.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/AddPic.png"))); // NOI18N
+        AddNewRecord.setBorder(null);
+        AddNewRecord.setContentAreaFilled(false);
+        AddNewRecord.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                AddNewRecordMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                AddNewRecordMouseExited(evt);
+            }
+        });
+        AddNewRecord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddNewRecordActionPerformed(evt);
+            }
+        });
+        JPCreateRecord.add(AddNewRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 70, 40, 40));
+
+        RemoveNewRecord.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/RemovePic.png"))); // NOI18N
+        RemoveNewRecord.setContentAreaFilled(false);
+        RemoveNewRecord.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                RemoveNewRecordMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                RemoveNewRecordMouseExited(evt);
+            }
+        });
+        RemoveNewRecord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoveNewRecordActionPerformed(evt);
+            }
+        });
+        JPCreateRecord.add(RemoveNewRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, 40, 40));
+
         getContentPane().add(JPCreateRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
 
         UserQuery.setBackground(new java.awt.Color(255, 255, 255));
@@ -1686,6 +1961,7 @@ public class Login extends javax.swing.JFrame {
         JPLogin.setVisible(false);
         JPCreateOffender.setVisible(false);
         JPLogged.setVisible(true);
+        CheckBoxApproved.setEnabled(false);
     }//GEN-LAST:event_JPCreateRecordMouseEntered
 
     private void JPCreateOffenderMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPCreateOffenderMouseEntered
@@ -1965,6 +2241,127 @@ public class Login extends javax.swing.JFrame {
         RecordsConvictionsToExpireOrExpired.setVisible(true);
     }//GEN-LAST:event_RecordsConvictionsToExpireOrExpiredMouseEntered
 
+    private void ButtonCancelNewRecordMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelNewRecordMouseEntered
+        ButtonCancelNewRecord.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_ButtonCancelNewRecordMouseEntered
+
+    private void ButtonCancelNewRecordMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelNewRecordMouseExited
+        ButtonCancelNewRecord.setBorder(null);
+    }//GEN-LAST:event_ButtonCancelNewRecordMouseExited
+
+    private void ButtonCancelNewRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelNewRecordActionPerformed
+        JPWelcome.setVisible(false);
+        JPUserMenu.setVisible(true);
+        JPAdminMenu.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPSignUp.setVisible(false);
+        IdOffenderField.setText(null);
+        NameOffenderField.setText(null);
+        MiddleNameOffenderField.setText(null);
+        LastNameOffenderField.setText(null);
+        BirthdayNewUserField.setText(null);
+        BoxGenderOffender.setSelectedIndex(0);
+        BoxCommunityOffender.setSelectedIndex(0);
+        BoxInstitutionOffender.setSelectedIndex(0);
+    }//GEN-LAST:event_ButtonCancelNewRecordActionPerformed
+
+    private void ButtonConfirmNewRecordMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonConfirmNewRecordMouseEntered
+        ButtonConfirmNewRecord.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_ButtonConfirmNewRecordMouseEntered
+
+    private void ButtonConfirmNewRecordMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonConfirmNewRecordMouseExited
+        ButtonConfirmNewRecord.setBorder(null);
+    }//GEN-LAST:event_ButtonConfirmNewRecordMouseExited
+
+    private void ButtonConfirmNewRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmNewRecordActionPerformed
+        String number_record = RecordNumberField.getText();
+        String crime_description = CrimeDescriptionField.getText();
+        String date_crime = DateCrimeField.getText();
+        String expire_date = ExpireDateField.getText();
+        String resolution = ResolutionField.getText();
+        if(number_record.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Fill the number of the record field.");
+        } else if(crime_description.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Fill the crime description field.");
+        } else if(date_crime.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Fill the date of the crime field.");
+        } else if(expire_date.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Fill the expire date field.");
+        } else if(resolution.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Fill the resolution field.");
+        }else if(BoxOffender.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(this, "Choose a valid option.");
+        } else if(BoxCrimeType.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(this, "Choose a valid option.");
+        } else if(BoxVeredict.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(this, "Choose a valid option.");
+        } else {
+            JOptionPane.showMessageDialog(this, "The record was created successfully in the system.");
+            JPAdminMenu.setVisible(true);
+            JPUserMenu.setVisible(false);
+            JPWelcome.setVisible(false);
+            JPSignUp.setVisible(false);
+            UserQuery.setVisible(false);
+            JPCreateRecord.setVisible(false);
+            JPCreateOffender.setVisible(false);
+            JPLogin.setVisible(false);
+            JPLogged.setVisible(true);
+        }
+    }//GEN-LAST:event_ButtonConfirmNewRecordActionPerformed
+
+    private void RightNewRecordMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RightNewRecordMouseEntered
+        RightNewRecord.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_RightNewRecordMouseEntered
+
+    private void RightNewRecordMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RightNewRecordMouseExited
+        RightNewRecord.setBorder(null);
+    }//GEN-LAST:event_RightNewRecordMouseExited
+
+    private void RightNewRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RightNewRecordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RightNewRecordActionPerformed
+
+    private void LeftNewRecordMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LeftNewRecordMouseEntered
+        LeftNewRecord.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_LeftNewRecordMouseEntered
+
+    private void LeftNewRecordMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LeftNewRecordMouseExited
+        LeftNewRecord.setBorder(null);
+    }//GEN-LAST:event_LeftNewRecordMouseExited
+
+    private void LeftNewRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LeftNewRecordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LeftNewRecordActionPerformed
+
+    private void RemoveNewRecordMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RemoveNewRecordMouseEntered
+        RemoveNewRecord.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_RemoveNewRecordMouseEntered
+
+    private void RemoveNewRecordMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RemoveNewRecordMouseExited
+        RemoveNewRecord.setBorder(null);
+    }//GEN-LAST:event_RemoveNewRecordMouseExited
+
+    private void RemoveNewRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveNewRecordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RemoveNewRecordActionPerformed
+
+    private void AddNewRecordMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddNewRecordMouseEntered
+        AddNewRecord.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_AddNewRecordMouseEntered
+
+    private void AddNewRecordMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddNewRecordMouseExited
+        AddNewRecord.setBorder(null);
+    }//GEN-LAST:event_AddNewRecordMouseExited
+
+    private void AddNewRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddNewRecordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddNewRecordActionPerformed
+
+    private void PictureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PictureActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PictureActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1998,10 +2395,12 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AddNewRecord;
     private javax.swing.JPanel BannedUsers;
     private javax.swing.JFormattedTextField BirthdayNewUserField;
     private javax.swing.JFormattedTextField BirthdayOffenderField;
     private javax.swing.JComboBox<String> BoxCommunityOffender;
+    private javax.swing.JComboBox<String> BoxCrimeType;
     private javax.swing.JComboBox<String> BoxFilter;
     private javax.swing.JComboBox<String> BoxFilterSpecify;
     private javax.swing.JComboBox<String> BoxFinishDate;
@@ -2011,13 +2410,17 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> BoxInstitutionNewUser;
     private javax.swing.JComboBox<String> BoxInstitutionOffender;
     private javax.swing.JComboBox<String> BoxNewUserCommunity;
+    private javax.swing.JComboBox<String> BoxOffender;
     private javax.swing.JComboBox<String> BoxStartDate;
     private javax.swing.JComboBox<String> BoxStartDate1;
+    private javax.swing.JComboBox<String> BoxVeredict;
     private javax.swing.JButton ButtonCancel;
+    private javax.swing.JButton ButtonCancelNewRecord;
     private javax.swing.JButton ButtonCancelOffender;
     private javax.swing.JButton ButtonClose;
     private javax.swing.JButton ButtonConfiguration;
     private javax.swing.JButton ButtonConfiguration1;
+    private javax.swing.JButton ButtonConfirmNewRecord;
     private javax.swing.JButton ButtonConfirmOffender;
     private javax.swing.JButton ButtonCreateRecord;
     private javax.swing.JButton ButtonEnter;
@@ -2039,8 +2442,13 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton ButtonShowRecordsDate;
     private javax.swing.JButton ButtonSignUp;
     private javax.swing.JButton ButtonStatistics;
+    private javax.swing.JCheckBox CheckBoxApproved;
+    private javax.swing.JTextArea CrimeDescriptionField;
+    private javax.swing.JFormattedTextField DateCrimeField;
+    private javax.swing.JFormattedTextField ExpireDateField;
     private javax.swing.JLabel IconLogged;
     private javax.swing.JLabel IconOffender;
+    private javax.swing.JLabel IconOffender1;
     private javax.swing.JLabel IconPassword;
     private javax.swing.JLabel IconUser;
     private javax.swing.JLabel IconUsername;
@@ -2058,6 +2466,10 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel LabelChooseFilterRecords;
     private javax.swing.JLabel LabelCommunityNewUser;
     private javax.swing.JLabel LabelCommunityOffender;
+    private javax.swing.JLabel LabelCrimeDescription;
+    private javax.swing.JLabel LabelCrimeType;
+    private javax.swing.JLabel LabelDateCrime;
+    private javax.swing.JLabel LabelExpireDate;
     private javax.swing.JLabel LabelIdNewUser;
     private javax.swing.JLabel LabelIdOffender;
     private javax.swing.JLabel LabelInstitutionNewUser;
@@ -2072,15 +2484,22 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel LabelNewUserGender;
     private javax.swing.JLabel LabelNewUserPassword;
     private javax.swing.JLabel LabelNewUsername;
+    private javax.swing.JLabel LabelOffender;
     private javax.swing.JLabel LabelOffenderBirthday;
     private javax.swing.JLabel LabelOffenderGender;
     private javax.swing.JLabel LabelPassword;
+    private javax.swing.JLabel LabelRecordNumber;
+    private javax.swing.JLabel LabelResolution;
     private javax.swing.JLabel LabelSignUp;
     private javax.swing.JLabel LabelTop;
     private javax.swing.JLabel LabelUsername;
+    private javax.swing.JLabel LabelVeredict;
     private javax.swing.JLabel LabelWelcome;
     private javax.swing.JTextField LastNameNewUserField;
     private javax.swing.JTextField LastNameOffenderField;
+    private javax.swing.JButton LeftNewRecord;
+    private javax.swing.JSeparator LineDateCrime;
+    private javax.swing.JSeparator LineExpireDate;
     private javax.swing.JSeparator LineNewUserBirthday;
     private javax.swing.JSeparator LineNewUserId;
     private javax.swing.JSeparator LineNewUserLastName;
@@ -2088,12 +2507,14 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JSeparator LineNewUserName;
     private javax.swing.JSeparator LineNewUserPassword;
     private javax.swing.JSeparator LineNewUsername;
+    private javax.swing.JSeparator LineNumberRecord;
     private javax.swing.JSeparator LineOffenderBirthday;
     private javax.swing.JSeparator LineOffenderId;
     private javax.swing.JSeparator LineOffenderLastName;
     private javax.swing.JSeparator LineOffenderMiddleName;
     private javax.swing.JSeparator LineOffenderName;
     private javax.swing.JSeparator LinePassword;
+    private javax.swing.JSeparator LineResolution;
     private javax.swing.JSeparator LineUsername;
     private javax.swing.JTextArea ListBannedUsers;
     private javax.swing.JTextArea ListUsers;
@@ -2106,14 +2527,19 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField NumberTopField;
     private javax.swing.JSeparator NumberTopLine;
     private javax.swing.JPasswordField PasswordField;
+    private javax.swing.JButton Picture;
     private javax.swing.JList<String> PlacesList;
     private javax.swing.JPanel PlacesMoreRecords;
     private javax.swing.JTextArea RecordDescriptionText;
     private javax.swing.JTextArea RecordDescriptionTextExpire;
+    private javax.swing.JTextField RecordNumberField;
     private javax.swing.JPanel Records;
     private javax.swing.JPanel RecordsConvictionsToExpireOrExpired;
     private javax.swing.JList<String> RecordsExpireList;
     private javax.swing.JList<String> RecordsList;
+    private javax.swing.JButton RemoveNewRecord;
+    private javax.swing.JTextField ResolutionField;
+    private javax.swing.JButton RightNewRecord;
     private javax.swing.JTabbedPane UserQuery;
     private javax.swing.JLabel Username;
     private javax.swing.JTextField UsernameField;
@@ -2124,6 +2550,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JSeparator jSeparator1;
