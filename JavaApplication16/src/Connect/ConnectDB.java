@@ -694,4 +694,37 @@ public class ConnectDB {
         stmnt.setInt(2, atributo);
         stmnt.executeQuery(); 
     }
+
+    public static void isBanned(String username) throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
+        String uName = "ADM";
+        String uPass = "ADM";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ ? = call adminUser.isBanned(?) } ");
+        
+        stmnt.setString(1, OracleTypes.VARCHAR);
+        stmnt.setString(2, usrname);
+        String result = (String) stmnt.getObject(1);
+        stmnt.executeQuery(); 
+        return result:
+    }
+
+    public static void checkLogin(String username, String password) throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
+        String uName = "ADM";
+        String uPass = "ADM";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ ? = call adminUser.checkLogin(?,?) } ");
+        
+        stmnt.setString(1, OracleTypes.VARCHAR);
+        stmnt.setString(2, username);
+        stmnt.setString(2, password);
+        int result = (int) stmnt.getObject(1);
+        stmnt.executeQuery(); 
+        return result:
+    }
 }
