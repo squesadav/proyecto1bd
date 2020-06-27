@@ -1623,7 +1623,6 @@ public class Login extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }//GEN-LAST:event_ButtonEnterActionPerformed
 
     private void ButtonCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCloseActionPerformed
