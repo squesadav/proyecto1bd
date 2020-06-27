@@ -16,13 +16,13 @@ public class Veredict {
     private int years;
     private int id_place;
     private Date date_start;
-    private Date ate_end;
+    private Date date_end;
 
     public Veredict(int years, int id_place, Date date_start, Date ate_end) {
         this.years = years;
         this.id_place = id_place;
         this.date_start = date_start;
-        this.ate_end = ate_end;
+        this.date_end = date_end;
     }
 
     public int getId() {
@@ -57,12 +57,12 @@ public class Veredict {
         this.date_start = date_start;
     }
 
-    public Date getAte_end() {
-        return ate_end;
+    public Date getDate_end() {
+        return date_end;
     }
 
-    public void setAte_end(Date ate_end) {
-        this.ate_end = ate_end;
+    public void setDate_end(Date ate_end) {
+        this.date_end = ate_end;
     }
     
     

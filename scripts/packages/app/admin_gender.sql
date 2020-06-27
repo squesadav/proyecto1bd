@@ -4,6 +4,7 @@
 
 CREATE OR REPLACE PACKAGE admin_gender IS
     PROCEDURE insert_gender(pnName VARCHAR2);
+    PROCEDURE update_gender(pnId NUMBER, pnName VARCHAR2);
     PROCEDURE remove_gender(pnIdGender NUMBER);
     FUNCTION getName (vId NUMBER) RETURN VARCHAR2;
 END admin_gender;
@@ -15,6 +16,15 @@ CREATE OR REPLACE PACKAGE BODY admin_gender AS
             INSERT INTO gender(id, name)
             VALUES (app.seq_gender.nextval, pnName);
         END;
+
+
+    PROCEDURE update_gender(pnId NUMBER, pnName VARCHAR2) IS
+        BEGIN
+            UPDATE gender
+            SET name = pnName
+            WHERE id = pnId;
+        END;
+
     PROCEDURE remove_gender(pnIdGender NUMBER) IS
         BEGIN
             DELETE FROM gender

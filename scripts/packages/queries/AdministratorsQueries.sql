@@ -1,4 +1,3 @@
--- Conected from APP
 -- Author: Sebastián Quesada Calderón
 -- Creation date: 23/06/2020
 
@@ -10,9 +9,10 @@ CREATE OR REPLACE PACKAGE admin_queries IS
 	FUNCTION passwords_not_changed (vnumberDays INTEGER) return sys_refcursor;
 	FUNCTION not_approved return sys_refcursor;
     FUNCTION get_new_records return sys_refcursor;
+    FUNCTION get_current_date_new_records return DATE;
+    current_date_new_records DATE;
 END admin_queries;
 /
-
 
 CREATE OR REPLACE PACKAGE BODY admin_queries IS
     FUNCTION passwords_not_changed (vnumberDays INTEGER) RETURN sys_refcursor
@@ -47,5 +47,12 @@ CREATE OR REPLACE PACKAGE BODY admin_queries IS
                 FROM new_records;
             RETURN cnrecords;
         END get_new_records;
+        
+    FUNCTION get_current_date_new_records return DATE
+    AS
+        rDate DATE := current_date_new_records;
+        BEGIN 
+            RETURN rDate; 
+        END get_current_date_new_records;
 END admin_queries;
 /

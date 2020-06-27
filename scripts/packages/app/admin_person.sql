@@ -4,6 +4,7 @@
 
 CREATE OR REPLACE PACKAGE admin_person IS
     PROCEDURE insert_person(pnId NUMBER, pnName VARCHAR2, pnMiddle_Name VARCHAR2, pnLast_Name VARCHAR2, pnBirthday DATE, pnIdGender NUMBER, pnIdInstitution NUMBER, pnIdCommunity NUMBER);
+    PROCEDURE update_person(pnId NUMBER, pnName VARCHAR2, pnMiddle_Name VARCHAR2, pnLast_Name VARCHAR2, pnBirthday DATE, pnIdGender NUMBER, pnIdInstitution NUMBER, pnIdCommunity NUMBER);
     PROCEDURE remove_person(pnIdPerson NUMBER);
     FUNCTION getName (vId NUMBER) RETURN VARCHAR2;
     FUNCTION getMiddle_Name (vId NUMBER) RETURN VARCHAR2;
@@ -25,6 +26,20 @@ CREATE OR REPLACE PACKAGE BODY admin_person AS
             VALUES (pnId, pnName, pnMiddle_Name, pnLast_Name, pnBirthday, pnIdGender, pnIdInstitution, pnIdCommunity);
             admin_person.updateAge(pnId);
         END;
+
+    PROCEDURE update_person(pnId NUMBER, pnName VARCHAR2, pnMiddle_Name VARCHAR2, pnLast_Name VARCHAR2, pnBirthday DATE, pnIdGender NUMBER, pnIdInstitution NUMBER, pnIdCommunity NUMBER) IS
+        BEGIN
+            UPDATE person
+            SET name = pnName,
+            SET middle_name = pnMiddle_Name,
+            SET last_name = pnLast_Name,
+            SET birthday = pnBirthday,
+            SET id_gender = pnIdGender,
+            SET id_institution = pnIdInstitution,
+            SET id_community = pnIdCommunity
+            WHERE id = pnId;
+        END;
+
     PROCEDURE remove_person(pnIdPerson NUMBER) IS
         BEGIN
             DELETE FROM person

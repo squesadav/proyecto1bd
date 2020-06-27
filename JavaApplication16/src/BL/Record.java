@@ -18,12 +18,12 @@ public class Record {
     private String resolution;
     private Date crime_expiration_date;
     private String picture;
-    private boolean approved;
+    private String approved;
     private int id_type;
     private int id_veredict;
     private int id_person;
 
-    public Record(String number, String description_crime, Date date_crime, String resolution, Date crime_expiration_date, String picture, boolean approved, int id_type, int id_veredict, int id_person) {
+    public Record(String number, String description_crime, Date date_crime, String resolution, Date crime_expiration_date, String picture, String approved, int id_type, int id_veredict, int id_person) {
         this.number = number;
         this.description_crime = description_crime;
         this.date_crime = date_crime;
@@ -84,11 +84,11 @@ public class Record {
         this.picture = picture;
     }
 
-    public boolean isApproved() {
+    public String isApproved() {
         return approved;
     }
 
-    public void setApproved(boolean approved) {
+    public void setApproved(String approved) {
         this.approved = approved;
     }
 
