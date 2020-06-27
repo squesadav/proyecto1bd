@@ -5,7 +5,6 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
