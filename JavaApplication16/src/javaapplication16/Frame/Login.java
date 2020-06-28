@@ -6,6 +6,7 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.sql.SQLException;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -2387,6 +2388,9 @@ public class Login extends javax.swing.JFrame {
                 JPCreateRecord.setVisible(false);
                 UserQuery.setVisible(false);
                 UserConfiguration.setVisible(false);
+                currentUser uc = currentUser.getInstance();
+                uc.setUsername(user_field);
+                uc.setId_userType(ConnectDB.getInt("ADM", "adminUser.getUserType", user_field));
             } else{
                 JOptionPane.showMessageDialog(this, "User or password incorrect","Error", JOptionPane.ERROR_MESSAGE);
             }
@@ -2698,6 +2702,11 @@ public class Login extends javax.swing.JFrame {
         JPCreateRecord.setVisible(false);
         JPCreateOffender.setVisible(true);
         JPLogged.setVisible(true);
+        try {
+            fillInComboBox_signIn();
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_ButtonCreateRecordActionPerformed
 
     private void JPCreateRecordMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPCreateRecordMouseEntered
@@ -2778,12 +2787,15 @@ public class Login extends javax.swing.JFrame {
     private void ButtonConfirmOffenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmOffenderActionPerformed
         String offender_id = IdOffenderField.getText();
         String offender_name = NameOffenderField.getText();
+        String offender_middle_name = MiddleNameOffenderField.getText();
         String offender_last_name = LastNameOffenderField.getText();
         String offender_birthday = BirthdayOffenderField.getText();
         if(offender_id.isEmpty()){
             JOptionPane.showMessageDialog(this, "Fill the id field.");
         } else if(offender_name.isEmpty()){
             JOptionPane.showMessageDialog(this, "Fill the name field.");
+        } else if(offender_middle_name.isEmpty()){
+            offender_middle_name = null;
         } else if(offender_last_name.isEmpty()){
             JOptionPane.showMessageDialog(this, "Fill the last name field.");
         } else if(offender_birthday.isEmpty()){
@@ -2795,17 +2807,23 @@ public class Login extends javax.swing.JFrame {
         } else if(BoxInstitutionOffender.getSelectedIndex() == 0){
             JOptionPane.showMessageDialog(this, "Choose a valid option.");
         } else {
-            JOptionPane.showMessageDialog(this, "The person was created successfully in the system.");
-            Animacion.Animacion.mover_derecha(290, 1100, 1, 1, JPCreateOffender);
-            JPAdminMenu.setVisible(false);
-            JPUserMenu.setVisible(false);
-            JPWelcome.setVisible(false);
-            JPSignUp.setVisible(false);
-            UserQuery.setVisible(false);
-            UserConfiguration.setVisible(false);
-            JPCreateRecord.setVisible(true);
-            JPLogin.setVisible(false);
-            JPLogged.setVisible(true);
+             try{
+                Person person = new Person(Integer.parseInt(offender_id), offender_name, offender_middle_name, offender_last_name, new SimpleDateFormat("dd/MM/yyyy").parse(offender_birthday), BoxGenderNewUser.getSelectedIndex(), BoxInstitutionNewUser.getSelectedIndex(), BoxNewUserCommunity.getSelectedIndex());
+                ConnectDB.insert_person(person);
+                JOptionPane.showMessageDialog(this, "The person was created successfully in the system.");
+                Animacion.Animacion.mover_derecha(290, 1100, 1, 1, JPCreateOffender);
+                JPAdminMenu.setVisible(false);
+                JPUserMenu.setVisible(false);
+                JPWelcome.setVisible(false);
+                JPSignUp.setVisible(false);
+                UserQuery.setVisible(false);
+                UserConfiguration.setVisible(false);
+                JPCreateRecord.setVisible(true);
+                JPLogin.setVisible(false);
+                JPLogged.setVisible(true);
+            }
+            catch(Exception e){}
+            
         }
     }//GEN-LAST:event_ButtonConfirmOffenderActionPerformed
 
