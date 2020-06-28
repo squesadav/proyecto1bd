@@ -17,18 +17,16 @@ public class Person {
     private String middle_name;
     private String last_name;
     private Date birthday;
-    private int age;
     private int id_gender;
     private int id_institution;
     private int id_community;
 
-    public Person(int id, String name, String middle_name, String last_name, Date birthday, int age, int id_gender, int id_institution, int id_community) {
+    public Person(int id, String name, String middle_name, String last_name, Date birthday, int id_gender, int id_institution, int id_community) {
         this.id = id;
         this.name = name;
         this.middle_name = middle_name;
         this.last_name = last_name;
         this.birthday = birthday;
-        this.age = age;
         this.id_gender = id_gender;
         this.id_institution = id_institution;
         this.id_community = id_community;
@@ -72,14 +70,6 @@ public class Person {
 
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 
     public int getId_gender() {
