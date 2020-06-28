@@ -2,8 +2,8 @@
 -- Author: Sebastián Quesada Calderón
 -- Creation date: 20/06/2020
 CREATE OR REPLACE PACKAGE admin_record IS
-    PROCEDURE insert_record(pnNumberr VARCHAR2, pnDescriptionCrime VARCHAR2, pnDateCrime DATE, pnResolution VARCHAR2, pnCrimeExpirationDate DATE, pnIdType NUMBER, pnIdVeredict NUMBER, pnIdPerson NUMBER, pnUsernameCreator VARCHAR2);
-    PROCEDURE update_record(pnNumberr VARCHAR2, pnDescriptionCrime VARCHAR2, pnDateCrime DATE, pnResolution VARCHAR2, pnCrimeExpirationDate DATE, pnIdType NUMBER, pnIdVeredict NUMBER, pnIdPerson NUMBER, pnUsernameCreator VARCHAR2);
+    PROCEDURE insert_record(pnNumberr VARCHAR2, pnDescriptionCrime VARCHAR2, pnDateCrime DATE, pnResolution VARCHAR2, pnCrimeExpirationDate DATE, pnIdType NUMBER, pnIdVeredict NUMBER, pnIdPerson NUMBER, pnIdDistrict NUMBER, pnUsernameCreator VARCHAR2);
+    PROCEDURE update_record(pnNumberr VARCHAR2, pnDescriptionCrime VARCHAR2, pnDateCrime DATE, pnResolution VARCHAR2, pnCrimeExpirationDate DATE, pnIdType NUMBER, pnIdVeredict NUMBER, pnIdPerson NUMBER, pnIdDistrict NUMBER, pnUsernameCreator VARCHAR2);
     PROCEDURE remove_record(pnNumberr VARCHAR2);
     FUNCTION getDescriptionCrime (pnNumberr VARCHAR2) RETURN VARCHAR2;
     FUNCTION getDateCrime (pnNumberr VARCHAR2) RETURN DATE;
@@ -13,6 +13,7 @@ CREATE OR REPLACE PACKAGE admin_record IS
     FUNCTION getIdType (pnNumberr VARCHAR2) RETURN NUMBER;
     FUNCTION getIdVeredict (pnNumberr VARCHAR2) RETURN NUMBER;
     FUNCTION getIdPerson (pnNumberr VARCHAR2) RETURN NUMBER;
+    FUNCTION getIdDistrict (pnNumberr VARCHAR2) RETURN NUMBER;
     FUNCTION getUsernameCreator (pnNumberr VARCHAR2) RETURN VARCHAR2;
     PROCEDURE approve_record(pnNumberr VARCHAR2);
     FUNCTION getAll RETURN CURSOR;
@@ -20,13 +21,13 @@ END admin_record;
 /
 
 CREATE OR REPLACE PACKAGE BODY admin_record AS
-    PROCEDURE insert_record(pnNumberr VARCHAR2, pnDescriptionCrime VARCHAR2, pnDateCrime DATE, pnResolution VARCHAR2, pnCrimeExpirationDate DATE, pnIdType NUMBER, pnIdVeredict NUMBER, pnIdPerson NUMBER, pnUsernameCreator VARCHAR2) IS
+    PROCEDURE insert_record(pnNumberr VARCHAR2, pnDescriptionCrime VARCHAR2, pnDateCrime DATE, pnResolution VARCHAR2, pnCrimeExpirationDate DATE, pnIdType NUMBER, pnIdVeredict NUMBER, pnIdPerson NUMBER,pnIdDistrict NUMBER, pnUsernameCreator VARCHAR2) IS
         BEGIN
-            INSERT INTO record(numberr, description_crime, date_crime, resolution, crime_expiration_date, id_type, id_veredict, id_person, approved, username_creator)
-            VALUES (pnNumberr, pnDescriptionCrime, pnDateCrime, pnResolution, pnCrimeExpirationDate, pnIdType, pnIdVeredict, pnIdPerson, 'N', pnUsernameCreator);
+            INSERT INTO record(numberr, description_crime, date_crime, resolution, crime_expiration_date, id_type, id_veredict, id_person, id_district, approved, username_creator)
+            VALUES (pnNumberr, pnDescriptionCrime, pnDateCrime, pnResolution, pnCrimeExpirationDate, pnIdType, pnIdVeredict, pnIdPerson, pnIdDistrict, 'N', pnUsernameCreator);
         END;
 
-    PROCEDURE update_record(pnNumberr VARCHAR2, pnDescriptionCrime VARCHAR2, pnDateCrime DATE, pnResolution VARCHAR2, pnCrimeExpirationDate DATE, pnIdType NUMBER, pnIdVeredict NUMBER, pnIdPerson NUMBER, pnUsernameCreator VARCHAR2) IS
+    PROCEDURE update_record(pnNumberr VARCHAR2, pnDescriptionCrime VARCHAR2, pnDateCrime DATE, pnResolution VARCHAR2, pnCrimeExpirationDate DATE, pnIdType NUMBER, pnIdVeredict NUMBER, pnIdPerson NUMBER, pnIdDistrict NUMBER,, pnUsernameCreator VARCHAR2) IS
         BEGIN
             UPDATE record
             SET description_crime = pnDescriptionCrime,
@@ -36,6 +37,7 @@ CREATE OR REPLACE PACKAGE BODY admin_record AS
                 id_type = pnIdType,
                 id_veredict = pnIdVeredict,
                 id_person = pnIdPerson,
+                id_district = pnIdDistrict,
                 username_creator = pnUsernameCreator
             WHERE numberr = pnNumberr;
         END;
@@ -126,6 +128,16 @@ CREATE OR REPLACE PACKAGE BODY admin_record AS
             RETURN rIdPerson;
         END;  
 
+    FUNCTION getIdDistrict (pnNumberr VARCHAR2) RETURN NUMBER 
+    IS rIdDistricr NUMBER(9);
+        BEGIN
+            SELECT id_district
+            INTO rIdDistricr
+            FROM record
+            WHERE numberr = pnNumberr;
+            RETURN rIdDistricr;
+        END;  
+
     FUNCTION getUsernameCreator (pnNumberr VARCHAR2) RETURN VARCHAR2
     IS rUsernameCreator VARCHAR2(20);
         BEGIN
@@ -146,7 +158,7 @@ CREATE OR REPLACE PACKAGE BODY admin_record AS
     FUNCTION getAll RETURN CURSOR
         IS rAll CURSOR;
     BEGIN
-        SELECT id_person, id_type, id_veredict
+        SELECT id_person, id_type, id_veredict, id_district
         INTO rAll
         FROM gender;
         RETURN rAll

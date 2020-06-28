@@ -11,7 +11,7 @@ CREATE TABLE Person(
     age               NUMBER(2),
     id_gender         NUMBER(2),
     id_institution    NUMBER(4),
-    id_community      NUMBER(4),
+    id_district       NUMBER(4),
     creation_date     DATE,
     creation_user     VARCHAR2(15),
     last_change_date  DATE,
@@ -30,5 +30,5 @@ ALTER TABLE person
     ADD CONSTRAINT fk_person_gender FOREIGN KEY(id_gender) 
     references gender(id);
 ALTER TABLE person
-    ADD CONSTRAINT fk_person_community FOREIGN KEY(id_community) 
-    references community(id);
+    ADD CONSTRAINT fk_person_district FOREIGN KEY(id_district) 
+    references district(id);

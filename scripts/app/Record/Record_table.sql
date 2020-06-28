@@ -13,6 +13,7 @@ CREATE TABLE record(
     id_type                 NUMBER(3),
     id_veredict             NUMBER(4),
     id_person               NUMBER(9),
+    id_district             NUMBER(4),
     creation_date           DATE,
     creation_user           VARCHAR2(15),
     last_change_date        DATE,
@@ -33,3 +34,6 @@ ALTER TABLE record
 ALTER TABLE record
     ADD CONSTRAINT fk_record_person FOREIGN KEY(id_person) 
     references person(id);
+ALTER TABLE record
+    ADD CONSTRAINT fk_record_district FOREIGN KEY(id_district) 
+    references district(id);

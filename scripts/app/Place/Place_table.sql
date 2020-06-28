@@ -5,7 +5,7 @@
 CREATE TABLE place(
     id                NUMBER(4),
     name              VARCHAR2(30) NOT NULL,
-    id_community      NUMBER(4),
+    id_district       NUMBER(4),
     creation_date     DATE,
     creation_user     VARCHAR2(15),
     last_change_date  DATE,
@@ -19,8 +19,8 @@ ALTER TABLE place
     STORAGE (INITIAL 10K NEXT 10K PCTINCREASE 20);
 
 ALTER TABLE place
-    ADD CONSTRAINT fk_place_community FOREIGN KEY(id_community) 
-    references community(id);
+    ADD CONSTRAINT fk_person_district FOREIGN KEY(id_district) 
+    references district(id);
     
 CREATE SEQUENCE seq_place
 START WITH 0
