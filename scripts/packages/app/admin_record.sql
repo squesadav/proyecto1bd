@@ -16,7 +16,7 @@ CREATE OR REPLACE PACKAGE admin_record IS
     FUNCTION getIdDistrict (pnNumberr VARCHAR2) RETURN NUMBER;
     FUNCTION getUsernameCreator (pnNumberr VARCHAR2) RETURN VARCHAR2;
     PROCEDURE approve_record(pnNumberr VARCHAR2);
-    FUNCTION getAll RETURN CURSOR;
+    FUNCTION getAll RETURN sys_refcursor;
 END admin_record;
 /
 
@@ -155,8 +155,8 @@ CREATE OR REPLACE PACKAGE BODY admin_record AS
             WHERE numberr = pnNumberr;
         END;
         
-    FUNCTION getAll RETURN CURSOR
-        IS rAll CURSOR;
+    FUNCTION getAll RETURN sys_refcursor
+        AS rAll sys_refcursor;
     BEGIN
         SELECT id_person, id_type, id_veredict, id_district
         INTO rAll

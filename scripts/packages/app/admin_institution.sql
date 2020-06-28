@@ -7,7 +7,7 @@ CREATE OR REPLACE PACKAGE admin_institution IS
     PROCEDURE update_institution(pnId NUMBER, pnName VARCHAR2);
     PROCEDURE remove_institution(pnIdInstitution NUMBER);
     FUNCTION getName (vId NUMBER) RETURN VARCHAR2;
-    FUNCTION getAll RETURN CURSOR;
+    FUNCTION getAll RETURN sys_refcursor;
 END admin_institution;
 /
 
@@ -41,8 +41,8 @@ CREATE OR REPLACE PACKAGE BODY admin_institution AS
         RETURN rName;
     END;
 
-    FUNCTION getAll RETURN CURSOR
-        IS rAll CURSOR;
+    FUNCTION getAll RETURN sys_refcursor
+        AS rAll sys_refcursor;
     BEGIN
         SELECT id, name
         INTO rAll
