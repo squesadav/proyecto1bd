@@ -1621,21 +1621,11 @@ public class Login extends javax.swing.JFrame {
         BoxFilter.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         BoxFilter.setForeground(new java.awt.Color(29, 41, 81));
         BoxFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default", "Type", "Date", "Place" }));
-        BoxFilter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BoxFilterActionPerformed(evt);
-            }
-        });
         Records.add(BoxFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 140, 30));
 
         BoxFilterSpecify.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         BoxFilterSpecify.setForeground(new java.awt.Color(29, 41, 81));
         BoxFilterSpecify.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
-        BoxFilterSpecify.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BoxFilterSpecifyActionPerformed(evt);
-            }
-        });
         Records.add(BoxFilterSpecify, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 140, 30));
 
         ButtonShowRecords.setBackground(new java.awt.Color(255, 255, 255));
@@ -1682,21 +1672,11 @@ public class Login extends javax.swing.JFrame {
         BoxStartDate.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         BoxStartDate.setForeground(new java.awt.Color(29, 41, 81));
         BoxStartDate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Start Date" }));
-        BoxStartDate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BoxStartDateActionPerformed(evt);
-            }
-        });
         Records.add(BoxStartDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, 30));
 
         BoxFinishDate.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         BoxFinishDate.setForeground(new java.awt.Color(29, 41, 81));
         BoxFinishDate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "End Date" }));
-        BoxFinishDate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BoxFinishDateActionPerformed(evt);
-            }
-        });
         Records.add(BoxFinishDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, -1, 30));
 
         ButtonRollbackQueryRecords.setBackground(new java.awt.Color(255, 255, 255));
@@ -1903,6 +1883,11 @@ public class Login extends javax.swing.JFrame {
         ButtonShowRecordsDate.setText("Enter");
         ButtonShowRecordsDate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
         ButtonShowRecordsDate.setContentAreaFilled(false);
+        ButtonShowRecordsDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonShowRecordsDateActionPerformed(evt);
+            }
+        });
         RecordsConvictionsToExpireOrExpired.add(ButtonShowRecordsDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 100, 30));
 
         ButtonRollbackQueryExpire.setBackground(new java.awt.Color(255, 255, 255));
@@ -2629,73 +2614,22 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ButtonShowPlacesActionPerformed
 
-    private void BoxFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoxFilterActionPerformed
-        int index_filter = BoxFilter.getSelectedIndex();
-        BoxStartDate.setEnabled(false);
-        BoxFinishDate.setEnabled(false);
-        if(index_filter == 0){
-            BoxStartDate.setEnabled(false);
-            BoxFinishDate.setEnabled(false);
-            JOptionPane.showMessageDialog(this, "Choose a valid option.");
-        } else if(index_filter == 1){
-            BoxFilterSpecify.addItem("Example");
-        } else if(index_filter == 2){
-            BoxStartDate.setEnabled(true);
-            BoxFinishDate.setEnabled(true);
-            BoxFilterSpecify.setEnabled(false);
-            BoxStartDate.addItem("2020");
-            BoxFinishDate.addItem("2020");
-        } else {
-            BoxStartDate.setEnabled(false);
-            BoxFinishDate.setEnabled(false);
-            BoxFilterSpecify.addItem("Example");
-        }
-    }//GEN-LAST:event_BoxFilterActionPerformed
-
-    private void BoxFilterSpecifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoxFilterSpecifyActionPerformed
-        int index_filter = BoxFilterSpecify.getSelectedIndex();
-        if(index_filter == 0){
-            JOptionPane.showMessageDialog(this, "Choose a valid option.");
-        } else {
-            BoxFilterSpecify.getItemAt(index_filter);
-        } 
-    }//GEN-LAST:event_BoxFilterSpecifyActionPerformed
-
-    private void BoxStartDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoxStartDateActionPerformed
-        int index_filter = BoxStartDate.getSelectedIndex();
-        if(index_filter == 0){
-            JOptionPane.showMessageDialog(this, "Choose a valid option.");
-        } else {
-            BoxStartDate.getItemAt(index_filter);
-        }
-    }//GEN-LAST:event_BoxStartDateActionPerformed
-
-    private void BoxFinishDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoxFinishDateActionPerformed
-        int index_filter = BoxFinishDate.getSelectedIndex();
-        if(index_filter == 0){
-            JOptionPane.showMessageDialog(this, "Choose a valid option.");
-        } else {
-            BoxFinishDate.getItemAt(index_filter);
-        }
-    }//GEN-LAST:event_BoxFinishDateActionPerformed
-
     private void ButtonShowRecordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowRecordsActionPerformed
-        int index_filter = BoxFilter.getSelectedIndex();
-        int index_filter_specify = BoxFilterSpecify.getSelectedIndex();
+        int index_category = BoxFilter.getSelectedIndex();
+        int index_zone = BoxFilterSpecify.getSelectedIndex();
         int index_start = BoxStartDate.getSelectedIndex();
         int index_finish = BoxFinishDate.getSelectedIndex();
-        if(index_filter == 0){
-            JOptionPane.showMessageDialog(this, "Choose a valid option.");
-        } else if(index_filter_specify == 0){
-            JOptionPane.showMessageDialog(this, "Choose a valid option.");
-        } else if(index_start == 0){
-            JOptionPane.showMessageDialog(this, "Choose a valid option.");
-        } else if(index_finish == 0){
-            JOptionPane.showMessageDialog(this, "Choose a valid option.");
-        } else {
-            String example[] = {"3D", "a5"};
-            RecordsList.setListData(example);
+        String filters [] = {BoxFilter.getItemAt(index_category), BoxFilterSpecify.getItemAt(index_zone), BoxStartDate.getItemAt(index_start), BoxFinishDate.getItemAt(index_finish)};
+        String newFilters [] = {};
+        for(int i = 0; i <= filters.length; i++) {
+            if(filters[i] == "Default" || filters[i] == "Start Date" || filters[i] == "Finish Date") {
+                newFilters[i] = "";
+            }
         }
+        filters = newFilters;
+        //Aquí es donde se llama la función de la base de datos con los filtros y se agrega en la lista los valores
+        String example[] = {"3D", "a5"};
+        RecordsList.setListData(example);
     }//GEN-LAST:event_ButtonShowRecordsActionPerformed
 
     private void RecordsListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RecordsListMouseClicked
@@ -3098,6 +3032,7 @@ public class Login extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "The record was created successfully in the system.");
             JPAdminMenu.setVisible(true);
+            AdminQuery.setVisible(false);
             JPUserMenu.setVisible(false);
             JPWelcome.setVisible(false);
             JPSignUp.setVisible(false);
@@ -3315,7 +3250,7 @@ public class Login extends javax.swing.JFrame {
     private void ButtonConfirmChangesUpdatePersonalInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmChangesUpdatePersonalInfoActionPerformed
         String new_username = UpdateUsernameField.getText();
         String actual_password = (String) JOptionPane.showInputDialog(null,"Current password: ",JOptionPane.QUESTION_MESSAGE);
-        //Que revise si es la contraseña igual
+        //Que revise si es la contraseña igual y set en la base de datos
         JPAdminMenu.setVisible(true);
         JPUserMenu.setVisible(false);
         JPWelcome.setVisible(false);
@@ -3450,6 +3385,22 @@ public class Login extends javax.swing.JFrame {
         BoxLogStartDate.setSelectedIndex(0);
         BoxLogFinishDate.setSelectedIndex(0);
     }//GEN-LAST:event_ButtonRollbackLogActionPerformed
+
+    private void ButtonShowRecordsDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowRecordsDateActionPerformed
+        int index_start = BoxStartDate1.getSelectedIndex();
+        int index_finish = BoxFinishDate1.getSelectedIndex();
+        String filters [] = {BoxStartDate1.getItemAt(index_start), BoxFinishDate1.getItemAt(index_finish)};
+        String newFilters [] = {};
+        for(int i = 0; i <= filters.length; i++) {
+            if(filters[i] == "Start Date" || filters[i] == "FinishDate") {
+                newFilters[i] = "";
+            }
+        }
+        filters = newFilters;
+        //Aquí es donde se llama la función de la base de datos con los filtros y se agrega en la lista los valores
+        String example[] = {"3D", "a5"};
+        RecordsList.setListData(example);
+    }//GEN-LAST:event_ButtonShowRecordsDateActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
