@@ -5,6 +5,7 @@
  */
 package BL;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -22,6 +23,7 @@ public class Record {
     private int id_type;
     private int id_veredict;
     private int id_person;
+    private ArrayList<String> pictures;
 
     public Record(String number, String description_crime, Date date_crime, String resolution, Date crime_expiration_date, String picture, String approved, int id_type, int id_veredict, int id_person) {
         this.number = number;
@@ -34,6 +36,7 @@ public class Record {
         this.id_type = id_type;
         this.id_veredict = id_veredict;
         this.id_person = id_person;
+        this.pictures = null;
     }
 
     public String getNumber() {
@@ -114,6 +117,14 @@ public class Record {
 
     public void setId_person(int id_person) {
         this.id_person = id_person;
+    }
+
+    public ArrayList<String> getPictures() {
+        return pictures;
+    }
+
+    public void insertPicture(String picture) {
+        this.pictures.add(picture);
     }
     
     
