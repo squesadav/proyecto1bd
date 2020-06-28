@@ -15,6 +15,7 @@ CREATE OR REPLACE PACKAGE admin_record IS
     FUNCTION getIdPerson (pnNumberr VARCHAR2) RETURN NUMBER;
     FUNCTION getUsernameCreator (pnNumberr VARCHAR2) RETURN VARCHAR2;
     PROCEDURE approve_record(pnNumberr VARCHAR2);
+    FUNCTION getAll RETURN CURSOR;
 END admin_record;
 /
 
@@ -142,5 +143,14 @@ CREATE OR REPLACE PACKAGE BODY admin_record AS
             WHERE numberr = pnNumberr;
         END;
         
+    FUNCTION getAll RETURN CURSOR
+        IS rAll CURSOR;
+    BEGIN
+        SELECT id_person, id_type, id_veredict
+        INTO rAll
+        FROM gender;
+        RETURN rAll
+    END;
+
 END admin_record;
 /
