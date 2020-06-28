@@ -7,9 +7,8 @@ package BL;
 public class currentUser 
 {
     private String username;
+    private int id_userType;
     private static currentUser instance = null;
-
-
     protected currentUser(){}
 
     public static currentUser getInstance()
@@ -30,4 +29,14 @@ public class currentUser
     {
         this.username = username;
     }
+
+    public int getId_userType() {
+        return id_userType;
+    }
+
+    public void setId_userType(int id_userType) {
+        this.id_userType = id_userType;
+    }
+    
+    
 }

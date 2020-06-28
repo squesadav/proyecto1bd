@@ -21,11 +21,12 @@ public class ConnectDB {
         String uPass = "ADM";
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ call adminUser.createUser(?,?,?) } ");
+        CallableStatement stmnt = con.prepareCall("{ call adminUser.createUser(?,?,?,?) } ");
         
         stmnt.setString(1, user.getUsername());
         stmnt.setString(2, user.getPassword());
         stmnt.setInt(3, user.getId_userType());
+        stmnt.setInt(4, user.person.getId());
         stmnt.execute();
     }
     
@@ -659,6 +660,24 @@ public class ConnectDB {
         ResultSet result = (ResultSet) stmnt.getObject(1);
         return result;
     }
+    
+    public static ResultSet query(String schema,String function) throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
+        String uName = schema;
+        String uPass = schema;
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ ? = call ? } ");
+        
+        stmnt.registerOutParameter(1, OracleTypes.CURSOR);
+        stmnt.setString(2, function);
+        stmnt.executeQuery(); 
+        ResultSet result = (ResultSet) stmnt.getObject(1);
+        return result;
+    }
+    
+
     
     public void delete(String schema,String function,String atributo) throws SQLException 
     {
