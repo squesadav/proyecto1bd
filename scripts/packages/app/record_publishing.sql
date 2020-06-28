@@ -44,7 +44,7 @@ CREATE OR REPLACE PACKAGE BODY record_publishing IS
         crecord sys_refcursor;
         BEGIN
             OPEN crecord FOR
-                SELECT numberr
+                SELECT *
                 FROM record
                 WHERE approved = 'Y' AND
                       (date_crime = NVL(vdate_crime, date_crime) OR date_crime IS NULL) AND
