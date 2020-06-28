@@ -156,7 +156,7 @@ CREATE OR REPLACE PACKAGE BODY admin_record AS
         END;
         
     FUNCTION getAll RETURN sys_refcursor
-        IS rAll sys_refcursor;
+        AS rAll sys_refcursor;
     BEGIN
         OPEN rAll FOR    
             SELECT numberr, description_crime, date_crime, resolution, crime_expiration_date, id_type, id_veredict, id_person, approved, username_creator, id_district
