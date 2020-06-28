@@ -8,6 +8,7 @@ CREATE OR REPLACE PACKAGE admin_community IS
     PROCEDURE remove_community(pnIdCommunity NUMBER);
     FUNCTION getName (vId NUMBER) RETURN VARCHAR2;
     FUNCTION getIdDistrict (vId NUMBER) RETURN NUMBER;
+    FUNCTION getAll RETURN CURSOR;
 END admin_community;
 /
 
@@ -49,6 +50,15 @@ CREATE OR REPLACE PACKAGE BODY admin_community AS
         FROM community
         WHERE id = vId;
         RETURN rIdDistrict;
+    END;
+
+    FUNCTION getAll RETURN CURSOR
+        IS rAll CURSOR;
+    BEGIN
+        SELECT id, name
+        INTO rAll
+        FROM community;
+        RETURN rAll
     END;
 END admin_community;
 /

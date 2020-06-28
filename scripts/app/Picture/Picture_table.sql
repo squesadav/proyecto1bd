@@ -5,7 +5,7 @@
 CREATE TABLE picture(
     id			            NUMBER(9),
     pic_str                 VARCHAR2(50),
-    numberr                 VARCHAR2(10),		
+    numberr                 VARCHAR2(10),	
     creation_date           DATE,
     creation_user           VARCHAR2(15),
     last_change_date        DATE,
