@@ -3,8 +3,8 @@
 -- Creation date: 20/06/2020
 
 CREATE OR REPLACE PACKAGE admin_person IS
-    PROCEDURE insert_person(pnId NUMBER, pnName VARCHAR2, pnMiddle_Name VARCHAR2, pnLast_Name VARCHAR2, pnBirthday DATE, pnIdGender NUMBER, pnIdInstitution NUMBER, pnIdCommunity NUMBER);
-    PROCEDURE update_person(pnId NUMBER, pnName VARCHAR2, pnMiddle_Name VARCHAR2, pnLast_Name VARCHAR2, pnBirthday DATE, pnIdGender NUMBER, pnIdInstitution NUMBER, pnIdCommunity NUMBER);
+    PROCEDURE insert_person(pnId NUMBER, pnName VARCHAR2, pnMiddle_Name VARCHAR2, pnLast_Name VARCHAR2, pnBirthday DATE, pnIdGender NUMBER, pnIdInstitution NUMBER, pnIdDistrict NUMBER);
+    PROCEDURE update_person(pnId NUMBER, pnName VARCHAR2, pnMiddle_Name VARCHAR2, pnLast_Name VARCHAR2, pnBirthday DATE, pnIdGender NUMBER, pnIdInstitution NUMBER, pnIdDistrict NUMBER);
     PROCEDURE remove_person(pnIdPerson NUMBER);
     FUNCTION getName (vId NUMBER) RETURN VARCHAR2;
     FUNCTION getMiddle_Name (vId NUMBER) RETURN VARCHAR2;
@@ -13,30 +13,30 @@ CREATE OR REPLACE PACKAGE admin_person IS
     FUNCTION getAge (vId NUMBER) RETURN NUMBER;
     FUNCTION getIdGender (vId NUMBER) RETURN NUMBER;
     FUNCTION getIdInstitution (vId NUMBER) RETURN NUMBER;
-    FUNCTION getIdCommunity (vId NUMBER) RETURN NUMBER;
+    FUNCTION getIdDistrict (vId NUMBER) RETURN NUMBER;
     PROCEDURE updateAge (pnId NUMBER);
     PROCEDURE updateAllAges;
 END admin_person;
 /
 
 CREATE OR REPLACE PACKAGE BODY admin_person AS
-    PROCEDURE insert_person(pnId NUMBER, pnName VARCHAR2, pnMiddle_Name VARCHAR2, pnLast_Name VARCHAR2, pnBirthday DATE, pnIdGender NUMBER, pnIdInstitution NUMBER, pnIdCommunity NUMBER) IS
+    PROCEDURE insert_person(pnId NUMBER, pnName VARCHAR2, pnMiddle_Name VARCHAR2, pnLast_Name VARCHAR2, pnBirthday DATE, pnIdGender NUMBER, pnIdInstitution NUMBER, pnIdDistrict NUMBER) IS
         BEGIN
-            INSERT INTO person(id, name, middle_name, last_name, birthday, id_gender, id_institution, id_community)
-            VALUES (pnId, pnName, pnMiddle_Name, pnLast_Name, pnBirthday, pnIdGender, pnIdInstitution, pnIdCommunity);
+            INSERT INTO person(id, name, middle_name, last_name, birthday, id_gender, id_institution, id_district)
+            VALUES (pnId, pnName, pnMiddle_Name, pnLast_Name, pnBirthday, pnIdGender, pnIdInstitution, pnIdDistrict);
             admin_person.updateAge(pnId);
         END;
 
-    PROCEDURE update_person(pnId NUMBER, pnName VARCHAR2, pnMiddle_Name VARCHAR2, pnLast_Name VARCHAR2, pnBirthday DATE, pnIdGender NUMBER, pnIdInstitution NUMBER, pnIdCommunity NUMBER) IS
+    PROCEDURE update_person(pnId NUMBER, pnName VARCHAR2, pnMiddle_Name VARCHAR2, pnLast_Name VARCHAR2, pnBirthday DATE, pnIdGender NUMBER, pnIdInstitution NUMBER, pnIdDistrict NUMBER) IS
         BEGIN
             UPDATE person
             SET name = pnName,
-            SET middle_name = pnMiddle_Name,
-            SET last_name = pnLast_Name,
-            SET birthday = pnBirthday,
-            SET id_gender = pnIdGender,
-            SET id_institution = pnIdInstitution,
-            SET id_community = pnIdCommunity
+                middle_name = pnMiddle_Name,
+                last_name = pnLast_Name,
+                birthday = pnBirthday,
+                id_gender = pnIdGender,
+                id_institution = pnIdInstitution,
+                id_district = pnIdDistrict
             WHERE id = pnId;
         END;
 
@@ -116,14 +116,14 @@ CREATE OR REPLACE PACKAGE BODY admin_person AS
             RETURN rIdInstitution;
         END;
 
-    FUNCTION getIdCommunity (vId NUMBER) RETURN NUMBER 
-        IS rIdCommunity NUMBER(4);
+    FUNCTION getIdDistrict (vId NUMBER) RETURN NUMBER 
+        IS rIdDistrict NUMBER(4);
         BEGIN
-            SELECT id_community
-            INTO rIdCommunity
+            SELECT id_district
+            INTO rIdDistrict
             FROM person
             WHERE id = vId;
-            RETURN rIdCommunity;
+            RETURN rIdDistrict;
         END;
         
     PROCEDURE updateAge (pnId NUMBER) IS
