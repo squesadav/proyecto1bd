@@ -4,6 +4,7 @@ import BL.*;
 import Connect.ConnectDB;
 import java.awt.Color;
 import java.awt.Cursor;
+import java.awt.Image;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
@@ -14,6 +15,7 @@ import javax.swing.JOptionPane;
 import org.jfree.chart.JFreeChart;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 
 public class Login extends javax.swing.JFrame {
 
@@ -115,7 +117,6 @@ public class Login extends javax.swing.JFrame {
         Username = new javax.swing.JLabel();
         JPAdminMenu = new javax.swing.JPanel();
         ButtonStatistics = new javax.swing.JButton();
-        ButtonReports = new javax.swing.JButton();
         ButtonLogOutAdminUser = new javax.swing.JButton();
         ButtonAdminQuery = new javax.swing.JButton();
         ButtonAdminConfiguration = new javax.swing.JButton();
@@ -143,6 +144,8 @@ public class Login extends javax.swing.JFrame {
         RightPicNewReportList = new javax.swing.JButton();
         LeftPicNewReportList = new javax.swing.JButton();
         ButtonRollbackReportList = new javax.swing.JButton();
+        LabelChooseFilterUserListNotChangePassword2 = new javax.swing.JLabel();
+        LabelChooseFilterUserListNotChangePassword3 = new javax.swing.JLabel();
         Log = new javax.swing.JPanel();
         BoxLogStartDate = new javax.swing.JComboBox<>();
         BoxLogFinishDate = new javax.swing.JComboBox<>();
@@ -199,9 +202,118 @@ public class Login extends javax.swing.JFrame {
         AdminCatalogues = new javax.swing.JPanel();
         ButtonUserCatalogues = new javax.swing.JButton();
         ButtonPersonCatalogues = new javax.swing.JButton();
-        ButtonRecordCatalegues = new javax.swing.JButton();
+        ButtonRecordCatalogues = new javax.swing.JButton();
         ButtonRollbackCatalogues = new javax.swing.JButton();
+        ApproveRecords = new javax.swing.JPanel();
+        LabelApproveRecords = new javax.swing.JLabel();
+        LabelResolutionUnapproved = new javax.swing.JLabel();
+        LabelVeredictUnapproved = new javax.swing.JLabel();
+        LabelOffenderUnapproved = new javax.swing.JLabel();
+        LabelCrimeTypeUnapproved = new javax.swing.JLabel();
+        LabelDateCrimeUnapproved = new javax.swing.JLabel();
+        LineResolution2 = new javax.swing.JSeparator();
+        LineDateCrime2 = new javax.swing.JSeparator();
+        UnapprovedDateCrimeField1 = new javax.swing.JFormattedTextField();
+        BoxUnapprovedVeredict = new javax.swing.JComboBox<>();
+        BoxUnapprovedOffender = new javax.swing.JComboBox<>();
+        BoxUnapprovedCrimeType = new javax.swing.JComboBox<>();
+        ButtonCancelUnapproved = new javax.swing.JButton();
+        ButtonBanUser = new javax.swing.JButton();
+        jScrollPane16 = new javax.swing.JScrollPane();
+        UnapprovedCrimeDescriptionField = new javax.swing.JTextArea();
+        CheckBoxApprovedOrNot = new javax.swing.JCheckBox();
+        UnapprovedExpireDateField = new javax.swing.JFormattedTextField();
+        LineExpireDate2 = new javax.swing.JSeparator();
+        LabelExpireDateUnapproved = new javax.swing.JLabel();
+        PictureUnapproved = new javax.swing.JButton();
+        UnapprovedResolutionField = new javax.swing.JTextField();
+        RightUnapprovedPic = new javax.swing.JButton();
+        LeftUnapprovedPic = new javax.swing.JButton();
+        AddUnapprovedPic = new javax.swing.JButton();
+        RemoveUnapprovedPic = new javax.swing.JButton();
+        jScrollPane17 = new javax.swing.JScrollPane();
+        ListUnapprovedRecords = new javax.swing.JList<>();
+        LabelCrimeDescriptionUnapproved = new javax.swing.JLabel();
+        ButtonConfirmUnapproved = new javax.swing.JButton();
+        UserCatalogues = new javax.swing.JPanel();
+        BoxModifyUserType = new javax.swing.JComboBox<>();
+        LabelUserType = new javax.swing.JLabel();
+        BoxModifyBannedReason = new javax.swing.JComboBox<>();
+        LabelBannedReason = new javax.swing.JLabel();
+        AddUserTypeCatalogue = new javax.swing.JButton();
+        RemoveUserType = new javax.swing.JButton();
+        AddBannedReason = new javax.swing.JButton();
+        RemoveBannedReason = new javax.swing.JButton();
+        ButtonConfirmUserCatalogue = new javax.swing.JButton();
+        ButtonCancelUserCatalogue = new javax.swing.JButton();
+        ButtonRollbackUserCatalogues = new javax.swing.JButton();
+        LabelUserType1 = new javax.swing.JLabel();
+        PersonCatalogues = new javax.swing.JPanel();
+        BoxModifyGender = new javax.swing.JComboBox<>();
+        LabelGender = new javax.swing.JLabel();
+        BoxModifyInstitution = new javax.swing.JComboBox<>();
+        LabelInstitution = new javax.swing.JLabel();
+        AddGender = new javax.swing.JButton();
+        RemoveGender = new javax.swing.JButton();
+        AddInstitution = new javax.swing.JButton();
+        RemoveInstitution = new javax.swing.JButton();
+        ButtonConfirmPersonCatalogue = new javax.swing.JButton();
+        ButtonCancelPersonCatalogue = new javax.swing.JButton();
+        BoxModifyCountry = new javax.swing.JComboBox<>();
+        LabelCountry = new javax.swing.JLabel();
+        BoxModifyState = new javax.swing.JComboBox<>();
+        LabelState = new javax.swing.JLabel();
+        AddCountry = new javax.swing.JButton();
+        RemoveCountry = new javax.swing.JButton();
+        AddState = new javax.swing.JButton();
+        RemoveState = new javax.swing.JButton();
+        BoxModifyCity = new javax.swing.JComboBox<>();
+        LabelCity = new javax.swing.JLabel();
+        AddCity = new javax.swing.JButton();
+        RemoveCity = new javax.swing.JButton();
+        ButtonRollbackPersonCatalogues = new javax.swing.JButton();
+        LabelUserType2 = new javax.swing.JLabel();
+        RecordCatalogues = new javax.swing.JPanel();
+        BoxModifyTypeCrime = new javax.swing.JComboBox<>();
+        LabelGender1 = new javax.swing.JLabel();
+        AddTypeCrime = new javax.swing.JButton();
+        RemoveTypeCrime = new javax.swing.JButton();
+        BoxModifyTypeSentence = new javax.swing.JComboBox<>();
+        LabelState1 = new javax.swing.JLabel();
+        AddTypeSentence = new javax.swing.JButton();
+        RemoveTypeSentence = new javax.swing.JButton();
+        ButtonConfirmRecordCatalogue = new javax.swing.JButton();
+        ButtonCancelRecordCatalogue = new javax.swing.JButton();
+        ButtonRollbackRecordCatalogues = new javax.swing.JButton();
+        LabelUserType3 = new javax.swing.JLabel();
+        AdminStatistics = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        BoxCountry = new javax.swing.JComboBox<>();
+        ButtonEnterReportsZone = new javax.swing.JButton();
+        BoxState = new javax.swing.JComboBox<>();
+        BoxCity = new javax.swing.JComboBox<>();
+        BoxDistrict = new javax.swing.JComboBox<>();
+        LabelNewUsername1 = new javax.swing.JLabel();
+        LabelNewUsername2 = new javax.swing.JLabel();
+        LabelNewUsername3 = new javax.swing.JLabel();
+        LabelNewUsername4 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        BoxCountryPersonRecords = new javax.swing.JComboBox<>();
+        ButtonEnterPersonRecords = new javax.swing.JButton();
+        BoxStatePersonRecords = new javax.swing.JComboBox<>();
+        BoxCityPersonRecords = new javax.swing.JComboBox<>();
+        BoxDistrictPersonRecords = new javax.swing.JComboBox<>();
+        LabelNewUsername5 = new javax.swing.JLabel();
+        LabelNewUsername6 = new javax.swing.JLabel();
+        LabelNewUsername7 = new javax.swing.JLabel();
+        LabelNewUsername8 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
         JPUserMenu = new javax.swing.JPanel();
         ButtonQuery = new javax.swing.JButton();
         ButtonConfiguration = new javax.swing.JButton();
@@ -728,10 +840,14 @@ public class Login extends javax.swing.JFrame {
         JPAdminMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ButtonStatistics.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonStatistics.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        ButtonStatistics.setForeground(new java.awt.Color(29, 41, 81));
         ButtonStatistics.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/Statistics.png"))); // NOI18N
+        ButtonStatistics.setText("Statistics");
         ButtonStatistics.setBorder(null);
         ButtonStatistics.setContentAreaFilled(false);
         ButtonStatistics.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ButtonStatistics.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         ButtonStatistics.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 ButtonStatisticsMouseEntered(evt);
@@ -745,26 +861,7 @@ public class Login extends javax.swing.JFrame {
                 ButtonStatisticsActionPerformed(evt);
             }
         });
-        JPAdminMenu.add(ButtonStatistics, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 180, 170));
-
-        ButtonReports.setBackground(new java.awt.Color(255, 255, 255));
-        ButtonReports.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/Report.png"))); // NOI18N
-        ButtonReports.setBorder(null);
-        ButtonReports.setContentAreaFilled(false);
-        ButtonReports.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                ButtonReportsMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                ButtonReportsMouseExited(evt);
-            }
-        });
-        ButtonReports.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonReportsActionPerformed(evt);
-            }
-        });
-        JPAdminMenu.add(ButtonReports, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 270, 170, 150));
+        JPAdminMenu.add(ButtonStatistics, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 260, 230, 170));
 
         ButtonLogOutAdminUser.setBackground(new java.awt.Color(255, 255, 255));
         ButtonLogOutAdminUser.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
@@ -788,10 +885,14 @@ public class Login extends javax.swing.JFrame {
         JPAdminMenu.add(ButtonLogOutAdminUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 460, 110, 40));
 
         ButtonAdminQuery.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonAdminQuery.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        ButtonAdminQuery.setForeground(new java.awt.Color(29, 41, 81));
         ButtonAdminQuery.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/Query.png"))); // NOI18N
+        ButtonAdminQuery.setText("Query");
         ButtonAdminQuery.setBorder(null);
         ButtonAdminQuery.setContentAreaFilled(false);
         ButtonAdminQuery.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ButtonAdminQuery.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         ButtonAdminQuery.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 ButtonAdminQueryMouseEntered(evt);
@@ -805,12 +906,16 @@ public class Login extends javax.swing.JFrame {
                 ButtonAdminQueryActionPerformed(evt);
             }
         });
-        JPAdminMenu.add(ButtonAdminQuery, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 180, 170));
+        JPAdminMenu.add(ButtonAdminQuery, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 230, 170));
 
         ButtonAdminConfiguration.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonAdminConfiguration.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        ButtonAdminConfiguration.setForeground(new java.awt.Color(29, 41, 81));
         ButtonAdminConfiguration.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/Configuration.png"))); // NOI18N
+        ButtonAdminConfiguration.setText("Configuration");
         ButtonAdminConfiguration.setBorder(null);
         ButtonAdminConfiguration.setContentAreaFilled(false);
+        ButtonAdminConfiguration.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         ButtonAdminConfiguration.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 ButtonAdminConfigurationMouseEntered(evt);
@@ -824,7 +929,7 @@ public class Login extends javax.swing.JFrame {
                 ButtonAdminConfigurationActionPerformed(evt);
             }
         });
-        JPAdminMenu.add(ButtonAdminConfiguration, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, 170, 150));
+        JPAdminMenu.add(ButtonAdminConfiguration, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 230, 150));
 
         getContentPane().add(JPAdminMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
 
@@ -944,7 +1049,7 @@ public class Login extends javax.swing.JFrame {
         NewReportList.setToolTipText("");
         jScrollPane10.setViewportView(NewReportList);
 
-        ReportList.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 210, 390));
+        ReportList.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 210, 390));
 
         ReportInformation.setColumns(20);
         ReportInformation.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -966,7 +1071,7 @@ public class Login extends javax.swing.JFrame {
                 PictureNewReportListActionPerformed(evt);
             }
         });
-        ReportList.add(PictureNewReportList, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 270, 130, 150));
+        ReportList.add(PictureNewReportList, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, 130, 150));
 
         RightPicNewReportList.setBackground(new java.awt.Color(255, 255, 255));
         RightPicNewReportList.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/RightPic.png"))); // NOI18N
@@ -985,7 +1090,7 @@ public class Login extends javax.swing.JFrame {
                 RightPicNewReportListActionPerformed(evt);
             }
         });
-        ReportList.add(RightPicNewReportList, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 330, 40, 40));
+        ReportList.add(RightPicNewReportList, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 350, 40, 40));
 
         LeftPicNewReportList.setBackground(new java.awt.Color(255, 255, 255));
         LeftPicNewReportList.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/LeftPic.png"))); // NOI18N
@@ -1004,7 +1109,7 @@ public class Login extends javax.swing.JFrame {
                 LeftPicNewReportListActionPerformed(evt);
             }
         });
-        ReportList.add(LeftPicNewReportList, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, 40, 40));
+        ReportList.add(LeftPicNewReportList, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, 40, 40));
 
         ButtonRollbackReportList.setBackground(new java.awt.Color(255, 255, 255));
         ButtonRollbackReportList.setForeground(new java.awt.Color(255, 255, 255));
@@ -1025,6 +1130,16 @@ public class Login extends javax.swing.JFrame {
             }
         });
         ReportList.add(ButtonRollbackReportList, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 50));
+
+        LabelChooseFilterUserListNotChangePassword2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        LabelChooseFilterUserListNotChangePassword2.setForeground(new java.awt.Color(29, 41, 81));
+        LabelChooseFilterUserListNotChangePassword2.setText("List of new reports");
+        ReportList.add(LabelChooseFilterUserListNotChangePassword2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, -1, 30));
+
+        LabelChooseFilterUserListNotChangePassword3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        LabelChooseFilterUserListNotChangePassword3.setForeground(new java.awt.Color(29, 41, 81));
+        LabelChooseFilterUserListNotChangePassword3.setText("Description of the selected report");
+        ReportList.add(LabelChooseFilterUserListNotChangePassword3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, -1, 30));
 
         AdminQuery.addTab("List of new reports", ReportList);
 
@@ -1227,7 +1342,7 @@ public class Login extends javax.swing.JFrame {
         LabelUpdateAdminCommunity.setBackground(new java.awt.Color(255, 255, 255));
         LabelUpdateAdminCommunity.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         LabelUpdateAdminCommunity.setForeground(new java.awt.Color(29, 41, 81));
-        LabelUpdateAdminCommunity.setText("Community:");
+        LabelUpdateAdminCommunity.setText("District:");
         UpdateAdminPersonalInfo.add(LabelUpdateAdminCommunity, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 280, 100, 30));
 
         LabelUpdateAdminInstitution.setBackground(new java.awt.Color(255, 255, 255));
@@ -1379,25 +1494,64 @@ public class Login extends javax.swing.JFrame {
         ButtonUserCatalogues.setBorder(null);
         ButtonUserCatalogues.setContentAreaFilled(false);
         ButtonUserCatalogues.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        ButtonUserCatalogues.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonUserCataloguesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonUserCataloguesMouseExited(evt);
+            }
+        });
+        ButtonUserCatalogues.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonUserCataloguesActionPerformed(evt);
+            }
+        });
         AdminCatalogues.add(ButtonUserCatalogues, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 230, 180));
 
         ButtonPersonCatalogues.setBackground(new java.awt.Color(255, 255, 255));
         ButtonPersonCatalogues.setForeground(new java.awt.Color(29, 41, 81));
-        ButtonPersonCatalogues.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/UserCatalogue.png"))); // NOI18N
+        ButtonPersonCatalogues.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/Person.png"))); // NOI18N
         ButtonPersonCatalogues.setText("Person Catalogues");
         ButtonPersonCatalogues.setBorder(null);
         ButtonPersonCatalogues.setContentAreaFilled(false);
         ButtonPersonCatalogues.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        ButtonPersonCatalogues.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonPersonCataloguesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonPersonCataloguesMouseExited(evt);
+            }
+        });
+        ButtonPersonCatalogues.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonPersonCataloguesActionPerformed(evt);
+            }
+        });
         AdminCatalogues.add(ButtonPersonCatalogues, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, 240, 180));
 
-        ButtonRecordCatalegues.setBackground(new java.awt.Color(255, 255, 255));
-        ButtonRecordCatalegues.setForeground(new java.awt.Color(29, 41, 81));
-        ButtonRecordCatalegues.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/UserCatalogue.png"))); // NOI18N
-        ButtonRecordCatalegues.setText("Record Catalogues");
-        ButtonRecordCatalegues.setBorder(null);
-        ButtonRecordCatalegues.setContentAreaFilled(false);
-        ButtonRecordCatalegues.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        AdminCatalogues.add(ButtonRecordCatalegues, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, 240, 180));
+        ButtonRecordCatalogues.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonRecordCatalogues.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonRecordCatalogues.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/Record.png"))); // NOI18N
+        ButtonRecordCatalogues.setText("Record Catalogues");
+        ButtonRecordCatalogues.setBorder(null);
+        ButtonRecordCatalogues.setContentAreaFilled(false);
+        ButtonRecordCatalogues.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        ButtonRecordCatalogues.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonRecordCataloguesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonRecordCataloguesMouseExited(evt);
+            }
+        });
+        ButtonRecordCatalogues.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonRecordCataloguesActionPerformed(evt);
+            }
+        });
+        AdminCatalogues.add(ButtonRecordCatalogues, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, 240, 180));
 
         ButtonRollbackCatalogues.setBackground(new java.awt.Color(255, 255, 255));
         ButtonRollbackCatalogues.setForeground(new java.awt.Color(255, 255, 255));
@@ -1421,10 +1575,1074 @@ public class Login extends javax.swing.JFrame {
 
         AdminConfiguration.addTab("Administrate system", AdminCatalogues);
 
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        AdminConfiguration.addTab("tab4", jPanel4);
+        ApproveRecords.setBackground(new java.awt.Color(255, 255, 255));
+        ApproveRecords.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        LabelApproveRecords.setBackground(new java.awt.Color(255, 255, 255));
+        LabelApproveRecords.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelApproveRecords.setForeground(new java.awt.Color(29, 41, 81));
+        LabelApproveRecords.setText("List of unapproved records");
+        ApproveRecords.add(LabelApproveRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 240, 30));
+
+        LabelResolutionUnapproved.setBackground(new java.awt.Color(255, 255, 255));
+        LabelResolutionUnapproved.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelResolutionUnapproved.setForeground(new java.awt.Color(29, 41, 81));
+        LabelResolutionUnapproved.setText("Resolution:");
+        ApproveRecords.add(LabelResolutionUnapproved, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 290, 90, 30));
+
+        LabelVeredictUnapproved.setBackground(new java.awt.Color(255, 255, 255));
+        LabelVeredictUnapproved.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelVeredictUnapproved.setForeground(new java.awt.Color(29, 41, 81));
+        LabelVeredictUnapproved.setText("Veredict:");
+        ApproveRecords.add(LabelVeredictUnapproved, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, 100, 30));
+
+        LabelOffenderUnapproved.setBackground(new java.awt.Color(255, 255, 255));
+        LabelOffenderUnapproved.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelOffenderUnapproved.setForeground(new java.awt.Color(29, 41, 81));
+        LabelOffenderUnapproved.setText("Offender:");
+        ApproveRecords.add(LabelOffenderUnapproved, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 90, 30));
+
+        LabelCrimeTypeUnapproved.setBackground(new java.awt.Color(255, 255, 255));
+        LabelCrimeTypeUnapproved.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelCrimeTypeUnapproved.setForeground(new java.awt.Color(29, 41, 81));
+        LabelCrimeTypeUnapproved.setText("Type:");
+        ApproveRecords.add(LabelCrimeTypeUnapproved, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, 100, 30));
+
+        LabelDateCrimeUnapproved.setBackground(new java.awt.Color(255, 255, 255));
+        LabelDateCrimeUnapproved.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelDateCrimeUnapproved.setForeground(new java.awt.Color(29, 41, 81));
+        LabelDateCrimeUnapproved.setText("Date crime:");
+        ApproveRecords.add(LabelDateCrimeUnapproved, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 100, 30));
+
+        LineResolution2.setForeground(new java.awt.Color(29, 41, 81));
+        ApproveRecords.add(LineResolution2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 350, 220, 20));
+
+        LineDateCrime2.setForeground(new java.awt.Color(29, 41, 81));
+        ApproveRecords.add(LineDateCrime2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, 110, 20));
+
+        UnapprovedDateCrimeField1.setBorder(null);
+        UnapprovedDateCrimeField1.setForeground(new java.awt.Color(29, 41, 81));
+        UnapprovedDateCrimeField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        ApproveRecords.add(UnapprovedDateCrimeField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 110, 30));
+
+        BoxUnapprovedVeredict.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
+        BoxUnapprovedVeredict.setForeground(new java.awt.Color(29, 41, 81));
+        BoxUnapprovedVeredict.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        ApproveRecords.add(BoxUnapprovedVeredict, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 250, 170, 30));
+
+        BoxUnapprovedOffender.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
+        BoxUnapprovedOffender.setForeground(new java.awt.Color(29, 41, 81));
+        BoxUnapprovedOffender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        ApproveRecords.add(BoxUnapprovedOffender, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, 170, 30));
+
+        BoxUnapprovedCrimeType.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
+        BoxUnapprovedCrimeType.setForeground(new java.awt.Color(29, 41, 81));
+        BoxUnapprovedCrimeType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        ApproveRecords.add(BoxUnapprovedCrimeType, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 420, 120, 30));
+
+        ButtonCancelUnapproved.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonCancelUnapproved.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        ButtonCancelUnapproved.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonCancelUnapproved.setText("Cancel");
+        ButtonCancelUnapproved.setBorder(null);
+        ButtonCancelUnapproved.setContentAreaFilled(false);
+        ButtonCancelUnapproved.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonCancelUnapprovedMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonCancelUnapprovedMouseExited(evt);
+            }
+        });
+        ButtonCancelUnapproved.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonCancelUnapprovedActionPerformed(evt);
+            }
+        });
+        ApproveRecords.add(ButtonCancelUnapproved, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 460, 100, 40));
+
+        ButtonBanUser.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonBanUser.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        ButtonBanUser.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonBanUser.setText("Ban user");
+        ButtonBanUser.setBorder(null);
+        ButtonBanUser.setContentAreaFilled(false);
+        ButtonBanUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonBanUserMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonBanUserMouseExited(evt);
+            }
+        });
+        ButtonBanUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonBanUserActionPerformed(evt);
+            }
+        });
+        ApproveRecords.add(ButtonBanUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 370, 100, 30));
+
+        UnapprovedCrimeDescriptionField.setColumns(20);
+        UnapprovedCrimeDescriptionField.setRows(5);
+        jScrollPane16.setViewportView(UnapprovedCrimeDescriptionField);
+
+        ApproveRecords.add(jScrollPane16, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 220, 40));
+
+        CheckBoxApprovedOrNot.setBackground(new java.awt.Color(255, 255, 255));
+        CheckBoxApprovedOrNot.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        CheckBoxApprovedOrNot.setForeground(new java.awt.Color(29, 41, 81));
+        CheckBoxApprovedOrNot.setText("Approved");
+        ApproveRecords.add(CheckBoxApprovedOrNot, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 370, 110, -1));
+
+        UnapprovedExpireDateField.setBorder(null);
+        UnapprovedExpireDateField.setForeground(new java.awt.Color(29, 41, 81));
+        UnapprovedExpireDateField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        ApproveRecords.add(UnapprovedExpireDateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 410, 110, 30));
+
+        LineExpireDate2.setForeground(new java.awt.Color(29, 41, 81));
+        ApproveRecords.add(LineExpireDate2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 440, 110, 20));
+
+        LabelExpireDateUnapproved.setBackground(new java.awt.Color(255, 255, 255));
+        LabelExpireDateUnapproved.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelExpireDateUnapproved.setForeground(new java.awt.Color(29, 41, 81));
+        LabelExpireDateUnapproved.setText("Expire date:");
+        ApproveRecords.add(LabelExpireDateUnapproved, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 410, 100, 30));
+
+        PictureUnapproved.setBackground(new java.awt.Color(255, 255, 255));
+        PictureUnapproved.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        PictureUnapproved.setForeground(new java.awt.Color(29, 41, 81));
+        PictureUnapproved.setText("Picture");
+        PictureUnapproved.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
+        PictureUnapproved.setContentAreaFilled(false);
+        PictureUnapproved.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PictureUnapprovedActionPerformed(evt);
+            }
+        });
+        ApproveRecords.add(PictureUnapproved, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 40, 130, 150));
+
+        UnapprovedResolutionField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        UnapprovedResolutionField.setForeground(new java.awt.Color(29, 41, 81));
+        UnapprovedResolutionField.setBorder(null);
+        ApproveRecords.add(UnapprovedResolutionField, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 320, 220, 30));
+
+        RightUnapprovedPic.setBackground(new java.awt.Color(255, 255, 255));
+        RightUnapprovedPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/RightPic.png"))); // NOI18N
+        RightUnapprovedPic.setBorder(null);
+        RightUnapprovedPic.setContentAreaFilled(false);
+        RightUnapprovedPic.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                RightUnapprovedPicMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                RightUnapprovedPicMouseExited(evt);
+            }
+        });
+        RightUnapprovedPic.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RightUnapprovedPicActionPerformed(evt);
+            }
+        });
+        ApproveRecords.add(RightUnapprovedPic, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 100, 40, 40));
+
+        LeftUnapprovedPic.setBackground(new java.awt.Color(255, 255, 255));
+        LeftUnapprovedPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/LeftPic.png"))); // NOI18N
+        LeftUnapprovedPic.setBorder(null);
+        LeftUnapprovedPic.setContentAreaFilled(false);
+        LeftUnapprovedPic.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                LeftUnapprovedPicMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                LeftUnapprovedPicMouseExited(evt);
+            }
+        });
+        LeftUnapprovedPic.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LeftUnapprovedPicActionPerformed(evt);
+            }
+        });
+        ApproveRecords.add(LeftUnapprovedPic, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 100, 40, 40));
+
+        AddUnapprovedPic.setBackground(new java.awt.Color(255, 255, 255));
+        AddUnapprovedPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/AddPic.png"))); // NOI18N
+        AddUnapprovedPic.setBorder(null);
+        AddUnapprovedPic.setContentAreaFilled(false);
+        AddUnapprovedPic.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                AddUnapprovedPicMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                AddUnapprovedPicMouseExited(evt);
+            }
+        });
+        AddUnapprovedPic.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddUnapprovedPicActionPerformed(evt);
+            }
+        });
+        ApproveRecords.add(AddUnapprovedPic, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 50, 40, 40));
+
+        RemoveUnapprovedPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/RemovePic.png"))); // NOI18N
+        RemoveUnapprovedPic.setContentAreaFilled(false);
+        RemoveUnapprovedPic.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                RemoveUnapprovedPicMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                RemoveUnapprovedPicMouseExited(evt);
+            }
+        });
+        RemoveUnapprovedPic.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoveUnapprovedPicActionPerformed(evt);
+            }
+        });
+        ApproveRecords.add(RemoveUnapprovedPic, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, 40, 40));
+
+        jScrollPane17.setForeground(new java.awt.Color(29, 41, 81));
+
+        ListUnapprovedRecords.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        ListUnapprovedRecords.setForeground(new java.awt.Color(29, 41, 81));
+        ListUnapprovedRecords.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane17.setViewportView(ListUnapprovedRecords);
+
+        ApproveRecords.add(jScrollPane17, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 270, 120));
+
+        LabelCrimeDescriptionUnapproved.setBackground(new java.awt.Color(255, 255, 255));
+        LabelCrimeDescriptionUnapproved.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelCrimeDescriptionUnapproved.setForeground(new java.awt.Color(29, 41, 81));
+        LabelCrimeDescriptionUnapproved.setText("Crime Description:");
+        ApproveRecords.add(LabelCrimeDescriptionUnapproved, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 160, 30));
+
+        ButtonConfirmUnapproved.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonConfirmUnapproved.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        ButtonConfirmUnapproved.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonConfirmUnapproved.setText("Confirm");
+        ButtonConfirmUnapproved.setBorder(null);
+        ButtonConfirmUnapproved.setContentAreaFilled(false);
+        ButtonConfirmUnapproved.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonConfirmUnapprovedMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonConfirmUnapprovedMouseExited(evt);
+            }
+        });
+        ButtonConfirmUnapproved.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonConfirmUnapprovedActionPerformed(evt);
+            }
+        });
+        ApproveRecords.add(ButtonConfirmUnapproved, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 460, 100, 40));
+
+        AdminConfiguration.addTab("Approve records", ApproveRecords);
 
         getContentPane().add(AdminConfiguration, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
+
+        UserCatalogues.setBackground(new java.awt.Color(255, 255, 255));
+        UserCatalogues.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        BoxModifyUserType.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        BoxModifyUserType.setForeground(new java.awt.Color(29, 41, 81));
+        UserCatalogues.add(BoxModifyUserType, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 130, 30));
+
+        LabelUserType.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        LabelUserType.setForeground(new java.awt.Color(29, 41, 81));
+        LabelUserType.setText("User type:");
+        UserCatalogues.add(LabelUserType, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
+
+        BoxModifyBannedReason.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        BoxModifyBannedReason.setForeground(new java.awt.Color(29, 41, 81));
+        UserCatalogues.add(BoxModifyBannedReason, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, 150, 30));
+
+        LabelBannedReason.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        LabelBannedReason.setForeground(new java.awt.Color(29, 41, 81));
+        LabelBannedReason.setText("Banned Reason:");
+        UserCatalogues.add(LabelBannedReason, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, -1, -1));
+
+        AddUserTypeCatalogue.setBackground(new java.awt.Color(255, 255, 255));
+        AddUserTypeCatalogue.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/AddPic.png"))); // NOI18N
+        AddUserTypeCatalogue.setBorder(null);
+        AddUserTypeCatalogue.setContentAreaFilled(false);
+        AddUserTypeCatalogue.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                AddUserTypeCatalogueMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                AddUserTypeCatalogueMouseExited(evt);
+            }
+        });
+        AddUserTypeCatalogue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddUserTypeCatalogueActionPerformed(evt);
+            }
+        });
+        UserCatalogues.add(AddUserTypeCatalogue, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 40, -1));
+
+        RemoveUserType.setBackground(new java.awt.Color(255, 255, 255));
+        RemoveUserType.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/RemovePic.png"))); // NOI18N
+        RemoveUserType.setBorder(null);
+        RemoveUserType.setContentAreaFilled(false);
+        RemoveUserType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoveUserTypeActionPerformed(evt);
+            }
+        });
+        UserCatalogues.add(RemoveUserType, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 40, -1));
+
+        AddBannedReason.setBackground(new java.awt.Color(255, 255, 255));
+        AddBannedReason.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/AddPic.png"))); // NOI18N
+        AddBannedReason.setBorder(null);
+        AddBannedReason.setContentAreaFilled(false);
+        AddBannedReason.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                AddBannedReasonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                AddBannedReasonMouseExited(evt);
+            }
+        });
+        AddBannedReason.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddBannedReasonActionPerformed(evt);
+            }
+        });
+        UserCatalogues.add(AddBannedReason, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, 40, -1));
+
+        RemoveBannedReason.setBackground(new java.awt.Color(255, 255, 255));
+        RemoveBannedReason.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/RemovePic.png"))); // NOI18N
+        RemoveBannedReason.setBorder(null);
+        RemoveBannedReason.setContentAreaFilled(false);
+        RemoveBannedReason.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                RemoveBannedReasonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                RemoveBannedReasonMouseExited(evt);
+            }
+        });
+        RemoveBannedReason.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoveBannedReasonActionPerformed(evt);
+            }
+        });
+        UserCatalogues.add(RemoveBannedReason, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 250, 40, -1));
+
+        ButtonConfirmUserCatalogue.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonConfirmUserCatalogue.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        ButtonConfirmUserCatalogue.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonConfirmUserCatalogue.setText("Confirm");
+        ButtonConfirmUserCatalogue.setBorder(null);
+        ButtonConfirmUserCatalogue.setContentAreaFilled(false);
+        ButtonConfirmUserCatalogue.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonConfirmUserCatalogueMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonConfirmUserCatalogueMouseExited(evt);
+            }
+        });
+        ButtonConfirmUserCatalogue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonConfirmUserCatalogueActionPerformed(evt);
+            }
+        });
+        UserCatalogues.add(ButtonConfirmUserCatalogue, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, 100, 40));
+
+        ButtonCancelUserCatalogue.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonCancelUserCatalogue.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        ButtonCancelUserCatalogue.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonCancelUserCatalogue.setText("Cancel");
+        ButtonCancelUserCatalogue.setBorder(null);
+        ButtonCancelUserCatalogue.setContentAreaFilled(false);
+        ButtonCancelUserCatalogue.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonCancelUserCatalogueMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonCancelUserCatalogueMouseExited(evt);
+            }
+        });
+        ButtonCancelUserCatalogue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonCancelUserCatalogueActionPerformed(evt);
+            }
+        });
+        UserCatalogues.add(ButtonCancelUserCatalogue, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 460, 100, 40));
+
+        ButtonRollbackUserCatalogues.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonRollbackUserCatalogues.setForeground(new java.awt.Color(255, 255, 255));
+        ButtonRollbackUserCatalogues.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/Rollback.png"))); // NOI18N
+        ButtonRollbackUserCatalogues.setBorder(null);
+        ButtonRollbackUserCatalogues.setContentAreaFilled(false);
+        ButtonRollbackUserCatalogues.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonRollbackUserCataloguesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonRollbackUserCataloguesMouseExited(evt);
+            }
+        });
+        ButtonRollbackUserCatalogues.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonRollbackUserCataloguesActionPerformed(evt);
+            }
+        });
+        UserCatalogues.add(ButtonRollbackUserCatalogues, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 50));
+
+        LabelUserType1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        LabelUserType1.setForeground(new java.awt.Color(29, 41, 81));
+        LabelUserType1.setText("User Catalogues");
+        UserCatalogues.add(LabelUserType1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, -1, -1));
+
+        getContentPane().add(UserCatalogues, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
+
+        PersonCatalogues.setBackground(new java.awt.Color(255, 255, 255));
+        PersonCatalogues.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        BoxModifyGender.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        BoxModifyGender.setForeground(new java.awt.Color(29, 41, 81));
+        PersonCatalogues.add(BoxModifyGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 130, 30));
+
+        LabelGender.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        LabelGender.setForeground(new java.awt.Color(29, 41, 81));
+        LabelGender.setText("Gender:");
+        PersonCatalogues.add(LabelGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, -1, -1));
+
+        BoxModifyInstitution.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        BoxModifyInstitution.setForeground(new java.awt.Color(29, 41, 81));
+        PersonCatalogues.add(BoxModifyInstitution, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 150, 150, 30));
+
+        LabelInstitution.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        LabelInstitution.setForeground(new java.awt.Color(29, 41, 81));
+        LabelInstitution.setText("Institution:");
+        PersonCatalogues.add(LabelInstitution, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 160, -1, -1));
+
+        AddGender.setBackground(new java.awt.Color(255, 255, 255));
+        AddGender.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/AddPic.png"))); // NOI18N
+        AddGender.setBorder(null);
+        AddGender.setContentAreaFilled(false);
+        AddGender.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                AddGenderMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                AddGenderMouseExited(evt);
+            }
+        });
+        AddGender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddGenderActionPerformed(evt);
+            }
+        });
+        PersonCatalogues.add(AddGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 40, -1));
+
+        RemoveGender.setBackground(new java.awt.Color(255, 255, 255));
+        RemoveGender.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/RemovePic.png"))); // NOI18N
+        RemoveGender.setBorder(null);
+        RemoveGender.setContentAreaFilled(false);
+        RemoveGender.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                RemoveGenderMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                RemoveGenderMouseExited(evt);
+            }
+        });
+        RemoveGender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoveGenderActionPerformed(evt);
+            }
+        });
+        PersonCatalogues.add(RemoveGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 40, -1));
+
+        AddInstitution.setBackground(new java.awt.Color(255, 255, 255));
+        AddInstitution.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/AddPic.png"))); // NOI18N
+        AddInstitution.setBorder(null);
+        AddInstitution.setContentAreaFilled(false);
+        AddInstitution.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                AddInstitutionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                AddInstitutionMouseExited(evt);
+            }
+        });
+        AddInstitution.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddInstitutionActionPerformed(evt);
+            }
+        });
+        PersonCatalogues.add(AddInstitution, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 190, 40, -1));
+
+        RemoveInstitution.setBackground(new java.awt.Color(255, 255, 255));
+        RemoveInstitution.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/RemovePic.png"))); // NOI18N
+        RemoveInstitution.setBorder(null);
+        RemoveInstitution.setContentAreaFilled(false);
+        RemoveInstitution.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                RemoveInstitutionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                RemoveInstitutionMouseExited(evt);
+            }
+        });
+        RemoveInstitution.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoveInstitutionActionPerformed(evt);
+            }
+        });
+        PersonCatalogues.add(RemoveInstitution, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 190, 40, -1));
+
+        ButtonConfirmPersonCatalogue.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonConfirmPersonCatalogue.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        ButtonConfirmPersonCatalogue.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonConfirmPersonCatalogue.setText("Confirm");
+        ButtonConfirmPersonCatalogue.setBorder(null);
+        ButtonConfirmPersonCatalogue.setContentAreaFilled(false);
+        ButtonConfirmPersonCatalogue.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonConfirmPersonCatalogueMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonConfirmPersonCatalogueMouseExited(evt);
+            }
+        });
+        ButtonConfirmPersonCatalogue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonConfirmPersonCatalogueActionPerformed(evt);
+            }
+        });
+        PersonCatalogues.add(ButtonConfirmPersonCatalogue, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, 100, 40));
+
+        ButtonCancelPersonCatalogue.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonCancelPersonCatalogue.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        ButtonCancelPersonCatalogue.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonCancelPersonCatalogue.setText("Cancel");
+        ButtonCancelPersonCatalogue.setBorder(null);
+        ButtonCancelPersonCatalogue.setContentAreaFilled(false);
+        ButtonCancelPersonCatalogue.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonCancelPersonCatalogueMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonCancelPersonCatalogueMouseExited(evt);
+            }
+        });
+        ButtonCancelPersonCatalogue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonCancelPersonCatalogueActionPerformed(evt);
+            }
+        });
+        PersonCatalogues.add(ButtonCancelPersonCatalogue, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 460, 100, 40));
+
+        BoxModifyCountry.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        BoxModifyCountry.setForeground(new java.awt.Color(29, 41, 81));
+        PersonCatalogues.add(BoxModifyCountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 130, 30));
+
+        LabelCountry.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        LabelCountry.setForeground(new java.awt.Color(29, 41, 81));
+        LabelCountry.setText("Country:");
+        PersonCatalogues.add(LabelCountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, -1, -1));
+
+        BoxModifyState.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        BoxModifyState.setForeground(new java.awt.Color(29, 41, 81));
+        PersonCatalogues.add(BoxModifyState, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 260, 150, 30));
+
+        LabelState.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        LabelState.setForeground(new java.awt.Color(29, 41, 81));
+        LabelState.setText("State:");
+        PersonCatalogues.add(LabelState, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 270, -1, -1));
+
+        AddCountry.setBackground(new java.awt.Color(255, 255, 255));
+        AddCountry.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/AddPic.png"))); // NOI18N
+        AddCountry.setBorder(null);
+        AddCountry.setContentAreaFilled(false);
+        AddCountry.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                AddCountryMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                AddCountryMouseExited(evt);
+            }
+        });
+        AddCountry.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddCountryActionPerformed(evt);
+            }
+        });
+        PersonCatalogues.add(AddCountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, 40, -1));
+
+        RemoveCountry.setBackground(new java.awt.Color(255, 255, 255));
+        RemoveCountry.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/RemovePic.png"))); // NOI18N
+        RemoveCountry.setBorder(null);
+        RemoveCountry.setContentAreaFilled(false);
+        RemoveCountry.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                RemoveCountryMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                RemoveCountryMouseExited(evt);
+            }
+        });
+        RemoveCountry.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoveCountryActionPerformed(evt);
+            }
+        });
+        PersonCatalogues.add(RemoveCountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 40, -1));
+
+        AddState.setBackground(new java.awt.Color(255, 255, 255));
+        AddState.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/AddPic.png"))); // NOI18N
+        AddState.setBorder(null);
+        AddState.setContentAreaFilled(false);
+        AddState.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                AddStateMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                AddStateMouseExited(evt);
+            }
+        });
+        AddState.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddStateActionPerformed(evt);
+            }
+        });
+        PersonCatalogues.add(AddState, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 300, 40, -1));
+
+        RemoveState.setBackground(new java.awt.Color(255, 255, 255));
+        RemoveState.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/RemovePic.png"))); // NOI18N
+        RemoveState.setBorder(null);
+        RemoveState.setContentAreaFilled(false);
+        RemoveState.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                RemoveStateMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                RemoveStateMouseExited(evt);
+            }
+        });
+        RemoveState.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoveStateActionPerformed(evt);
+            }
+        });
+        PersonCatalogues.add(RemoveState, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 300, 40, -1));
+
+        BoxModifyCity.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        BoxModifyCity.setForeground(new java.awt.Color(29, 41, 81));
+        PersonCatalogues.add(BoxModifyCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, 130, 30));
+
+        LabelCity.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        LabelCity.setForeground(new java.awt.Color(29, 41, 81));
+        LabelCity.setText("City:");
+        PersonCatalogues.add(LabelCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 370, -1, -1));
+
+        AddCity.setBackground(new java.awt.Color(255, 255, 255));
+        AddCity.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/AddPic.png"))); // NOI18N
+        AddCity.setBorder(null);
+        AddCity.setContentAreaFilled(false);
+        AddCity.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                AddCityMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                AddCityMouseExited(evt);
+            }
+        });
+        AddCity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddCityActionPerformed(evt);
+            }
+        });
+        PersonCatalogues.add(AddCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 400, 40, -1));
+
+        RemoveCity.setBackground(new java.awt.Color(255, 255, 255));
+        RemoveCity.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/RemovePic.png"))); // NOI18N
+        RemoveCity.setBorder(null);
+        RemoveCity.setContentAreaFilled(false);
+        RemoveCity.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                RemoveCityMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                RemoveCityMouseExited(evt);
+            }
+        });
+        RemoveCity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoveCityActionPerformed(evt);
+            }
+        });
+        PersonCatalogues.add(RemoveCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 400, 40, -1));
+
+        ButtonRollbackPersonCatalogues.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonRollbackPersonCatalogues.setForeground(new java.awt.Color(255, 255, 255));
+        ButtonRollbackPersonCatalogues.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/Rollback.png"))); // NOI18N
+        ButtonRollbackPersonCatalogues.setBorder(null);
+        ButtonRollbackPersonCatalogues.setContentAreaFilled(false);
+        ButtonRollbackPersonCatalogues.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonRollbackPersonCataloguesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonRollbackPersonCataloguesMouseExited(evt);
+            }
+        });
+        ButtonRollbackPersonCatalogues.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonRollbackPersonCataloguesActionPerformed(evt);
+            }
+        });
+        PersonCatalogues.add(ButtonRollbackPersonCatalogues, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 50));
+
+        LabelUserType2.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        LabelUserType2.setForeground(new java.awt.Color(29, 41, 81));
+        LabelUserType2.setText("Person Catalogues");
+        PersonCatalogues.add(LabelUserType2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, -1, -1));
+
+        getContentPane().add(PersonCatalogues, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
+
+        RecordCatalogues.setBackground(new java.awt.Color(255, 255, 255));
+        RecordCatalogues.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        BoxModifyTypeCrime.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        BoxModifyTypeCrime.setForeground(new java.awt.Color(29, 41, 81));
+        RecordCatalogues.add(BoxModifyTypeCrime, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 130, 30));
+
+        LabelGender1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        LabelGender1.setForeground(new java.awt.Color(29, 41, 81));
+        LabelGender1.setText("Type of crime:");
+        RecordCatalogues.add(LabelGender1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
+
+        AddTypeCrime.setBackground(new java.awt.Color(255, 255, 255));
+        AddTypeCrime.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/AddPic.png"))); // NOI18N
+        AddTypeCrime.setBorder(null);
+        AddTypeCrime.setContentAreaFilled(false);
+        AddTypeCrime.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                AddTypeCrimeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                AddTypeCrimeMouseExited(evt);
+            }
+        });
+        AddTypeCrime.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddTypeCrimeActionPerformed(evt);
+            }
+        });
+        RecordCatalogues.add(AddTypeCrime, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 40, -1));
+
+        RemoveTypeCrime.setBackground(new java.awt.Color(255, 255, 255));
+        RemoveTypeCrime.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/RemovePic.png"))); // NOI18N
+        RemoveTypeCrime.setBorder(null);
+        RemoveTypeCrime.setContentAreaFilled(false);
+        RemoveTypeCrime.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                RemoveTypeCrimeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                RemoveTypeCrimeMouseExited(evt);
+            }
+        });
+        RemoveTypeCrime.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoveTypeCrimeActionPerformed(evt);
+            }
+        });
+        RecordCatalogues.add(RemoveTypeCrime, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 40, -1));
+
+        BoxModifyTypeSentence.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        BoxModifyTypeSentence.setForeground(new java.awt.Color(29, 41, 81));
+        RecordCatalogues.add(BoxModifyTypeSentence, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 210, 150, 30));
+
+        LabelState1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        LabelState1.setForeground(new java.awt.Color(29, 41, 81));
+        LabelState1.setText("Type of sentence:");
+        RecordCatalogues.add(LabelState1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, -1, -1));
+
+        AddTypeSentence.setBackground(new java.awt.Color(255, 255, 255));
+        AddTypeSentence.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/AddPic.png"))); // NOI18N
+        AddTypeSentence.setBorder(null);
+        AddTypeSentence.setContentAreaFilled(false);
+        AddTypeSentence.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                AddTypeSentenceMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                AddTypeSentenceMouseExited(evt);
+            }
+        });
+        AddTypeSentence.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddTypeSentenceActionPerformed(evt);
+            }
+        });
+        RecordCatalogues.add(AddTypeSentence, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, 40, -1));
+
+        RemoveTypeSentence.setBackground(new java.awt.Color(255, 255, 255));
+        RemoveTypeSentence.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/RemovePic.png"))); // NOI18N
+        RemoveTypeSentence.setBorder(null);
+        RemoveTypeSentence.setContentAreaFilled(false);
+        RemoveTypeSentence.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                RemoveTypeSentenceMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                RemoveTypeSentenceMouseExited(evt);
+            }
+        });
+        RemoveTypeSentence.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoveTypeSentenceActionPerformed(evt);
+            }
+        });
+        RecordCatalogues.add(RemoveTypeSentence, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 250, 40, -1));
+
+        ButtonConfirmRecordCatalogue.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonConfirmRecordCatalogue.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        ButtonConfirmRecordCatalogue.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonConfirmRecordCatalogue.setText("Confirm");
+        ButtonConfirmRecordCatalogue.setBorder(null);
+        ButtonConfirmRecordCatalogue.setContentAreaFilled(false);
+        ButtonConfirmRecordCatalogue.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonConfirmRecordCatalogueMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonConfirmRecordCatalogueMouseExited(evt);
+            }
+        });
+        ButtonConfirmRecordCatalogue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonConfirmRecordCatalogueActionPerformed(evt);
+            }
+        });
+        RecordCatalogues.add(ButtonConfirmRecordCatalogue, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, 100, 40));
+
+        ButtonCancelRecordCatalogue.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonCancelRecordCatalogue.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        ButtonCancelRecordCatalogue.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonCancelRecordCatalogue.setText("Cancel");
+        ButtonCancelRecordCatalogue.setBorder(null);
+        ButtonCancelRecordCatalogue.setContentAreaFilled(false);
+        ButtonCancelRecordCatalogue.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonCancelRecordCatalogueMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonCancelRecordCatalogueMouseExited(evt);
+            }
+        });
+        ButtonCancelRecordCatalogue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonCancelRecordCatalogueActionPerformed(evt);
+            }
+        });
+        RecordCatalogues.add(ButtonCancelRecordCatalogue, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 460, 100, 40));
+
+        ButtonRollbackRecordCatalogues.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonRollbackRecordCatalogues.setForeground(new java.awt.Color(255, 255, 255));
+        ButtonRollbackRecordCatalogues.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/Rollback.png"))); // NOI18N
+        ButtonRollbackRecordCatalogues.setBorder(null);
+        ButtonRollbackRecordCatalogues.setContentAreaFilled(false);
+        ButtonRollbackRecordCatalogues.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonRollbackRecordCataloguesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonRollbackRecordCataloguesMouseExited(evt);
+            }
+        });
+        ButtonRollbackRecordCatalogues.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonRollbackRecordCataloguesActionPerformed(evt);
+            }
+        });
+        RecordCatalogues.add(ButtonRollbackRecordCatalogues, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 50));
+
+        LabelUserType3.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        LabelUserType3.setForeground(new java.awt.Color(29, 41, 81));
+        LabelUserType3.setText("Record Catalogues");
+        RecordCatalogues.add(LabelUserType3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, -1, -1));
+
+        getContentPane().add(RecordCatalogues, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
+
+        AdminStatistics.setBackground(new java.awt.Color(255, 255, 255));
+        AdminStatistics.setForeground(new java.awt.Color(29, 41, 81));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        AdminStatistics.addTab("Total records by classification", jPanel1);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        BoxCountry.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        BoxCountry.setForeground(new java.awt.Color(29, 41, 81));
+        BoxCountry.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        jPanel2.add(BoxCountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 160, 30));
+
+        ButtonEnterReportsZone.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonEnterReportsZone.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        ButtonEnterReportsZone.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonEnterReportsZone.setText("Enter");
+        ButtonEnterReportsZone.setBorder(null);
+        ButtonEnterReportsZone.setContentAreaFilled(false);
+        ButtonEnterReportsZone.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonEnterReportsZoneMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonEnterReportsZoneMouseExited(evt);
+            }
+        });
+        ButtonEnterReportsZone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonEnterReportsZoneActionPerformed(evt);
+            }
+        });
+        jPanel2.add(ButtonEnterReportsZone, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 120, 30));
+
+        BoxState.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        BoxState.setForeground(new java.awt.Color(29, 41, 81));
+        BoxState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        jPanel2.add(BoxState, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 160, 30));
+
+        BoxCity.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        BoxCity.setForeground(new java.awt.Color(29, 41, 81));
+        BoxCity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        jPanel2.add(BoxCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, 160, 30));
+
+        BoxDistrict.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        BoxDistrict.setForeground(new java.awt.Color(29, 41, 81));
+        BoxDistrict.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        jPanel2.add(BoxDistrict, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 50, 160, 30));
+
+        LabelNewUsername1.setBackground(new java.awt.Color(255, 255, 255));
+        LabelNewUsername1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        LabelNewUsername1.setForeground(new java.awt.Color(29, 41, 81));
+        LabelNewUsername1.setText("Country:");
+        jPanel2.add(LabelNewUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 100, 30));
+
+        LabelNewUsername2.setBackground(new java.awt.Color(255, 255, 255));
+        LabelNewUsername2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        LabelNewUsername2.setForeground(new java.awt.Color(29, 41, 81));
+        LabelNewUsername2.setText("State:");
+        jPanel2.add(LabelNewUsername2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, 100, 30));
+
+        LabelNewUsername3.setBackground(new java.awt.Color(255, 255, 255));
+        LabelNewUsername3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        LabelNewUsername3.setForeground(new java.awt.Color(29, 41, 81));
+        LabelNewUsername3.setText("City:");
+        jPanel2.add(LabelNewUsername3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, 100, 30));
+
+        LabelNewUsername4.setBackground(new java.awt.Color(255, 255, 255));
+        LabelNewUsername4.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        LabelNewUsername4.setForeground(new java.awt.Color(29, 41, 81));
+        LabelNewUsername4.setText("District:");
+        jPanel2.add(LabelNewUsername4, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 20, 100, 30));
+
+        AdminStatistics.addTab("Total records by zone", jPanel2);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        AdminStatistics.addTab("Age range of users", jPanel3);
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        AdminStatistics.addTab("Age range of persons with records", jPanel4);
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        BoxCountryPersonRecords.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        BoxCountryPersonRecords.setForeground(new java.awt.Color(29, 41, 81));
+        BoxCountryPersonRecords.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        jPanel5.add(BoxCountryPersonRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 160, 30));
+
+        ButtonEnterPersonRecords.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonEnterPersonRecords.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        ButtonEnterPersonRecords.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonEnterPersonRecords.setText("Enter");
+        ButtonEnterPersonRecords.setBorder(null);
+        ButtonEnterPersonRecords.setContentAreaFilled(false);
+        ButtonEnterPersonRecords.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonEnterPersonRecordsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonEnterPersonRecordsMouseExited(evt);
+            }
+        });
+        ButtonEnterPersonRecords.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonEnterPersonRecordsActionPerformed(evt);
+            }
+        });
+        jPanel5.add(ButtonEnterPersonRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 120, 30));
+
+        BoxStatePersonRecords.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        BoxStatePersonRecords.setForeground(new java.awt.Color(29, 41, 81));
+        BoxStatePersonRecords.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        jPanel5.add(BoxStatePersonRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 160, 30));
+
+        BoxCityPersonRecords.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        BoxCityPersonRecords.setForeground(new java.awt.Color(29, 41, 81));
+        BoxCityPersonRecords.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        jPanel5.add(BoxCityPersonRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, 160, 30));
+
+        BoxDistrictPersonRecords.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        BoxDistrictPersonRecords.setForeground(new java.awt.Color(29, 41, 81));
+        BoxDistrictPersonRecords.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        jPanel5.add(BoxDistrictPersonRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 50, 160, 30));
+
+        LabelNewUsername5.setBackground(new java.awt.Color(255, 255, 255));
+        LabelNewUsername5.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        LabelNewUsername5.setForeground(new java.awt.Color(29, 41, 81));
+        LabelNewUsername5.setText("Country:");
+        jPanel5.add(LabelNewUsername5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 100, 30));
+
+        LabelNewUsername6.setBackground(new java.awt.Color(255, 255, 255));
+        LabelNewUsername6.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        LabelNewUsername6.setForeground(new java.awt.Color(29, 41, 81));
+        LabelNewUsername6.setText("State:");
+        jPanel5.add(LabelNewUsername6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, 100, 30));
+
+        LabelNewUsername7.setBackground(new java.awt.Color(255, 255, 255));
+        LabelNewUsername7.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        LabelNewUsername7.setForeground(new java.awt.Color(29, 41, 81));
+        LabelNewUsername7.setText("City:");
+        jPanel5.add(LabelNewUsername7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, 100, 30));
+
+        LabelNewUsername8.setBackground(new java.awt.Color(255, 255, 255));
+        LabelNewUsername8.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        LabelNewUsername8.setForeground(new java.awt.Color(29, 41, 81));
+        LabelNewUsername8.setText("District:");
+        jPanel5.add(LabelNewUsername8, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 20, 100, 30));
+
+        AdminStatistics.addTab("Total people with records by place of residence", jPanel5);
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        AdminStatistics.addTab("Sentencing time for crime", jPanel6);
+
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        AdminStatistics.addTab("Records with convictions expired or about to expire", jPanel7);
+
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        AdminStatistics.addTab("Number of years in jail by type of record", jPanel8);
+
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        AdminStatistics.addTab("Records with house by jail by type of record", jPanel9);
+
+        getContentPane().add(AdminStatistics, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
 
         JPUserMenu.setBackground(new java.awt.Color(255, 255, 255));
         JPUserMenu.setForeground(new java.awt.Color(255, 255, 255));
@@ -1436,10 +2654,14 @@ public class Login extends javax.swing.JFrame {
         JPUserMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ButtonQuery.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonQuery.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        ButtonQuery.setForeground(new java.awt.Color(29, 41, 81));
         ButtonQuery.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/Query.png"))); // NOI18N
+        ButtonQuery.setText("Query");
         ButtonQuery.setBorder(null);
         ButtonQuery.setContentAreaFilled(false);
         ButtonQuery.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ButtonQuery.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         ButtonQuery.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 ButtonQueryMouseEntered(evt);
@@ -1453,12 +2675,16 @@ public class Login extends javax.swing.JFrame {
                 ButtonQueryActionPerformed(evt);
             }
         });
-        JPUserMenu.add(ButtonQuery, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 180, 170));
+        JPUserMenu.add(ButtonQuery, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 240, 170));
 
         ButtonConfiguration.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonConfiguration.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        ButtonConfiguration.setForeground(new java.awt.Color(29, 41, 81));
         ButtonConfiguration.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/Configuration.png"))); // NOI18N
+        ButtonConfiguration.setText("Configuration");
         ButtonConfiguration.setBorder(null);
         ButtonConfiguration.setContentAreaFilled(false);
+        ButtonConfiguration.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         ButtonConfiguration.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 ButtonConfigurationMouseEntered(evt);
@@ -1472,7 +2698,7 @@ public class Login extends javax.swing.JFrame {
                 ButtonConfigurationActionPerformed(evt);
             }
         });
-        JPUserMenu.add(ButtonConfiguration, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 150, 180, 170));
+        JPUserMenu.add(ButtonConfiguration, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, 240, 170));
 
         ButtonLogOut.setBackground(new java.awt.Color(255, 255, 255));
         ButtonLogOut.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
@@ -1493,13 +2719,17 @@ public class Login extends javax.swing.JFrame {
                 ButtonLogOutActionPerformed(evt);
             }
         });
-        JPUserMenu.add(ButtonLogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 450, 110, 40));
+        JPUserMenu.add(ButtonLogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 460, 110, 40));
 
         ButtonCreateRecord.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonCreateRecord.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        ButtonCreateRecord.setForeground(new java.awt.Color(29, 41, 81));
         ButtonCreateRecord.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/CreateFile.png"))); // NOI18N
+        ButtonCreateRecord.setText("Create record");
         ButtonCreateRecord.setBorder(null);
         ButtonCreateRecord.setContentAreaFilled(false);
         ButtonCreateRecord.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ButtonCreateRecord.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         ButtonCreateRecord.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 ButtonCreateRecordMouseEntered(evt);
@@ -1513,7 +2743,7 @@ public class Login extends javax.swing.JFrame {
                 ButtonCreateRecordActionPerformed(evt);
             }
         });
-        JPUserMenu.add(ButtonCreateRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 180, 170));
+        JPUserMenu.add(ButtonCreateRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 240, 170));
 
         getContentPane().add(JPUserMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
 
@@ -2675,29 +3905,41 @@ public class Login extends javax.swing.JFrame {
     private void ButtonQueryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonQueryActionPerformed
         Animacion.Animacion.mover_derecha(290, 1100, 1, 1, JPUserMenu);
         JPAdminMenu.setVisible(false);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
         JPWelcome.setVisible(false);
         JPSignUp.setVisible(false);
         JPCreateOffender.setVisible(false);
         JPCreateRecord.setVisible(false);
         UserQuery.setVisible(true);
         UserConfiguration.setVisible(false);
-        AdminQuery.setVisible(false);
+        JPLogin.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonQueryActionPerformed
 
     private void ButtonConfigurationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfigurationActionPerformed
         Animacion.Animacion.mover_derecha(290, 1100, 1, 1, JPUserMenu);
         JPAdminMenu.setVisible(false);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
         JPWelcome.setVisible(false);
         JPSignUp.setVisible(false);
         JPCreateOffender.setVisible(false);
         JPCreateRecord.setVisible(false);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(true);
-        AdminQuery.setVisible(false);
+        JPLogin.setVisible(false);
         JPLogged.setVisible(true);
         UpdateUsernameField.setText(Username.getText());
-        //Agregar en los espacios de UserConfiguration toda la informacion personal del usuario
+        //Agregar la información personal del usuario en UpdatePersonalInfo
     }//GEN-LAST:event_ButtonConfigurationActionPerformed
 
     private void ButtonLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonLogOutActionPerformed
@@ -2705,35 +3947,55 @@ public class Login extends javax.swing.JFrame {
         JPLogin.setVisible(true);
         JPUserMenu.setVisible(false);
         JPAdminMenu.setVisible(false);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
         JPCreateOffender.setVisible(false);
         JPCreateRecord.setVisible(false);
         JPSignUp.setVisible(false);
         JPLogged.setVisible(false);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
-        AdminQuery.setVisible(false);
         UsernameField.setText(null);
         PasswordField.setText(null);
     }//GEN-LAST:event_ButtonLogOutActionPerformed
 
     private void ButtonStatisticsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonStatisticsActionPerformed
-        // TODO add your handling code here:
+        Animacion.Animacion.mover_derecha(290, 1100, 1, 1, JPAdminMenu);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(true);
+        JPWelcome.setVisible(false);
+        JPSignUp.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
+        JPLogin.setVisible(false);
+        JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonStatisticsActionPerformed
-
-    private void ButtonReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonReportsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ButtonReportsActionPerformed
 
     private void ButtonLogOutAdminUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonLogOutAdminUserActionPerformed
         JPWelcome.setVisible(true);
         JPUserMenu.setVisible(false);
         JPAdminMenu.setVisible(false);
         JPSignUp.setVisible(false);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
         JPCreateOffender.setVisible(false);
         JPCreateRecord.setVisible(false);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
-        AdminQuery.setVisible(false);
         JPLogged.setVisible(false);
         JPLogin.setVisible(true);
     }//GEN-LAST:event_ButtonLogOutAdminUserActionPerformed
@@ -2743,6 +4005,11 @@ public class Login extends javax.swing.JFrame {
         JPUserMenu.setVisible(false);
         JPAdminMenu.setVisible(false);
         AdminQuery.setVisible(true);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
         JPCreateOffender.setVisible(false);
         JPCreateRecord.setVisible(false);
         UserQuery.setVisible(false);
@@ -2757,7 +4024,26 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonAdminQueryActionPerformed
 
     private void ButtonAdminConfigurationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAdminConfigurationActionPerformed
-        // TODO add your handling code here:
+        Animacion.Animacion.mover_derecha(290, 1100, 1, 1, JPAdminMenu);
+        JPUserMenu.setVisible(false);
+        JPWelcome.setVisible(false);
+        JPSignUp.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        UserQuery.setVisible(false);
+        UserConfiguration.setVisible(true);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(true);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
+        JPLogged.setVisible(true);
+        JPLogin.setVisible(false);
+        UpdateUsernameField.setText(Username.getText());
+        //Agregar la información personal del usuario en UpdateAdminPersonalInfo
+        //Rellenar las comboBox de AdminCatalogues
+        //Rellenar la lista con la funcion de expedientes en ApproveReports
     }//GEN-LAST:event_ButtonAdminConfigurationActionPerformed
 
     private void ButtonSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSignUpActionPerformed
@@ -2765,6 +4051,12 @@ public class Login extends javax.swing.JFrame {
         Animacion.Animacion.mover_izquierda(0, -1100, 1, 1, JPLogin);
         JPUserMenu.setVisible(false);
         JPAdminMenu.setVisible(false);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
         JPCreateOffender.setVisible(false);
         JPCreateRecord.setVisible(false);
         UserQuery.setVisible(false);
@@ -2795,11 +4087,16 @@ public class Login extends javax.swing.JFrame {
                 JPUserMenu.setVisible(true);
                 JPSignUp.setVisible(false);
                 JPAdminMenu.setVisible(false);
+                AdminQuery.setVisible(false);
+                AdminConfiguration.setVisible(false);
+                UserCatalogues.setVisible(false);
+                PersonCatalogues.setVisible(false);
+                RecordCatalogues.setVisible(false);
+                AdminStatistics.setVisible(false);
                 JPCreateOffender.setVisible(false);
                 JPCreateRecord.setVisible(false);
                 UserQuery.setVisible(false);
                 UserConfiguration.setVisible(false);
-                AdminQuery.setVisible(false);
                 currentUser uc = currentUser.getInstance();
                 uc.setUsername(user_field);
                 uc.setId_userType(ConnectDB.getInt("ADM", "adminUser.getUserType", user_field));
@@ -2845,15 +4142,6 @@ public class Login extends javax.swing.JFrame {
     private void ButtonStatisticsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonStatisticsMouseExited
         ButtonStatistics.setBorder(null);
     }//GEN-LAST:event_ButtonStatisticsMouseExited
-
-    private void ButtonReportsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonReportsMouseEntered
-        ButtonReports.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
-        JPWelcome.setVisible(false);
-    }//GEN-LAST:event_ButtonReportsMouseEntered
-
-    private void ButtonReportsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonReportsMouseExited
-        ButtonReports.setBorder(null);
-    }//GEN-LAST:event_ButtonReportsMouseExited
 
     private void ButtonLogOutAdminUserMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonLogOutAdminUserMouseEntered
         ButtonLogOutAdminUser.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
@@ -2920,6 +4208,12 @@ public class Login extends javax.swing.JFrame {
     private void JPWelcomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPWelcomeMouseEntered
         JPWelcome.setVisible(true);
         JPAdminMenu.setVisible(false);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
         JPUserMenu.setVisible(false);
         JPCreateOffender.setVisible(false);
         JPCreateRecord.setVisible(false);
@@ -2950,8 +4244,13 @@ public class Login extends javax.swing.JFrame {
         JPCreateRecord.setVisible(false);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
-        AdminQuery.setVisible(false);
         JPAdminMenu.setVisible(false);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
         JPSignUp.setVisible(false);
     }//GEN-LAST:event_ButtonCancelActionPerformed
 
@@ -3003,24 +4302,36 @@ public class Login extends javax.swing.JFrame {
             JPWelcome.setVisible(true);
             JPUserMenu.setVisible(false);
             JPAdminMenu.setVisible(false);
+            AdminQuery.setVisible(false);
+            AdminConfiguration.setVisible(false);
+            UserCatalogues.setVisible(false);
+            PersonCatalogues.setVisible(false);
+            RecordCatalogues.setVisible(false);
+            AdminStatistics.setVisible(false);
             JPSignUp.setVisible(false);
             NewUsernameField.setText(null);
             NewUserPasswordField.setText(null);
             UserQuery.setVisible(false);
             UserConfiguration.setVisible(false);
-            AdminQuery.setVisible(false);
+            JPLogin.setVisible(true);
+            JPLogged.setVisible(false);
         }
     }//GEN-LAST:event_ButtonJoinActionPerformed
 
     private void JPSignUpMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPSignUpMouseEntered
         JPSignUp.setVisible(true);
         JPAdminMenu.setVisible(false);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
         JPUserMenu.setVisible(false);
         JPCreateOffender.setVisible(false);
         JPCreateRecord.setVisible(false);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
-        AdminQuery.setVisible(false);
     }//GEN-LAST:event_JPSignUpMouseEntered
 
     private void JPAdminMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPAdminMenuMouseEntered
@@ -3029,12 +4340,17 @@ public class Login extends javax.swing.JFrame {
         JPLogged.setVisible(true);
         JPLogin.setVisible(false);
         JPAdminMenu.setVisible(true);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
         JPUserMenu.setVisible(false);
         JPCreateOffender.setVisible(false);
         JPCreateRecord.setVisible(false);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
-        AdminQuery.setVisible(false);
     }//GEN-LAST:event_JPAdminMenuMouseEntered
 
     private void JPUserMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPUserMenuMouseEntered
@@ -3046,8 +4362,13 @@ public class Login extends javax.swing.JFrame {
         JPCreateRecord.setVisible(false);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
-        AdminQuery.setVisible(false);
         JPAdminMenu.setVisible(false);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
         JPUserMenu.setVisible(true);
     }//GEN-LAST:event_JPUserMenuMouseEntered
 
@@ -3066,6 +4387,12 @@ public class Login extends javax.swing.JFrame {
         JPWelcome.setVisible(false);
         JPSignUp.setVisible(false);
         JPAdminMenu.setVisible(false);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
         JPUserMenu.setVisible(false);
         JPCreateOffender.setVisible(false);
         JPCreateRecord.setVisible(false);
@@ -3073,7 +4400,6 @@ public class Login extends javax.swing.JFrame {
         JPLogged.setVisible(true);
         UserQuery.setVisible(true);
         UserConfiguration.setVisible(false);
-        AdminQuery.setVisible(false);
         ListUsers.setText("Users with tabs");
         ListBannedUsers.setText("Banned Users - Reason with tabs");
     }//GEN-LAST:event_UserQueryMouseEntered
@@ -3119,11 +4445,16 @@ public class Login extends javax.swing.JFrame {
     private void ButtonCreateRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCreateRecordActionPerformed
         Animacion.Animacion.mover_derecha(290, 1100, 1, 1, JPUserMenu);
         JPAdminMenu.setVisible(false);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
         JPWelcome.setVisible(false);
         JPSignUp.setVisible(false);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
-        AdminQuery.setVisible(false);
         JPLogin.setVisible(false);
         JPCreateRecord.setVisible(false);
         JPCreateOffender.setVisible(true);
@@ -3138,11 +4469,16 @@ public class Login extends javax.swing.JFrame {
     private void JPCreateRecordMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPCreateRecordMouseEntered
         JPUserMenu.setVisible(false);
         JPAdminMenu.setVisible(false);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
         JPWelcome.setVisible(false);
         JPSignUp.setVisible(false);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
-        AdminQuery.setVisible(false);
         JPCreateRecord.setVisible(true);
         JPLogin.setVisible(false);
         JPCreateOffender.setVisible(false);
@@ -3153,11 +4489,16 @@ public class Login extends javax.swing.JFrame {
     private void JPCreateOffenderMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPCreateOffenderMouseEntered
         JPUserMenu.setVisible(false);
         JPAdminMenu.setVisible(false);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
         JPWelcome.setVisible(false);
         JPSignUp.setVisible(false);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
-        AdminQuery.setVisible(false);
         JPCreateRecord.setVisible(false);
         JPLogin.setVisible(false);
         JPCreateOffender.setVisible(true);
@@ -3189,12 +4530,17 @@ public class Login extends javax.swing.JFrame {
         JPWelcome.setVisible(false);
         JPUserMenu.setVisible(true);
         JPAdminMenu.setVisible(false);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
         JPCreateRecord.setVisible(false);
         JPCreateOffender.setVisible(false);
         JPSignUp.setVisible(false);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
-        AdminQuery.setVisible(false);
         IdOffenderField.setText(null);
         NameOffenderField.setText(null);
         MiddleNameOffenderField.setText(null);
@@ -3242,6 +4588,12 @@ public class Login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "The person was created successfully in the system.");
                 Animacion.Animacion.mover_derecha(290, 1100, 1, 1, JPCreateOffender);
                 JPAdminMenu.setVisible(false);
+                AdminQuery.setVisible(false);
+                AdminConfiguration.setVisible(false);
+                UserCatalogues.setVisible(false);
+                PersonCatalogues.setVisible(false);
+                RecordCatalogues.setVisible(false);
+                AdminStatistics.setVisible(false);
                 JPUserMenu.setVisible(false);
                 JPWelcome.setVisible(false);
                 JPSignUp.setVisible(false);
@@ -3269,13 +4621,18 @@ public class Login extends javax.swing.JFrame {
         JPWelcome.setVisible(false);
         JPUserMenu.setVisible(true);
         JPAdminMenu.setVisible(false);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
         JPCreateRecord.setVisible(false);
         JPCreateOffender.setVisible(false);
         JPSignUp.setVisible(false);
         JPLogged.setVisible(true);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
-        AdminQuery.setVisible(false);
         NumberTopField.setText(null);
         PlacesList.removeAll();
     }//GEN-LAST:event_ButtonRollbackQueryPlacesActionPerformed
@@ -3292,11 +4649,16 @@ public class Login extends javax.swing.JFrame {
         JPWelcome.setVisible(false);
         JPUserMenu.setVisible(true);
         JPAdminMenu.setVisible(false);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
         JPCreateRecord.setVisible(false);
         JPCreateOffender.setVisible(false);
         JPSignUp.setVisible(false);
         JPLogged.setVisible(true);
-        UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
         AdminQuery.setVisible(false);
         RecordsList.removeAll();
@@ -3319,6 +4681,12 @@ public class Login extends javax.swing.JFrame {
         JPWelcome.setVisible(false);
         JPUserMenu.setVisible(true);
         JPAdminMenu.setVisible(false);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
         JPCreateRecord.setVisible(false);
         JPCreateOffender.setVisible(false);
         JPSignUp.setVisible(false);
@@ -3326,7 +4694,6 @@ public class Login extends javax.swing.JFrame {
         JPLogged.setVisible(true);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
-        AdminQuery.setVisible(false);
     }//GEN-LAST:event_ButtonRollbackQueryUsersActionPerformed
 
     private void ButtonRollbackQueryBannedMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryBannedMouseEntered
@@ -3341,13 +4708,18 @@ public class Login extends javax.swing.JFrame {
         JPWelcome.setVisible(false);
         JPUserMenu.setVisible(true);
         JPAdminMenu.setVisible(false);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
         JPCreateRecord.setVisible(false);
         JPCreateOffender.setVisible(false);
         JPSignUp.setVisible(false);
         JPLogged.setVisible(true);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
-        AdminQuery.setVisible(false);
     }//GEN-LAST:event_ButtonRollbackQueryBannedActionPerformed
 
     private void ButtonRollbackQueryExpireMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryExpireMouseEntered
@@ -3362,13 +4734,18 @@ public class Login extends javax.swing.JFrame {
         JPWelcome.setVisible(false);
         JPUserMenu.setVisible(true);
         JPAdminMenu.setVisible(false);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
         JPCreateRecord.setVisible(false);
         JPCreateOffender.setVisible(false);
         JPSignUp.setVisible(false);
         JPLogged.setVisible(true);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
-        AdminQuery.setVisible(false);
         RecordsExpireList.removeAll();
         RecordDescriptionTextExpire.setText(null);
         BoxStartDate1.setSelectedIndex(0);
@@ -3379,6 +4756,12 @@ public class Login extends javax.swing.JFrame {
         JPWelcome.setVisible(false);
         JPSignUp.setVisible(false);
         JPAdminMenu.setVisible(false);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
         JPUserMenu.setVisible(false);
         JPCreateOffender.setVisible(false);
         JPCreateRecord.setVisible(false);
@@ -3386,7 +4769,6 @@ public class Login extends javax.swing.JFrame {
         JPLogged.setVisible(true);
         UserQuery.setVisible(true);
         UserConfiguration.setVisible(false);
-        AdminQuery.setVisible(false);
         PlacesMoreRecords.setVisible(true);
         Records.setVisible(false);
         UsersList.setVisible(false);
@@ -3398,6 +4780,12 @@ public class Login extends javax.swing.JFrame {
         JPWelcome.setVisible(false);
         JPSignUp.setVisible(false);
         JPAdminMenu.setVisible(false);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
         JPUserMenu.setVisible(false);
         JPCreateOffender.setVisible(false);
         JPCreateRecord.setVisible(false);
@@ -3405,7 +4793,6 @@ public class Login extends javax.swing.JFrame {
         JPLogged.setVisible(true);
         UserQuery.setVisible(true);
         UserConfiguration.setVisible(false);
-        AdminQuery.setVisible(false);
         PlacesMoreRecords.setVisible(false);
         Records.setVisible(true);
         UsersList.setVisible(false);
@@ -3417,6 +4804,12 @@ public class Login extends javax.swing.JFrame {
         JPWelcome.setVisible(false);
         JPSignUp.setVisible(false);
         JPAdminMenu.setVisible(false);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
         JPUserMenu.setVisible(false);
         JPCreateOffender.setVisible(false);
         JPCreateRecord.setVisible(false);
@@ -3424,7 +4817,6 @@ public class Login extends javax.swing.JFrame {
         JPLogged.setVisible(true);
         UserQuery.setVisible(true);
         UserConfiguration.setVisible(false);
-        AdminQuery.setVisible(false);
         PlacesMoreRecords.setVisible(false);
         Records.setVisible(false);
         UsersList.setVisible(true);
@@ -3435,7 +4827,12 @@ public class Login extends javax.swing.JFrame {
     private void BannedUsersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BannedUsersMouseEntered
         JPWelcome.setVisible(false);
         JPSignUp.setVisible(false);
-        JPAdminMenu.setVisible(false);
+        JPAdminMenu.setVisible(false);AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
         JPUserMenu.setVisible(false);
         JPCreateOffender.setVisible(false);
         JPCreateRecord.setVisible(false);
@@ -3443,7 +4840,6 @@ public class Login extends javax.swing.JFrame {
         JPLogged.setVisible(true);
         UserQuery.setVisible(true);
         UserConfiguration.setVisible(false);
-        AdminQuery.setVisible(false);
         PlacesMoreRecords.setVisible(false);
         Records.setVisible(false);
         UsersList.setVisible(false);
@@ -3455,6 +4851,12 @@ public class Login extends javax.swing.JFrame {
         JPWelcome.setVisible(false);
         JPSignUp.setVisible(false);
         JPAdminMenu.setVisible(false);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
         JPUserMenu.setVisible(false);
         JPCreateOffender.setVisible(false);
         JPCreateRecord.setVisible(false);
@@ -3482,12 +4884,17 @@ public class Login extends javax.swing.JFrame {
         JPWelcome.setVisible(false);
         JPUserMenu.setVisible(true);
         JPAdminMenu.setVisible(false);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
         JPCreateRecord.setVisible(false);
         JPCreateOffender.setVisible(false);
         JPSignUp.setVisible(false);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
-        AdminQuery.setVisible(false);
         JPLogged.setVisible(true);
         JPLogin.setVisible(false);
         IdOffenderField.setText(null);
@@ -3534,12 +4941,16 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "The record was created successfully in the system.");
             JPAdminMenu.setVisible(true);
             AdminQuery.setVisible(false);
+            AdminConfiguration.setVisible(false);
+            UserCatalogues.setVisible(false);
+            PersonCatalogues.setVisible(false);
+            RecordCatalogues.setVisible(false);
+            AdminStatistics.setVisible(false);
             JPUserMenu.setVisible(false);
             JPWelcome.setVisible(false);
             JPSignUp.setVisible(false);
             UserQuery.setVisible(false);
             UserConfiguration.setVisible(false);
-            AdminQuery.setVisible(false);
             JPCreateRecord.setVisible(false);
             JPCreateOffender.setVisible(false);
             JPLogin.setVisible(false);
@@ -3596,11 +5007,11 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_AddNewRecordActionPerformed
 
     private void PictureNewRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PictureNewRecordActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_PictureNewRecordActionPerformed
 
     private void PictureShowRecordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PictureShowRecordsActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_PictureShowRecordsActionPerformed
 
     private void RightPicShowRecordsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RightPicShowRecordsMouseEntered
@@ -3665,6 +5076,12 @@ public class Login extends javax.swing.JFrame {
 
     private void ButtonCancelUpdatesUserLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelUpdatesUserLoginActionPerformed
         JPAdminMenu.setVisible(false);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
         JPUserMenu.setVisible(true);
         JPWelcome.setVisible(false);
         JPSignUp.setVisible(false);
@@ -3690,8 +5107,14 @@ public class Login extends javax.swing.JFrame {
         String new_username = UpdateUsernameField.getText();
         String actual_password = (String) JOptionPane.showInputDialog(null,"Current password: ",JOptionPane.QUESTION_MESSAGE);
         //Que revise si es la contraseña igual
-        JPAdminMenu.setVisible(true);
-        JPUserMenu.setVisible(false);
+        JPAdminMenu.setVisible(false);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
+        JPUserMenu.setVisible(true);
         JPWelcome.setVisible(false);
         JPSignUp.setVisible(false);
         UserQuery.setVisible(false);
@@ -3701,11 +5124,16 @@ public class Login extends javax.swing.JFrame {
         JPLogin.setVisible(false);
         JPLogged.setVisible(true);
         Username.setText(new_username);
-        
     }//GEN-LAST:event_ButtonConfirmChangesActionPerformed
 
     private void UpdateLoginInfoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UpdateLoginInfoMouseEntered
         JPAdminMenu.setVisible(false);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
         JPUserMenu.setVisible(false);
         JPWelcome.setVisible(false);
         JPSignUp.setVisible(false);
@@ -3729,6 +5157,12 @@ public class Login extends javax.swing.JFrame {
 
     private void ButtonCancelUpdatesUserInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelUpdatesUserInfoActionPerformed
         JPAdminMenu.setVisible(false);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
         JPUserMenu.setVisible(true);
         JPWelcome.setVisible(false);
         JPSignUp.setVisible(false);
@@ -3754,8 +5188,14 @@ public class Login extends javax.swing.JFrame {
         String new_username = UpdateUsernameField.getText();
         String actual_password = (String) JOptionPane.showInputDialog(null,"Current password: ",JOptionPane.QUESTION_MESSAGE);
         //Que revise si es la contraseña igual y set en la base de datos
-        JPAdminMenu.setVisible(true);
-        JPUserMenu.setVisible(false);
+        JPAdminMenu.setVisible(false);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
+        JPUserMenu.setVisible(true);
         JPWelcome.setVisible(false);
         JPSignUp.setVisible(false);
         UserQuery.setVisible(false);
@@ -3768,7 +5208,7 @@ public class Login extends javax.swing.JFrame {
 
     private void ButtonShowFilteredUserListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowFilteredUserListActionPerformed
         ListUserWithoutChangePassword.removeAll();
-        
+        //Meter los datos a la lista
     }//GEN-LAST:event_ButtonShowFilteredUserListActionPerformed
 
     private void PictureNewReportListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PictureNewReportListActionPerformed
@@ -3808,9 +5248,14 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonRollbackReportListMouseExited
 
     private void ButtonRollbackReportListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackReportListActionPerformed
-        JPAdminMenu.setVisible(true);
+        JPAdminMenu.setVisible(false);
         AdminQuery.setVisible(false);
-        JPUserMenu.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
+        JPUserMenu.setVisible(true);
         JPWelcome.setVisible(false);
         JPSignUp.setVisible(false);
         UserQuery.setVisible(false);
@@ -3834,6 +5279,11 @@ public class Login extends javax.swing.JFrame {
     private void ButtonRollbackUserListNotChangePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackUserListNotChangePasswordActionPerformed
         JPAdminMenu.setVisible(true);
         AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
         JPUserMenu.setVisible(false);
         JPWelcome.setVisible(false);
         JPSignUp.setVisible(false);
@@ -3861,7 +5311,20 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_AdminQueryMouseEntered
 
     private void ButtonLogUserListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonLogUserListActionPerformed
-        // TODO add your handling code here:
+        int index_start = BoxStartDate.getSelectedIndex();
+        int index_finish = BoxFinishDate.getSelectedIndex();
+        String filters [] = {BoxStartDate.getItemAt(index_start), BoxFinishDate.getItemAt(index_finish)};
+        String newFilters [] = {};
+        for(int i = 0; i <= filters.length; i++) {
+            if(filters[i] == "Start Date" || filters[i] == "FinishDate") {
+                newFilters[i] = null;
+            }
+        }
+        filters = newFilters;
+        //Aquí es donde se llama la función de la base de datos con los filtros y se agrega en la lista los valores
+        String example[] = {"3D", "a5"};
+        //Sino hubieran datos que tire los usuarios de forma ascendente o como sea haha
+        RecordsList.setListData(example);
     }//GEN-LAST:event_ButtonLogUserListActionPerformed
 
     private void ButtonRollbackLogMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackLogMouseEntered
@@ -3875,6 +5338,11 @@ public class Login extends javax.swing.JFrame {
     private void ButtonRollbackLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackLogActionPerformed
         JPAdminMenu.setVisible(true);
         AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
         JPUserMenu.setVisible(false);
         JPWelcome.setVisible(false);
         JPSignUp.setVisible(false);
@@ -3906,64 +5374,828 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonShowRecordsDateActionPerformed
 
     private void ButtonCancelUpdatesUserLoginAdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelUpdatesUserLoginAdminMouseEntered
-        // TODO add your handling code here:
+        ButtonCancelUpdatesUserLoginAdmin.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
     }//GEN-LAST:event_ButtonCancelUpdatesUserLoginAdminMouseEntered
 
     private void ButtonCancelUpdatesUserLoginAdminMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelUpdatesUserLoginAdminMouseExited
-        // TODO add your handling code here:
+        ButtonCancelUpdatesUserLoginAdmin.setBorder(null);
     }//GEN-LAST:event_ButtonCancelUpdatesUserLoginAdminMouseExited
 
     private void ButtonCancelUpdatesUserLoginAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelUpdatesUserLoginAdminActionPerformed
-        // TODO add your handling code here:
+        JPAdminMenu.setVisible(true);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
+        JPUserMenu.setVisible(false);
+        JPWelcome.setVisible(false);
+        JPSignUp.setVisible(false);
+        UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPLogin.setVisible(false);
+        JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonCancelUpdatesUserLoginAdminActionPerformed
 
     private void ButtonConfirmChangesAdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonConfirmChangesAdminMouseEntered
-        // TODO add your handling code here:
+        ButtonConfirmChangesAdmin.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
     }//GEN-LAST:event_ButtonConfirmChangesAdminMouseEntered
 
     private void ButtonConfirmChangesAdminMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonConfirmChangesAdminMouseExited
-        // TODO add your handling code here:
+        ButtonConfirmChangesAdmin.setBorder(null);
     }//GEN-LAST:event_ButtonConfirmChangesAdminMouseExited
 
     private void ButtonConfirmChangesAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmChangesAdminActionPerformed
-        // TODO add your handling code here:
+        String actual_username = Username.getText();
+        String new_username = AdminUpdateUsernameField.getText();
+        String actual_password = (String) JOptionPane.showInputDialog(null,"Current password: ",JOptionPane.QUESTION_MESSAGE);
+        //Que revise si es la contraseña igual y set en la base de datos
+        JPAdminMenu.setVisible(true);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
+        JPUserMenu.setVisible(false);
+        JPWelcome.setVisible(false);
+        JPSignUp.setVisible(false);
+        UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPLogin.setVisible(false);
+        JPLogged.setVisible(true);
+        Username.setText(new_username);
     }//GEN-LAST:event_ButtonConfirmChangesAdminActionPerformed
 
     private void ButtonCancelUpdatesAdminInfoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelUpdatesAdminInfoMouseEntered
-        // TODO add your handling code here:
+        ButtonCancelUpdatesAdminInfo.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
     }//GEN-LAST:event_ButtonCancelUpdatesAdminInfoMouseEntered
 
     private void ButtonCancelUpdatesAdminInfoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelUpdatesAdminInfoMouseExited
-        // TODO add your handling code here:
+        ButtonCancelUpdatesAdminInfo.setBorder(null);
     }//GEN-LAST:event_ButtonCancelUpdatesAdminInfoMouseExited
 
     private void ButtonCancelUpdatesAdminInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelUpdatesAdminInfoActionPerformed
-        // TODO add your handling code here:
+        JPAdminMenu.setVisible(true);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
+        JPUserMenu.setVisible(false);
+        JPWelcome.setVisible(false);
+        JPSignUp.setVisible(false);
+        UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPLogin.setVisible(false);
+        JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonCancelUpdatesAdminInfoActionPerformed
 
     private void ButtonConfirmChangesUpdateAdminPersonalInfoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonConfirmChangesUpdateAdminPersonalInfoMouseEntered
-        // TODO add your handling code here:
+        ButtonConfirmChangesUpdateAdminPersonalInfo.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
     }//GEN-LAST:event_ButtonConfirmChangesUpdateAdminPersonalInfoMouseEntered
 
     private void ButtonConfirmChangesUpdateAdminPersonalInfoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonConfirmChangesUpdateAdminPersonalInfoMouseExited
-        // TODO add your handling code here:
+        ButtonConfirmChangesUpdateAdminPersonalInfo.setBorder(null);
     }//GEN-LAST:event_ButtonConfirmChangesUpdateAdminPersonalInfoMouseExited
 
     private void ButtonConfirmChangesUpdateAdminPersonalInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmChangesUpdateAdminPersonalInfoActionPerformed
-        // TODO add your handling code here:
+        String actual_username = Username.getText();
+        String actual_password = (String) JOptionPane.showInputDialog(null,"Current password: ",JOptionPane.QUESTION_MESSAGE);
+        //Que revise si es la contraseña igual y set en la base de datos
+        JPAdminMenu.setVisible(true);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
+        JPUserMenu.setVisible(false);
+        JPWelcome.setVisible(false);
+        JPSignUp.setVisible(false);
+        UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPLogin.setVisible(false);
+        JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonConfirmChangesUpdateAdminPersonalInfoActionPerformed
 
     private void ButtonRollbackCataloguesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackCataloguesMouseEntered
-        // TODO add your handling code here:
+        ButtonRollbackCatalogues.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
     }//GEN-LAST:event_ButtonRollbackCataloguesMouseEntered
 
     private void ButtonRollbackCataloguesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackCataloguesMouseExited
-        // TODO add your handling code here:
+        ButtonRollbackCatalogues.setBorder(null);
     }//GEN-LAST:event_ButtonRollbackCataloguesMouseExited
 
     private void ButtonRollbackCataloguesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackCataloguesActionPerformed
-        // TODO add your handling code here:
+        JPAdminMenu.setVisible(true);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
+        JPUserMenu.setVisible(false);
+        JPWelcome.setVisible(false);
+        JPSignUp.setVisible(false);
+        UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPLogin.setVisible(false);
+        JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonRollbackCataloguesActionPerformed
+
+    private void ButtonCancelUnapprovedMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelUnapprovedMouseEntered
+        ButtonCancelUnapproved.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_ButtonCancelUnapprovedMouseEntered
+
+    private void ButtonCancelUnapprovedMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelUnapprovedMouseExited
+        ButtonCancelUnapproved.setBorder(null);
+    }//GEN-LAST:event_ButtonCancelUnapprovedMouseExited
+
+    private void ButtonCancelUnapprovedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelUnapprovedActionPerformed
+        JPAdminMenu.setVisible(true);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
+        JPUserMenu.setVisible(false);
+        JPWelcome.setVisible(false);
+        JPSignUp.setVisible(false);
+        UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPLogin.setVisible(false);
+        JPLogged.setVisible(true);
+    }//GEN-LAST:event_ButtonCancelUnapprovedActionPerformed
+
+    private void ButtonBanUserMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonBanUserMouseEntered
+        ButtonBanUser.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_ButtonBanUserMouseEntered
+
+    private void ButtonBanUserMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonBanUserMouseExited
+        ButtonBanUser.setBorder(null);
+    }//GEN-LAST:event_ButtonBanUserMouseExited
+
+    private void ButtonBanUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBanUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonBanUserActionPerformed
+
+    private void PictureUnapprovedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PictureUnapprovedActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PictureUnapprovedActionPerformed
+
+    private void RightUnapprovedPicMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RightUnapprovedPicMouseEntered
+        RightUnapprovedPic.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_RightUnapprovedPicMouseEntered
+
+    private void RightUnapprovedPicMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RightUnapprovedPicMouseExited
+        RightUnapprovedPic.setBorder(null);
+    }//GEN-LAST:event_RightUnapprovedPicMouseExited
+
+    private void RightUnapprovedPicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RightUnapprovedPicActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RightUnapprovedPicActionPerformed
+
+    private void LeftUnapprovedPicMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LeftUnapprovedPicMouseEntered
+        LeftUnapprovedPic.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_LeftUnapprovedPicMouseEntered
+
+    private void LeftUnapprovedPicMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LeftUnapprovedPicMouseExited
+        LeftUnapprovedPic.setBorder(null);
+    }//GEN-LAST:event_LeftUnapprovedPicMouseExited
+
+    private void LeftUnapprovedPicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LeftUnapprovedPicActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LeftUnapprovedPicActionPerformed
+
+    private void AddUnapprovedPicMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddUnapprovedPicMouseEntered
+        AddUnapprovedPic.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_AddUnapprovedPicMouseEntered
+
+    private void AddUnapprovedPicMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddUnapprovedPicMouseExited
+        AddUnapprovedPic.setBorder(null);
+    }//GEN-LAST:event_AddUnapprovedPicMouseExited
+
+    private void AddUnapprovedPicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddUnapprovedPicActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddUnapprovedPicActionPerformed
+
+    private void RemoveUnapprovedPicMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RemoveUnapprovedPicMouseEntered
+        RemoveUnapprovedPic.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_RemoveUnapprovedPicMouseEntered
+
+    private void RemoveUnapprovedPicMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RemoveUnapprovedPicMouseExited
+        RemoveUnapprovedPic.setBorder(null);
+    }//GEN-LAST:event_RemoveUnapprovedPicMouseExited
+
+    private void RemoveUnapprovedPicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveUnapprovedPicActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RemoveUnapprovedPicActionPerformed
+
+    private void ButtonConfirmUnapprovedMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonConfirmUnapprovedMouseEntered
+        ButtonConfirmUnapproved.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_ButtonConfirmUnapprovedMouseEntered
+
+    private void ButtonConfirmUnapprovedMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonConfirmUnapprovedMouseExited
+        ButtonConfirmUnapproved.setBorder(null);
+    }//GEN-LAST:event_ButtonConfirmUnapprovedMouseExited
+
+    private void ButtonConfirmUnapprovedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmUnapprovedActionPerformed
+        String actual_username = Username.getText();
+        String actual_password = (String) JOptionPane.showInputDialog(null,"Password: ",JOptionPane.QUESTION_MESSAGE);
+        //Que revise si es la contraseña igual y set en la base de datos
+        JPAdminMenu.setVisible(true);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
+        JPUserMenu.setVisible(false);
+        JPWelcome.setVisible(false);
+        JPSignUp.setVisible(false);
+        UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPLogin.setVisible(false);
+        JPLogged.setVisible(true);
+    }//GEN-LAST:event_ButtonConfirmUnapprovedActionPerformed
+
+    private void ButtonConfirmUserCatalogueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmUserCatalogueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonConfirmUserCatalogueActionPerformed
+
+    private void ButtonCancelUserCatalogueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelUserCatalogueActionPerformed
+        JPAdminMenu.setVisible(true);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
+        JPUserMenu.setVisible(false);
+        JPWelcome.setVisible(false);
+        JPSignUp.setVisible(false);
+        UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPLogin.setVisible(false);
+        JPLogged.setVisible(true);
+    }//GEN-LAST:event_ButtonCancelUserCatalogueActionPerformed
+
+    private void AddUserTypeCatalogueMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddUserTypeCatalogueMouseEntered
+        AddUserTypeCatalogue.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_AddUserTypeCatalogueMouseEntered
+
+    private void AddUserTypeCatalogueMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddUserTypeCatalogueMouseExited
+        AddUserTypeCatalogue.setBorder(null);
+    }//GEN-LAST:event_AddUserTypeCatalogueMouseExited
+
+    private void AddBannedReasonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddBannedReasonMouseEntered
+        AddBannedReason.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_AddBannedReasonMouseEntered
+
+    private void AddBannedReasonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddBannedReasonMouseExited
+        AddBannedReason.setBorder(null);
+    }//GEN-LAST:event_AddBannedReasonMouseExited
+
+    private void RemoveBannedReasonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RemoveBannedReasonMouseEntered
+        RemoveBannedReason.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_RemoveBannedReasonMouseEntered
+
+    private void RemoveBannedReasonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RemoveBannedReasonMouseExited
+        RemoveBannedReason.setBorder(null);
+    }//GEN-LAST:event_RemoveBannedReasonMouseExited
+
+    private void ButtonConfirmUserCatalogueMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonConfirmUserCatalogueMouseEntered
+        ButtonConfirmUserCatalogue.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_ButtonConfirmUserCatalogueMouseEntered
+
+    private void ButtonConfirmUserCatalogueMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonConfirmUserCatalogueMouseExited
+        ButtonConfirmUserCatalogue.setBorder(null);
+    }//GEN-LAST:event_ButtonConfirmUserCatalogueMouseExited
+
+    private void ButtonCancelUserCatalogueMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelUserCatalogueMouseEntered
+        ButtonCancelUserCatalogue.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_ButtonCancelUserCatalogueMouseEntered
+
+    private void ButtonCancelUserCatalogueMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelUserCatalogueMouseExited
+        ButtonCancelUserCatalogue.setBorder(null);
+    }//GEN-LAST:event_ButtonCancelUserCatalogueMouseExited
+
+    private void AddUserTypeCatalogueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddUserTypeCatalogueActionPerformed
+        String new_user_type = (String) JOptionPane.showInputDialog(null,"New user type: ",JOptionPane.QUESTION_MESSAGE);
+        //Agregarlo a la base
+    }//GEN-LAST:event_AddUserTypeCatalogueActionPerformed
+
+    private void RemoveUserTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveUserTypeActionPerformed
+        int index_usertype = BoxModifyUserType.getSelectedIndex();
+        String usertype = BoxModifyUserType.getItemAt(index_usertype);
+        //Borrar de la base 
+    }//GEN-LAST:event_RemoveUserTypeActionPerformed
+
+    private void AddBannedReasonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddBannedReasonActionPerformed
+        String new_banned_reason = (String) JOptionPane.showInputDialog(null,"New banned reason: ",JOptionPane.QUESTION_MESSAGE);
+        //Agregarlo a la base
+    }//GEN-LAST:event_AddBannedReasonActionPerformed
+
+    private void RemoveBannedReasonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveBannedReasonActionPerformed
+        int index_bannedReason = BoxModifyBannedReason.getSelectedIndex();
+        String usertype = BoxModifyBannedReason.getItemAt(index_bannedReason);
+        //Borrar de la base 
+    }//GEN-LAST:event_RemoveBannedReasonActionPerformed
+
+    private void ButtonConfirmPersonCatalogueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmPersonCatalogueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonConfirmPersonCatalogueActionPerformed
+
+    private void ButtonCancelPersonCatalogueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelPersonCatalogueActionPerformed
+        JPAdminMenu.setVisible(true);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
+        JPUserMenu.setVisible(false);
+        JPWelcome.setVisible(false);
+        JPSignUp.setVisible(false);
+        UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPLogin.setVisible(false);
+        JPLogged.setVisible(true);
+    }//GEN-LAST:event_ButtonCancelPersonCatalogueActionPerformed
+
+    private void AddGenderMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddGenderMouseEntered
+        AddGender.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_AddGenderMouseEntered
+
+    private void AddGenderMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddGenderMouseExited
+        AddGender.setBorder(null);
+    }//GEN-LAST:event_AddGenderMouseExited
+
+    private void RemoveGenderMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RemoveGenderMouseEntered
+        RemoveGender.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_RemoveGenderMouseEntered
+
+    private void RemoveGenderMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RemoveGenderMouseExited
+        RemoveGender.setBorder(null);
+    }//GEN-LAST:event_RemoveGenderMouseExited
+
+    private void AddInstitutionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddInstitutionMouseEntered
+        AddInstitution.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_AddInstitutionMouseEntered
+
+    private void AddInstitutionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddInstitutionMouseExited
+        AddInstitution.setBorder(null);
+    }//GEN-LAST:event_AddInstitutionMouseExited
+
+    private void RemoveInstitutionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RemoveInstitutionMouseEntered
+        RemoveInstitution.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_RemoveInstitutionMouseEntered
+
+    private void RemoveInstitutionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RemoveInstitutionMouseExited
+        RemoveInstitution.setBorder(null);
+    }//GEN-LAST:event_RemoveInstitutionMouseExited
+
+    private void AddCountryMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddCountryMouseEntered
+        AddCountry.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_AddCountryMouseEntered
+
+    private void AddCountryMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddCountryMouseExited
+        AddCountry.setBorder(null);
+    }//GEN-LAST:event_AddCountryMouseExited
+
+    private void RemoveCountryMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RemoveCountryMouseEntered
+        AddCountry.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_RemoveCountryMouseEntered
+
+    private void RemoveCountryMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RemoveCountryMouseExited
+        RemoveCountry.setBorder(null);
+    }//GEN-LAST:event_RemoveCountryMouseExited
+
+    private void AddStateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddStateMouseEntered
+        AddState.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_AddStateMouseEntered
+
+    private void AddStateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddStateMouseExited
+        AddState.setBorder(null);
+    }//GEN-LAST:event_AddStateMouseExited
+
+    private void RemoveStateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RemoveStateMouseEntered
+        RemoveState.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_RemoveStateMouseEntered
+
+    private void RemoveStateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RemoveStateMouseExited
+        RemoveState.setBorder(null);
+    }//GEN-LAST:event_RemoveStateMouseExited
+
+    private void AddCityMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddCityMouseEntered
+        AddCity.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_AddCityMouseEntered
+
+    private void AddCityMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddCityMouseExited
+        AddCity.setBorder(null);
+    }//GEN-LAST:event_AddCityMouseExited
+
+    private void RemoveCityMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RemoveCityMouseEntered
+        RemoveCity.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_RemoveCityMouseEntered
+
+    private void ButtonConfirmPersonCatalogueMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonConfirmPersonCatalogueMouseEntered
+        ButtonConfirmPersonCatalogue.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_ButtonConfirmPersonCatalogueMouseEntered
+
+    private void ButtonConfirmPersonCatalogueMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonConfirmPersonCatalogueMouseExited
+        ButtonConfirmPersonCatalogue.setBorder(null);
+    }//GEN-LAST:event_ButtonConfirmPersonCatalogueMouseExited
+
+    private void ButtonCancelPersonCatalogueMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelPersonCatalogueMouseEntered
+        ButtonCancelPersonCatalogue.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_ButtonCancelPersonCatalogueMouseEntered
+
+    private void ButtonCancelPersonCatalogueMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelPersonCatalogueMouseExited
+        ButtonCancelPersonCatalogue.setBorder(null);
+    }//GEN-LAST:event_ButtonCancelPersonCatalogueMouseExited
+
+    private void AddGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddGenderActionPerformed
+        String new_gender = (String) JOptionPane.showInputDialog(null,"New gender: ",JOptionPane.QUESTION_MESSAGE);
+        //Agregarlo a la base
+    }//GEN-LAST:event_AddGenderActionPerformed
+
+    private void RemoveGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveGenderActionPerformed
+        int index_gender = BoxModifyGender.getSelectedIndex();
+        String gender = BoxModifyGender.getItemAt(index_gender);
+        //Borrar de la base
+    }//GEN-LAST:event_RemoveGenderActionPerformed
+
+    private void AddInstitutionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddInstitutionActionPerformed
+        String new_institution= (String) JOptionPane.showInputDialog(null,"New institution: ",JOptionPane.QUESTION_MESSAGE);
+        //Agregarlo a la base
+    }//GEN-LAST:event_AddInstitutionActionPerformed
+
+    private void RemoveInstitutionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveInstitutionActionPerformed
+        int index_institution = BoxModifyInstitution.getSelectedIndex();
+        String institution = BoxModifyInstitution.getItemAt(index_institution);
+        //Borrar de la base
+    }//GEN-LAST:event_RemoveInstitutionActionPerformed
+
+    private void AddCountryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddCountryActionPerformed
+        String new_country = (String) JOptionPane.showInputDialog(null,"New country: ",JOptionPane.QUESTION_MESSAGE);
+        //Agregarlo a la base
+    }//GEN-LAST:event_AddCountryActionPerformed
+
+    private void RemoveCountryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveCountryActionPerformed
+        int index_country = BoxModifyCountry.getSelectedIndex();
+        String country = BoxModifyCountry.getItemAt(index_country);
+        //Borrar de la base
+    }//GEN-LAST:event_RemoveCountryActionPerformed
+
+    private void AddStateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddStateActionPerformed
+        String new_state = (String) JOptionPane.showInputDialog(null,"New state: ",JOptionPane.QUESTION_MESSAGE);
+        //Agregarlo a la base
+    }//GEN-LAST:event_AddStateActionPerformed
+
+    private void RemoveStateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveStateActionPerformed
+        int index_state = BoxModifyState.getSelectedIndex();
+        String state = BoxModifyState.getItemAt(index_state);
+        //Borrar de la base
+    }//GEN-LAST:event_RemoveStateActionPerformed
+
+    private void AddCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddCityActionPerformed
+        String new_city = (String) JOptionPane.showInputDialog(null,"New city: ",JOptionPane.QUESTION_MESSAGE);
+        //Agregarlo a la base
+    }//GEN-LAST:event_AddCityActionPerformed
+
+    private void RemoveCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveCityActionPerformed
+        int index_city = BoxModifyCity.getSelectedIndex();
+        String city = BoxModifyCity.getItemAt(index_city);
+        //Borrar de la base
+    }//GEN-LAST:event_RemoveCityActionPerformed
+
+    private void RemoveCityMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RemoveCityMouseExited
+        RemoveCity.setBorder(null);
+    }//GEN-LAST:event_RemoveCityMouseExited
+
+    private void ButtonConfirmRecordCatalogueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmRecordCatalogueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonConfirmRecordCatalogueActionPerformed
+
+    private void ButtonCancelRecordCatalogueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelRecordCatalogueActionPerformed
+        JPAdminMenu.setVisible(true);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
+        JPUserMenu.setVisible(false);
+        JPWelcome.setVisible(false);
+        JPSignUp.setVisible(false);
+        UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPLogin.setVisible(false);
+        JPLogged.setVisible(true);
+    }//GEN-LAST:event_ButtonCancelRecordCatalogueActionPerformed
+
+    private void AddTypeCrimeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddTypeCrimeMouseEntered
+        AddTypeCrime.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_AddTypeCrimeMouseEntered
+
+    private void AddTypeCrimeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddTypeCrimeMouseExited
+        AddTypeCrime.setBorder(null);
+    }//GEN-LAST:event_AddTypeCrimeMouseExited
+
+    private void RemoveTypeCrimeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RemoveTypeCrimeMouseEntered
+        RemoveTypeCrime.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_RemoveTypeCrimeMouseEntered
+
+    private void RemoveTypeCrimeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RemoveTypeCrimeMouseExited
+        RemoveTypeCrime.setBorder(null);
+    }//GEN-LAST:event_RemoveTypeCrimeMouseExited
+
+    private void AddTypeSentenceMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddTypeSentenceMouseEntered
+        AddTypeSentence.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_AddTypeSentenceMouseEntered
+
+    private void AddTypeSentenceMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddTypeSentenceMouseExited
+        AddTypeSentence.setBorder(null);
+    }//GEN-LAST:event_AddTypeSentenceMouseExited
+
+    private void RemoveTypeSentenceMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RemoveTypeSentenceMouseEntered
+        RemoveTypeSentence.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_RemoveTypeSentenceMouseEntered
+
+    private void RemoveTypeSentenceMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RemoveTypeSentenceMouseExited
+        RemoveTypeSentence.setBorder(null);
+    }//GEN-LAST:event_RemoveTypeSentenceMouseExited
+
+    private void ButtonConfirmRecordCatalogueMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonConfirmRecordCatalogueMouseEntered
+        ButtonConfirmRecordCatalogue.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_ButtonConfirmRecordCatalogueMouseEntered
+
+    private void ButtonConfirmRecordCatalogueMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonConfirmRecordCatalogueMouseExited
+        ButtonConfirmRecordCatalogue.setBorder(null);
+    }//GEN-LAST:event_ButtonConfirmRecordCatalogueMouseExited
+
+    private void ButtonCancelRecordCatalogueMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelRecordCatalogueMouseEntered
+        ButtonCancelRecordCatalogue.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_ButtonCancelRecordCatalogueMouseEntered
+
+    private void ButtonCancelRecordCatalogueMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelRecordCatalogueMouseExited
+        ButtonCancelRecordCatalogue.setBorder(null);
+    }//GEN-LAST:event_ButtonCancelRecordCatalogueMouseExited
+
+    private void AddTypeCrimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddTypeCrimeActionPerformed
+        String new_type_crime = (String) JOptionPane.showInputDialog(null,"New type crime: ",JOptionPane.QUESTION_MESSAGE);
+        //Agregarlo a la base
+    }//GEN-LAST:event_AddTypeCrimeActionPerformed
+
+    private void RemoveTypeCrimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveTypeCrimeActionPerformed
+        int index_type_crime = BoxModifyTypeCrime.getSelectedIndex();
+        String type_crime = BoxModifyTypeCrime.getItemAt(index_type_crime);
+        //Borrar de la base
+    }//GEN-LAST:event_RemoveTypeCrimeActionPerformed
+
+    private void AddTypeSentenceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddTypeSentenceActionPerformed
+       String new_type_sentence = (String) JOptionPane.showInputDialog(null,"New type sentence: ",JOptionPane.QUESTION_MESSAGE);
+        //Agregarlo a la base
+    }//GEN-LAST:event_AddTypeSentenceActionPerformed
+
+    private void RemoveTypeSentenceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveTypeSentenceActionPerformed
+        int index_type_sentence = BoxModifyTypeSentence.getSelectedIndex();
+        String type_sentence = BoxModifyTypeSentence.getItemAt(index_type_sentence);
+        //Borrar de la base
+    }//GEN-LAST:event_RemoveTypeSentenceActionPerformed
+
+    private void ButtonEnterReportsZoneMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonEnterReportsZoneMouseEntered
+        ButtonEnterReportsZone.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_ButtonEnterReportsZoneMouseEntered
+
+    private void ButtonEnterReportsZoneMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonEnterReportsZoneMouseExited
+        ButtonEnterReportsZone.setBorder(null);
+    }//GEN-LAST:event_ButtonEnterReportsZoneMouseExited
+
+    private void ButtonEnterReportsZoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEnterReportsZoneActionPerformed
+        int index_country = BoxCountry.getSelectedIndex();
+        int index_state = BoxState.getSelectedIndex();
+        int index_city = BoxCity.getSelectedIndex();
+        int index_district = BoxDistrict.getSelectedIndex();
+        String filters [] = {BoxCountry.getItemAt(index_country), BoxState.getItemAt(index_state), BoxCity.getItemAt(index_city), BoxDistrict.getItemAt(index_district)};
+        String newFilters [] = {};
+        for(int i = 0; i <= filters.length; i++) {
+            if(filters[i] == "Default") {
+                newFilters[i] = null;
+            }
+        }
+        filters = newFilters;
+        //Aquí es donde se llama la función de la base de datos con los filtros y se agrega en la lista los valores
+        String example[] = {"3D", "a5"};
+        RecordsList.setListData(example);
+    }//GEN-LAST:event_ButtonEnterReportsZoneActionPerformed
+
+    private void ButtonEnterPersonRecordsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonEnterPersonRecordsMouseEntered
+        ButtonEnterPersonRecords.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_ButtonEnterPersonRecordsMouseEntered
+
+    private void ButtonEnterPersonRecordsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonEnterPersonRecordsMouseExited
+        ButtonEnterPersonRecords.setBorder(null);
+    }//GEN-LAST:event_ButtonEnterPersonRecordsMouseExited
+
+    private void ButtonEnterPersonRecordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEnterPersonRecordsActionPerformed
+        int index_country = BoxCountryPersonRecords.getSelectedIndex();
+        int index_state = BoxStatePersonRecords.getSelectedIndex();
+        int index_city = BoxCityPersonRecords.getSelectedIndex();
+        int index_district = BoxDistrictPersonRecords.getSelectedIndex();
+        String filters [] = {BoxCountryPersonRecords.getItemAt(index_country), BoxStatePersonRecords.getItemAt(index_state), BoxCityPersonRecords.getItemAt(index_city), BoxDistrictPersonRecords.getItemAt(index_district)};
+        String newFilters [] = {};
+        for(int i = 0; i <= filters.length; i++) {
+            if(filters[i] == "Default") {
+                newFilters[i] = null;
+            }
+        }
+        filters = newFilters;
+        //Aquí es donde se llama la función de la base de datos con los filtros y se agrega en la lista los valores
+        String example[] = {"3D", "a5"};
+        RecordsList.setListData(example);
+    }//GEN-LAST:event_ButtonEnterPersonRecordsActionPerformed
+
+    private void ButtonUserCataloguesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonUserCataloguesMouseEntered
+        ButtonUserCatalogues.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_ButtonUserCataloguesMouseEntered
+
+    private void ButtonUserCataloguesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonUserCataloguesMouseExited
+        ButtonUserCatalogues.setBorder(null);
+    }//GEN-LAST:event_ButtonUserCataloguesMouseExited
+
+    private void ButtonPersonCataloguesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonPersonCataloguesMouseEntered
+        ButtonPersonCatalogues.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_ButtonPersonCataloguesMouseEntered
+
+    private void ButtonPersonCataloguesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonPersonCataloguesMouseExited
+        ButtonPersonCatalogues.setBorder(null);
+    }//GEN-LAST:event_ButtonPersonCataloguesMouseExited
+
+    private void ButtonRecordCataloguesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRecordCataloguesMouseEntered
+        ButtonRecordCatalogues.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_ButtonRecordCataloguesMouseEntered
+
+    private void ButtonRecordCataloguesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRecordCataloguesMouseExited
+        ButtonRecordCatalogues.setBorder(null);
+    }//GEN-LAST:event_ButtonRecordCataloguesMouseExited
+
+    private void ButtonUserCataloguesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonUserCataloguesActionPerformed
+        Animacion.Animacion.mover_derecha(290, 1100, 1, 1, AdminConfiguration);
+        JPAdminMenu.setVisible(false);
+        AdminQuery.setVisible(false);
+        UserCatalogues.setVisible(true);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
+        JPWelcome.setVisible(false);
+        JPSignUp.setVisible(false);
+        UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
+        JPLogin.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPLogged.setVisible(true);
+    }//GEN-LAST:event_ButtonUserCataloguesActionPerformed
+
+    private void ButtonPersonCataloguesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonPersonCataloguesActionPerformed
+        Animacion.Animacion.mover_derecha(290, 1100, 1, 1, AdminConfiguration);
+        JPAdminMenu.setVisible(false);
+        AdminQuery.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(true);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
+        JPWelcome.setVisible(false);
+        JPSignUp.setVisible(false);
+        UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
+        JPLogin.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPLogged.setVisible(true);
+    }//GEN-LAST:event_ButtonPersonCataloguesActionPerformed
+
+    private void ButtonRecordCataloguesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRecordCataloguesActionPerformed
+        Animacion.Animacion.mover_derecha(290, 1100, 1, 1, AdminConfiguration);
+        JPAdminMenu.setVisible(false);
+        AdminQuery.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(true);
+        AdminStatistics.setVisible(false);
+        JPWelcome.setVisible(false);
+        JPSignUp.setVisible(false);
+        UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
+        JPLogin.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPLogged.setVisible(true);
+    }//GEN-LAST:event_ButtonRecordCataloguesActionPerformed
+
+    private void ButtonRollbackUserCataloguesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackUserCataloguesMouseEntered
+        ButtonRollbackUserCatalogues.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_ButtonRollbackUserCataloguesMouseEntered
+
+    private void ButtonRollbackUserCataloguesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackUserCataloguesMouseExited
+        ButtonRollbackUserCatalogues.setBorder(null);
+    }//GEN-LAST:event_ButtonRollbackUserCataloguesMouseExited
+
+    private void ButtonRollbackUserCataloguesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackUserCataloguesActionPerformed
+        JPAdminMenu.setVisible(false);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(true);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
+        JPWelcome.setVisible(false);
+        JPSignUp.setVisible(false);
+        UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
+        JPLogin.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPLogged.setVisible(true);
+    }//GEN-LAST:event_ButtonRollbackUserCataloguesActionPerformed
+
+    private void ButtonRollbackPersonCataloguesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackPersonCataloguesMouseEntered
+        ButtonRollbackPersonCatalogues.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_ButtonRollbackPersonCataloguesMouseEntered
+
+    private void ButtonRollbackPersonCataloguesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackPersonCataloguesMouseExited
+        ButtonRollbackPersonCatalogues.setBorder(null);
+    }//GEN-LAST:event_ButtonRollbackPersonCataloguesMouseExited
+
+    private void ButtonRollbackPersonCataloguesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackPersonCataloguesActionPerformed
+        JPAdminMenu.setVisible(false);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(true);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
+        JPWelcome.setVisible(false);
+        JPSignUp.setVisible(false);
+        UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
+        JPLogin.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPLogged.setVisible(true);
+    }//GEN-LAST:event_ButtonRollbackPersonCataloguesActionPerformed
+
+    private void ButtonRollbackRecordCataloguesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackRecordCataloguesMouseEntered
+        ButtonRollbackRecordCatalogues.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+    }//GEN-LAST:event_ButtonRollbackRecordCataloguesMouseEntered
+
+    private void ButtonRollbackRecordCataloguesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackRecordCataloguesMouseExited
+        ButtonRollbackRecordCatalogues.setBorder(null);
+    }//GEN-LAST:event_ButtonRollbackRecordCataloguesMouseExited
+
+    private void ButtonRollbackRecordCataloguesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackRecordCataloguesActionPerformed
+        JPAdminMenu.setVisible(false);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(true);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        AdminStatistics.setVisible(false);
+        JPWelcome.setVisible(false);
+        JPSignUp.setVisible(false);
+        UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
+        JPLogin.setVisible(false);
+        JPCreateRecord.setVisible(false);
+        JPCreateOffender.setVisible(false);
+        JPLogged.setVisible(true);
+    }//GEN-LAST:event_ButtonRollbackRecordCataloguesActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -3998,21 +6230,39 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AddBannedReason;
+    private javax.swing.JButton AddCity;
+    private javax.swing.JButton AddCountry;
+    private javax.swing.JButton AddGender;
+    private javax.swing.JButton AddInstitution;
     private javax.swing.JButton AddNewRecord;
+    private javax.swing.JButton AddState;
+    private javax.swing.JButton AddTypeCrime;
+    private javax.swing.JButton AddTypeSentence;
+    private javax.swing.JButton AddUnapprovedPic;
+    private javax.swing.JButton AddUserTypeCatalogue;
     private javax.swing.JPanel AdminCatalogues;
     private javax.swing.JTabbedPane AdminConfiguration;
     private javax.swing.JTabbedPane AdminQuery;
+    private javax.swing.JTabbedPane AdminStatistics;
     private javax.swing.JTextField AdminUpdatePasswordField;
     private javax.swing.JTextField AdminUpdateUsernameField;
+    private javax.swing.JPanel ApproveRecords;
     private javax.swing.JPanel BannedUsers;
     private org.jdatepicker.JDatePicker BirthdayNewUser;
     private javax.swing.JFormattedTextField BirthdayOffenderField;
     private javax.swing.JFormattedTextField BirthdayUpdateField;
     private javax.swing.JComboBox<String> BoxAdminUserTypeUpdate;
+    private javax.swing.JComboBox<String> BoxCity;
+    private javax.swing.JComboBox<String> BoxCityPersonRecords;
     private javax.swing.JComboBox<String> BoxCommunityAdminUpdate;
     private javax.swing.JComboBox<String> BoxCommunityOffender;
     private javax.swing.JComboBox<String> BoxCommunityUpdate;
+    private javax.swing.JComboBox<String> BoxCountry;
+    private javax.swing.JComboBox<String> BoxCountryPersonRecords;
     private javax.swing.JComboBox<String> BoxCrimeType;
+    private javax.swing.JComboBox<String> BoxDistrict;
+    private javax.swing.JComboBox<String> BoxDistrictPersonRecords;
     private javax.swing.JComboBox<String> BoxFilter;
     private javax.swing.JComboBox<String> BoxFilterIdPerson;
     private javax.swing.JComboBox<String> BoxFilterLastNamePerson;
@@ -4031,22 +6281,41 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> BoxInstitutionUpdate;
     private javax.swing.JComboBox<String> BoxLogFinishDate;
     private javax.swing.JComboBox<String> BoxLogStartDate;
+    private javax.swing.JComboBox<String> BoxModifyBannedReason;
+    private javax.swing.JComboBox<String> BoxModifyCity;
+    private javax.swing.JComboBox<String> BoxModifyCountry;
+    private javax.swing.JComboBox<String> BoxModifyGender;
+    private javax.swing.JComboBox<String> BoxModifyInstitution;
+    private javax.swing.JComboBox<String> BoxModifyState;
+    private javax.swing.JComboBox<String> BoxModifyTypeCrime;
+    private javax.swing.JComboBox<String> BoxModifyTypeSentence;
+    private javax.swing.JComboBox<String> BoxModifyUserType;
     private javax.swing.JComboBox<String> BoxNewUserCommunity;
     private javax.swing.JComboBox<String> BoxOffender;
     private javax.swing.JComboBox<String> BoxStartDate;
     private javax.swing.JComboBox<String> BoxStartDate1;
+    private javax.swing.JComboBox<String> BoxState;
+    private javax.swing.JComboBox<String> BoxStatePersonRecords;
+    private javax.swing.JComboBox<String> BoxUnapprovedCrimeType;
+    private javax.swing.JComboBox<String> BoxUnapprovedOffender;
+    private javax.swing.JComboBox<String> BoxUnapprovedVeredict;
     private javax.swing.JComboBox<String> BoxUserTypeNewUser;
     private javax.swing.JComboBox<String> BoxUserTypeUpdateUser;
     private javax.swing.JComboBox<String> BoxVeredict;
     private javax.swing.JButton ButtonAdminConfiguration;
     private javax.swing.JButton ButtonAdminQuery;
+    private javax.swing.JButton ButtonBanUser;
     private javax.swing.JButton ButtonCancel;
     private javax.swing.JButton ButtonCancelNewRecord;
     private javax.swing.JButton ButtonCancelOffender;
+    private javax.swing.JButton ButtonCancelPersonCatalogue;
+    private javax.swing.JButton ButtonCancelRecordCatalogue;
+    private javax.swing.JButton ButtonCancelUnapproved;
     private javax.swing.JButton ButtonCancelUpdatesAdminInfo;
     private javax.swing.JButton ButtonCancelUpdatesUserInfo;
     private javax.swing.JButton ButtonCancelUpdatesUserLogin;
     private javax.swing.JButton ButtonCancelUpdatesUserLoginAdmin;
+    private javax.swing.JButton ButtonCancelUserCatalogue;
     private javax.swing.JButton ButtonClose;
     private javax.swing.JButton ButtonConfiguration;
     private javax.swing.JButton ButtonConfirmChanges;
@@ -4055,8 +6324,14 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton ButtonConfirmChangesUpdatePersonalInfo;
     private javax.swing.JButton ButtonConfirmNewRecord;
     private javax.swing.JButton ButtonConfirmOffender;
+    private javax.swing.JButton ButtonConfirmPersonCatalogue;
+    private javax.swing.JButton ButtonConfirmRecordCatalogue;
+    private javax.swing.JButton ButtonConfirmUnapproved;
+    private javax.swing.JButton ButtonConfirmUserCatalogue;
     private javax.swing.JButton ButtonCreateRecord;
     private javax.swing.JButton ButtonEnter;
+    private javax.swing.JButton ButtonEnterPersonRecords;
+    private javax.swing.JButton ButtonEnterReportsZone;
     private javax.swing.JButton ButtonJoin;
     private javax.swing.JButton ButtonLogOut;
     private javax.swing.JButton ButtonLogOutAdminUser;
@@ -4064,17 +6339,19 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton ButtonMinimize;
     private javax.swing.JButton ButtonPersonCatalogues;
     private javax.swing.JButton ButtonQuery;
-    private javax.swing.JButton ButtonRecordCatalegues;
-    private javax.swing.JButton ButtonReports;
+    private javax.swing.JButton ButtonRecordCatalogues;
     private javax.swing.JButton ButtonRollbackCatalogues;
     private javax.swing.JButton ButtonRollbackCreateRecord;
     private javax.swing.JButton ButtonRollbackLog;
+    private javax.swing.JButton ButtonRollbackPersonCatalogues;
     private javax.swing.JButton ButtonRollbackQueryBanned;
     private javax.swing.JButton ButtonRollbackQueryExpire;
     private javax.swing.JButton ButtonRollbackQueryPlaces;
     private javax.swing.JButton ButtonRollbackQueryRecords;
     private javax.swing.JButton ButtonRollbackQueryUsers;
+    private javax.swing.JButton ButtonRollbackRecordCatalogues;
     private javax.swing.JButton ButtonRollbackReportList;
+    private javax.swing.JButton ButtonRollbackUserCatalogues;
     private javax.swing.JButton ButtonRollbackUserListNotChangePassword;
     private javax.swing.JButton ButtonShowFilteredUserList;
     private javax.swing.JButton ButtonShowPlaces;
@@ -4084,6 +6361,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton ButtonStatistics;
     private javax.swing.JButton ButtonUserCatalogues;
     private javax.swing.JCheckBox CheckBoxApproved;
+    private javax.swing.JCheckBox CheckBoxApprovedOrNot;
     private javax.swing.JTextArea CrimeDescriptionField;
     private javax.swing.JFormattedTextField DateCrimeField;
     private javax.swing.JFormattedTextField ExpireDateField;
@@ -4122,22 +6400,35 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel LabelAdminPasswordUpdateLogin;
     private javax.swing.JLabel LabelAdminUpdateLoginFields;
     private javax.swing.JLabel LabelAdminUsernameUpdateLogin;
+    private javax.swing.JLabel LabelApproveRecords;
+    private javax.swing.JLabel LabelBannedReason;
     private javax.swing.JLabel LabelChooseFilterRecords;
     private javax.swing.JLabel LabelChooseFilterUserListNotChangePassword;
     private javax.swing.JLabel LabelChooseFilterUserListNotChangePassword1;
+    private javax.swing.JLabel LabelChooseFilterUserListNotChangePassword2;
+    private javax.swing.JLabel LabelChooseFilterUserListNotChangePassword3;
+    private javax.swing.JLabel LabelCity;
     private javax.swing.JLabel LabelCommunityNewUser;
     private javax.swing.JLabel LabelCommunityOffender;
     private javax.swing.JLabel LabelCommunityUpdate;
+    private javax.swing.JLabel LabelCountry;
     private javax.swing.JLabel LabelCrimeDescription;
+    private javax.swing.JLabel LabelCrimeDescriptionUnapproved;
     private javax.swing.JLabel LabelCrimeType;
+    private javax.swing.JLabel LabelCrimeTypeUnapproved;
     private javax.swing.JLabel LabelDateCrime;
+    private javax.swing.JLabel LabelDateCrimeUnapproved;
     private javax.swing.JLabel LabelExpireDate;
+    private javax.swing.JLabel LabelExpireDateUnapproved;
     private javax.swing.JLabel LabelFilterIdPerson;
     private javax.swing.JLabel LabelFilterLastNamePerson;
     private javax.swing.JLabel LabelFilterNamePerson;
     private javax.swing.JLabel LabelFilterUsername;
+    private javax.swing.JLabel LabelGender;
+    private javax.swing.JLabel LabelGender1;
     private javax.swing.JLabel LabelIdNewUser;
     private javax.swing.JLabel LabelIdOffender;
+    private javax.swing.JLabel LabelInstitution;
     private javax.swing.JLabel LabelInstitutionNewUser;
     private javax.swing.JLabel LabelInstitutionOffender;
     private javax.swing.JLabel LabelInstitutionUpdate;
@@ -4154,13 +6445,25 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel LabelNewUserPassword;
     private javax.swing.JLabel LabelNewUserUserType;
     private javax.swing.JLabel LabelNewUsername;
+    private javax.swing.JLabel LabelNewUsername1;
+    private javax.swing.JLabel LabelNewUsername2;
+    private javax.swing.JLabel LabelNewUsername3;
+    private javax.swing.JLabel LabelNewUsername4;
+    private javax.swing.JLabel LabelNewUsername5;
+    private javax.swing.JLabel LabelNewUsername6;
+    private javax.swing.JLabel LabelNewUsername7;
+    private javax.swing.JLabel LabelNewUsername8;
     private javax.swing.JLabel LabelOffender;
     private javax.swing.JLabel LabelOffenderBirthday;
     private javax.swing.JLabel LabelOffenderGender;
+    private javax.swing.JLabel LabelOffenderUnapproved;
     private javax.swing.JLabel LabelPassword;
     private javax.swing.JLabel LabelRecordNumber;
     private javax.swing.JLabel LabelResolution;
+    private javax.swing.JLabel LabelResolutionUnapproved;
     private javax.swing.JLabel LabelSignUp;
+    private javax.swing.JLabel LabelState;
+    private javax.swing.JLabel LabelState1;
     private javax.swing.JLabel LabelTop;
     private javax.swing.JLabel LabelUpdateAdminBirthday;
     private javax.swing.JLabel LabelUpdateAdminCommunity;
@@ -4177,12 +6480,17 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel LabelUpdateNameUpdate;
     private javax.swing.JLabel LabelUpdateUserType;
     private javax.swing.JLabel LabelUserPasswordUpdateLogin;
+    private javax.swing.JLabel LabelUserType;
+    private javax.swing.JLabel LabelUserType1;
+    private javax.swing.JLabel LabelUserType2;
+    private javax.swing.JLabel LabelUserType3;
     private javax.swing.JLabel LabelUserUpdateLogin;
     private javax.swing.JLabel LabelUserUpdateLogin2;
     private javax.swing.JLabel LabelUserUpdateLogin3;
     private javax.swing.JLabel LabelUserUpdateLoginFields;
     private javax.swing.JLabel LabelUsername;
     private javax.swing.JLabel LabelVeredict;
+    private javax.swing.JLabel LabelVeredictUnapproved;
     private javax.swing.JLabel LabelWelcome;
     private javax.swing.JTextField LastNameNewUserField;
     private javax.swing.JTextField LastNameOffenderField;
@@ -4191,9 +6499,12 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton LeftPicNewReportList;
     private javax.swing.JButton LeftPicRecordToExpire;
     private javax.swing.JButton LeftPicShowRecords;
+    private javax.swing.JButton LeftUnapprovedPic;
     private javax.swing.JSeparator LineAdminBirthday;
     private javax.swing.JSeparator LineDateCrime;
+    private javax.swing.JSeparator LineDateCrime2;
     private javax.swing.JSeparator LineExpireDate;
+    private javax.swing.JSeparator LineExpireDate2;
     private javax.swing.JSeparator LineNewUserId;
     private javax.swing.JSeparator LineNewUserLastName;
     private javax.swing.JSeparator LineNewUserMiddleName;
@@ -4210,6 +6521,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JSeparator LineOffenderName1;
     private javax.swing.JSeparator LinePassword;
     private javax.swing.JSeparator LineResolution;
+    private javax.swing.JSeparator LineResolution2;
     private javax.swing.JSeparator LineUpdateAdminId;
     private javax.swing.JSeparator LineUpdateAdminLastName;
     private javax.swing.JSeparator LineUpdateAdminMiddleName;
@@ -4223,6 +6535,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JSeparator LineUpdateUsername;
     private javax.swing.JSeparator LineUsername;
     private javax.swing.JTextArea ListBannedUsers;
+    private javax.swing.JList<String> ListUnapprovedRecords;
     private javax.swing.JList<String> ListUserWithoutChangePassword;
     private javax.swing.JTextArea ListUsers;
     private javax.swing.JPanel Log;
@@ -4239,12 +6552,15 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField NumberTopField;
     private javax.swing.JSeparator NumberTopLine;
     private javax.swing.JPasswordField PasswordField;
+    private javax.swing.JPanel PersonCatalogues;
     private javax.swing.JButton PictureNewRecord;
     private javax.swing.JButton PictureNewReportList;
     private javax.swing.JButton PictureRecordToExpire;
     private javax.swing.JButton PictureShowRecords;
+    private javax.swing.JButton PictureUnapproved;
     private javax.swing.JList<String> PlacesList;
     private javax.swing.JPanel PlacesMoreRecords;
+    private javax.swing.JPanel RecordCatalogues;
     private javax.swing.JTextArea RecordDescriptionText;
     private javax.swing.JTextArea RecordDescriptionTextExpire;
     private javax.swing.JTextField RecordNumberField;
@@ -4252,7 +6568,17 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel RecordsConvictionsToExpireOrExpired;
     private javax.swing.JList<String> RecordsExpireList;
     private javax.swing.JList<String> RecordsList;
+    private javax.swing.JButton RemoveBannedReason;
+    private javax.swing.JButton RemoveCity;
+    private javax.swing.JButton RemoveCountry;
+    private javax.swing.JButton RemoveGender;
+    private javax.swing.JButton RemoveInstitution;
     private javax.swing.JButton RemoveNewRecord;
+    private javax.swing.JButton RemoveState;
+    private javax.swing.JButton RemoveTypeCrime;
+    private javax.swing.JButton RemoveTypeSentence;
+    private javax.swing.JButton RemoveUnapprovedPic;
+    private javax.swing.JButton RemoveUserType;
     private javax.swing.JTextArea ReportInformation;
     private javax.swing.JPanel ReportList;
     private javax.swing.JTextField ResolutionField;
@@ -4260,6 +6586,11 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton RightPicNewReportList;
     private javax.swing.JButton RightPicRecordToExpire;
     private javax.swing.JButton RightPicShowRecords;
+    private javax.swing.JButton RightUnapprovedPic;
+    private javax.swing.JTextArea UnapprovedCrimeDescriptionField;
+    private javax.swing.JFormattedTextField UnapprovedDateCrimeField1;
+    private javax.swing.JFormattedTextField UnapprovedExpireDateField;
+    private javax.swing.JTextField UnapprovedResolutionField;
     private javax.swing.JFormattedTextField UpdateAdminBirthdayField;
     private javax.swing.JTextField UpdateAdminIdField;
     private javax.swing.JTextField UpdateAdminLastNameField;
@@ -4271,6 +6602,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField UpdatePasswordField;
     private javax.swing.JPanel UpdatePersonalInfo;
     private javax.swing.JTextField UpdateUsernameField;
+    private javax.swing.JPanel UserCatalogues;
     private javax.swing.JTabbedPane UserConfiguration;
     private javax.swing.JPanel UserListNotChangingPassword;
     private javax.swing.JTabbedPane UserQuery;
@@ -4278,11 +6610,21 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField UsernameField;
     private javax.swing.JPanel UsersList;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
+    private javax.swing.JScrollPane jScrollPane16;
+    private javax.swing.JScrollPane jScrollPane17;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
