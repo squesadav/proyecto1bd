@@ -99,13 +99,14 @@ public class Login extends javax.swing.JFrame {
         MiddleNameNewUserField = new javax.swing.JTextField();
         LineNewUserLastName = new javax.swing.JSeparator();
         LastNameNewUserField = new javax.swing.JTextField();
-        LineNewUserBirthday = new javax.swing.JSeparator();
         BoxGenderNewUser = new javax.swing.JComboBox<>();
         BoxNewUserCommunity = new javax.swing.JComboBox<>();
         BoxInstitutionNewUser = new javax.swing.JComboBox<>();
         ButtonCancel = new javax.swing.JButton();
         ButtonJoin = new javax.swing.JButton();
         BirthdayNewUser = new org.jdatepicker.JDatePicker();
+        LabelNewUserUserType = new javax.swing.JLabel();
+        BoxUserTypeNewUser = new javax.swing.JComboBox<>();
         JPWindow = new javax.swing.JPanel();
         ButtonMinimize = new javax.swing.JButton();
         ButtonClose = new javax.swing.JButton();
@@ -150,6 +151,57 @@ public class Login extends javax.swing.JFrame {
         LogUserList = new javax.swing.JList<>();
         ButtonLogUserList = new javax.swing.JButton();
         ButtonRollbackLog = new javax.swing.JButton();
+        AdminConfiguration = new javax.swing.JTabbedPane();
+        UpdateAdminLoginInfo = new javax.swing.JPanel();
+        LabelAdminPasswordUpdateLogin = new javax.swing.JLabel();
+        LabelAdminUsernameUpdateLogin = new javax.swing.JLabel();
+        LineUpdateAdminUsername = new javax.swing.JSeparator();
+        AdminUpdateUsernameField = new javax.swing.JTextField();
+        LineUpdateAdminPassword = new javax.swing.JSeparator();
+        AdminUpdatePasswordField = new javax.swing.JTextField();
+        ButtonCancelUpdatesUserLoginAdmin = new javax.swing.JButton();
+        ButtonConfirmChangesAdmin = new javax.swing.JButton();
+        IconUpdateUsernameAdmin = new javax.swing.JLabel();
+        IconUpdatePasswordAdmin = new javax.swing.JLabel();
+        LabelAdminUpdateLoginFields = new javax.swing.JLabel();
+        LabelUpdateAdminUserType = new javax.swing.JLabel();
+        BoxAdminUserTypeUpdate = new javax.swing.JComboBox<>();
+        UpdateAdminPersonalInfo = new javax.swing.JPanel();
+        LabelUpdateAdminId = new javax.swing.JLabel();
+        LabelUpdateAdminNameUpdate = new javax.swing.JLabel();
+        LabelUpdateAdminMiddleName = new javax.swing.JLabel();
+        LabelUpdateAdminLastName = new javax.swing.JLabel();
+        LabelUpdateAdminCommunity = new javax.swing.JLabel();
+        LabelUpdateAdminInstitution = new javax.swing.JLabel();
+        LabelUpdateAdminGender = new javax.swing.JLabel();
+        LabelUpdateAdminBirthday = new javax.swing.JLabel();
+        LineUpdateAdminId = new javax.swing.JSeparator();
+        UpdateAdminIdField = new javax.swing.JTextField();
+        LineUpdateAdminName = new javax.swing.JSeparator();
+        UpdateAdminNameField = new javax.swing.JTextField();
+        LineUpdateAdminMiddleName = new javax.swing.JSeparator();
+        UpdateAdminMiddleNameField = new javax.swing.JTextField();
+        LineUpdateAdminLastName = new javax.swing.JSeparator();
+        UpdateAdminLastNameField = new javax.swing.JTextField();
+        LineAdminBirthday = new javax.swing.JSeparator();
+        UpdateAdminBirthdayField = new javax.swing.JFormattedTextField();
+        BoxCommunityAdminUpdate = new javax.swing.JComboBox<>();
+        BoxInstitutionAdminUpdate = new javax.swing.JComboBox<>();
+        BoxGenderAdminUpdate = new javax.swing.JComboBox<>();
+        ButtonCancelUpdatesAdminInfo = new javax.swing.JButton();
+        ButtonConfirmChangesUpdateAdminPersonalInfo = new javax.swing.JButton();
+        IconUpdateUsername6 = new javax.swing.JLabel();
+        IconUpdateUsername7 = new javax.swing.JLabel();
+        IconUpdateUsername8 = new javax.swing.JLabel();
+        IconUpdateUsername9 = new javax.swing.JLabel();
+        IconUpdateUsername10 = new javax.swing.JLabel();
+        LabelUserUpdateLogin3 = new javax.swing.JLabel();
+        AdminCatalogues = new javax.swing.JPanel();
+        ButtonUserCatalogues = new javax.swing.JButton();
+        ButtonPersonCatalogues = new javax.swing.JButton();
+        ButtonRecordCatalegues = new javax.swing.JButton();
+        ButtonRollbackCatalogues = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
         JPUserMenu = new javax.swing.JPanel();
         ButtonQuery = new javax.swing.JButton();
         ButtonConfiguration = new javax.swing.JButton();
@@ -199,7 +251,7 @@ public class Login extends javax.swing.JFrame {
         BoxCrimeType = new javax.swing.JComboBox<>();
         ButtonCancelNewRecord = new javax.swing.JButton();
         ButtonConfirmNewRecord = new javax.swing.JButton();
-        IconOffender1 = new javax.swing.JLabel();
+        IconCreateReacord = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
         CrimeDescriptionField = new javax.swing.JTextArea();
         CheckBoxApproved = new javax.swing.JCheckBox();
@@ -269,7 +321,9 @@ public class Login extends javax.swing.JFrame {
         ButtonConfirmChanges = new javax.swing.JButton();
         IconUpdateUsername = new javax.swing.JLabel();
         IconUpdatePassword = new javax.swing.JLabel();
-        LabelUserUpdateLogin1 = new javax.swing.JLabel();
+        LabelUserUpdateLoginFields = new javax.swing.JLabel();
+        LabelUpdateUserType = new javax.swing.JLabel();
+        BoxUserTypeUpdateUser = new javax.swing.JComboBox<>();
         UpdatePersonalInfo = new javax.swing.JPanel();
         LabelUpdateId = new javax.swing.JLabel();
         LabelUpdateNameUpdate = new javax.swing.JLabel();
@@ -420,19 +474,19 @@ public class Login extends javax.swing.JFrame {
         LabelSignUp.setText("Welcome");
         LabelSignUp.setMaximumSize(new java.awt.Dimension(240, 128));
         LabelSignUp.setMinimumSize(new java.awt.Dimension(240, 128));
-        JPSignUp.add(LabelSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 260, 130));
+        JPSignUp.add(LabelSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 260, 130));
 
         LabelNewUserPassword.setBackground(new java.awt.Color(255, 255, 255));
         LabelNewUserPassword.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         LabelNewUserPassword.setForeground(new java.awt.Color(29, 41, 81));
         LabelNewUserPassword.setText("Password:");
-        JPSignUp.add(LabelNewUserPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 100, 30));
+        JPSignUp.add(LabelNewUserPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 100, 30));
 
         LabelNewUsername.setBackground(new java.awt.Color(255, 255, 255));
         LabelNewUsername.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         LabelNewUsername.setForeground(new java.awt.Color(29, 41, 81));
         LabelNewUsername.setText("Username:");
-        JPSignUp.add(LabelNewUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 100, 30));
+        JPSignUp.add(LabelNewUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 100, 30));
 
         LabelIdNewUser.setBackground(new java.awt.Color(255, 255, 255));
         LabelIdNewUser.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
@@ -462,18 +516,18 @@ public class Login extends javax.swing.JFrame {
         LabelNewUserGender.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         LabelNewUserGender.setForeground(new java.awt.Color(29, 41, 81));
         LabelNewUserGender.setText("Gender:");
-        JPSignUp.add(LabelNewUserGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 100, 30));
+        JPSignUp.add(LabelNewUserGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 100, 30));
 
         LabelNewUserBirthday.setBackground(new java.awt.Color(255, 255, 255));
         LabelNewUserBirthday.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         LabelNewUserBirthday.setForeground(new java.awt.Color(29, 41, 81));
         LabelNewUserBirthday.setText("Birthday:");
-        JPSignUp.add(LabelNewUserBirthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 100, 30));
+        JPSignUp.add(LabelNewUserBirthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 100, 30));
 
         LabelCommunityNewUser.setBackground(new java.awt.Color(255, 255, 255));
         LabelCommunityNewUser.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         LabelCommunityNewUser.setForeground(new java.awt.Color(29, 41, 81));
-        LabelCommunityNewUser.setText("Community:");
+        LabelCommunityNewUser.setText("District:");
         JPSignUp.add(LabelCommunityNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 350, 100, 30));
 
         LabelInstitutionNewUser.setBackground(new java.awt.Color(255, 255, 255));
@@ -483,20 +537,20 @@ public class Login extends javax.swing.JFrame {
         JPSignUp.add(LabelInstitutionNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 400, 90, 30));
 
         LineNewUsername.setForeground(new java.awt.Color(29, 41, 81));
-        JPSignUp.add(LineNewUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 220, 20));
+        JPSignUp.add(LineNewUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 220, 20));
 
         NewUsernameField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         NewUsernameField.setForeground(new java.awt.Color(29, 41, 81));
         NewUsernameField.setBorder(null);
-        JPSignUp.add(NewUsernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 220, 30));
+        JPSignUp.add(NewUsernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 220, 30));
 
         LineNewUserPassword.setForeground(new java.awt.Color(29, 41, 81));
-        JPSignUp.add(LineNewUserPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 220, 20));
+        JPSignUp.add(LineNewUserPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 220, 20));
 
         NewUserPasswordField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         NewUserPasswordField.setForeground(new java.awt.Color(29, 41, 81));
         NewUserPasswordField.setBorder(null);
-        JPSignUp.add(NewUserPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 220, 30));
+        JPSignUp.add(NewUserPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 220, 30));
 
         LineNewUserId.setForeground(new java.awt.Color(29, 41, 81));
         JPSignUp.add(LineNewUserId, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, 220, 20));
@@ -530,13 +584,10 @@ public class Login extends javax.swing.JFrame {
         LastNameNewUserField.setBorder(null);
         JPSignUp.add(LastNameNewUserField, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, 220, 30));
 
-        LineNewUserBirthday.setForeground(new java.awt.Color(29, 41, 81));
-        JPSignUp.add(LineNewUserBirthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 430, 130, 20));
-
         BoxGenderNewUser.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
         BoxGenderNewUser.setForeground(new java.awt.Color(29, 41, 81));
         BoxGenderNewUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
-        JPSignUp.add(BoxGenderNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 120, 30));
+        JPSignUp.add(BoxGenderNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 120, 30));
 
         BoxNewUserCommunity.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
         BoxNewUserCommunity.setForeground(new java.awt.Color(29, 41, 81));
@@ -567,7 +618,7 @@ public class Login extends javax.swing.JFrame {
                 ButtonCancelActionPerformed(evt);
             }
         });
-        JPSignUp.add(ButtonCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 460, 100, 40));
+        JPSignUp.add(ButtonCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 470, 100, 40));
 
         ButtonJoin.setBackground(new java.awt.Color(255, 255, 255));
         ButtonJoin.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
@@ -588,8 +639,19 @@ public class Login extends javax.swing.JFrame {
                 ButtonJoinActionPerformed(evt);
             }
         });
-        JPSignUp.add(ButtonJoin, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 460, 100, 40));
-        JPSignUp.add(BirthdayNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 400, -1, -1));
+        JPSignUp.add(ButtonJoin, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 470, 100, 40));
+        JPSignUp.add(BirthdayNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, -1, 30));
+
+        LabelNewUserUserType.setBackground(new java.awt.Color(255, 255, 255));
+        LabelNewUserUserType.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelNewUserUserType.setForeground(new java.awt.Color(29, 41, 81));
+        LabelNewUserUserType.setText("User Type:");
+        JPSignUp.add(LabelNewUserUserType, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 90, 30));
+
+        BoxUserTypeNewUser.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
+        BoxUserTypeNewUser.setForeground(new java.awt.Color(29, 41, 81));
+        BoxUserTypeNewUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        JPSignUp.add(BoxUserTypeNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 430, 120, 30));
 
         getContentPane().add(JPSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
 
@@ -1033,6 +1095,337 @@ public class Login extends javax.swing.JFrame {
 
         getContentPane().add(AdminQuery, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 530));
 
+        AdminConfiguration.setBackground(new java.awt.Color(255, 255, 255));
+        AdminConfiguration.setForeground(new java.awt.Color(29, 41, 81));
+
+        UpdateAdminLoginInfo.setBackground(new java.awt.Color(255, 255, 255));
+        UpdateAdminLoginInfo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        LabelAdminPasswordUpdateLogin.setBackground(new java.awt.Color(255, 255, 255));
+        LabelAdminPasswordUpdateLogin.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelAdminPasswordUpdateLogin.setForeground(new java.awt.Color(29, 41, 81));
+        LabelAdminPasswordUpdateLogin.setText("Password:");
+        UpdateAdminLoginInfo.add(LabelAdminPasswordUpdateLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(345, 230, 90, 30));
+
+        LabelAdminUsernameUpdateLogin.setBackground(new java.awt.Color(255, 255, 255));
+        LabelAdminUsernameUpdateLogin.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelAdminUsernameUpdateLogin.setForeground(new java.awt.Color(29, 41, 81));
+        LabelAdminUsernameUpdateLogin.setText("Username:");
+        UpdateAdminLoginInfo.add(LabelAdminUsernameUpdateLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, 100, 30));
+
+        LineUpdateAdminUsername.setForeground(new java.awt.Color(29, 41, 81));
+        UpdateAdminLoginInfo.add(LineUpdateAdminUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 220, 20));
+
+        AdminUpdateUsernameField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        AdminUpdateUsernameField.setForeground(new java.awt.Color(29, 41, 81));
+        AdminUpdateUsernameField.setBorder(null);
+        UpdateAdminLoginInfo.add(AdminUpdateUsernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 180, 30));
+
+        LineUpdateAdminPassword.setForeground(new java.awt.Color(29, 41, 81));
+        UpdateAdminLoginInfo.add(LineUpdateAdminPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, 220, 20));
+
+        AdminUpdatePasswordField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        AdminUpdatePasswordField.setForeground(new java.awt.Color(29, 41, 81));
+        AdminUpdatePasswordField.setBorder(null);
+        UpdateAdminLoginInfo.add(AdminUpdatePasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, 180, 30));
+
+        ButtonCancelUpdatesUserLoginAdmin.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonCancelUpdatesUserLoginAdmin.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        ButtonCancelUpdatesUserLoginAdmin.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonCancelUpdatesUserLoginAdmin.setText("Cancel");
+        ButtonCancelUpdatesUserLoginAdmin.setBorder(null);
+        ButtonCancelUpdatesUserLoginAdmin.setContentAreaFilled(false);
+        ButtonCancelUpdatesUserLoginAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonCancelUpdatesUserLoginAdminMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonCancelUpdatesUserLoginAdminMouseExited(evt);
+            }
+        });
+        ButtonCancelUpdatesUserLoginAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonCancelUpdatesUserLoginAdminActionPerformed(evt);
+            }
+        });
+        UpdateAdminLoginInfo.add(ButtonCancelUpdatesUserLoginAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 420, 100, 40));
+
+        ButtonConfirmChangesAdmin.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonConfirmChangesAdmin.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        ButtonConfirmChangesAdmin.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonConfirmChangesAdmin.setText("Confirm Changes");
+        ButtonConfirmChangesAdmin.setBorder(null);
+        ButtonConfirmChangesAdmin.setContentAreaFilled(false);
+        ButtonConfirmChangesAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonConfirmChangesAdminMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonConfirmChangesAdminMouseExited(evt);
+            }
+        });
+        ButtonConfirmChangesAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonConfirmChangesAdminActionPerformed(evt);
+            }
+        });
+        UpdateAdminLoginInfo.add(ButtonConfirmChangesAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, 150, 40));
+
+        IconUpdateUsernameAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/EditField.png"))); // NOI18N
+        UpdateAdminLoginInfo.add(IconUpdateUsernameAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, 40, 40));
+
+        IconUpdatePasswordAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/EditField.png"))); // NOI18N
+        UpdateAdminLoginInfo.add(IconUpdatePasswordAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 40, 40));
+
+        LabelAdminUpdateLoginFields.setBackground(new java.awt.Color(255, 255, 255));
+        LabelAdminUpdateLoginFields.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
+        LabelAdminUpdateLoginFields.setForeground(new java.awt.Color(29, 41, 81));
+        LabelAdminUpdateLoginFields.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/UpdateInfo.png"))); // NOI18N
+        LabelAdminUpdateLoginFields.setText("Update the desired field");
+        UpdateAdminLoginInfo.add(LabelAdminUpdateLoginFields, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 330, -1));
+
+        LabelUpdateAdminUserType.setBackground(new java.awt.Color(255, 255, 255));
+        LabelUpdateAdminUserType.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelUpdateAdminUserType.setForeground(new java.awt.Color(29, 41, 81));
+        LabelUpdateAdminUserType.setText("User Type:");
+        UpdateAdminLoginInfo.add(LabelUpdateAdminUserType, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, 90, 30));
+
+        BoxAdminUserTypeUpdate.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
+        BoxAdminUserTypeUpdate.setForeground(new java.awt.Color(29, 41, 81));
+        BoxAdminUserTypeUpdate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        UpdateAdminLoginInfo.add(BoxAdminUserTypeUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, 120, 30));
+
+        AdminConfiguration.addTab("Update login information", UpdateAdminLoginInfo);
+
+        UpdateAdminPersonalInfo.setBackground(new java.awt.Color(255, 255, 255));
+        UpdateAdminPersonalInfo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        LabelUpdateAdminId.setBackground(new java.awt.Color(255, 255, 255));
+        LabelUpdateAdminId.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelUpdateAdminId.setForeground(new java.awt.Color(29, 41, 81));
+        LabelUpdateAdminId.setText("Id:");
+        UpdateAdminPersonalInfo.add(LabelUpdateAdminId, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 100, 30));
+
+        LabelUpdateAdminNameUpdate.setBackground(new java.awt.Color(255, 255, 255));
+        LabelUpdateAdminNameUpdate.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelUpdateAdminNameUpdate.setForeground(new java.awt.Color(29, 41, 81));
+        LabelUpdateAdminNameUpdate.setText("Name:");
+        UpdateAdminPersonalInfo.add(LabelUpdateAdminNameUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 100, 30));
+
+        LabelUpdateAdminMiddleName.setBackground(new java.awt.Color(255, 255, 255));
+        LabelUpdateAdminMiddleName.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelUpdateAdminMiddleName.setForeground(new java.awt.Color(29, 41, 81));
+        LabelUpdateAdminMiddleName.setText("Middle name:");
+        UpdateAdminPersonalInfo.add(LabelUpdateAdminMiddleName, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 120, 30));
+
+        LabelUpdateAdminLastName.setBackground(new java.awt.Color(255, 255, 255));
+        LabelUpdateAdminLastName.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelUpdateAdminLastName.setForeground(new java.awt.Color(29, 41, 81));
+        LabelUpdateAdminLastName.setText("Last name:");
+        UpdateAdminPersonalInfo.add(LabelUpdateAdminLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, 90, 30));
+
+        LabelUpdateAdminCommunity.setBackground(new java.awt.Color(255, 255, 255));
+        LabelUpdateAdminCommunity.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelUpdateAdminCommunity.setForeground(new java.awt.Color(29, 41, 81));
+        LabelUpdateAdminCommunity.setText("Community:");
+        UpdateAdminPersonalInfo.add(LabelUpdateAdminCommunity, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 280, 100, 30));
+
+        LabelUpdateAdminInstitution.setBackground(new java.awt.Color(255, 255, 255));
+        LabelUpdateAdminInstitution.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelUpdateAdminInstitution.setForeground(new java.awt.Color(29, 41, 81));
+        LabelUpdateAdminInstitution.setText("Institution:");
+        UpdateAdminPersonalInfo.add(LabelUpdateAdminInstitution, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 340, 90, 30));
+
+        LabelUpdateAdminGender.setBackground(new java.awt.Color(255, 255, 255));
+        LabelUpdateAdminGender.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelUpdateAdminGender.setForeground(new java.awt.Color(29, 41, 81));
+        LabelUpdateAdminGender.setText("Gender:");
+        UpdateAdminPersonalInfo.add(LabelUpdateAdminGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 160, 100, 30));
+
+        LabelUpdateAdminBirthday.setBackground(new java.awt.Color(255, 255, 255));
+        LabelUpdateAdminBirthday.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelUpdateAdminBirthday.setForeground(new java.awt.Color(29, 41, 81));
+        LabelUpdateAdminBirthday.setText("Birthday:");
+        UpdateAdminPersonalInfo.add(LabelUpdateAdminBirthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 220, 100, 30));
+
+        LineUpdateAdminId.setForeground(new java.awt.Color(29, 41, 81));
+        UpdateAdminPersonalInfo.add(LineUpdateAdminId, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 220, 20));
+
+        UpdateAdminIdField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        UpdateAdminIdField.setForeground(new java.awt.Color(29, 41, 81));
+        UpdateAdminIdField.setBorder(null);
+        UpdateAdminPersonalInfo.add(UpdateAdminIdField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 220, 30));
+
+        LineUpdateAdminName.setForeground(new java.awt.Color(29, 41, 81));
+        UpdateAdminPersonalInfo.add(LineUpdateAdminName, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 220, 20));
+
+        UpdateAdminNameField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        UpdateAdminNameField.setForeground(new java.awt.Color(29, 41, 81));
+        UpdateAdminNameField.setBorder(null);
+        UpdateAdminPersonalInfo.add(UpdateAdminNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 220, 30));
+
+        LineUpdateAdminMiddleName.setForeground(new java.awt.Color(29, 41, 81));
+        UpdateAdminPersonalInfo.add(LineUpdateAdminMiddleName, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 220, 20));
+
+        UpdateAdminMiddleNameField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        UpdateAdminMiddleNameField.setForeground(new java.awt.Color(29, 41, 81));
+        UpdateAdminMiddleNameField.setBorder(null);
+        UpdateAdminPersonalInfo.add(UpdateAdminMiddleNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 220, 30));
+
+        LineUpdateAdminLastName.setForeground(new java.awt.Color(29, 41, 81));
+        UpdateAdminPersonalInfo.add(LineUpdateAdminLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, 220, 20));
+
+        UpdateAdminLastNameField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        UpdateAdminLastNameField.setForeground(new java.awt.Color(29, 41, 81));
+        UpdateAdminLastNameField.setBorder(null);
+        UpdateAdminPersonalInfo.add(UpdateAdminLastNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 220, 30));
+
+        LineAdminBirthday.setForeground(new java.awt.Color(29, 41, 81));
+        UpdateAdminPersonalInfo.add(LineAdminBirthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 250, 130, 20));
+
+        UpdateAdminBirthdayField.setBorder(null);
+        UpdateAdminBirthdayField.setForeground(new java.awt.Color(29, 41, 81));
+        UpdateAdminBirthdayField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        UpdateAdminPersonalInfo.add(UpdateAdminBirthdayField, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 220, 130, 30));
+
+        BoxCommunityAdminUpdate.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
+        BoxCommunityAdminUpdate.setForeground(new java.awt.Color(29, 41, 81));
+        BoxCommunityAdminUpdate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        UpdateAdminPersonalInfo.add(BoxCommunityAdminUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, 170, 30));
+
+        BoxInstitutionAdminUpdate.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
+        BoxInstitutionAdminUpdate.setForeground(new java.awt.Color(29, 41, 81));
+        BoxInstitutionAdminUpdate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        UpdateAdminPersonalInfo.add(BoxInstitutionAdminUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 340, 170, 30));
+
+        BoxGenderAdminUpdate.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
+        BoxGenderAdminUpdate.setForeground(new java.awt.Color(29, 41, 81));
+        BoxGenderAdminUpdate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        UpdateAdminPersonalInfo.add(BoxGenderAdminUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 160, 120, 30));
+
+        ButtonCancelUpdatesAdminInfo.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonCancelUpdatesAdminInfo.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        ButtonCancelUpdatesAdminInfo.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonCancelUpdatesAdminInfo.setText("Cancel");
+        ButtonCancelUpdatesAdminInfo.setBorder(null);
+        ButtonCancelUpdatesAdminInfo.setContentAreaFilled(false);
+        ButtonCancelUpdatesAdminInfo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonCancelUpdatesAdminInfoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonCancelUpdatesAdminInfoMouseExited(evt);
+            }
+        });
+        ButtonCancelUpdatesAdminInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonCancelUpdatesAdminInfoActionPerformed(evt);
+            }
+        });
+        UpdateAdminPersonalInfo.add(ButtonCancelUpdatesAdminInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, 100, 40));
+
+        ButtonConfirmChangesUpdateAdminPersonalInfo.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonConfirmChangesUpdateAdminPersonalInfo.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        ButtonConfirmChangesUpdateAdminPersonalInfo.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonConfirmChangesUpdateAdminPersonalInfo.setText("Confirm Changes");
+        ButtonConfirmChangesUpdateAdminPersonalInfo.setBorder(null);
+        ButtonConfirmChangesUpdateAdminPersonalInfo.setContentAreaFilled(false);
+        ButtonConfirmChangesUpdateAdminPersonalInfo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonConfirmChangesUpdateAdminPersonalInfoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonConfirmChangesUpdateAdminPersonalInfoMouseExited(evt);
+            }
+        });
+        ButtonConfirmChangesUpdateAdminPersonalInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonConfirmChangesUpdateAdminPersonalInfoActionPerformed(evt);
+            }
+        });
+        UpdateAdminPersonalInfo.add(ButtonConfirmChangesUpdateAdminPersonalInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 150, 40));
+
+        IconUpdateUsername6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/EditField.png"))); // NOI18N
+        UpdateAdminPersonalInfo.add(IconUpdateUsername6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 40, 40));
+
+        IconUpdateUsername7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/EditField.png"))); // NOI18N
+        UpdateAdminPersonalInfo.add(IconUpdateUsername7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 40, 40));
+
+        IconUpdateUsername8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/EditField.png"))); // NOI18N
+        UpdateAdminPersonalInfo.add(IconUpdateUsername8, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 40, 40));
+
+        IconUpdateUsername9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/EditField.png"))); // NOI18N
+        UpdateAdminPersonalInfo.add(IconUpdateUsername9, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, 40, 40));
+
+        IconUpdateUsername10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/EditField.png"))); // NOI18N
+        UpdateAdminPersonalInfo.add(IconUpdateUsername10, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 210, 40, 40));
+
+        LabelUserUpdateLogin3.setBackground(new java.awt.Color(255, 255, 255));
+        LabelUserUpdateLogin3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
+        LabelUserUpdateLogin3.setForeground(new java.awt.Color(29, 41, 81));
+        LabelUserUpdateLogin3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/UpdateInfo.png"))); // NOI18N
+        LabelUserUpdateLogin3.setText("Update the desired field");
+        UpdateAdminPersonalInfo.add(LabelUserUpdateLogin3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, 330, 90));
+
+        AdminConfiguration.addTab("Update personal information", UpdateAdminPersonalInfo);
+
+        AdminCatalogues.setBackground(new java.awt.Color(255, 255, 255));
+        AdminCatalogues.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ButtonUserCatalogues.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonUserCatalogues.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonUserCatalogues.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/UserCatalogue.png"))); // NOI18N
+        ButtonUserCatalogues.setText("User Catalogues");
+        ButtonUserCatalogues.setBorder(null);
+        ButtonUserCatalogues.setContentAreaFilled(false);
+        ButtonUserCatalogues.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        AdminCatalogues.add(ButtonUserCatalogues, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 230, 180));
+
+        ButtonPersonCatalogues.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonPersonCatalogues.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonPersonCatalogues.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/UserCatalogue.png"))); // NOI18N
+        ButtonPersonCatalogues.setText("Person Catalogues");
+        ButtonPersonCatalogues.setBorder(null);
+        ButtonPersonCatalogues.setContentAreaFilled(false);
+        ButtonPersonCatalogues.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        AdminCatalogues.add(ButtonPersonCatalogues, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, 240, 180));
+
+        ButtonRecordCatalegues.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonRecordCatalegues.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonRecordCatalegues.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/UserCatalogue.png"))); // NOI18N
+        ButtonRecordCatalegues.setText("Record Catalogues");
+        ButtonRecordCatalegues.setBorder(null);
+        ButtonRecordCatalegues.setContentAreaFilled(false);
+        ButtonRecordCatalegues.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        AdminCatalogues.add(ButtonRecordCatalegues, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, 240, 180));
+
+        ButtonRollbackCatalogues.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonRollbackCatalogues.setForeground(new java.awt.Color(255, 255, 255));
+        ButtonRollbackCatalogues.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/Rollback.png"))); // NOI18N
+        ButtonRollbackCatalogues.setBorder(null);
+        ButtonRollbackCatalogues.setContentAreaFilled(false);
+        ButtonRollbackCatalogues.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonRollbackCataloguesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonRollbackCataloguesMouseExited(evt);
+            }
+        });
+        ButtonRollbackCatalogues.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonRollbackCataloguesActionPerformed(evt);
+            }
+        });
+        AdminCatalogues.add(ButtonRollbackCatalogues, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 50));
+
+        AdminConfiguration.addTab("Administrate system", AdminCatalogues);
+
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        AdminConfiguration.addTab("tab4", jPanel4);
+
+        getContentPane().add(AdminConfiguration, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
+
         JPUserMenu.setBackground(new java.awt.Color(255, 255, 255));
         JPUserMenu.setForeground(new java.awt.Color(255, 255, 255));
         JPUserMenu.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1436,14 +1829,14 @@ public class Login extends javax.swing.JFrame {
         });
         JPCreateRecord.add(ButtonConfirmNewRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 460, 100, 40));
 
-        IconOffender1.setBackground(new java.awt.Color(255, 255, 255));
-        IconOffender1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 18)); // NOI18N
-        IconOffender1.setForeground(new java.awt.Color(29, 41, 81));
-        IconOffender1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/AddFile.png"))); // NOI18N
-        IconOffender1.setText("Create Record");
-        IconOffender1.setMaximumSize(new java.awt.Dimension(240, 128));
-        IconOffender1.setMinimumSize(new java.awt.Dimension(240, 128));
-        JPCreateRecord.add(IconOffender1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 300, 90));
+        IconCreateReacord.setBackground(new java.awt.Color(255, 255, 255));
+        IconCreateReacord.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 18)); // NOI18N
+        IconCreateReacord.setForeground(new java.awt.Color(29, 41, 81));
+        IconCreateReacord.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/AddFile.png"))); // NOI18N
+        IconCreateReacord.setText("Create Record");
+        IconCreateReacord.setMaximumSize(new java.awt.Dimension(240, 128));
+        IconCreateReacord.setMinimumSize(new java.awt.Dimension(240, 128));
+        JPCreateRecord.add(IconCreateReacord, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 300, 90));
 
         CrimeDescriptionField.setColumns(20);
         CrimeDescriptionField.setRows(5);
@@ -1996,6 +2389,8 @@ public class Login extends javax.swing.JFrame {
 
         getContentPane().add(UserQuery, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
 
+        UserConfiguration.setForeground(new java.awt.Color(29, 41, 81));
+
         UpdateLoginInfo.setBackground(new java.awt.Color(255, 255, 255));
         UpdateLoginInfo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -2080,12 +2475,23 @@ public class Login extends javax.swing.JFrame {
         IconUpdatePassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/EditField.png"))); // NOI18N
         UpdateLoginInfo.add(IconUpdatePassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 40, 40));
 
-        LabelUserUpdateLogin1.setBackground(new java.awt.Color(255, 255, 255));
-        LabelUserUpdateLogin1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
-        LabelUserUpdateLogin1.setForeground(new java.awt.Color(29, 41, 81));
-        LabelUserUpdateLogin1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/UpdateInfo.png"))); // NOI18N
-        LabelUserUpdateLogin1.setText("Update the desired field");
-        UpdateLoginInfo.add(LabelUserUpdateLogin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 330, -1));
+        LabelUserUpdateLoginFields.setBackground(new java.awt.Color(255, 255, 255));
+        LabelUserUpdateLoginFields.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
+        LabelUserUpdateLoginFields.setForeground(new java.awt.Color(29, 41, 81));
+        LabelUserUpdateLoginFields.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/UpdateInfo.png"))); // NOI18N
+        LabelUserUpdateLoginFields.setText("Update the desired field");
+        UpdateLoginInfo.add(LabelUserUpdateLoginFields, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 330, -1));
+
+        LabelUpdateUserType.setBackground(new java.awt.Color(255, 255, 255));
+        LabelUpdateUserType.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelUpdateUserType.setForeground(new java.awt.Color(29, 41, 81));
+        LabelUpdateUserType.setText("User Type:");
+        UpdateLoginInfo.add(LabelUpdateUserType, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, 90, 30));
+
+        BoxUserTypeUpdateUser.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
+        BoxUserTypeUpdateUser.setForeground(new java.awt.Color(29, 41, 81));
+        BoxUserTypeUpdateUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        UpdateLoginInfo.add(BoxUserTypeUpdateUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, 120, 30));
 
         UserConfiguration.addTab("Update login information", UpdateLoginInfo);
 
@@ -2275,6 +2681,7 @@ public class Login extends javax.swing.JFrame {
         JPCreateRecord.setVisible(false);
         UserQuery.setVisible(true);
         UserConfiguration.setVisible(false);
+        AdminQuery.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonQueryActionPerformed
 
@@ -2287,6 +2694,7 @@ public class Login extends javax.swing.JFrame {
         JPCreateRecord.setVisible(false);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(true);
+        AdminQuery.setVisible(false);
         JPLogged.setVisible(true);
         UpdateUsernameField.setText(Username.getText());
         //Agregar en los espacios de UserConfiguration toda la informacion personal del usuario
@@ -2303,6 +2711,7 @@ public class Login extends javax.swing.JFrame {
         JPLogged.setVisible(false);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
+        AdminQuery.setVisible(false);
         UsernameField.setText(null);
         PasswordField.setText(null);
     }//GEN-LAST:event_ButtonLogOutActionPerformed
@@ -2324,6 +2733,7 @@ public class Login extends javax.swing.JFrame {
         JPCreateRecord.setVisible(false);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
+        AdminQuery.setVisible(false);
         JPLogged.setVisible(false);
         JPLogin.setVisible(true);
     }//GEN-LAST:event_ButtonLogOutAdminUserActionPerformed
@@ -2359,6 +2769,7 @@ public class Login extends javax.swing.JFrame {
         JPCreateRecord.setVisible(false);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
+        AdminQuery.setVisible(false);
         JPSignUp.setVisible(true);
         JPLogged.setVisible(false);
         try {
@@ -2388,6 +2799,7 @@ public class Login extends javax.swing.JFrame {
                 JPCreateRecord.setVisible(false);
                 UserQuery.setVisible(false);
                 UserConfiguration.setVisible(false);
+                AdminQuery.setVisible(false);
                 currentUser uc = currentUser.getInstance();
                 uc.setUsername(user_field);
                 uc.setId_userType(ConnectDB.getInt("ADM", "adminUser.getUserType", user_field));
@@ -2507,17 +2919,20 @@ public class Login extends javax.swing.JFrame {
 
     private void JPWelcomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPWelcomeMouseEntered
         JPWelcome.setVisible(true);
-        JPSignUp.setVisible(false);
         JPAdminMenu.setVisible(false);
         JPUserMenu.setVisible(false);
         JPCreateOffender.setVisible(false);
         JPCreateRecord.setVisible(false);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
+        AdminQuery.setVisible(false);
     }//GEN-LAST:event_JPWelcomeMouseEntered
 
     private void ButtonCancelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelMouseEntered
         ButtonCancel.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+        JPWelcome.setVisible(false);
+        JPLogin.setVisible(false);
+        JPLogged.setVisible(false);
     }//GEN-LAST:event_ButtonCancelMouseEntered
 
     private void ButtonCancelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelMouseExited
@@ -2528,17 +2943,23 @@ public class Login extends javax.swing.JFrame {
         NewUsernameField.setText(null);
         NewUserPasswordField.setText(null);
         JPWelcome.setVisible(true);
+        JPLogin.setVisible(true);
+        JPLogged.setVisible(false);
         JPUserMenu.setVisible(false);
         JPCreateOffender.setVisible(false);
         JPCreateRecord.setVisible(false);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
+        AdminQuery.setVisible(false);
         JPAdminMenu.setVisible(false);
         JPSignUp.setVisible(false);
     }//GEN-LAST:event_ButtonCancelActionPerformed
 
     private void ButtonJoinMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonJoinMouseEntered
         ButtonJoin.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
+        JPWelcome.setVisible(false);
+        JPLogin.setVisible(false);
+        JPLogged.setVisible(false);
     }//GEN-LAST:event_ButtonJoinMouseEntered
 
     private void ButtonJoinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonJoinMouseExited
@@ -2587,11 +3008,11 @@ public class Login extends javax.swing.JFrame {
             NewUserPasswordField.setText(null);
             UserQuery.setVisible(false);
             UserConfiguration.setVisible(false);
+            AdminQuery.setVisible(false);
         }
     }//GEN-LAST:event_ButtonJoinActionPerformed
 
     private void JPSignUpMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPSignUpMouseEntered
-        JPWelcome.setVisible(false);
         JPSignUp.setVisible(true);
         JPAdminMenu.setVisible(false);
         JPUserMenu.setVisible(false);
@@ -2599,6 +3020,7 @@ public class Login extends javax.swing.JFrame {
         JPCreateRecord.setVisible(false);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
+        AdminQuery.setVisible(false);
     }//GEN-LAST:event_JPSignUpMouseEntered
 
     private void JPAdminMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPAdminMenuMouseEntered
@@ -2612,6 +3034,7 @@ public class Login extends javax.swing.JFrame {
         JPCreateRecord.setVisible(false);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
+        AdminQuery.setVisible(false);
     }//GEN-LAST:event_JPAdminMenuMouseEntered
 
     private void JPUserMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPUserMenuMouseEntered
@@ -2623,6 +3046,7 @@ public class Login extends javax.swing.JFrame {
         JPCreateRecord.setVisible(false);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
+        AdminQuery.setVisible(false);
         JPAdminMenu.setVisible(false);
         JPUserMenu.setVisible(true);
     }//GEN-LAST:event_JPUserMenuMouseEntered
@@ -2649,6 +3073,7 @@ public class Login extends javax.swing.JFrame {
         JPLogged.setVisible(true);
         UserQuery.setVisible(true);
         UserConfiguration.setVisible(false);
+        AdminQuery.setVisible(false);
         ListUsers.setText("Users with tabs");
         ListBannedUsers.setText("Banned Users - Reason with tabs");
     }//GEN-LAST:event_UserQueryMouseEntered
@@ -2698,6 +3123,7 @@ public class Login extends javax.swing.JFrame {
         JPSignUp.setVisible(false);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
+        AdminQuery.setVisible(false);
         JPLogin.setVisible(false);
         JPCreateRecord.setVisible(false);
         JPCreateOffender.setVisible(true);
@@ -2716,6 +3142,7 @@ public class Login extends javax.swing.JFrame {
         JPSignUp.setVisible(false);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
+        AdminQuery.setVisible(false);
         JPCreateRecord.setVisible(true);
         JPLogin.setVisible(false);
         JPCreateOffender.setVisible(false);
@@ -2730,6 +3157,7 @@ public class Login extends javax.swing.JFrame {
         JPSignUp.setVisible(false);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
+        AdminQuery.setVisible(false);
         JPCreateRecord.setVisible(false);
         JPLogin.setVisible(false);
         JPCreateOffender.setVisible(true);
@@ -2766,6 +3194,7 @@ public class Login extends javax.swing.JFrame {
         JPSignUp.setVisible(false);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
+        AdminQuery.setVisible(false);
         IdOffenderField.setText(null);
         NameOffenderField.setText(null);
         MiddleNameOffenderField.setText(null);
@@ -2818,6 +3247,7 @@ public class Login extends javax.swing.JFrame {
                 JPSignUp.setVisible(false);
                 UserQuery.setVisible(false);
                 UserConfiguration.setVisible(false);
+                AdminQuery.setVisible(false);
                 JPCreateRecord.setVisible(true);
                 JPLogin.setVisible(false);
                 JPLogged.setVisible(true);
@@ -2845,6 +3275,7 @@ public class Login extends javax.swing.JFrame {
         JPLogged.setVisible(true);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
+        AdminQuery.setVisible(false);
         NumberTopField.setText(null);
         PlacesList.removeAll();
     }//GEN-LAST:event_ButtonRollbackQueryPlacesActionPerformed
@@ -2867,6 +3298,7 @@ public class Login extends javax.swing.JFrame {
         JPLogged.setVisible(true);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
+        AdminQuery.setVisible(false);
         RecordsList.removeAll();
         RecordDescriptionText.setText(null);
         BoxFilter.setSelectedIndex(0);
@@ -2894,6 +3326,7 @@ public class Login extends javax.swing.JFrame {
         JPLogged.setVisible(true);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
+        AdminQuery.setVisible(false);
     }//GEN-LAST:event_ButtonRollbackQueryUsersActionPerformed
 
     private void ButtonRollbackQueryBannedMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryBannedMouseEntered
@@ -2914,6 +3347,7 @@ public class Login extends javax.swing.JFrame {
         JPLogged.setVisible(true);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
+        AdminQuery.setVisible(false);
     }//GEN-LAST:event_ButtonRollbackQueryBannedActionPerformed
 
     private void ButtonRollbackQueryExpireMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryExpireMouseEntered
@@ -2934,6 +3368,7 @@ public class Login extends javax.swing.JFrame {
         JPLogged.setVisible(true);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
+        AdminQuery.setVisible(false);
         RecordsExpireList.removeAll();
         RecordDescriptionTextExpire.setText(null);
         BoxStartDate1.setSelectedIndex(0);
@@ -2951,6 +3386,7 @@ public class Login extends javax.swing.JFrame {
         JPLogged.setVisible(true);
         UserQuery.setVisible(true);
         UserConfiguration.setVisible(false);
+        AdminQuery.setVisible(false);
         PlacesMoreRecords.setVisible(true);
         Records.setVisible(false);
         UsersList.setVisible(false);
@@ -2969,6 +3405,7 @@ public class Login extends javax.swing.JFrame {
         JPLogged.setVisible(true);
         UserQuery.setVisible(true);
         UserConfiguration.setVisible(false);
+        AdminQuery.setVisible(false);
         PlacesMoreRecords.setVisible(false);
         Records.setVisible(true);
         UsersList.setVisible(false);
@@ -2987,6 +3424,7 @@ public class Login extends javax.swing.JFrame {
         JPLogged.setVisible(true);
         UserQuery.setVisible(true);
         UserConfiguration.setVisible(false);
+        AdminQuery.setVisible(false);
         PlacesMoreRecords.setVisible(false);
         Records.setVisible(false);
         UsersList.setVisible(true);
@@ -3005,6 +3443,7 @@ public class Login extends javax.swing.JFrame {
         JPLogged.setVisible(true);
         UserQuery.setVisible(true);
         UserConfiguration.setVisible(false);
+        AdminQuery.setVisible(false);
         PlacesMoreRecords.setVisible(false);
         Records.setVisible(false);
         UsersList.setVisible(false);
@@ -3023,6 +3462,7 @@ public class Login extends javax.swing.JFrame {
         JPLogged.setVisible(true);
         UserQuery.setVisible(true);
         UserConfiguration.setVisible(false);
+        AdminQuery.setVisible(false);
         PlacesMoreRecords.setVisible(false);
         Records.setVisible(false);
         UsersList.setVisible(false);
@@ -3047,6 +3487,7 @@ public class Login extends javax.swing.JFrame {
         JPSignUp.setVisible(false);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
+        AdminQuery.setVisible(false);
         JPLogged.setVisible(true);
         JPLogin.setVisible(false);
         IdOffenderField.setText(null);
@@ -3098,6 +3539,7 @@ public class Login extends javax.swing.JFrame {
             JPSignUp.setVisible(false);
             UserQuery.setVisible(false);
             UserConfiguration.setVisible(false);
+            AdminQuery.setVisible(false);
             JPCreateRecord.setVisible(false);
             JPCreateOffender.setVisible(false);
             JPLogin.setVisible(false);
@@ -3454,7 +3896,7 @@ public class Login extends javax.swing.JFrame {
         String newFilters [] = {};
         for(int i = 0; i <= filters.length; i++) {
             if(filters[i] == "Start Date" || filters[i] == "FinishDate") {
-                newFilters[i] = "";
+                newFilters[i] = null;
             }
         }
         filters = newFilters;
@@ -3462,6 +3904,66 @@ public class Login extends javax.swing.JFrame {
         String example[] = {"3D", "a5"};
         RecordsList.setListData(example);
     }//GEN-LAST:event_ButtonShowRecordsDateActionPerformed
+
+    private void ButtonCancelUpdatesUserLoginAdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelUpdatesUserLoginAdminMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonCancelUpdatesUserLoginAdminMouseEntered
+
+    private void ButtonCancelUpdatesUserLoginAdminMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelUpdatesUserLoginAdminMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonCancelUpdatesUserLoginAdminMouseExited
+
+    private void ButtonCancelUpdatesUserLoginAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelUpdatesUserLoginAdminActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonCancelUpdatesUserLoginAdminActionPerformed
+
+    private void ButtonConfirmChangesAdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonConfirmChangesAdminMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonConfirmChangesAdminMouseEntered
+
+    private void ButtonConfirmChangesAdminMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonConfirmChangesAdminMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonConfirmChangesAdminMouseExited
+
+    private void ButtonConfirmChangesAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmChangesAdminActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonConfirmChangesAdminActionPerformed
+
+    private void ButtonCancelUpdatesAdminInfoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelUpdatesAdminInfoMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonCancelUpdatesAdminInfoMouseEntered
+
+    private void ButtonCancelUpdatesAdminInfoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelUpdatesAdminInfoMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonCancelUpdatesAdminInfoMouseExited
+
+    private void ButtonCancelUpdatesAdminInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelUpdatesAdminInfoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonCancelUpdatesAdminInfoActionPerformed
+
+    private void ButtonConfirmChangesUpdateAdminPersonalInfoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonConfirmChangesUpdateAdminPersonalInfoMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonConfirmChangesUpdateAdminPersonalInfoMouseEntered
+
+    private void ButtonConfirmChangesUpdateAdminPersonalInfoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonConfirmChangesUpdateAdminPersonalInfoMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonConfirmChangesUpdateAdminPersonalInfoMouseExited
+
+    private void ButtonConfirmChangesUpdateAdminPersonalInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmChangesUpdateAdminPersonalInfoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonConfirmChangesUpdateAdminPersonalInfoActionPerformed
+
+    private void ButtonRollbackCataloguesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackCataloguesMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonRollbackCataloguesMouseEntered
+
+    private void ButtonRollbackCataloguesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackCataloguesMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonRollbackCataloguesMouseExited
+
+    private void ButtonRollbackCataloguesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackCataloguesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonRollbackCataloguesActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -3497,11 +3999,17 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddNewRecord;
+    private javax.swing.JPanel AdminCatalogues;
+    private javax.swing.JTabbedPane AdminConfiguration;
     private javax.swing.JTabbedPane AdminQuery;
+    private javax.swing.JTextField AdminUpdatePasswordField;
+    private javax.swing.JTextField AdminUpdateUsernameField;
     private javax.swing.JPanel BannedUsers;
     private org.jdatepicker.JDatePicker BirthdayNewUser;
     private javax.swing.JFormattedTextField BirthdayOffenderField;
     private javax.swing.JFormattedTextField BirthdayUpdateField;
+    private javax.swing.JComboBox<String> BoxAdminUserTypeUpdate;
+    private javax.swing.JComboBox<String> BoxCommunityAdminUpdate;
     private javax.swing.JComboBox<String> BoxCommunityOffender;
     private javax.swing.JComboBox<String> BoxCommunityUpdate;
     private javax.swing.JComboBox<String> BoxCrimeType;
@@ -3513,9 +4021,11 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> BoxFilterUsenamePerson;
     private javax.swing.JComboBox<String> BoxFinishDate;
     private javax.swing.JComboBox<String> BoxFinishDate1;
+    private javax.swing.JComboBox<String> BoxGenderAdminUpdate;
     private javax.swing.JComboBox<String> BoxGenderNewUser;
     private javax.swing.JComboBox<String> BoxGenderOffender;
     private javax.swing.JComboBox<String> BoxGenderUpdate;
+    private javax.swing.JComboBox<String> BoxInstitutionAdminUpdate;
     private javax.swing.JComboBox<String> BoxInstitutionNewUser;
     private javax.swing.JComboBox<String> BoxInstitutionOffender;
     private javax.swing.JComboBox<String> BoxInstitutionUpdate;
@@ -3525,17 +4035,23 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> BoxOffender;
     private javax.swing.JComboBox<String> BoxStartDate;
     private javax.swing.JComboBox<String> BoxStartDate1;
+    private javax.swing.JComboBox<String> BoxUserTypeNewUser;
+    private javax.swing.JComboBox<String> BoxUserTypeUpdateUser;
     private javax.swing.JComboBox<String> BoxVeredict;
     private javax.swing.JButton ButtonAdminConfiguration;
     private javax.swing.JButton ButtonAdminQuery;
     private javax.swing.JButton ButtonCancel;
     private javax.swing.JButton ButtonCancelNewRecord;
     private javax.swing.JButton ButtonCancelOffender;
+    private javax.swing.JButton ButtonCancelUpdatesAdminInfo;
     private javax.swing.JButton ButtonCancelUpdatesUserInfo;
     private javax.swing.JButton ButtonCancelUpdatesUserLogin;
+    private javax.swing.JButton ButtonCancelUpdatesUserLoginAdmin;
     private javax.swing.JButton ButtonClose;
     private javax.swing.JButton ButtonConfiguration;
     private javax.swing.JButton ButtonConfirmChanges;
+    private javax.swing.JButton ButtonConfirmChangesAdmin;
+    private javax.swing.JButton ButtonConfirmChangesUpdateAdminPersonalInfo;
     private javax.swing.JButton ButtonConfirmChangesUpdatePersonalInfo;
     private javax.swing.JButton ButtonConfirmNewRecord;
     private javax.swing.JButton ButtonConfirmOffender;
@@ -3546,8 +4062,11 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton ButtonLogOutAdminUser;
     private javax.swing.JButton ButtonLogUserList;
     private javax.swing.JButton ButtonMinimize;
+    private javax.swing.JButton ButtonPersonCatalogues;
     private javax.swing.JButton ButtonQuery;
+    private javax.swing.JButton ButtonRecordCatalegues;
     private javax.swing.JButton ButtonReports;
+    private javax.swing.JButton ButtonRollbackCatalogues;
     private javax.swing.JButton ButtonRollbackCreateRecord;
     private javax.swing.JButton ButtonRollbackLog;
     private javax.swing.JButton ButtonRollbackQueryBanned;
@@ -3563,21 +4082,29 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton ButtonShowRecordsDate;
     private javax.swing.JButton ButtonSignUp;
     private javax.swing.JButton ButtonStatistics;
+    private javax.swing.JButton ButtonUserCatalogues;
     private javax.swing.JCheckBox CheckBoxApproved;
     private javax.swing.JTextArea CrimeDescriptionField;
     private javax.swing.JFormattedTextField DateCrimeField;
     private javax.swing.JFormattedTextField ExpireDateField;
+    private javax.swing.JLabel IconCreateReacord;
     private javax.swing.JLabel IconLogged;
     private javax.swing.JLabel IconOffender;
-    private javax.swing.JLabel IconOffender1;
     private javax.swing.JLabel IconPassword;
     private javax.swing.JLabel IconUpdatePassword;
+    private javax.swing.JLabel IconUpdatePasswordAdmin;
     private javax.swing.JLabel IconUpdateUsername;
     private javax.swing.JLabel IconUpdateUsername1;
+    private javax.swing.JLabel IconUpdateUsername10;
     private javax.swing.JLabel IconUpdateUsername2;
     private javax.swing.JLabel IconUpdateUsername3;
     private javax.swing.JLabel IconUpdateUsername4;
     private javax.swing.JLabel IconUpdateUsername5;
+    private javax.swing.JLabel IconUpdateUsername6;
+    private javax.swing.JLabel IconUpdateUsername7;
+    private javax.swing.JLabel IconUpdateUsername8;
+    private javax.swing.JLabel IconUpdateUsername9;
+    private javax.swing.JLabel IconUpdateUsernameAdmin;
     private javax.swing.JLabel IconUser;
     private javax.swing.JLabel IconUsername;
     private javax.swing.JTextField IdNewUserField;
@@ -3592,6 +4119,9 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel JPUserMenu;
     private javax.swing.JPanel JPWelcome;
     private javax.swing.JPanel JPWindow;
+    private javax.swing.JLabel LabelAdminPasswordUpdateLogin;
+    private javax.swing.JLabel LabelAdminUpdateLoginFields;
+    private javax.swing.JLabel LabelAdminUsernameUpdateLogin;
     private javax.swing.JLabel LabelChooseFilterRecords;
     private javax.swing.JLabel LabelChooseFilterUserListNotChangePassword;
     private javax.swing.JLabel LabelChooseFilterUserListNotChangePassword1;
@@ -3622,6 +4152,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel LabelNewUserBirthday;
     private javax.swing.JLabel LabelNewUserGender;
     private javax.swing.JLabel LabelNewUserPassword;
+    private javax.swing.JLabel LabelNewUserUserType;
     private javax.swing.JLabel LabelNewUsername;
     private javax.swing.JLabel LabelOffender;
     private javax.swing.JLabel LabelOffenderBirthday;
@@ -3631,14 +4162,25 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel LabelResolution;
     private javax.swing.JLabel LabelSignUp;
     private javax.swing.JLabel LabelTop;
+    private javax.swing.JLabel LabelUpdateAdminBirthday;
+    private javax.swing.JLabel LabelUpdateAdminCommunity;
+    private javax.swing.JLabel LabelUpdateAdminGender;
+    private javax.swing.JLabel LabelUpdateAdminId;
+    private javax.swing.JLabel LabelUpdateAdminInstitution;
+    private javax.swing.JLabel LabelUpdateAdminLastName;
+    private javax.swing.JLabel LabelUpdateAdminMiddleName;
+    private javax.swing.JLabel LabelUpdateAdminNameUpdate;
+    private javax.swing.JLabel LabelUpdateAdminUserType;
     private javax.swing.JLabel LabelUpdateBirthday;
     private javax.swing.JLabel LabelUpdateGender;
     private javax.swing.JLabel LabelUpdateId;
     private javax.swing.JLabel LabelUpdateNameUpdate;
+    private javax.swing.JLabel LabelUpdateUserType;
     private javax.swing.JLabel LabelUserPasswordUpdateLogin;
     private javax.swing.JLabel LabelUserUpdateLogin;
-    private javax.swing.JLabel LabelUserUpdateLogin1;
     private javax.swing.JLabel LabelUserUpdateLogin2;
+    private javax.swing.JLabel LabelUserUpdateLogin3;
+    private javax.swing.JLabel LabelUserUpdateLoginFields;
     private javax.swing.JLabel LabelUsername;
     private javax.swing.JLabel LabelVeredict;
     private javax.swing.JLabel LabelWelcome;
@@ -3649,9 +4191,9 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton LeftPicNewReportList;
     private javax.swing.JButton LeftPicRecordToExpire;
     private javax.swing.JButton LeftPicShowRecords;
+    private javax.swing.JSeparator LineAdminBirthday;
     private javax.swing.JSeparator LineDateCrime;
     private javax.swing.JSeparator LineExpireDate;
-    private javax.swing.JSeparator LineNewUserBirthday;
     private javax.swing.JSeparator LineNewUserId;
     private javax.swing.JSeparator LineNewUserLastName;
     private javax.swing.JSeparator LineNewUserMiddleName;
@@ -3668,6 +4210,12 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JSeparator LineOffenderName1;
     private javax.swing.JSeparator LinePassword;
     private javax.swing.JSeparator LineResolution;
+    private javax.swing.JSeparator LineUpdateAdminId;
+    private javax.swing.JSeparator LineUpdateAdminLastName;
+    private javax.swing.JSeparator LineUpdateAdminMiddleName;
+    private javax.swing.JSeparator LineUpdateAdminName;
+    private javax.swing.JSeparator LineUpdateAdminPassword;
+    private javax.swing.JSeparator LineUpdateAdminUsername;
     private javax.swing.JSeparator LineUpdateId;
     private javax.swing.JSeparator LineUpdateLastName;
     private javax.swing.JSeparator LineUpdateMiddleName;
@@ -3712,6 +4260,13 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton RightPicNewReportList;
     private javax.swing.JButton RightPicRecordToExpire;
     private javax.swing.JButton RightPicShowRecords;
+    private javax.swing.JFormattedTextField UpdateAdminBirthdayField;
+    private javax.swing.JTextField UpdateAdminIdField;
+    private javax.swing.JTextField UpdateAdminLastNameField;
+    private javax.swing.JPanel UpdateAdminLoginInfo;
+    private javax.swing.JTextField UpdateAdminMiddleNameField;
+    private javax.swing.JTextField UpdateAdminNameField;
+    private javax.swing.JPanel UpdateAdminPersonalInfo;
     private javax.swing.JPanel UpdateLoginInfo;
     private javax.swing.JTextField UpdatePasswordField;
     private javax.swing.JPanel UpdatePersonalInfo;
@@ -3723,6 +4278,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField UsernameField;
     private javax.swing.JPanel UsersList;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
