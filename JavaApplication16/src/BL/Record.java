@@ -18,24 +18,25 @@ public class Record {
     private Date date_crime;
     private String resolution;
     private Date crime_expiration_date;
-    private String picture;
     private String approved;
     private int id_type;
     private int id_veredict;
     private int id_person;
-    private ArrayList<String> pictures;
+    private int id_district;
+    private ArrayList<Pictures> pictures;
 
-    public Record(String number, String description_crime, Date date_crime, String resolution, Date crime_expiration_date, String picture, String approved, int id_type, int id_veredict, int id_person) {
+    public Record(String number, String description_crime, Date date_crime, String resolution, Date crime_expiration_date, 
+            String approved, int id_type, int id_veredict, int id_person, int id_district) {
         this.number = number;
         this.description_crime = description_crime;
         this.date_crime = date_crime;
         this.resolution = resolution;
         this.crime_expiration_date = crime_expiration_date;
-        this.picture = picture;
         this.approved = approved;
         this.id_type = id_type;
         this.id_veredict = id_veredict;
         this.id_person = id_person;
+        this.id_district = id_district;
         this.pictures = null;
     }
 
@@ -79,14 +80,6 @@ public class Record {
         this.crime_expiration_date = crime_expiration_date;
     }
 
-    public String getPicture() {
-        return picture;
-    }
-
-    public void setPicture(String picture) {
-        this.picture = picture;
-    }
-
     public String isApproved() {
         return approved;
     }
@@ -119,11 +112,23 @@ public class Record {
         this.id_person = id_person;
     }
 
-    public ArrayList<String> getPictures() {
-        return pictures;
+    public int getId_district() {
+        return id_district;
     }
 
-    public void insertPicture(String picture) {
+    public void setId_district(int id_district) {
+        this.id_district = id_district;
+    }
+    
+    public ArrayList<Pictures> getPictures() {
+        return pictures;
+    }
+    
+    public void setPicture(ArrayList<Pictures> picture) {
+        this.pictures = picture;
+    }
+
+    public void insertPicture(Pictures picture) {
         this.pictures.add(picture);
     }
     

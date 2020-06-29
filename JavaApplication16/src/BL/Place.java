@@ -13,9 +13,11 @@ public class Place {
     
     private int id;
     private String name;
+    private int id_district;
 
-    public Place(String name) {
+    public Place(String name, int id_district) {
         this.name = name;
+        this.id_district = id_district;
     }
 
     public int getId() {
@@ -33,7 +35,12 @@ public class Place {
     public void setName(String name) {
         this.name = name;
     }
-    
-    
-    
+
+    public int getId_district() {
+        return id_district;
+    }
+
+    public void setId_district(int id_district) {
+        this.id_district = id_district;
+    }
 }
