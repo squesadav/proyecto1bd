@@ -24,7 +24,7 @@ CREATE OR REPLACE PACKAGE user_queries IS
     FUNCTION recordInformation RETURN sys_refcursor;
     FUNCTION user_list RETURN sys_refcursor;
     FUNCTION users_banned RETURN sys_refcursor;
-    FUNCTION record_list(vdate1 DATE, vdate2 DATE) RETURN sys_refcursor;
+    FUNCTION records_expiring_between(vdate1 DATE, vdate2 DATE) RETURN sys_refcursor;
     FUNCTION user_list_by_type(vid_type NUMBER) RETURN sys_refcursor;
     FUNCTION records_of_person(vid_person NUMBER) RETURN sys_refcursor;
 END;
@@ -37,14 +37,14 @@ CREATE OR REPLACE PACKAGE BODY user_queries IS
         cplaces sys_refcursor;
         BEGIN
             OPEN cplaces FOR
-                SELECT name_community, quant_records
+                SELECT name_district, quant_records
                 FROM (
-                        SELECT c.name name_community, count(p.id_community) quant_records
+                        SELECT d.name name_district, count(p.id_district) quant_records
                         FROM record r
                         INNER JOIN person p ON r.id_person = p.id
-                        INNER JOIN community c ON p.id_community = c.id
+                        INNER JOIN district d ON p.id_district = d.id
                         WHERE r.approved = 'Y'
-                        GROUP BY c.name
+                        GROUP BY d.name
                         ORDER BY quant_records DESC
                     )
                 WHERE rownum <= vquantity;
@@ -86,20 +86,32 @@ CREATE OR REPLACE PACKAGE BODY user_queries IS
             RETURN cusersBanned;
         END users_banned;
 
-    FUNCTION record_list(vdate1 DATE, vdate2 DATE) RETURN sys_refcursor
+    FUNCTION records_expiring_between(vdate1 DATE, vdate2 DATE) RETURN sys_refcursor
     AS
         crecords sys_refcursor;
         BEGIN
             OPEN crecords FOR
-                SELECT r.numberr, r.description_crime, r.date_crime, r.resolution, t.name, v.years, v.date_start, v.date_end, p.id, p.name, p.last_name, p.age, c.name
+                SELECT r.numberr record_number, 
+                       r.description_crime description_crime, 
+                       r.date_crime date_crime, 
+                       r.resolution resolution, 
+                       t.name record_type, 
+                       v.years sentence_years, 
+                       v.date_start sentence_start, 
+                       v.date_end sentnece_end, 
+                       p.id accused_id, 
+                       p.name accused_name, 
+                       p.last_name accused_last_name, 
+                       p.age accused_age, 
+                       d.name accused_district_of_residence
                 FROM record r
                 inner join person p on r.id_person = p.id
                 inner join app.type t on r.id_type = t.id
-                inner join community c on p.id_community = c.id
+                inner join district d on p.id_district = d.id
                 inner join veredict v on r.id_veredict = v.id
                 WHERE v.date_end BETWEEN vdate1 AND vdate2;
             RETURN crecords;
-        END record_list;
+        END records_expiring_between;
         
     FUNCTION user_list_by_type(vid_type NUMBER) RETURN sys_refcursor
     AS
@@ -117,12 +129,23 @@ CREATE OR REPLACE PACKAGE BODY user_queries IS
         cuser sys_refcursor;
         BEGIN
             OPEN cuser FOR
-                SELECT r.numberr, r.description_crime, r.date_crime, t.name, v.years, v.date_start, v.date_end, p.id, p.name, p.last_name, p.age, c.name
+                SELECT r.numberr record_number, 
+                       r.description_crime description_crime, 
+                       r.date_crime date_crime, 
+                       t.name record_type, 
+                       v.years sentence_years, 
+                       v.date_start sentence_start, 
+                       v.date_end sentence_end, 
+                       p.id accused_id, 
+                       p.name accused_name, 
+                       p.last_name accused_last_name, 
+                       p.age accused_age, 
+                       d.id accused_district_of_residence
                 FROM record r
                 inner join person p on r.id_person = p.id
                 inner join type t on r.id_type = t.id
                 inner join veredict v on r.id_veredict = v.id
-                inner join community c on p.id_community = c.id
+                inner join district d on p.id_district = d.id
                 WHERE p.id = vid_person;
             RETURN cuser;
         END records_of_person;
