@@ -29,6 +29,8 @@ FUNCTION getBannedReasonId (vIdBanned NUMBER) RETURN NUMBER;
 FUNCTION getBannedReasonDesc (vIdBannedReason NUMBER) RETURN VARCHAR2;
 FUNCTION getUserTypeDesc (vIdUserType NUMBER) RETURN VARCHAR2;
 FUNCTION getPersonId (vUsername VARCHAR2) RETURN NUMBER;
+FUNCTION getAllUserType RETURN sys_refcursor;
+FUNCTION getAllBannedReason RETURN sys_refcursor;
 FUNCTION isBanned (vUsername VARCHAR2) RETURN VARCHAR2;
 FUNCTION checkLogin (vUsername VARCHAR2, vPassword VARCHAR2) RETURN NUMBER;
 
