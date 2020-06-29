@@ -16,6 +16,7 @@ CREATE OR REPLACE PACKAGE admin_record IS
     FUNCTION getIdDistrict (pnNumberr VARCHAR2) RETURN NUMBER;
     FUNCTION getUsernameCreator (pnNumberr VARCHAR2) RETURN VARCHAR2;
     PROCEDURE approve_record(pnNumberr VARCHAR2);
+    FUNCTION getPictures (pnNumberr VARCHAR2) RETURN sys_refcursor;
     FUNCTION getAll RETURN SYS_REFCURSOR;
 END admin_record;
 /
@@ -153,6 +154,17 @@ CREATE OR REPLACE PACKAGE BODY admin_record AS
             UPDATE record
             SET approved = 'Y'
             WHERE numberr = pnNumberr;
+        END;
+        
+    FUNCTION getPictures (pnNumberr VARCHAR2) RETURN sys_refcursor
+    AS
+        cpictures sys_refcursor;
+        BEGIN
+            OPEN cpictures FOR
+                SELECT pic_str
+                FROM picture
+                WHERE numberr = pnNumberr;
+            RETURN cpictures;
         END;
         
     FUNCTION getAll RETURN sys_refcursor
