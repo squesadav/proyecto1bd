@@ -16,7 +16,7 @@ CREATE OR REPLACE PACKAGE admin_record IS
     FUNCTION getIdDistrict (pnNumberr VARCHAR2) RETURN NUMBER;
     FUNCTION getUsernameCreator (pnNumberr VARCHAR2) RETURN VARCHAR2;
     PROCEDURE approve_record(pnNumberr VARCHAR2);
-    FUNCTION getAll RETURN CURSOR;
+    FUNCTION getAll RETURN SYS_REFCURSOR;
 END admin_record;
 /
 
@@ -27,7 +27,7 @@ CREATE OR REPLACE PACKAGE BODY admin_record AS
             VALUES (pnNumberr, pnDescriptionCrime, pnDateCrime, pnResolution, pnCrimeExpirationDate, pnIdType, pnIdVeredict, pnIdPerson, pnIdDistrict, 'N', pnUsernameCreator);
         END;
 
-    PROCEDURE update_record(pnNumberr VARCHAR2, pnDescriptionCrime VARCHAR2, pnDateCrime DATE, pnResolution VARCHAR2, pnCrimeExpirationDate DATE, pnIdType NUMBER, pnIdVeredict NUMBER, pnIdPerson NUMBER, pnIdDistrict NUMBER,, pnUsernameCreator VARCHAR2) IS
+    PROCEDURE update_record(pnNumberr VARCHAR2, pnDescriptionCrime VARCHAR2, pnDateCrime DATE, pnResolution VARCHAR2, pnCrimeExpirationDate DATE, pnIdType NUMBER, pnIdVeredict NUMBER, pnIdPerson NUMBER, pnIdDistrict NUMBER, pnUsernameCreator VARCHAR2) IS
         BEGIN
             UPDATE record
             SET description_crime = pnDescriptionCrime,
@@ -155,13 +155,13 @@ CREATE OR REPLACE PACKAGE BODY admin_record AS
             WHERE numberr = pnNumberr;
         END;
         
-    FUNCTION getAll RETURN CURSOR
-        IS rAll CURSOR;
+    FUNCTION getAll RETURN sys_refcursor
+        AS rAll sys_refcursor;
     BEGIN
-        SELECT id_person, id_type, id_veredict, id_district
-        INTO rAll
-        FROM gender;
-        RETURN rAll
+        OPEN rAll FOR    
+            SELECT numberr, description_crime, date_crime, resolution, crime_expiration_date, id_type, id_veredict, id_person, approved, username_creator, id_district
+            FROM record;
+        RETURN rAll;
     END;
 
 END admin_record;
