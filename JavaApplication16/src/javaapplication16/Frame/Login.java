@@ -7,6 +7,7 @@ import java.awt.Cursor;
 import java.awt.Image;
 import java.sql.SQLException;
 import java.sql.ResultSet;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -49,6 +50,31 @@ public class Login extends javax.swing.JFrame {
         while(institutions.next())
         {
             BoxGenderNewUser.addItem(institutions.getString("name"));
+        }
+    }
+    
+    void fillInFilters() throws SQLException
+    {
+        ResultSet all = null;
+        ResultSet user = null;
+        try
+        {
+            all = ConnectDB.query("APP", "admin_person.getAllForQueries");
+            user = ConnectDB.query("ADM", "adminUser.getAllUsernames");
+        }
+        catch(Exception e)
+        {
+            
+        }
+        while(all.next())
+        {
+            BoxFilterIdPerson.addItem(all.getString("id"));
+            BoxFilterNamePerson.addItem(all.getString("name"));
+            BoxFilterLastNamePerson.addItem(all.getString("last_name"));
+        }
+        while(user.next())
+        {
+            BoxFilterUsernamePerson.addItem(user.getString("username"));
         }
     }
     
@@ -142,6 +168,26 @@ public class Login extends javax.swing.JFrame {
         }
     }
     
+    void fillIn_Records() throws SQLException
+    {
+        ResultSet types = null;
+        ResultSet districts = null;
+        try
+        {
+            types = ConnectDB.query("APP", "admin_type.getAll");
+            districts = ConnectDB.query("APP","admin_institution.getAll");
+        }
+        catch(Exception e){}
+        while(types.next())
+        {
+            BoxFilter.addItem(types.getString("name"));
+        }
+        while(districts.next())
+        {
+            BoxFilterSpecify.addItem(districts.getString("name"));
+        }
+    }
+    
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -228,8 +274,9 @@ public class Login extends javax.swing.JFrame {
         LabelFilterNamePerson = new javax.swing.JLabel();
         LabelFilterLastNamePerson = new javax.swing.JLabel();
         LabelFilterUsername = new javax.swing.JLabel();
-        BoxFilterUsenamePerson = new javax.swing.JComboBox<>();
+        BoxFilterUsernamePerson = new javax.swing.JComboBox<>();
         ButtonRollbackUserListNotChangePassword = new javax.swing.JButton();
+        ButtonShowCataloguesForFilter = new javax.swing.JButton();
         ReportList = new javax.swing.JPanel();
         jScrollPane10 = new javax.swing.JScrollPane();
         NewReportList = new javax.swing.JList<>();
@@ -241,6 +288,7 @@ public class Login extends javax.swing.JFrame {
         ButtonRollbackReportList = new javax.swing.JButton();
         LabelChooseFilterUserListNotChangePassword2 = new javax.swing.JLabel();
         LabelChooseFilterUserListNotChangePassword3 = new javax.swing.JLabel();
+        ButtonShowListOfReports = new javax.swing.JButton();
         Log = new javax.swing.JPanel();
         BoxLogStartDate = new javax.swing.JComboBox<>();
         BoxLogFinishDate = new javax.swing.JComboBox<>();
@@ -496,20 +544,27 @@ public class Login extends javax.swing.JFrame {
         RecordsList = new javax.swing.JList<>();
         jScrollPane3 = new javax.swing.JScrollPane();
         RecordDescriptionText = new javax.swing.JTextArea();
-        BoxStartDate = new javax.swing.JComboBox<>();
-        BoxFinishDate = new javax.swing.JComboBox<>();
         ButtonRollbackQueryRecords = new javax.swing.JButton();
         PictureShowRecords = new javax.swing.JButton();
         RightPicShowRecords = new javax.swing.JButton();
         LeftPicShowRecords = new javax.swing.JButton();
+        ButtonShowCatalogues = new javax.swing.JButton();
+        DateStartField = new javax.swing.JFormattedTextField();
+        LineDateCrime1 = new javax.swing.JSeparator();
+        DateEndField = new javax.swing.JFormattedTextField();
+        LineDateCrime3 = new javax.swing.JSeparator();
+        LabelChooseFilterRecords1 = new javax.swing.JLabel();
+        LabelChooseFilterRecords2 = new javax.swing.JLabel();
         UsersList = new javax.swing.JPanel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        ListUsers = new javax.swing.JTextArea();
         ButtonRollbackQueryUsers = new javax.swing.JButton();
+        ButtonShowUsers = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TableUsers = new javax.swing.JTable();
         BannedUsers = new javax.swing.JPanel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        ListBannedUsers = new javax.swing.JTextArea();
         ButtonRollbackQueryBanned = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        TableBanned = new javax.swing.JTable();
+        ButtonShowBanned = new javax.swing.JButton();
         RecordsConvictionsToExpireOrExpired = new javax.swing.JPanel();
         BoxStartDate1 = new javax.swing.JComboBox<>();
         BoxFinishDate1 = new javax.swing.JComboBox<>();
@@ -1079,7 +1134,7 @@ public class Login extends javax.swing.JFrame {
                 ButtonShowFilteredUserListActionPerformed(evt);
             }
         });
-        UserListNotChangingPassword.add(ButtonShowFilteredUserList, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, 100, 30));
+        UserListNotChangingPassword.add(ButtonShowFilteredUserList, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 460, 100, 30));
 
         BoxFilterLastNamePerson.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         BoxFilterLastNamePerson.setForeground(new java.awt.Color(29, 41, 81));
@@ -1118,10 +1173,10 @@ public class Login extends javax.swing.JFrame {
         LabelFilterUsername.setText("Username");
         UserListNotChangingPassword.add(LabelFilterUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, -1, 30));
 
-        BoxFilterUsenamePerson.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        BoxFilterUsenamePerson.setForeground(new java.awt.Color(29, 41, 81));
-        BoxFilterUsenamePerson.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
-        UserListNotChangingPassword.add(BoxFilterUsenamePerson, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, 140, 30));
+        BoxFilterUsernamePerson.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        BoxFilterUsernamePerson.setForeground(new java.awt.Color(29, 41, 81));
+        BoxFilterUsernamePerson.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        UserListNotChangingPassword.add(BoxFilterUsernamePerson, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, 140, 30));
 
         ButtonRollbackUserListNotChangePassword.setBackground(new java.awt.Color(255, 255, 255));
         ButtonRollbackUserListNotChangePassword.setForeground(new java.awt.Color(255, 255, 255));
@@ -1143,6 +1198,19 @@ public class Login extends javax.swing.JFrame {
         });
         UserListNotChangingPassword.add(ButtonRollbackUserListNotChangePassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 50));
 
+        ButtonShowCataloguesForFilter.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonShowCataloguesForFilter.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ButtonShowCataloguesForFilter.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonShowCataloguesForFilter.setText("Refresh");
+        ButtonShowCataloguesForFilter.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
+        ButtonShowCataloguesForFilter.setContentAreaFilled(false);
+        ButtonShowCataloguesForFilter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonShowCataloguesForFilterActionPerformed(evt);
+            }
+        });
+        UserListNotChangingPassword.add(ButtonShowCataloguesForFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, 100, 30));
+
         AdminQuery.addTab("User list without changing the password", UserListNotChangingPassword);
 
         ReportList.setBackground(new java.awt.Color(255, 255, 255));
@@ -1156,6 +1224,11 @@ public class Login extends javax.swing.JFrame {
         NewReportList.setForeground(new java.awt.Color(29, 41, 81));
         NewReportList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         NewReportList.setToolTipText("");
+        NewReportList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                NewReportListMouseClicked(evt);
+            }
+        });
         jScrollPane10.setViewportView(NewReportList);
 
         ReportList.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 210, 390));
@@ -1249,6 +1322,19 @@ public class Login extends javax.swing.JFrame {
         LabelChooseFilterUserListNotChangePassword3.setForeground(new java.awt.Color(29, 41, 81));
         LabelChooseFilterUserListNotChangePassword3.setText("Description of the selected report");
         ReportList.add(LabelChooseFilterUserListNotChangePassword3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, -1, 30));
+
+        ButtonShowListOfReports.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonShowListOfReports.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ButtonShowListOfReports.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonShowListOfReports.setText("Refresh");
+        ButtonShowListOfReports.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
+        ButtonShowListOfReports.setContentAreaFilled(false);
+        ButtonShowListOfReports.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonShowListOfReportsActionPerformed(evt);
+            }
+        });
+        ReportList.add(ButtonShowListOfReports, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, 100, 30));
 
         AdminQuery.addTab("List of new reports", ReportList);
 
@@ -3371,8 +3457,8 @@ public class Login extends javax.swing.JFrame {
 
         LabelChooseFilterRecords.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         LabelChooseFilterRecords.setForeground(new java.awt.Color(29, 41, 81));
-        LabelChooseFilterRecords.setText("Choose the filter:");
-        Records.add(LabelChooseFilterRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, 30));
+        LabelChooseFilterRecords.setText("End Date:");
+        Records.add(LabelChooseFilterRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, -1, 30));
 
         BoxFilter.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         BoxFilter.setForeground(new java.awt.Color(29, 41, 81));
@@ -3395,7 +3481,7 @@ public class Login extends javax.swing.JFrame {
                 ButtonShowRecordsActionPerformed(evt);
             }
         });
-        Records.add(ButtonShowRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 100, 30));
+        Records.add(ButtonShowRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 100, 30));
 
         jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
@@ -3413,7 +3499,7 @@ public class Login extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(RecordsList);
 
-        Records.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 40, 350, 150));
+        Records.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 350, 150));
 
         jScrollPane3.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
@@ -3423,17 +3509,7 @@ public class Login extends javax.swing.JFrame {
         RecordDescriptionText.setRows(5);
         jScrollPane3.setViewportView(RecordDescriptionText);
 
-        Records.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 240, 350, 190));
-
-        BoxStartDate.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        BoxStartDate.setForeground(new java.awt.Color(29, 41, 81));
-        BoxStartDate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Start Date" }));
-        Records.add(BoxStartDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, 30));
-
-        BoxFinishDate.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        BoxFinishDate.setForeground(new java.awt.Color(29, 41, 81));
-        BoxFinishDate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "End Date" }));
-        Records.add(BoxFinishDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, -1, 30));
+        Records.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, 350, 190));
 
         ButtonRollbackQueryRecords.setBackground(new java.awt.Color(255, 255, 255));
         ButtonRollbackQueryRecords.setForeground(new java.awt.Color(255, 255, 255));
@@ -3506,6 +3582,45 @@ public class Login extends javax.swing.JFrame {
         });
         Records.add(LeftPicShowRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 40, 40));
 
+        ButtonShowCatalogues.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonShowCatalogues.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ButtonShowCatalogues.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonShowCatalogues.setText("Refresh");
+        ButtonShowCatalogues.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
+        ButtonShowCatalogues.setContentAreaFilled(false);
+        ButtonShowCatalogues.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonShowCataloguesActionPerformed(evt);
+            }
+        });
+        Records.add(ButtonShowCatalogues, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 100, 30));
+
+        DateStartField.setBorder(null);
+        DateStartField.setForeground(new java.awt.Color(29, 41, 81));
+        DateStartField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        Records.add(DateStartField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 110, 30));
+
+        LineDateCrime1.setForeground(new java.awt.Color(29, 41, 81));
+        Records.add(LineDateCrime1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 110, 20));
+
+        DateEndField.setBorder(null);
+        DateEndField.setForeground(new java.awt.Color(29, 41, 81));
+        DateEndField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        Records.add(DateEndField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 110, 30));
+
+        LineDateCrime3.setForeground(new java.awt.Color(29, 41, 81));
+        Records.add(LineDateCrime3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 110, 20));
+
+        LabelChooseFilterRecords1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        LabelChooseFilterRecords1.setForeground(new java.awt.Color(29, 41, 81));
+        LabelChooseFilterRecords1.setText("Choose the filter:");
+        Records.add(LabelChooseFilterRecords1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, 30));
+
+        LabelChooseFilterRecords2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        LabelChooseFilterRecords2.setForeground(new java.awt.Color(29, 41, 81));
+        LabelChooseFilterRecords2.setText("Start Date:");
+        Records.add(LabelChooseFilterRecords2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, 30));
+
         UserQuery.addTab("Records", Records);
 
         UsersList.setBackground(new java.awt.Color(255, 255, 255));
@@ -3515,16 +3630,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
         UsersList.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jScrollPane4.setBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
-        jScrollPane4.setForeground(new java.awt.Color(29, 41, 81));
-
-        ListUsers.setColumns(20);
-        ListUsers.setRows(5);
-        jScrollPane4.setViewportView(ListUsers);
-
-        UsersList.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, 260, 410));
 
         ButtonRollbackQueryUsers.setBackground(new java.awt.Color(255, 255, 255));
         ButtonRollbackQueryUsers.setForeground(new java.awt.Color(255, 255, 255));
@@ -3546,6 +3651,34 @@ public class Login extends javax.swing.JFrame {
         });
         UsersList.add(ButtonRollbackQueryUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 50));
 
+        ButtonShowUsers.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonShowUsers.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ButtonShowUsers.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonShowUsers.setText("Refresh");
+        ButtonShowUsers.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
+        ButtonShowUsers.setContentAreaFilled(false);
+        ButtonShowUsers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonShowUsersActionPerformed(evt);
+            }
+        });
+        UsersList.add(ButtonShowUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 110, 100, 30));
+
+        TableUsers.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(TableUsers);
+
+        UsersList.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, -1, -1));
+
         UserQuery.addTab("Users list", UsersList);
 
         BannedUsers.setBackground(new java.awt.Color(255, 255, 255));
@@ -3555,16 +3688,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
         BannedUsers.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jScrollPane5.setBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
-        jScrollPane5.setForeground(new java.awt.Color(29, 41, 81));
-
-        ListBannedUsers.setColumns(20);
-        ListBannedUsers.setRows(5);
-        jScrollPane5.setViewportView(ListBannedUsers);
-
-        BannedUsers.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 380, 410));
 
         ButtonRollbackQueryBanned.setBackground(new java.awt.Color(255, 255, 255));
         ButtonRollbackQueryBanned.setForeground(new java.awt.Color(255, 255, 255));
@@ -3585,6 +3708,34 @@ public class Login extends javax.swing.JFrame {
             }
         });
         BannedUsers.add(ButtonRollbackQueryBanned, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 50));
+
+        TableBanned.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(TableBanned);
+
+        BannedUsers.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, -1, -1));
+
+        ButtonShowBanned.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonShowBanned.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ButtonShowBanned.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonShowBanned.setText("Refresh");
+        ButtonShowBanned.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
+        ButtonShowBanned.setContentAreaFilled(false);
+        ButtonShowBanned.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonShowBannedActionPerformed(evt);
+            }
+        });
+        BannedUsers.add(ButtonShowBanned, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 110, 100, 30));
 
         UserQuery.addTab("Banned Users", BannedUsers);
 
@@ -4508,10 +4659,9 @@ public class Login extends javax.swing.JFrame {
         JPLogged.setVisible(true);
         UserQuery.setVisible(true);
         UserConfiguration.setVisible(false);
-        ListUsers.setText("Users with tabs");
-        ListBannedUsers.setText("Banned Users - Reason with tabs");
     }//GEN-LAST:event_UserQueryMouseEntered
 
+    @SuppressWarnings("empty-statement")
     private void ButtonShowPlacesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowPlacesActionPerformed
         String number_top = NumberTopField.getText();
         if(number_top.isEmpty()) {
@@ -4519,17 +4669,20 @@ public class Login extends javax.swing.JFrame {
         }
         else
         {
+            DefaultTableModel modelo = (DefaultTableModel)Table.getModel();
+            modelo.setRowCount(0);
+            modelo.setColumnCount(0);
+            modelo.addColumn("District");
+            modelo.addColumn("Quantity");
             try {
             ResultSet dangerous_places = ConnectDB.query("APP","user_queries.dangerous_places", Integer.parseInt(number_top));
-            String col[] = {"District", "Quantity"};
-            String data[][] = null;
-            int i;
+            int i = 0;
             while(dangerous_places.next())
             {
-                data[i] = {dangerous_places.getObject("name_district", "quant_records")};
-                i++;
+                modelo.addRow(new Object[]{dangerous_places.getObject("name_district"), 
+                    dangerous_places.getObject("quant_record")});
             }
-            Table.setModel(new DefaultTableModel(data,col)));
+            Table.setModel(modelo);
             } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -4539,9 +4692,9 @@ public class Login extends javax.swing.JFrame {
     private void ButtonShowRecordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowRecordsActionPerformed
         int index_category = BoxFilter.getSelectedIndex();
         int index_zone = BoxFilterSpecify.getSelectedIndex();
-        int index_start = BoxStartDate.getSelectedIndex();
-        int index_finish = BoxFinishDate.getSelectedIndex();
-        String filters [] = {BoxFilter.getItemAt(index_category), BoxFilterSpecify.getItemAt(index_zone), BoxStartDate.getItemAt(index_start), BoxFinishDate.getItemAt(index_finish)};
+        String index_start = DateStartField.getText();
+        String index_finish = DateEndField.getText();
+        String filters [] = {BoxFilter.getItemAt(index_category), BoxFilterSpecify.getItemAt(index_zone), index_start, index_finish};
         String newFilters [] = {};
         for(int i = 0; i <= filters.length; i++) {
             if(filters[i] == "Default" || filters[i] == "Start Date" || filters[i] == "Finish Date") {
@@ -4759,7 +4912,7 @@ public class Login extends javax.swing.JFrame {
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
         NumberTopField.setText(null);
-        PlacesList.removeAll();
+        Table.removeAll();
     }//GEN-LAST:event_ButtonRollbackQueryPlacesActionPerformed
 
     private void ButtonRollbackQueryRecordsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryRecordsMouseEntered
@@ -4790,8 +4943,8 @@ public class Login extends javax.swing.JFrame {
         RecordDescriptionText.setText(null);
         BoxFilter.setSelectedIndex(0);
         BoxFilterSpecify.setSelectedIndex(0);
-        BoxStartDate.setSelectedIndex(0);
-        BoxFinishDate.setSelectedIndex(0);
+        DateStartField.setText(null);
+        DateEndField.setText(null);
     }//GEN-LAST:event_ButtonRollbackQueryRecordsActionPerformed
 
     private void ButtonRollbackQueryUsersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryUsersMouseEntered
@@ -5490,9 +5643,9 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_AdminQueryMouseEntered
 
     private void ButtonLogUserListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonLogUserListActionPerformed
-        int index_start = BoxStartDate.getSelectedIndex();
-        int index_finish = BoxFinishDate.getSelectedIndex();
-        String filters [] = {BoxStartDate.getItemAt(index_start), BoxFinishDate.getItemAt(index_finish)};
+        String dateStart = DateStartField.getText();
+        String dateFinish = DateEndField.getText();
+        String filters [] = {dateStart, dateFinish};
         String newFilters [] = {};
         for(int i = 0; i <= filters.length; i++) {
             if(filters[i] == "Start Date" || filters[i] == "FinishDate") {
@@ -6525,6 +6678,93 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ListUnapprovedRecordsMouseClicked
 
+    private void ButtonShowUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowUsersActionPerformed
+        DefaultTableModel modelo = (DefaultTableModel)TableUsers.getModel();
+        modelo.setRowCount(0);
+        modelo.addColumn("Username");
+        modelo.addColumn("Type");
+        try {
+            ResultSet userList = ConnectDB.query("APP","user_queries.user_list");
+            int i = 0;
+            while(userList.next())
+            {
+                modelo.addRow(new Object[]{userList.getObject("username"), userList.getObject("user_type")});
+            }
+            TableUsers.setModel(modelo);
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ButtonShowUsersActionPerformed
+
+    private void ButtonShowBannedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowBannedActionPerformed
+        DefaultTableModel modelo = (DefaultTableModel)TableBanned.getModel();
+        modelo.setRowCount(0);
+        modelo.addColumn("Username");
+        modelo.addColumn("Is Permanent");
+        modelo.addColumn("Description");
+        try {
+            ResultSet bannedList = ConnectDB.query("APP","user_queries.user_banned");
+            int i = 0;
+            while(bannedList.next())
+            {
+                modelo.addRow(new Object[]{bannedList.getObject("username"), bannedList.getObject("ispermanent"), 
+                    bannedList.getObject("description")});
+            }
+            TableBanned.setModel(modelo);
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ButtonShowBannedActionPerformed
+
+    private void ButtonShowCataloguesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowCataloguesActionPerformed
+        try {
+            fillIn_Records();
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ButtonShowCataloguesActionPerformed
+
+    private void ButtonShowCataloguesForFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowCataloguesForFilterActionPerformed
+        try {
+            fillInFilters();
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ButtonShowCataloguesForFilterActionPerformed
+
+    private void ButtonShowListOfReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowListOfReportsActionPerformed
+        try {
+            ResultSet new_records = ConnectDB.query("APP", "admin_queries.get_new_records");
+            DefaultListModel listModel = new DefaultListModel();
+            add(new JScrollPane(NewReportList));
+            NewReportList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+            while(new_records.next())
+            {
+                listModel.addElement(new_records.getString("numberr"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+    }//GEN-LAST:event_ButtonShowListOfReportsActionPerformed
+
+    private void NewReportListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NewReportListMouseClicked
+        try {
+            ResultSet record = ConnectDB.query("ADM", "admin_record.getRecord");
+            ReportInformation.setText("Number: " + record.getString("numberr") + 
+                                      "Crime Description" + record.getString("description_crime") +
+                                      "Resolution" + record.getString("resolution") +
+                                      "Crime Expiration Date" + record.getString("crime_expiration_date") + 
+                                      "Id Type" + record.getString("id_type")+
+                                      "Id Veredict" + record.getString("description_crime") +
+                                      "Id Person" + record.getString("id_person")+
+                                      "Approved" + record.getString("approved") + 
+                                      "Username Creator" + record.getString("username_creator") + 
+                                      "Id District" + record.getString("id_district"));
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }  
+    }//GEN-LAST:event_NewReportListMouseClicked
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -6598,8 +6838,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> BoxFilterLastNamePerson;
     private javax.swing.JComboBox<String> BoxFilterNamePerson;
     private javax.swing.JComboBox<String> BoxFilterSpecify;
-    private javax.swing.JComboBox<String> BoxFilterUsenamePerson;
-    private javax.swing.JComboBox<String> BoxFinishDate;
+    private javax.swing.JComboBox<String> BoxFilterUsernamePerson;
     private javax.swing.JComboBox<String> BoxFinishDate1;
     private javax.swing.JComboBox<String> BoxGenderAdminUpdate;
     private javax.swing.JComboBox<String> BoxGenderNewUser;
@@ -6623,7 +6862,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> BoxModifyUserType;
     private javax.swing.JComboBox<String> BoxNewUserCommunity;
     private javax.swing.JComboBox<String> BoxOffender;
-    private javax.swing.JComboBox<String> BoxStartDate;
     private javax.swing.JComboBox<String> BoxStartDate1;
     private javax.swing.JComboBox<String> BoxState;
     private javax.swing.JComboBox<String> BoxStatePersonRecords;
@@ -6676,10 +6914,15 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton ButtonRollbackQueryUsers;
     private javax.swing.JButton ButtonRollbackReportList;
     private javax.swing.JButton ButtonRollbackUserListNotChangePassword;
+    private javax.swing.JButton ButtonShowBanned;
+    private javax.swing.JButton ButtonShowCatalogues;
+    private javax.swing.JButton ButtonShowCataloguesForFilter;
     private javax.swing.JButton ButtonShowFilteredUserList;
+    private javax.swing.JButton ButtonShowListOfReports;
     private javax.swing.JButton ButtonShowPlaces;
     private javax.swing.JButton ButtonShowRecords;
     private javax.swing.JButton ButtonShowRecordsDate;
+    private javax.swing.JButton ButtonShowUsers;
     private javax.swing.JButton ButtonSignUp;
     private javax.swing.JButton ButtonStatistics;
     private javax.swing.JButton ButtonUserCatalogues;
@@ -6687,6 +6930,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JCheckBox CheckBoxApprovedOrNot;
     private javax.swing.JTextArea CrimeDescriptionField;
     private javax.swing.JFormattedTextField DateCrimeField;
+    private javax.swing.JFormattedTextField DateEndField;
+    private javax.swing.JFormattedTextField DateStartField;
     private javax.swing.JFormattedTextField ExpireDateField;
     private javax.swing.JLabel IconCreateReacord;
     private javax.swing.JLabel IconLogged;
@@ -6727,6 +6972,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel LabelApproveRecords;
     private javax.swing.JLabel LabelBannedReason;
     private javax.swing.JLabel LabelChooseFilterRecords;
+    private javax.swing.JLabel LabelChooseFilterRecords1;
+    private javax.swing.JLabel LabelChooseFilterRecords2;
     private javax.swing.JLabel LabelChooseFilterUserListNotChangePassword;
     private javax.swing.JLabel LabelChooseFilterUserListNotChangePassword1;
     private javax.swing.JLabel LabelChooseFilterUserListNotChangePassword2;
@@ -6828,7 +7075,9 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton LeftUnapprovedPic;
     private javax.swing.JSeparator LineAdminBirthday;
     private javax.swing.JSeparator LineDateCrime;
+    private javax.swing.JSeparator LineDateCrime1;
     private javax.swing.JSeparator LineDateCrime2;
+    private javax.swing.JSeparator LineDateCrime3;
     private javax.swing.JSeparator LineExpireDate;
     private javax.swing.JSeparator LineExpireDate2;
     private javax.swing.JSeparator LineNewUserId;
@@ -6865,10 +7114,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JSeparator LineUpdatePassword;
     private javax.swing.JSeparator LineUpdateUsername;
     private javax.swing.JSeparator LineUsername;
-    private javax.swing.JTextArea ListBannedUsers;
     private javax.swing.JList<String> ListUnapprovedRecords;
     private javax.swing.JList<String> ListUserWithoutChangePassword;
-    private javax.swing.JTextArea ListUsers;
     private javax.swing.JPanel Log;
     private javax.swing.JList<String> LogUserList;
     private javax.swing.JTextField MiddleNameNewUserField;
@@ -6920,6 +7167,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton RightPicShowRecords;
     private javax.swing.JButton RightUnapprovedPic;
     private javax.swing.JTable Table;
+    private javax.swing.JTable TableBanned;
+    private javax.swing.JTable TableUsers;
     private javax.swing.JTextArea UnapprovedCrimeDescriptionField;
     private javax.swing.JFormattedTextField UnapprovedDateCrimeField;
     private javax.swing.JFormattedTextField UnapprovedExpireDateField;
@@ -6955,6 +7204,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
@@ -6964,7 +7214,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
