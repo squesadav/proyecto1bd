@@ -677,9 +677,7 @@ public class ConnectDB {
         ResultSet result = (ResultSet) stmnt.getObject(1);
         return result;
     }
-    
-
-    
+   
     public void delete(String schema,String function,String atributo) throws SQLException 
     {
         String host = "jdbc:oracle:thin:@localhost:1521:DB";

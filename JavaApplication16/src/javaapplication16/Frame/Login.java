@@ -15,7 +15,10 @@ import javax.swing.JOptionPane;
 import org.jfree.chart.JFreeChart;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
+import javax.swing.JScrollPane;
+import javax.swing.ListSelectionModel;
 
 public class Login extends javax.swing.JFrame {
 
@@ -307,7 +310,7 @@ public class Login extends javax.swing.JFrame {
         LabelDateCrimeUnapproved = new javax.swing.JLabel();
         LineResolution2 = new javax.swing.JSeparator();
         LineDateCrime2 = new javax.swing.JSeparator();
-        UnapprovedDateCrimeField1 = new javax.swing.JFormattedTextField();
+        UnapprovedDateCrimeField = new javax.swing.JFormattedTextField();
         BoxUnapprovedVeredict = new javax.swing.JComboBox<>();
         BoxUnapprovedOffender = new javax.swing.JComboBox<>();
         BoxUnapprovedCrimeType = new javax.swing.JComboBox<>();
@@ -329,6 +332,7 @@ public class Login extends javax.swing.JFrame {
         ListUnapprovedRecords = new javax.swing.JList<>();
         LabelCrimeDescriptionUnapproved = new javax.swing.JLabel();
         ButtonConfirmUnapproved = new javax.swing.JButton();
+        ButtonRefresh = new javax.swing.JButton();
         UserCatalogues = new javax.swing.JPanel();
         BoxModifyUserType = new javax.swing.JComboBox<>();
         LabelUserType = new javax.swing.JLabel();
@@ -1735,10 +1739,10 @@ public class Login extends javax.swing.JFrame {
         LineDateCrime2.setForeground(new java.awt.Color(29, 41, 81));
         ApproveRecords.add(LineDateCrime2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, 110, 20));
 
-        UnapprovedDateCrimeField1.setBorder(null);
-        UnapprovedDateCrimeField1.setForeground(new java.awt.Color(29, 41, 81));
-        UnapprovedDateCrimeField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
-        ApproveRecords.add(UnapprovedDateCrimeField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 110, 30));
+        UnapprovedDateCrimeField.setBorder(null);
+        UnapprovedDateCrimeField.setForeground(new java.awt.Color(29, 41, 81));
+        UnapprovedDateCrimeField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        ApproveRecords.add(UnapprovedDateCrimeField, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 110, 30));
 
         BoxUnapprovedVeredict.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
         BoxUnapprovedVeredict.setForeground(new java.awt.Color(29, 41, 81));
@@ -1920,6 +1924,11 @@ public class Login extends javax.swing.JFrame {
         ListUnapprovedRecords.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         ListUnapprovedRecords.setForeground(new java.awt.Color(29, 41, 81));
         ListUnapprovedRecords.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        ListUnapprovedRecords.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ListUnapprovedRecordsMouseClicked(evt);
+            }
+        });
         jScrollPane17.setViewportView(ListUnapprovedRecords);
 
         ApproveRecords.add(jScrollPane17, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 270, 120));
@@ -1949,7 +1958,28 @@ public class Login extends javax.swing.JFrame {
                 ButtonConfirmUnapprovedActionPerformed(evt);
             }
         });
-        ApproveRecords.add(ButtonConfirmUnapproved, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 460, 100, 40));
+        ApproveRecords.add(ButtonConfirmUnapproved, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, 100, 40));
+
+        ButtonRefresh.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonRefresh.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        ButtonRefresh.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonRefresh.setText("Refresh");
+        ButtonRefresh.setBorder(null);
+        ButtonRefresh.setContentAreaFilled(false);
+        ButtonRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonRefreshMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonRefreshMouseExited(evt);
+            }
+        });
+        ButtonRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonRefreshActionPerformed(evt);
+            }
+        });
+        ApproveRecords.add(ButtonRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 100, 40));
 
         AdminConfiguration.addTab("Approve records", ApproveRecords);
 
@@ -4468,6 +4498,23 @@ public class Login extends javax.swing.JFrame {
         else{
             
         }
+        /*
+        try {
+            String numberr = ListUnapprovedRecords.getSelectedValue();
+            ResultSet record = ConnectDB.query("APP","admin_record.getRecord", numberr);
+            UnapprovedCrimeDescriptionField.setText((String)record.getObject("description_crime"));
+            UnapprovedDateCrimeField.setText((String) record.getObject("date_crime"));
+            UnapprovedResolutionField.setText((String) record.getObject("resolution"));
+            UnapprovedExpireDateField.setText((String) record.getObject("crime_expition_date"));
+            ResultSet pictures = ConnectDB.query("APP","admin_picture.getAll", numberr);
+            ArrayList<String> paths = null;
+            while(pictures.next())
+            {
+                paths.add((String) pictures.getObject("pic_str"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
     }//GEN-LAST:event_ButtonShowPlacesActionPerformed
 
     private void ButtonShowRecordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowRecordsActionPerformed
@@ -5572,7 +5619,6 @@ public class Login extends javax.swing.JFrame {
             catch(Exception e){
                 JOptionPane.showMessageDialog(this, "The user was NOT updated successfully. Try again.");
             }
-            
         }
     }//GEN-LAST:event_ButtonConfirmChangesAdminActionPerformed
 
@@ -6410,6 +6456,48 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_RemoveDistrictActionPerformed
 
+    private void ButtonRefreshMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRefreshMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonRefreshMouseEntered
+
+    private void ButtonRefreshMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRefreshMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonRefreshMouseExited
+
+    private void ButtonRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRefreshActionPerformed
+        try {
+            ResultSet unapproved = ConnectDB.query("APP","admin_queries.not_approved");
+            DefaultListModel listModel = new DefaultListModel<>();
+            add(new JScrollPane(ListUnapprovedRecords));
+            ListUnapprovedRecords.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+            while(unapproved.next())
+            {
+                listModel.addElement(unapproved.getObject("numberr"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ButtonRefreshActionPerformed
+
+    private void ListUnapprovedRecordsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListUnapprovedRecordsMouseClicked
+        try {
+            String numberr = ListUnapprovedRecords.getSelectedValue();
+            ResultSet record = ConnectDB.query("APP","admin_record.getRecord", numberr);
+            UnapprovedCrimeDescriptionField.setText((String)record.getObject("description_crime"));
+            UnapprovedDateCrimeField.setText((String) record.getObject("date_crime"));
+            UnapprovedResolutionField.setText((String) record.getObject("resolution"));
+            UnapprovedExpireDateField.setText((String) record.getObject("crime_expition_date"));
+            ResultSet pictures = ConnectDB.query("APP","admin_picture.getAll", numberr);
+            ArrayList<String> paths = null;
+            while(pictures.next())
+            {
+                paths.add((String) pictures.getObject("pic_str"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ListUnapprovedRecordsMouseClicked
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -6553,6 +6641,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton ButtonPersonCatalogues;
     private javax.swing.JButton ButtonQuery;
     private javax.swing.JButton ButtonRecordCatalogues;
+    private javax.swing.JButton ButtonRefresh;
     private javax.swing.JButton ButtonRollbackCatalogues;
     private javax.swing.JButton ButtonRollbackCreateRecord;
     private javax.swing.JButton ButtonRollbackLog;
@@ -6805,7 +6894,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton RightPicShowRecords;
     private javax.swing.JButton RightUnapprovedPic;
     private javax.swing.JTextArea UnapprovedCrimeDescriptionField;
-    private javax.swing.JFormattedTextField UnapprovedDateCrimeField1;
+    private javax.swing.JFormattedTextField UnapprovedDateCrimeField;
     private javax.swing.JFormattedTextField UnapprovedExpireDateField;
     private javax.swing.JTextField UnapprovedResolutionField;
     private javax.swing.JFormattedTextField UpdateAdminBirthdayField;
