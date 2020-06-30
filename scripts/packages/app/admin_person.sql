@@ -18,6 +18,7 @@ CREATE OR REPLACE PACKAGE admin_person IS
     PROCEDURE updateAge (pnId NUMBER);
     PROCEDURE updateAllAges;
     FUNCTION getAll RETURN SYS_REFCURSOR;
+    FUNCTION getAllForQueries RETURN SYS_REFCURSOR;
 END admin_person;
 /
 
@@ -156,6 +157,16 @@ CREATE OR REPLACE PACKAGE BODY admin_person AS
     BEGIN
     OPEN rALL FOR
             SELECT id, name
+            INTO rAll
+            FROM person;
+        RETURN rAll;
+    END;
+
+    FUNCTION getAllForQueries RETURN sys_refcursor
+        AS rAll sys_refcursor;
+    BEGIN
+    OPEN rALL FOR
+            SELECT id, name, last_name
             INTO rAll
             FROM person;
         RETURN rAll;
