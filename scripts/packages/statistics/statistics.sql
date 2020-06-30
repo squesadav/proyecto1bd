@@ -19,16 +19,19 @@ grant select on app.veredict to adm;
 -- From ADM
 CREATE OR REPLACE PACKAGE statistics IS
     FUNCTION records_classification RETURN sys_refcursor;
-    FUNCTION records_by_district(vIdCity NUMBER DEFAULT NULL, cIdState NUMBER DEFAULT NULL, vIdCountry NUMBER DEFAULT NULL) RETURN sys_refcursor;
+    FUNCTION records_by_district(vIdCity NUMBER DEFAULT NULL, vIdState NUMBER DEFAULT NULL, vIdCountry NUMBER DEFAULT NULL) RETURN sys_refcursor;
     FUNCTION records_by_city(vIdState NUMBER DEFAULT NULL, vIdCountry NUMBER DEFAULT NULL) RETURN sys_refcursor;
     FUNCTION records_by_state(vIdCountry NUMBER DEFAULT NULL) RETURN sys_refcursor;
     FUNCTION records_by_country RETURN sys_refcursor;
     FUNCTION users_age_range RETURN sys_refcursor;
     FUNCTION criminal_age_range RETURN sys_refcursor;
-    FUNCTION criminals_by_district(vIdCity NUMBER DEFAULT NULL, cIdState NUMBER DEFAULT NULL, vIdCountry NUMBER DEFAULT NULL) RETURN sys_refcursor;
+    FUNCTION criminals_by_district(vIdCity NUMBER DEFAULT NULL, vIdState NUMBER DEFAULT NULL, vIdCountry NUMBER DEFAULT NULL) RETURN sys_refcursor;
     FUNCTION criminals_by_city(vIdState NUMBER DEFAULT NULL, vIdCountry NUMBER DEFAULT NULL) RETURN sys_refcursor;
     FUNCTION criminals_by_state(vIdCountry NUMBER DEFAULT NULL) RETURN sys_refcursor;
     FUNCTION criminals_by_country RETURN sys_refcursor;
+    FUNCTION average_record_type_years RETURN sys_refcursor;
+    FUNCTION sentence_time_to_expiration RETURN sys_refcursor;
+    FUNCTION records_with_house_arrest RETURN sys_refcursor;
 END statistics;
 /
 
@@ -38,7 +41,7 @@ CREATE OR REPLACE PACKAGE BODY statistics IS
         cclassification sys_refcursor;
         BEGIN
             OPEN cclassification FOR
-                SELECT t.name, count(r.id_type) quantity, round((ratio_to_report(count(r.id_type)) over ())*100, 2) percentage
+                SELECT t.name name, count(r.id_type) quantity, round((ratio_to_report(count(r.id_type)) over ())*100, 2) percentage
                 FROM app.record r
                 INNER JOIN app.type t ON r.id_type = t.id
                 GROUP BY t.name
@@ -46,7 +49,7 @@ CREATE OR REPLACE PACKAGE BODY statistics IS
             RETURN cclassification;
         END;
         
-    FUNCTION records_by_district(vIdCity NUMBER DEFAULT NULL, cIdState NUMBER DEFAULT NULL, vIdCountry NUMBER DEFAULT NULL) RETURN sys_refcursor
+    FUNCTION records_by_district(vIdCity NUMBER DEFAULT NULL, vIdState NUMBER DEFAULT NULL, vIdCountry NUMBER DEFAULT NULL) RETURN sys_refcursor
     AS
         cdistrict sys_refcursor;
         BEGIN
@@ -59,7 +62,7 @@ CREATE OR REPLACE PACKAGE BODY statistics IS
                 INNER JOIN app.country co ON s.id_country = co.id
                 WHERE r.approved = 'Y' AND 
                       ci.id = NVL(vIdCity, ci.id) AND
-                      s.id = NVL(cIdState, s.id) AND
+                      s.id = NVL(vIdState, s.id) AND
                       co.id = NVL(vIdCountry, co.id)
                 GROUP BY d.name, ci.name, s.name, co.name
                 ORDER BY quantity DESC;
@@ -224,7 +227,7 @@ CREATE OR REPLACE PACKAGE BODY statistics IS
         RETURN cages;
     END;
     
-    FUNCTION criminals_by_district(vIdCity NUMBER DEFAULT NULL, cIdState NUMBER DEFAULT NULL, vIdCountry NUMBER DEFAULT NULL) RETURN sys_refcursor
+    FUNCTION criminals_by_district(vIdCity NUMBER DEFAULT NULL, vIdState NUMBER DEFAULT NULL, vIdCountry NUMBER DEFAULT NULL) RETURN sys_refcursor
     AS
         cdistrict sys_refcursor;
         BEGIN
@@ -237,14 +240,14 @@ CREATE OR REPLACE PACKAGE BODY statistics IS
                 INNER JOIN app.country co ON s.id_country = co.id
                 WHERE p.id IN (SELECT id_person FROM app.record WHERE approved = 'Y') AND
                       ci.id = NVL(vIdCity, ci.id) AND
-                      s.id = NVL(cIdState, s.id) AND
+                      s.id = NVL(vIdState, s.id) AND
                       co.id = NVL(vIdCountry, co.id)
                 GROUP BY d.name, ci.name, s.name, co.name
                 ORDER BY quantity DESC;
             RETURN cdistrict;
         END;
 
-    FUNCTION criminals_by_city(cIdState NUMBER DEFAULT NULL, vIdCountry NUMBER DEFAULT NULL) RETURN sys_refcursor
+    FUNCTION criminals_by_city(vIdState NUMBER DEFAULT NULL, vIdCountry NUMBER DEFAULT NULL) RETURN sys_refcursor
     AS
         ccity sys_refcursor;
         BEGIN
@@ -256,7 +259,7 @@ CREATE OR REPLACE PACKAGE BODY statistics IS
                 INNER JOIN app.state s ON ci.id_state = s.id
                 INNER JOIN app.country co ON s.id_country = co.id
                 WHERE p.id IN (SELECT id_person FROM app.record WHERE approved = 'Y') AND
-                      s.id = NVL(cIdState, s.id) AND
+                      s.id = NVL(vIdState, s.id) AND
                       co.id = NVL(vIdCountry, co.id)
                 GROUP BY ci.name, s.name, co.name
                 ORDER BY quantity DESC;
@@ -278,7 +281,7 @@ CREATE OR REPLACE PACKAGE BODY statistics IS
                       co.id = NVL(vIdCountry, co.id)
                 GROUP BY s.name, co.name
                 ORDER BY quantity DESC;
-            RETURN ccity;
+            RETURN cstate;
         END;
 
     FUNCTION criminals_by_country RETURN sys_refcursor
@@ -295,12 +298,96 @@ CREATE OR REPLACE PACKAGE BODY statistics IS
                 WHERE p.id IN (SELECT id_person FROM app.record WHERE approved = 'Y')
                 GROUP BY co.name
                 ORDER BY quantity DESC;
-            RETURN country;
+            RETURN ccountry;
+        END;
+
+    FUNCTION average_record_type_years RETURN sys_refcursor
+    AS
+        caverage sys_refcursor;
+        BEGIN
+            OPEN caverage FOR
+                SELECT t.name record_type, avg(v.years) avg_years_of_sentence, round(ratio_to_report(avg(v.years)) over () *100, 2) percentage
+                FROM app.record r
+                INNER JOIN app.type t ON r.id_type = t.id
+                INNER JOIN app.veredict v ON r.id_veredict = v.id
+                GROUP BY t.name
+                ORDER BY avg_years_of_sentence DESC;
+            RETURN caverage;
+        END;
+    
+    FUNCTION sentence_time_to_expiration RETURN sys_refcursor
+    AS
+        csentence sys_refcursor;
+        BEGIN
+            OPEN csentence FOR
+                select range, quantity, round((ratio_to_report(quantity) over ())*100, 2) percentage
+                from 
+                (
+                    SELECT 'expired' as range, sum(case when v.date_end - trunc(sysdate) < 0 then 1 else 0 end) as quantity
+                    FROM app.record r
+                    INNER JOIN app.veredict v ON r.id_veredict = v.id
+                    WHERE r.approved = 'Y'
+                    GROUP BY 'expired'
+                    union all
+                    SELECT 'less_than_a_month' as range, sum(case when v.date_end - trunc(sysdate) between 0 and 30 then 1 else 0 end) as quantity
+                    FROM app.record r
+                    INNER JOIN app.veredict v ON r.id_veredict = v.id
+                    WHERE r.approved = 'Y'
+                    GROUP BY 'less_than_a_month'
+                    union all
+                    SELECT 'less_than_6_months' as range, sum(case when v.date_end - trunc(sysdate) between 31 and 182 then 1 else 0 end) as quantity
+                    FROM app.record r
+                    INNER JOIN app.veredict v ON r.id_veredict = v.id
+                    WHERE r.approved = 'Y'
+                    GROUP BY 'less_than_6_months'
+                    union all
+                    SELECT 'less_than_a_year' as range, sum(case when v.date_end - trunc(sysdate) between 183 and 365 then 1 else 0 end) as quantity
+                    FROM app.record r
+                    INNER JOIN app.veredict v ON r.id_veredict = v.id
+                    WHERE r.approved = 'Y'
+                    GROUP BY 'less_than_a_year'
+                    union all
+                    SELECT 'less_than_5_years' as range, sum(case when v.date_end - trunc(sysdate) between 366 and 1826 then 1 else 0 end) as quantity
+                    FROM app.record r
+                    INNER JOIN app.veredict v ON r.id_veredict = v.id
+                    WHERE r.approved = 'Y'
+                    GROUP BY 'less_than_5_years'
+                    union all
+                    SELECT 'less_than_10_years' as range, sum(case when v.date_end - trunc(sysdate) between 1827 and 3652 then 1 else 0 end) as quantity
+                    FROM app.record r
+                    INNER JOIN app.veredict v ON r.id_veredict = v.id
+                    WHERE r.approved = 'Y'
+                    GROUP BY 'less_than_10_years'
+                    union all
+                    SELECT 'more_than_10_years' as range, sum(case when v.date_end - trunc(sysdate) > 3652 then 1 else 0 end) as quantity
+                    FROM app.record r
+                    INNER JOIN app.veredict v ON r.id_veredict = v.id
+                    WHERE r.approved = 'Y'
+                    GROUP BY 'more_than_10_years'
+                    union all
+                    SELECT 'life_imprisonment' as range, sum(case when v.date_end IS NULL then 1 else 0 end) as quantity
+                    FROM app.record r
+                    INNER JOIN app.veredict v ON r.id_veredict = v.id
+                    WHERE r.approved = 'Y'
+                    GROUP BY 'life_imprisonment'
+                );
+            RETURN csentence;
         END;
         
-/*SELECT t.name record_type, avg(v.years) avg_years_of_sentence
-FROM app.record r
-INNER JOIN app.type t ON r.id_type = t.id
-INNER JOIN app.veredict v ON r.id_veredict = v.id
-GROUP BY t.name;*/
+    FUNCTION records_with_house_arrest RETURN sys_refcursor
+    AS
+        crecords sys_refcursor;
+        BEGIN
+            OPEN crecords FOR
+                SELECT t.name, count(v.id) quantity, round((ratio_to_report(count(v.id)) over ())*100, 2) percentage
+                FROM app.record r
+                INNER JOIN app.type t ON r.id_type = t.id
+                INNER JOIN app.veredict v ON r.id_veredict = v.id
+                WHERE v.id_place = 1
+                GROUP BY t.name
+                ORDER BY quantity DESC;
+            RETURN crecords;
+        END;
+        
 END statistics;
+/

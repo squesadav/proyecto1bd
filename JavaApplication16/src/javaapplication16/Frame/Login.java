@@ -4,18 +4,22 @@ import BL.*;
 import Connect.ConnectDB;
 import java.awt.Color;
 import java.awt.Cursor;
-import java.awt.Image;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import javax.swing.JOptionPane;
 import org.jfree.chart.JFreeChart;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.ImageIcon;
+import javax.swing.DefaultListModel;
+import javax.swing.JScrollPane;
+import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
 
 public class Login extends javax.swing.JFrame {
 
@@ -45,6 +49,148 @@ public class Login extends javax.swing.JFrame {
         while(institutions.next())
         {
             BoxGenderNewUser.addItem(institutions.getString("name"));
+        }
+    }
+    
+    void fillInComboBox_Offender() throws SQLException
+    {
+        ResultSet genders = null;
+        ResultSet districts = null;
+        ResultSet institutions = null;
+        try
+        {
+            genders = ConnectDB.query("APP", "admin_gender.getAll");
+            districts = ConnectDB.query("APP","admin_district.getAll");
+            institutions = ConnectDB.query("APP","admin_institution.getAll");
+        }
+        catch(Exception e)
+        {
+            
+        }
+        while(genders.next())
+        {
+            BoxGenderOffender.addItem(genders.getString("name"));
+        }
+        while(districts.next())
+        {
+            BoxDistrictOffender.addItem(districts.getString("name"));
+        }
+        while(institutions.next())
+        {
+            BoxInstitutionOffender.addItem(institutions.getString("name"));
+        }
+    }
+    
+    void fillInComboBox_UserCatalogues() throws SQLException
+    {
+        ResultSet userType = null;
+        ResultSet BannedReason = null;
+        try
+        {
+            userType = ConnectDB.query("ADM", "adminUser.getAllUserType");
+            BannedReason = ConnectDB.query("ADM","admin_district.getAllBannedReason");
+        }
+        catch(Exception e)
+        {
+            
+        }
+        while(userType.next())
+        {
+            BoxGenderOffender.addItem(userType.getString("name"));
+        }
+        while(BannedReason.next())
+        {
+            BoxDistrictOffender.addItem(BannedReason.getString("name"));
+        }
+    }
+    
+    void fillInPersonCatalogues() throws SQLException
+    {
+        ResultSet genders = null;
+        ResultSet institutions = null;
+        ResultSet countries = null;
+        ResultSet states = null;
+        ResultSet cities = null;
+        try
+        {
+            genders = ConnectDB.query("APP", "admin_gender.getAll");
+            institutions = ConnectDB.query("APP","admin_institution.getAll");
+            countries = ConnectDB.query("APP","admin_country.getAll");
+            states = ConnectDB.query("APP","admin_states.getAll");
+            cities = ConnectDB.query("APP","admin_cities.getAll");
+        }
+        catch(Exception e){}
+        while(genders.next())
+        {
+            BoxModifyGender.addItem(genders.getString("name"));
+        }
+        while(institutions.next())
+        {
+            BoxModifyInstitution.addItem(institutions.getString("name"));
+        }
+        while(countries.next())
+        {
+            BoxModifyCountry.addItem(countries.getString("name"));
+        }
+        while(states.next())
+        {
+            BoxModifyState.addItem(states.getString("name"));
+        }
+        while(cities.next())
+        {
+            BoxModifyCity.addItem(cities.getString("name"));
+        }
+    }
+    
+     void fillInZones() throws SQLException
+    {
+        ResultSet districts = null;
+        ResultSet countries = null;
+        ResultSet states = null;
+        ResultSet cities = null;
+        try
+        {
+            districts = ConnectDB.query("APP","admin_institution.getAll");
+            countries = ConnectDB.query("APP","admin_country.getAll");
+            states = ConnectDB.query("APP","admin_states.getAll");
+            cities = ConnectDB.query("APP","admin_cities.getAll");
+        }
+        catch(Exception e){}
+        while(districts.next())
+        {
+            BoxDistrict.addItem(districts.getString("name"));
+        }
+        while(countries.next())
+        {
+            BoxCountry.addItem(countries.getString("name"));
+        }
+        while(states.next())
+        {
+            BoxState.addItem(states.getString("name"));
+        }
+        while(cities.next())
+        {
+            BoxCity.addItem(cities.getString("name"));
+        }
+    }
+    
+    void fillIn_Records() throws SQLException
+    {
+        ResultSet types = null;
+        ResultSet districts = null;
+        try
+        {
+            types = ConnectDB.query("APP", "admin_type.getAll");
+            districts = ConnectDB.query("APP","admin_institution.getAll");
+        }
+        catch(Exception e){}
+        while(types.next())
+        {
+            BoxFilter.addItem(types.getString("name"));
+        }
+        while(districts.next())
+        {
+            BoxFilterSpecify.addItem(districts.getString("name"));
         }
     }
     
@@ -106,9 +252,10 @@ public class Login extends javax.swing.JFrame {
         BoxInstitutionNewUser = new javax.swing.JComboBox<>();
         ButtonCancel = new javax.swing.JButton();
         ButtonJoin = new javax.swing.JButton();
-        BirthdayNewUser = new org.jdatepicker.JDatePicker();
         LabelNewUserUserType = new javax.swing.JLabel();
         BoxUserTypeNewUser = new javax.swing.JComboBox<>();
+        LineOffenderBirthday2 = new javax.swing.JSeparator();
+        NewUserBirthday = new javax.swing.JFormattedTextField();
         JPWindow = new javax.swing.JPanel();
         ButtonMinimize = new javax.swing.JButton();
         ButtonClose = new javax.swing.JButton();
@@ -127,14 +274,14 @@ public class Login extends javax.swing.JFrame {
         BoxFilterNamePerson = new javax.swing.JComboBox<>();
         ButtonShowFilteredUserList = new javax.swing.JButton();
         BoxFilterLastNamePerson = new javax.swing.JComboBox<>();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        ListUserWithoutChangePassword = new javax.swing.JList<>();
         LabelFilterIdPerson = new javax.swing.JLabel();
         LabelFilterNamePerson = new javax.swing.JLabel();
         LabelFilterLastNamePerson = new javax.swing.JLabel();
         LabelFilterUsername = new javax.swing.JLabel();
-        BoxFilterUsenamePerson = new javax.swing.JComboBox<>();
+        BoxFilterUsernamePerson = new javax.swing.JComboBox<>();
         ButtonRollbackUserListNotChangePassword = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        TableUsersPassword = new javax.swing.JTable();
         ReportList = new javax.swing.JPanel();
         jScrollPane10 = new javax.swing.JScrollPane();
         NewReportList = new javax.swing.JList<>();
@@ -146,6 +293,7 @@ public class Login extends javax.swing.JFrame {
         ButtonRollbackReportList = new javax.swing.JButton();
         LabelChooseFilterUserListNotChangePassword2 = new javax.swing.JLabel();
         LabelChooseFilterUserListNotChangePassword3 = new javax.swing.JLabel();
+        ButtonShowListOfReports = new javax.swing.JButton();
         Log = new javax.swing.JPanel();
         BoxLogStartDate = new javax.swing.JComboBox<>();
         BoxLogFinishDate = new javax.swing.JComboBox<>();
@@ -169,6 +317,9 @@ public class Login extends javax.swing.JFrame {
         LabelAdminUpdateLoginFields = new javax.swing.JLabel();
         LabelUpdateAdminUserType = new javax.swing.JLabel();
         BoxAdminUserTypeUpdate = new javax.swing.JComboBox<>();
+        ActualUsername = new javax.swing.JTextField();
+        LineUpdateAdminUsername1 = new javax.swing.JSeparator();
+        LabelAdminUsernameUpdateLogin1 = new javax.swing.JLabel();
         UpdateAdminPersonalInfo = new javax.swing.JPanel();
         LabelUpdateAdminId = new javax.swing.JLabel();
         LabelUpdateAdminNameUpdate = new javax.swing.JLabel();
@@ -188,7 +339,7 @@ public class Login extends javax.swing.JFrame {
         UpdateAdminLastNameField = new javax.swing.JTextField();
         LineAdminBirthday = new javax.swing.JSeparator();
         UpdateAdminBirthdayField = new javax.swing.JFormattedTextField();
-        BoxCommunityAdminUpdate = new javax.swing.JComboBox<>();
+        BoxDistrictAdminUpdate = new javax.swing.JComboBox<>();
         BoxInstitutionAdminUpdate = new javax.swing.JComboBox<>();
         BoxGenderAdminUpdate = new javax.swing.JComboBox<>();
         ButtonCancelUpdatesAdminInfo = new javax.swing.JButton();
@@ -213,10 +364,7 @@ public class Login extends javax.swing.JFrame {
         LabelDateCrimeUnapproved = new javax.swing.JLabel();
         LineResolution2 = new javax.swing.JSeparator();
         LineDateCrime2 = new javax.swing.JSeparator();
-        UnapprovedDateCrimeField1 = new javax.swing.JFormattedTextField();
-        BoxUnapprovedVeredict = new javax.swing.JComboBox<>();
-        BoxUnapprovedOffender = new javax.swing.JComboBox<>();
-        BoxUnapprovedCrimeType = new javax.swing.JComboBox<>();
+        UnapprovedDateCrimeField = new javax.swing.JFormattedTextField();
         ButtonCancelUnapproved = new javax.swing.JButton();
         ButtonBanUser = new javax.swing.JButton();
         jScrollPane16 = new javax.swing.JScrollPane();
@@ -235,6 +383,13 @@ public class Login extends javax.swing.JFrame {
         ListUnapprovedRecords = new javax.swing.JList<>();
         LabelCrimeDescriptionUnapproved = new javax.swing.JLabel();
         ButtonConfirmUnapproved = new javax.swing.JButton();
+        ButtonRefresh = new javax.swing.JButton();
+        UnapprovedVeredictField = new javax.swing.JTextField();
+        LineResolution3 = new javax.swing.JSeparator();
+        LineResolution4 = new javax.swing.JSeparator();
+        UnapprovedIdOffender = new javax.swing.JTextField();
+        UnapprovedTypeField = new javax.swing.JTextField();
+        LineResolution5 = new javax.swing.JSeparator();
         UserCatalogues = new javax.swing.JPanel();
         BoxModifyUserType = new javax.swing.JComboBox<>();
         LabelUserType = new javax.swing.JLabel();
@@ -245,8 +400,6 @@ public class Login extends javax.swing.JFrame {
         AddBannedReason = new javax.swing.JButton();
         RemoveBannedReason = new javax.swing.JButton();
         ButtonConfirmUserCatalogue = new javax.swing.JButton();
-        ButtonCancelUserCatalogue = new javax.swing.JButton();
-        ButtonRollbackUserCatalogues = new javax.swing.JButton();
         LabelUserType1 = new javax.swing.JLabel();
         PersonCatalogues = new javax.swing.JPanel();
         BoxModifyGender = new javax.swing.JComboBox<>();
@@ -258,7 +411,6 @@ public class Login extends javax.swing.JFrame {
         AddInstitution = new javax.swing.JButton();
         RemoveInstitution = new javax.swing.JButton();
         ButtonConfirmPersonCatalogue = new javax.swing.JButton();
-        ButtonCancelPersonCatalogue = new javax.swing.JButton();
         BoxModifyCountry = new javax.swing.JComboBox<>();
         LabelCountry = new javax.swing.JLabel();
         BoxModifyState = new javax.swing.JComboBox<>();
@@ -271,8 +423,11 @@ public class Login extends javax.swing.JFrame {
         LabelCity = new javax.swing.JLabel();
         AddCity = new javax.swing.JButton();
         RemoveCity = new javax.swing.JButton();
-        ButtonRollbackPersonCatalogues = new javax.swing.JButton();
         LabelUserType2 = new javax.swing.JLabel();
+        BoxModifyDistrict = new javax.swing.JComboBox<>();
+        LabelDistrict = new javax.swing.JLabel();
+        AddDistrict = new javax.swing.JButton();
+        RemoveDistrict = new javax.swing.JButton();
         RecordCatalogues = new javax.swing.JPanel();
         BoxModifyTypeCrime = new javax.swing.JComboBox<>();
         LabelGender1 = new javax.swing.JLabel();
@@ -282,12 +437,11 @@ public class Login extends javax.swing.JFrame {
         LabelState1 = new javax.swing.JLabel();
         AddTypeSentence = new javax.swing.JButton();
         RemoveTypeSentence = new javax.swing.JButton();
-        ButtonConfirmRecordCatalogue = new javax.swing.JButton();
         ButtonCancelRecordCatalogue = new javax.swing.JButton();
-        ButtonRollbackRecordCatalogues = new javax.swing.JButton();
         LabelUserType3 = new javax.swing.JLabel();
         AdminStatistics = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
+        ButtonEnterReportsZone1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         BoxCountry = new javax.swing.JComboBox<>();
         ButtonEnterReportsZone = new javax.swing.JButton();
@@ -298,6 +452,7 @@ public class Login extends javax.swing.JFrame {
         LabelNewUsername2 = new javax.swing.JLabel();
         LabelNewUsername3 = new javax.swing.JLabel();
         LabelNewUsername4 = new javax.swing.JLabel();
+        ButtonRefreshTotalRecordsByZone = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -338,7 +493,7 @@ public class Login extends javax.swing.JFrame {
         LastNameOffenderField = new javax.swing.JTextField();
         LineOffenderBirthday = new javax.swing.JSeparator();
         BirthdayOffenderField = new javax.swing.JFormattedTextField();
-        BoxCommunityOffender = new javax.swing.JComboBox<>();
+        BoxDistrictOffender = new javax.swing.JComboBox<>();
         BoxInstitutionOffender = new javax.swing.JComboBox<>();
         BoxGenderOffender = new javax.swing.JComboBox<>();
         ButtonCancelOffender = new javax.swing.JButton();
@@ -376,15 +531,17 @@ public class Login extends javax.swing.JFrame {
         LeftNewRecord = new javax.swing.JButton();
         AddNewRecord = new javax.swing.JButton();
         RemoveNewRecord = new javax.swing.JButton();
+        LabelCrimeType1 = new javax.swing.JLabel();
+        BoxDistrictRecord = new javax.swing.JComboBox<>();
         UserQuery = new javax.swing.JTabbedPane();
         PlacesMoreRecords = new javax.swing.JPanel();
         LabelTop = new javax.swing.JLabel();
         NumberTopField = new javax.swing.JTextField();
         NumberTopLine = new javax.swing.JSeparator();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        PlacesList = new javax.swing.JList<>();
         ButtonShowPlaces = new javax.swing.JButton();
         ButtonRollbackQueryPlaces = new javax.swing.JButton();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        Table = new javax.swing.JTable();
         Records = new javax.swing.JPanel();
         LabelChooseFilterRecords = new javax.swing.JLabel();
         BoxFilter = new javax.swing.JComboBox<>();
@@ -394,20 +551,27 @@ public class Login extends javax.swing.JFrame {
         RecordsList = new javax.swing.JList<>();
         jScrollPane3 = new javax.swing.JScrollPane();
         RecordDescriptionText = new javax.swing.JTextArea();
-        BoxStartDate = new javax.swing.JComboBox<>();
-        BoxFinishDate = new javax.swing.JComboBox<>();
         ButtonRollbackQueryRecords = new javax.swing.JButton();
         PictureShowRecords = new javax.swing.JButton();
         RightPicShowRecords = new javax.swing.JButton();
         LeftPicShowRecords = new javax.swing.JButton();
+        ButtonShowCatalogues = new javax.swing.JButton();
+        DateStartField = new javax.swing.JFormattedTextField();
+        LineDateCrime1 = new javax.swing.JSeparator();
+        DateEndField = new javax.swing.JFormattedTextField();
+        LineDateCrime3 = new javax.swing.JSeparator();
+        LabelChooseFilterRecords1 = new javax.swing.JLabel();
+        LabelChooseFilterRecords2 = new javax.swing.JLabel();
         UsersList = new javax.swing.JPanel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        ListUsers = new javax.swing.JTextArea();
         ButtonRollbackQueryUsers = new javax.swing.JButton();
+        ButtonShowUsers = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TableUsers = new javax.swing.JTable();
         BannedUsers = new javax.swing.JPanel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        ListBannedUsers = new javax.swing.JTextArea();
         ButtonRollbackQueryBanned = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        TableBanned = new javax.swing.JTable();
+        ButtonShowBanned = new javax.swing.JButton();
         RecordsConvictionsToExpireOrExpired = new javax.swing.JPanel();
         BoxStartDate1 = new javax.swing.JComboBox<>();
         BoxFinishDate1 = new javax.swing.JComboBox<>();
@@ -752,7 +916,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
         JPSignUp.add(ButtonJoin, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 470, 100, 40));
-        JPSignUp.add(BirthdayNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, -1, 30));
 
         LabelNewUserUserType.setBackground(new java.awt.Color(255, 255, 255));
         LabelNewUserUserType.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
@@ -764,6 +927,14 @@ public class Login extends javax.swing.JFrame {
         BoxUserTypeNewUser.setForeground(new java.awt.Color(29, 41, 81));
         BoxUserTypeNewUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
         JPSignUp.add(BoxUserTypeNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 430, 120, 30));
+
+        LineOffenderBirthday2.setForeground(new java.awt.Color(29, 41, 81));
+        JPSignUp.add(LineOffenderBirthday2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, 130, 20));
+
+        NewUserBirthday.setBorder(null);
+        NewUserBirthday.setForeground(new java.awt.Color(29, 41, 81));
+        NewUserBirthday.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        JPSignUp.add(NewUserBirthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, 130, 30));
 
         getContentPane().add(JPSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
 
@@ -970,24 +1141,12 @@ public class Login extends javax.swing.JFrame {
                 ButtonShowFilteredUserListActionPerformed(evt);
             }
         });
-        UserListNotChangingPassword.add(ButtonShowFilteredUserList, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, 100, 30));
+        UserListNotChangingPassword.add(ButtonShowFilteredUserList, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 430, 100, 30));
 
         BoxFilterLastNamePerson.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         BoxFilterLastNamePerson.setForeground(new java.awt.Color(29, 41, 81));
         BoxFilterLastNamePerson.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
         UserListNotChangingPassword.add(BoxFilterLastNamePerson, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 140, 30));
-
-        jScrollPane9.setBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
-        jScrollPane9.setForeground(new java.awt.Color(29, 41, 81));
-
-        ListUserWithoutChangePassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
-        ListUserWithoutChangePassword.setForeground(new java.awt.Color(29, 41, 81));
-        ListUserWithoutChangePassword.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        ListUserWithoutChangePassword.setToolTipText("");
-        jScrollPane9.setViewportView(ListUserWithoutChangePassword);
-
-        UserListNotChangingPassword.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, 370, 370));
 
         LabelFilterIdPerson.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         LabelFilterIdPerson.setForeground(new java.awt.Color(29, 41, 81));
@@ -1009,10 +1168,10 @@ public class Login extends javax.swing.JFrame {
         LabelFilterUsername.setText("Username");
         UserListNotChangingPassword.add(LabelFilterUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, -1, 30));
 
-        BoxFilterUsenamePerson.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        BoxFilterUsenamePerson.setForeground(new java.awt.Color(29, 41, 81));
-        BoxFilterUsenamePerson.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
-        UserListNotChangingPassword.add(BoxFilterUsenamePerson, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, 140, 30));
+        BoxFilterUsernamePerson.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        BoxFilterUsernamePerson.setForeground(new java.awt.Color(29, 41, 81));
+        BoxFilterUsernamePerson.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        UserListNotChangingPassword.add(BoxFilterUsernamePerson, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, 140, 30));
 
         ButtonRollbackUserListNotChangePassword.setBackground(new java.awt.Color(255, 255, 255));
         ButtonRollbackUserListNotChangePassword.setForeground(new java.awt.Color(255, 255, 255));
@@ -1034,6 +1193,21 @@ public class Login extends javax.swing.JFrame {
         });
         UserListNotChangingPassword.add(ButtonRollbackUserListNotChangePassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 50));
 
+        TableUsersPassword.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane5.setViewportView(TableUsersPassword);
+
+        UserListNotChangingPassword.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, 460, 360));
+
         AdminQuery.addTab("User list without changing the password", UserListNotChangingPassword);
 
         ReportList.setBackground(new java.awt.Color(255, 255, 255));
@@ -1047,6 +1221,11 @@ public class Login extends javax.swing.JFrame {
         NewReportList.setForeground(new java.awt.Color(29, 41, 81));
         NewReportList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         NewReportList.setToolTipText("");
+        NewReportList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                NewReportListMouseClicked(evt);
+            }
+        });
         jScrollPane10.setViewportView(NewReportList);
 
         ReportList.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 210, 390));
@@ -1141,6 +1320,19 @@ public class Login extends javax.swing.JFrame {
         LabelChooseFilterUserListNotChangePassword3.setText("Description of the selected report");
         ReportList.add(LabelChooseFilterUserListNotChangePassword3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, -1, 30));
 
+        ButtonShowListOfReports.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonShowListOfReports.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ButtonShowListOfReports.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonShowListOfReports.setText("Refresh");
+        ButtonShowListOfReports.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
+        ButtonShowListOfReports.setContentAreaFilled(false);
+        ButtonShowListOfReports.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonShowListOfReportsActionPerformed(evt);
+            }
+        });
+        ReportList.add(ButtonShowListOfReports, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, 100, 30));
+
         AdminQuery.addTab("List of new reports", ReportList);
 
         Log.setBackground(new java.awt.Color(255, 255, 255));
@@ -1220,29 +1412,29 @@ public class Login extends javax.swing.JFrame {
         LabelAdminPasswordUpdateLogin.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         LabelAdminPasswordUpdateLogin.setForeground(new java.awt.Color(29, 41, 81));
         LabelAdminPasswordUpdateLogin.setText("Password:");
-        UpdateAdminLoginInfo.add(LabelAdminPasswordUpdateLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(345, 230, 90, 30));
+        UpdateAdminLoginInfo.add(LabelAdminPasswordUpdateLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 310, 90, 30));
 
         LabelAdminUsernameUpdateLogin.setBackground(new java.awt.Color(255, 255, 255));
         LabelAdminUsernameUpdateLogin.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         LabelAdminUsernameUpdateLogin.setForeground(new java.awt.Color(29, 41, 81));
         LabelAdminUsernameUpdateLogin.setText("Username:");
-        UpdateAdminLoginInfo.add(LabelAdminUsernameUpdateLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, 100, 30));
+        UpdateAdminLoginInfo.add(LabelAdminUsernameUpdateLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, 100, 30));
 
         LineUpdateAdminUsername.setForeground(new java.awt.Color(29, 41, 81));
-        UpdateAdminLoginInfo.add(LineUpdateAdminUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 220, 20));
+        UpdateAdminLoginInfo.add(LineUpdateAdminUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, 220, 20));
 
         AdminUpdateUsernameField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         AdminUpdateUsernameField.setForeground(new java.awt.Color(29, 41, 81));
         AdminUpdateUsernameField.setBorder(null);
-        UpdateAdminLoginInfo.add(AdminUpdateUsernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 180, 30));
+        UpdateAdminLoginInfo.add(AdminUpdateUsernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, 180, 30));
 
         LineUpdateAdminPassword.setForeground(new java.awt.Color(29, 41, 81));
-        UpdateAdminLoginInfo.add(LineUpdateAdminPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, 220, 20));
+        UpdateAdminLoginInfo.add(LineUpdateAdminPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 370, 220, 20));
 
         AdminUpdatePasswordField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         AdminUpdatePasswordField.setForeground(new java.awt.Color(29, 41, 81));
         AdminUpdatePasswordField.setBorder(null);
-        UpdateAdminLoginInfo.add(AdminUpdatePasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, 180, 30));
+        UpdateAdminLoginInfo.add(AdminUpdatePasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 340, 180, 30));
 
         ButtonCancelUpdatesUserLoginAdmin.setBackground(new java.awt.Color(255, 255, 255));
         ButtonCancelUpdatesUserLoginAdmin.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
@@ -1263,7 +1455,7 @@ public class Login extends javax.swing.JFrame {
                 ButtonCancelUpdatesUserLoginAdminActionPerformed(evt);
             }
         });
-        UpdateAdminLoginInfo.add(ButtonCancelUpdatesUserLoginAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 420, 100, 40));
+        UpdateAdminLoginInfo.add(ButtonCancelUpdatesUserLoginAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 500, 100, 40));
 
         ButtonConfirmChangesAdmin.setBackground(new java.awt.Color(255, 255, 255));
         ButtonConfirmChangesAdmin.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
@@ -1284,10 +1476,10 @@ public class Login extends javax.swing.JFrame {
                 ButtonConfirmChangesAdminActionPerformed(evt);
             }
         });
-        UpdateAdminLoginInfo.add(ButtonConfirmChangesAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, 150, 40));
+        UpdateAdminLoginInfo.add(ButtonConfirmChangesAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 500, 150, 40));
 
         IconUpdateUsernameAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/EditField.png"))); // NOI18N
-        UpdateAdminLoginInfo.add(IconUpdateUsernameAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, 40, 40));
+        UpdateAdminLoginInfo.add(IconUpdateUsernameAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 40, 40));
 
         IconUpdatePasswordAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/EditField.png"))); // NOI18N
         UpdateAdminLoginInfo.add(IconUpdatePasswordAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 40, 40));
@@ -1303,12 +1495,26 @@ public class Login extends javax.swing.JFrame {
         LabelUpdateAdminUserType.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         LabelUpdateAdminUserType.setForeground(new java.awt.Color(29, 41, 81));
         LabelUpdateAdminUserType.setText("User Type:");
-        UpdateAdminLoginInfo.add(LabelUpdateAdminUserType, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, 90, 30));
+        UpdateAdminLoginInfo.add(LabelUpdateAdminUserType, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 420, 90, 30));
 
         BoxAdminUserTypeUpdate.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
         BoxAdminUserTypeUpdate.setForeground(new java.awt.Color(29, 41, 81));
         BoxAdminUserTypeUpdate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
-        UpdateAdminLoginInfo.add(BoxAdminUserTypeUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, 120, 30));
+        UpdateAdminLoginInfo.add(BoxAdminUserTypeUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 420, 120, 30));
+
+        ActualUsername.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ActualUsername.setForeground(new java.awt.Color(29, 41, 81));
+        ActualUsername.setBorder(null);
+        UpdateAdminLoginInfo.add(ActualUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 180, 30));
+
+        LineUpdateAdminUsername1.setForeground(new java.awt.Color(29, 41, 81));
+        UpdateAdminLoginInfo.add(LineUpdateAdminUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, 220, 20));
+
+        LabelAdminUsernameUpdateLogin1.setBackground(new java.awt.Color(255, 255, 255));
+        LabelAdminUsernameUpdateLogin1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelAdminUsernameUpdateLogin1.setForeground(new java.awt.Color(29, 41, 81));
+        LabelAdminUsernameUpdateLogin1.setText("Actual username:");
+        UpdateAdminLoginInfo.add(LabelAdminUsernameUpdateLogin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 150, 30));
 
         AdminConfiguration.addTab("Update login information", UpdateAdminLoginInfo);
 
@@ -1403,10 +1609,10 @@ public class Login extends javax.swing.JFrame {
         UpdateAdminBirthdayField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
         UpdateAdminPersonalInfo.add(UpdateAdminBirthdayField, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 220, 130, 30));
 
-        BoxCommunityAdminUpdate.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
-        BoxCommunityAdminUpdate.setForeground(new java.awt.Color(29, 41, 81));
-        BoxCommunityAdminUpdate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
-        UpdateAdminPersonalInfo.add(BoxCommunityAdminUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, 170, 30));
+        BoxDistrictAdminUpdate.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
+        BoxDistrictAdminUpdate.setForeground(new java.awt.Color(29, 41, 81));
+        BoxDistrictAdminUpdate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        UpdateAdminPersonalInfo.add(BoxDistrictAdminUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, 170, 30));
 
         BoxInstitutionAdminUpdate.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
         BoxInstitutionAdminUpdate.setForeground(new java.awt.Color(29, 41, 81));
@@ -1620,25 +1826,10 @@ public class Login extends javax.swing.JFrame {
         LineDateCrime2.setForeground(new java.awt.Color(29, 41, 81));
         ApproveRecords.add(LineDateCrime2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, 110, 20));
 
-        UnapprovedDateCrimeField1.setBorder(null);
-        UnapprovedDateCrimeField1.setForeground(new java.awt.Color(29, 41, 81));
-        UnapprovedDateCrimeField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
-        ApproveRecords.add(UnapprovedDateCrimeField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 110, 30));
-
-        BoxUnapprovedVeredict.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
-        BoxUnapprovedVeredict.setForeground(new java.awt.Color(29, 41, 81));
-        BoxUnapprovedVeredict.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
-        ApproveRecords.add(BoxUnapprovedVeredict, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 250, 170, 30));
-
-        BoxUnapprovedOffender.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
-        BoxUnapprovedOffender.setForeground(new java.awt.Color(29, 41, 81));
-        BoxUnapprovedOffender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
-        ApproveRecords.add(BoxUnapprovedOffender, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, 170, 30));
-
-        BoxUnapprovedCrimeType.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
-        BoxUnapprovedCrimeType.setForeground(new java.awt.Color(29, 41, 81));
-        BoxUnapprovedCrimeType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
-        ApproveRecords.add(BoxUnapprovedCrimeType, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 420, 120, 30));
+        UnapprovedDateCrimeField.setBorder(null);
+        UnapprovedDateCrimeField.setForeground(new java.awt.Color(29, 41, 81));
+        UnapprovedDateCrimeField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        ApproveRecords.add(UnapprovedDateCrimeField, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 110, 30));
 
         ButtonCancelUnapproved.setBackground(new java.awt.Color(255, 255, 255));
         ButtonCancelUnapproved.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
@@ -1805,6 +1996,11 @@ public class Login extends javax.swing.JFrame {
         ListUnapprovedRecords.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         ListUnapprovedRecords.setForeground(new java.awt.Color(29, 41, 81));
         ListUnapprovedRecords.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        ListUnapprovedRecords.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ListUnapprovedRecordsMouseClicked(evt);
+            }
+        });
         jScrollPane17.setViewportView(ListUnapprovedRecords);
 
         ApproveRecords.add(jScrollPane17, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 270, 120));
@@ -1834,7 +2030,52 @@ public class Login extends javax.swing.JFrame {
                 ButtonConfirmUnapprovedActionPerformed(evt);
             }
         });
-        ApproveRecords.add(ButtonConfirmUnapproved, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 460, 100, 40));
+        ApproveRecords.add(ButtonConfirmUnapproved, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, 100, 40));
+
+        ButtonRefresh.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonRefresh.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        ButtonRefresh.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonRefresh.setText("Refresh");
+        ButtonRefresh.setBorder(null);
+        ButtonRefresh.setContentAreaFilled(false);
+        ButtonRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonRefreshMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonRefreshMouseExited(evt);
+            }
+        });
+        ButtonRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonRefreshActionPerformed(evt);
+            }
+        });
+        ApproveRecords.add(ButtonRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 100, 40));
+
+        UnapprovedVeredictField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        UnapprovedVeredictField.setForeground(new java.awt.Color(29, 41, 81));
+        UnapprovedVeredictField.setBorder(null);
+        ApproveRecords.add(UnapprovedVeredictField, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 240, 220, 30));
+
+        LineResolution3.setForeground(new java.awt.Color(29, 41, 81));
+        ApproveRecords.add(LineResolution3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 270, 220, 20));
+
+        LineResolution4.setForeground(new java.awt.Color(29, 41, 81));
+        ApproveRecords.add(LineResolution4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 400, 220, 20));
+
+        UnapprovedIdOffender.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        UnapprovedIdOffender.setForeground(new java.awt.Color(29, 41, 81));
+        UnapprovedIdOffender.setBorder(null);
+        ApproveRecords.add(UnapprovedIdOffender, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, 220, 30));
+
+        UnapprovedTypeField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        UnapprovedTypeField.setForeground(new java.awt.Color(29, 41, 81));
+        UnapprovedTypeField.setBorder(null);
+        ApproveRecords.add(UnapprovedTypeField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 420, 220, 30));
+
+        LineResolution5.setForeground(new java.awt.Color(29, 41, 81));
+        ApproveRecords.add(LineResolution5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 450, 220, 20));
 
         AdminConfiguration.addTab("Approve records", ApproveRecords);
 
@@ -1948,48 +2189,7 @@ public class Login extends javax.swing.JFrame {
                 ButtonConfirmUserCatalogueActionPerformed(evt);
             }
         });
-        UserCatalogues.add(ButtonConfirmUserCatalogue, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, 100, 40));
-
-        ButtonCancelUserCatalogue.setBackground(new java.awt.Color(255, 255, 255));
-        ButtonCancelUserCatalogue.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        ButtonCancelUserCatalogue.setForeground(new java.awt.Color(29, 41, 81));
-        ButtonCancelUserCatalogue.setText("Cancel");
-        ButtonCancelUserCatalogue.setBorder(null);
-        ButtonCancelUserCatalogue.setContentAreaFilled(false);
-        ButtonCancelUserCatalogue.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                ButtonCancelUserCatalogueMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                ButtonCancelUserCatalogueMouseExited(evt);
-            }
-        });
-        ButtonCancelUserCatalogue.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonCancelUserCatalogueActionPerformed(evt);
-            }
-        });
-        UserCatalogues.add(ButtonCancelUserCatalogue, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 460, 100, 40));
-
-        ButtonRollbackUserCatalogues.setBackground(new java.awt.Color(255, 255, 255));
-        ButtonRollbackUserCatalogues.setForeground(new java.awt.Color(255, 255, 255));
-        ButtonRollbackUserCatalogues.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/Rollback.png"))); // NOI18N
-        ButtonRollbackUserCatalogues.setBorder(null);
-        ButtonRollbackUserCatalogues.setContentAreaFilled(false);
-        ButtonRollbackUserCatalogues.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                ButtonRollbackUserCataloguesMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                ButtonRollbackUserCataloguesMouseExited(evt);
-            }
-        });
-        ButtonRollbackUserCatalogues.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonRollbackUserCataloguesActionPerformed(evt);
-            }
-        });
-        UserCatalogues.add(ButtonRollbackUserCatalogues, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 50));
+        UserCatalogues.add(ButtonConfirmUserCatalogue, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 460, 100, 40));
 
         LabelUserType1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         LabelUserType1.setForeground(new java.awt.Color(29, 41, 81));
@@ -2114,28 +2314,7 @@ public class Login extends javax.swing.JFrame {
                 ButtonConfirmPersonCatalogueActionPerformed(evt);
             }
         });
-        PersonCatalogues.add(ButtonConfirmPersonCatalogue, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, 100, 40));
-
-        ButtonCancelPersonCatalogue.setBackground(new java.awt.Color(255, 255, 255));
-        ButtonCancelPersonCatalogue.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        ButtonCancelPersonCatalogue.setForeground(new java.awt.Color(29, 41, 81));
-        ButtonCancelPersonCatalogue.setText("Cancel");
-        ButtonCancelPersonCatalogue.setBorder(null);
-        ButtonCancelPersonCatalogue.setContentAreaFilled(false);
-        ButtonCancelPersonCatalogue.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                ButtonCancelPersonCatalogueMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                ButtonCancelPersonCatalogueMouseExited(evt);
-            }
-        });
-        ButtonCancelPersonCatalogue.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonCancelPersonCatalogueActionPerformed(evt);
-            }
-        });
-        PersonCatalogues.add(ButtonCancelPersonCatalogue, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 460, 100, 40));
+        PersonCatalogues.add(ButtonConfirmPersonCatalogue, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 460, 100, 40));
 
         BoxModifyCountry.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         BoxModifyCountry.setForeground(new java.awt.Color(29, 41, 81));
@@ -2191,7 +2370,7 @@ public class Login extends javax.swing.JFrame {
                 RemoveCountryActionPerformed(evt);
             }
         });
-        PersonCatalogues.add(RemoveCountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 40, -1));
+        PersonCatalogues.add(RemoveCountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 40, -1));
 
         AddState.setBackground(new java.awt.Color(255, 255, 255));
         AddState.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/AddPic.png"))); // NOI18N
@@ -2233,12 +2412,12 @@ public class Login extends javax.swing.JFrame {
 
         BoxModifyCity.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         BoxModifyCity.setForeground(new java.awt.Color(29, 41, 81));
-        PersonCatalogues.add(BoxModifyCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, 130, 30));
+        PersonCatalogues.add(BoxModifyCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, 130, 30));
 
         LabelCity.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         LabelCity.setForeground(new java.awt.Color(29, 41, 81));
         LabelCity.setText("City:");
-        PersonCatalogues.add(LabelCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 370, -1, -1));
+        PersonCatalogues.add(LabelCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, -1, -1));
 
         AddCity.setBackground(new java.awt.Color(255, 255, 255));
         AddCity.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/AddPic.png"))); // NOI18N
@@ -2257,7 +2436,7 @@ public class Login extends javax.swing.JFrame {
                 AddCityActionPerformed(evt);
             }
         });
-        PersonCatalogues.add(AddCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 400, 40, -1));
+        PersonCatalogues.add(AddCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 400, 40, -1));
 
         RemoveCity.setBackground(new java.awt.Color(255, 255, 255));
         RemoveCity.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/RemovePic.png"))); // NOI18N
@@ -2276,32 +2455,59 @@ public class Login extends javax.swing.JFrame {
                 RemoveCityActionPerformed(evt);
             }
         });
-        PersonCatalogues.add(RemoveCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 400, 40, -1));
-
-        ButtonRollbackPersonCatalogues.setBackground(new java.awt.Color(255, 255, 255));
-        ButtonRollbackPersonCatalogues.setForeground(new java.awt.Color(255, 255, 255));
-        ButtonRollbackPersonCatalogues.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/Rollback.png"))); // NOI18N
-        ButtonRollbackPersonCatalogues.setBorder(null);
-        ButtonRollbackPersonCatalogues.setContentAreaFilled(false);
-        ButtonRollbackPersonCatalogues.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                ButtonRollbackPersonCataloguesMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                ButtonRollbackPersonCataloguesMouseExited(evt);
-            }
-        });
-        ButtonRollbackPersonCatalogues.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonRollbackPersonCataloguesActionPerformed(evt);
-            }
-        });
-        PersonCatalogues.add(ButtonRollbackPersonCatalogues, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 50));
+        PersonCatalogues.add(RemoveCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 400, 40, -1));
 
         LabelUserType2.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         LabelUserType2.setForeground(new java.awt.Color(29, 41, 81));
         LabelUserType2.setText("Person Catalogues");
         PersonCatalogues.add(LabelUserType2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, -1, -1));
+
+        BoxModifyDistrict.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        BoxModifyDistrict.setForeground(new java.awt.Color(29, 41, 81));
+        PersonCatalogues.add(BoxModifyDistrict, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 370, 140, 30));
+
+        LabelDistrict.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        LabelDistrict.setForeground(new java.awt.Color(29, 41, 81));
+        LabelDistrict.setText("District:");
+        PersonCatalogues.add(LabelDistrict, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 380, -1, -1));
+
+        AddDistrict.setBackground(new java.awt.Color(255, 255, 255));
+        AddDistrict.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/AddPic.png"))); // NOI18N
+        AddDistrict.setBorder(null);
+        AddDistrict.setContentAreaFilled(false);
+        AddDistrict.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                AddDistrictMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                AddDistrictMouseExited(evt);
+            }
+        });
+        AddDistrict.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddDistrictActionPerformed(evt);
+            }
+        });
+        PersonCatalogues.add(AddDistrict, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 410, 40, -1));
+
+        RemoveDistrict.setBackground(new java.awt.Color(255, 255, 255));
+        RemoveDistrict.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/RemovePic.png"))); // NOI18N
+        RemoveDistrict.setBorder(null);
+        RemoveDistrict.setContentAreaFilled(false);
+        RemoveDistrict.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                RemoveDistrictMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                RemoveDistrictMouseExited(evt);
+            }
+        });
+        RemoveDistrict.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoveDistrictActionPerformed(evt);
+            }
+        });
+        PersonCatalogues.add(RemoveDistrict, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 410, 40, -1));
 
         getContentPane().add(PersonCatalogues, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
 
@@ -2402,31 +2608,10 @@ public class Login extends javax.swing.JFrame {
         });
         RecordCatalogues.add(RemoveTypeSentence, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 250, 40, -1));
 
-        ButtonConfirmRecordCatalogue.setBackground(new java.awt.Color(255, 255, 255));
-        ButtonConfirmRecordCatalogue.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        ButtonConfirmRecordCatalogue.setForeground(new java.awt.Color(29, 41, 81));
-        ButtonConfirmRecordCatalogue.setText("Confirm");
-        ButtonConfirmRecordCatalogue.setBorder(null);
-        ButtonConfirmRecordCatalogue.setContentAreaFilled(false);
-        ButtonConfirmRecordCatalogue.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                ButtonConfirmRecordCatalogueMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                ButtonConfirmRecordCatalogueMouseExited(evt);
-            }
-        });
-        ButtonConfirmRecordCatalogue.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonConfirmRecordCatalogueActionPerformed(evt);
-            }
-        });
-        RecordCatalogues.add(ButtonConfirmRecordCatalogue, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, 100, 40));
-
         ButtonCancelRecordCatalogue.setBackground(new java.awt.Color(255, 255, 255));
         ButtonCancelRecordCatalogue.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         ButtonCancelRecordCatalogue.setForeground(new java.awt.Color(29, 41, 81));
-        ButtonCancelRecordCatalogue.setText("Cancel");
+        ButtonCancelRecordCatalogue.setText("Confirm");
         ButtonCancelRecordCatalogue.setBorder(null);
         ButtonCancelRecordCatalogue.setContentAreaFilled(false);
         ButtonCancelRecordCatalogue.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2442,27 +2627,7 @@ public class Login extends javax.swing.JFrame {
                 ButtonCancelRecordCatalogueActionPerformed(evt);
             }
         });
-        RecordCatalogues.add(ButtonCancelRecordCatalogue, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 460, 100, 40));
-
-        ButtonRollbackRecordCatalogues.setBackground(new java.awt.Color(255, 255, 255));
-        ButtonRollbackRecordCatalogues.setForeground(new java.awt.Color(255, 255, 255));
-        ButtonRollbackRecordCatalogues.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/Rollback.png"))); // NOI18N
-        ButtonRollbackRecordCatalogues.setBorder(null);
-        ButtonRollbackRecordCatalogues.setContentAreaFilled(false);
-        ButtonRollbackRecordCatalogues.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                ButtonRollbackRecordCataloguesMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                ButtonRollbackRecordCataloguesMouseExited(evt);
-            }
-        });
-        ButtonRollbackRecordCatalogues.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonRollbackRecordCataloguesActionPerformed(evt);
-            }
-        });
-        RecordCatalogues.add(ButtonRollbackRecordCatalogues, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 50));
+        RecordCatalogues.add(ButtonCancelRecordCatalogue, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 460, 100, 40));
 
         LabelUserType3.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         LabelUserType3.setForeground(new java.awt.Color(29, 41, 81));
@@ -2476,6 +2641,28 @@ public class Login extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ButtonEnterReportsZone1.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonEnterReportsZone1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        ButtonEnterReportsZone1.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonEnterReportsZone1.setText("Enter");
+        ButtonEnterReportsZone1.setBorder(null);
+        ButtonEnterReportsZone1.setContentAreaFilled(false);
+        ButtonEnterReportsZone1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonEnterReportsZone1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonEnterReportsZone1MouseExited(evt);
+            }
+        });
+        ButtonEnterReportsZone1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonEnterReportsZone1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ButtonEnterReportsZone1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 120, 30));
+
         AdminStatistics.addTab("Total records by classification", jPanel1);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -2505,7 +2692,7 @@ public class Login extends javax.swing.JFrame {
                 ButtonEnterReportsZoneActionPerformed(evt);
             }
         });
-        jPanel2.add(ButtonEnterReportsZone, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 120, 30));
+        jPanel2.add(ButtonEnterReportsZone, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 120, 30));
 
         BoxState.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         BoxState.setForeground(new java.awt.Color(29, 41, 81));
@@ -2545,6 +2732,27 @@ public class Login extends javax.swing.JFrame {
         LabelNewUsername4.setForeground(new java.awt.Color(29, 41, 81));
         LabelNewUsername4.setText("District:");
         jPanel2.add(LabelNewUsername4, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 20, 100, 30));
+
+        ButtonRefreshTotalRecordsByZone.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonRefreshTotalRecordsByZone.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        ButtonRefreshTotalRecordsByZone.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonRefreshTotalRecordsByZone.setText("Refresh");
+        ButtonRefreshTotalRecordsByZone.setBorder(null);
+        ButtonRefreshTotalRecordsByZone.setContentAreaFilled(false);
+        ButtonRefreshTotalRecordsByZone.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonRefreshTotalRecordsByZoneMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonRefreshTotalRecordsByZoneMouseExited(evt);
+            }
+        });
+        ButtonRefreshTotalRecordsByZone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonRefreshTotalRecordsByZoneActionPerformed(evt);
+            }
+        });
+        jPanel2.add(ButtonRefreshTotalRecordsByZone, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 120, 30));
 
         AdminStatistics.addTab("Total records by zone", jPanel2);
 
@@ -2783,7 +2991,7 @@ public class Login extends javax.swing.JFrame {
         LabelCommunityOffender.setBackground(new java.awt.Color(255, 255, 255));
         LabelCommunityOffender.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         LabelCommunityOffender.setForeground(new java.awt.Color(29, 41, 81));
-        LabelCommunityOffender.setText("Community:");
+        LabelCommunityOffender.setText("District:");
         JPCreateOffender.add(LabelCommunityOffender, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 310, 100, 30));
 
         LabelInstitutionOffender.setBackground(new java.awt.Color(255, 255, 255));
@@ -2844,10 +3052,10 @@ public class Login extends javax.swing.JFrame {
         BirthdayOffenderField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
         JPCreateOffender.add(BirthdayOffenderField, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 250, 130, 30));
 
-        BoxCommunityOffender.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
-        BoxCommunityOffender.setForeground(new java.awt.Color(29, 41, 81));
-        BoxCommunityOffender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
-        JPCreateOffender.add(BoxCommunityOffender, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 310, 170, 30));
+        BoxDistrictOffender.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
+        BoxDistrictOffender.setForeground(new java.awt.Color(29, 41, 81));
+        BoxDistrictOffender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        JPCreateOffender.add(BoxDistrictOffender, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 310, 170, 30));
 
         BoxInstitutionOffender.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
         BoxInstitutionOffender.setForeground(new java.awt.Color(29, 41, 81));
@@ -3036,7 +3244,7 @@ public class Login extends javax.swing.JFrame {
                 ButtonCancelNewRecordActionPerformed(evt);
             }
         });
-        JPCreateRecord.add(ButtonCancelNewRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 460, 100, 40));
+        JPCreateRecord.add(ButtonCancelNewRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 520, 100, 40));
 
         ButtonConfirmNewRecord.setBackground(new java.awt.Color(255, 255, 255));
         ButtonConfirmNewRecord.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
@@ -3057,7 +3265,7 @@ public class Login extends javax.swing.JFrame {
                 ButtonConfirmNewRecordActionPerformed(evt);
             }
         });
-        JPCreateRecord.add(ButtonConfirmNewRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 460, 100, 40));
+        JPCreateRecord.add(ButtonConfirmNewRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 520, 100, 40));
 
         IconCreateReacord.setBackground(new java.awt.Color(255, 255, 255));
         IconCreateReacord.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 18)); // NOI18N
@@ -3186,6 +3394,17 @@ public class Login extends javax.swing.JFrame {
         });
         JPCreateRecord.add(RemoveNewRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, 40, 40));
 
+        LabelCrimeType1.setBackground(new java.awt.Color(255, 255, 255));
+        LabelCrimeType1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelCrimeType1.setForeground(new java.awt.Color(29, 41, 81));
+        LabelCrimeType1.setText("District:");
+        JPCreateRecord.add(LabelCrimeType1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 100, 30));
+
+        BoxDistrictRecord.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
+        BoxDistrictRecord.setForeground(new java.awt.Color(29, 41, 81));
+        BoxDistrictRecord.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        JPCreateRecord.add(BoxDistrictRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 470, 120, 30));
+
         getContentPane().add(JPCreateRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
 
         UserQuery.setBackground(new java.awt.Color(255, 255, 255));
@@ -3216,13 +3435,6 @@ public class Login extends javax.swing.JFrame {
 
         NumberTopLine.setForeground(new java.awt.Color(29, 41, 81));
         PlacesMoreRecords.add(NumberTopLine, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 80, 20));
-
-        PlacesList.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
-        PlacesList.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        PlacesList.setForeground(new java.awt.Color(29, 41, 81));
-        jScrollPane1.setViewportView(PlacesList);
-
-        PlacesMoreRecords.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 450, 220));
 
         ButtonShowPlaces.setBackground(new java.awt.Color(255, 255, 255));
         ButtonShowPlaces.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -3257,6 +3469,22 @@ public class Login extends javax.swing.JFrame {
         });
         PlacesMoreRecords.add(ButtonRollbackQueryPlaces, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 50));
 
+        Table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        Table.setAutoscrolls(false);
+        jScrollPane13.setViewportView(Table);
+
+        PlacesMoreRecords.add(jScrollPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 520, 310));
+
         UserQuery.addTab("Places with more records", PlacesMoreRecords);
 
         Records.setBackground(new java.awt.Color(255, 255, 255));
@@ -3269,8 +3497,8 @@ public class Login extends javax.swing.JFrame {
 
         LabelChooseFilterRecords.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         LabelChooseFilterRecords.setForeground(new java.awt.Color(29, 41, 81));
-        LabelChooseFilterRecords.setText("Choose the filter:");
-        Records.add(LabelChooseFilterRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, 30));
+        LabelChooseFilterRecords.setText("End Date:");
+        Records.add(LabelChooseFilterRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, -1, 30));
 
         BoxFilter.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         BoxFilter.setForeground(new java.awt.Color(29, 41, 81));
@@ -3293,7 +3521,7 @@ public class Login extends javax.swing.JFrame {
                 ButtonShowRecordsActionPerformed(evt);
             }
         });
-        Records.add(ButtonShowRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 100, 30));
+        Records.add(ButtonShowRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 100, 30));
 
         jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
@@ -3311,7 +3539,7 @@ public class Login extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(RecordsList);
 
-        Records.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 40, 350, 150));
+        Records.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 350, 150));
 
         jScrollPane3.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
@@ -3321,17 +3549,7 @@ public class Login extends javax.swing.JFrame {
         RecordDescriptionText.setRows(5);
         jScrollPane3.setViewportView(RecordDescriptionText);
 
-        Records.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 240, 350, 190));
-
-        BoxStartDate.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        BoxStartDate.setForeground(new java.awt.Color(29, 41, 81));
-        BoxStartDate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Start Date" }));
-        Records.add(BoxStartDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, 30));
-
-        BoxFinishDate.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        BoxFinishDate.setForeground(new java.awt.Color(29, 41, 81));
-        BoxFinishDate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "End Date" }));
-        Records.add(BoxFinishDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, -1, 30));
+        Records.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, 350, 190));
 
         ButtonRollbackQueryRecords.setBackground(new java.awt.Color(255, 255, 255));
         ButtonRollbackQueryRecords.setForeground(new java.awt.Color(255, 255, 255));
@@ -3404,6 +3622,45 @@ public class Login extends javax.swing.JFrame {
         });
         Records.add(LeftPicShowRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 40, 40));
 
+        ButtonShowCatalogues.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonShowCatalogues.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ButtonShowCatalogues.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonShowCatalogues.setText("Refresh");
+        ButtonShowCatalogues.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
+        ButtonShowCatalogues.setContentAreaFilled(false);
+        ButtonShowCatalogues.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonShowCataloguesActionPerformed(evt);
+            }
+        });
+        Records.add(ButtonShowCatalogues, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 100, 30));
+
+        DateStartField.setBorder(null);
+        DateStartField.setForeground(new java.awt.Color(29, 41, 81));
+        DateStartField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        Records.add(DateStartField, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 110, 30));
+
+        LineDateCrime1.setForeground(new java.awt.Color(29, 41, 81));
+        Records.add(LineDateCrime1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 110, 20));
+
+        DateEndField.setBorder(null);
+        DateEndField.setForeground(new java.awt.Color(29, 41, 81));
+        DateEndField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        Records.add(DateEndField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 110, 30));
+
+        LineDateCrime3.setForeground(new java.awt.Color(29, 41, 81));
+        Records.add(LineDateCrime3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 110, 20));
+
+        LabelChooseFilterRecords1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        LabelChooseFilterRecords1.setForeground(new java.awt.Color(29, 41, 81));
+        LabelChooseFilterRecords1.setText("Choose the filter:");
+        Records.add(LabelChooseFilterRecords1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, 30));
+
+        LabelChooseFilterRecords2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        LabelChooseFilterRecords2.setForeground(new java.awt.Color(29, 41, 81));
+        LabelChooseFilterRecords2.setText("Start Date:");
+        Records.add(LabelChooseFilterRecords2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, 30));
+
         UserQuery.addTab("Records", Records);
 
         UsersList.setBackground(new java.awt.Color(255, 255, 255));
@@ -3413,16 +3670,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
         UsersList.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jScrollPane4.setBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
-        jScrollPane4.setForeground(new java.awt.Color(29, 41, 81));
-
-        ListUsers.setColumns(20);
-        ListUsers.setRows(5);
-        jScrollPane4.setViewportView(ListUsers);
-
-        UsersList.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, 260, 410));
 
         ButtonRollbackQueryUsers.setBackground(new java.awt.Color(255, 255, 255));
         ButtonRollbackQueryUsers.setForeground(new java.awt.Color(255, 255, 255));
@@ -3444,6 +3691,34 @@ public class Login extends javax.swing.JFrame {
         });
         UsersList.add(ButtonRollbackQueryUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 50));
 
+        ButtonShowUsers.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonShowUsers.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ButtonShowUsers.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonShowUsers.setText("Refresh");
+        ButtonShowUsers.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
+        ButtonShowUsers.setContentAreaFilled(false);
+        ButtonShowUsers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonShowUsersActionPerformed(evt);
+            }
+        });
+        UsersList.add(ButtonShowUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 110, 100, 30));
+
+        TableUsers.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(TableUsers);
+
+        UsersList.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, -1, -1));
+
         UserQuery.addTab("Users list", UsersList);
 
         BannedUsers.setBackground(new java.awt.Color(255, 255, 255));
@@ -3453,16 +3728,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
         BannedUsers.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jScrollPane5.setBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
-        jScrollPane5.setForeground(new java.awt.Color(29, 41, 81));
-
-        ListBannedUsers.setColumns(20);
-        ListBannedUsers.setRows(5);
-        jScrollPane5.setViewportView(ListBannedUsers);
-
-        BannedUsers.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 380, 410));
 
         ButtonRollbackQueryBanned.setBackground(new java.awt.Color(255, 255, 255));
         ButtonRollbackQueryBanned.setForeground(new java.awt.Color(255, 255, 255));
@@ -3483,6 +3748,34 @@ public class Login extends javax.swing.JFrame {
             }
         });
         BannedUsers.add(ButtonRollbackQueryBanned, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 50));
+
+        TableBanned.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(TableBanned);
+
+        BannedUsers.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, -1, -1));
+
+        ButtonShowBanned.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonShowBanned.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ButtonShowBanned.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonShowBanned.setText("Refresh");
+        ButtonShowBanned.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
+        ButtonShowBanned.setContentAreaFilled(false);
+        ButtonShowBanned.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonShowBannedActionPerformed(evt);
+            }
+        });
+        BannedUsers.add(ButtonShowBanned, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 110, 100, 30));
 
         UserQuery.addTab("Banned Users", BannedUsers);
 
@@ -3755,7 +4048,7 @@ public class Login extends javax.swing.JFrame {
         LabelCommunityUpdate.setBackground(new java.awt.Color(255, 255, 255));
         LabelCommunityUpdate.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         LabelCommunityUpdate.setForeground(new java.awt.Color(29, 41, 81));
-        LabelCommunityUpdate.setText("Community:");
+        LabelCommunityUpdate.setText("District:");
         UpdatePersonalInfo.add(LabelCommunityUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 280, 100, 30));
 
         LabelInstitutionUpdate.setBackground(new java.awt.Color(255, 255, 255));
@@ -4018,7 +4311,6 @@ public class Login extends javax.swing.JFrame {
         JPLogged.setVisible(true);
         JPLogin.setVisible(false);
         String exampleUsers[] = {"3D", "a5"};
-        ListUserWithoutChangePassword.setListData(exampleUsers);
         String exampleReports[] = {"3D", "a5"};
         NewReportList.setListData(exampleReports);
     }//GEN-LAST:event_ButtonAdminQueryActionPerformed
@@ -4272,7 +4564,7 @@ public class Login extends javax.swing.JFrame {
         String new_user_name = NameNewUserField.getText();
         String new_user_middle_name = MiddleNameNewUserField.getText();
         String new_user_last_name = LastNameNewUserField.getText();
-        Date new_user_birthday = new Date(BirthdayNewUser.getDateFormat());
+        String new_user_birthday = NewUserBirthday.getText();
         if(new_user.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Fill the username field.");
         } else if(new_user_password.isEmpty()) {
@@ -4292,13 +4584,15 @@ public class Login extends javax.swing.JFrame {
         } else if(BoxInstitutionNewUser.getSelectedIndex() == 0){
             JOptionPane.showMessageDialog(this, "Choose a valid option.");
         } else {
-            Person person = new Person(Integer.parseInt(new_user_id), new_user_name, new_user_middle_name, new_user_last_name, new_user_birthday, BoxGenderNewUser.getSelectedIndex(), BoxInstitutionNewUser.getSelectedIndex(), BoxNewUserCommunity.getSelectedIndex());
-            User user = new User(new_user, new_user_password, person);
+            
             try{
+                Person person = new Person(Integer.parseInt(new_user_id), new_user_name, new_user_middle_name, 
+                    new_user_last_name, new SimpleDateFormat("dd/MM/yyyy").parse(new_user_birthday),
+                    BoxGenderNewUser.getSelectedIndex(), BoxInstitutionNewUser.getSelectedIndex(), 
+                    BoxNewUserCommunity.getSelectedIndex());
+                User user = new User(new_user, new_user_password, person);
                 ConnectDB.insertUser(user);
-            }
-            catch(Exception e){}
-            JOptionPane.showMessageDialog(this, "The user was created successfully.");
+                JOptionPane.showMessageDialog(this, "The user was created successfully.");
             JPWelcome.setVisible(true);
             JPUserMenu.setVisible(false);
             JPAdminMenu.setVisible(false);
@@ -4315,6 +4609,10 @@ public class Login extends javax.swing.JFrame {
             UserConfiguration.setVisible(false);
             JPLogin.setVisible(true);
             JPLogged.setVisible(false);
+            }
+            catch(Exception e){
+                JOptionPane.showMessageDialog(this, "The user was NOT created successfully. Try again.");
+            }
         }
     }//GEN-LAST:event_ButtonJoinActionPerformed
 
@@ -4400,23 +4698,42 @@ public class Login extends javax.swing.JFrame {
         JPLogged.setVisible(true);
         UserQuery.setVisible(true);
         UserConfiguration.setVisible(false);
-        ListUsers.setText("Users with tabs");
-        ListBannedUsers.setText("Banned Users - Reason with tabs");
     }//GEN-LAST:event_UserQueryMouseEntered
 
+    @SuppressWarnings("empty-statement")
     private void ButtonShowPlacesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowPlacesActionPerformed
         String number_top = NumberTopField.getText();
         if(number_top.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Fill the field for show the top.");
+        }
+        else
+        {
+            DefaultTableModel modelo = (DefaultTableModel)Table.getModel();
+            modelo.setRowCount(0);
+            modelo.setColumnCount(0);
+            modelo.addColumn("District");
+            modelo.addColumn("Quantity");
+            try {
+            ResultSet dangerous_places = ConnectDB.query("APP","user_queries.dangerous_places", Integer.parseInt(number_top));
+            int i = 0;
+            while(dangerous_places.next())
+            {
+                modelo.addRow(new Object[]{dangerous_places.getObject("name_district"), 
+                    dangerous_places.getObject("quant_record")});
+            }
+            Table.setModel(modelo);
+            } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_ButtonShowPlacesActionPerformed
 
     private void ButtonShowRecordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowRecordsActionPerformed
         int index_category = BoxFilter.getSelectedIndex();
         int index_zone = BoxFilterSpecify.getSelectedIndex();
-        int index_start = BoxStartDate.getSelectedIndex();
-        int index_finish = BoxFinishDate.getSelectedIndex();
-        String filters [] = {BoxFilter.getItemAt(index_category), BoxFilterSpecify.getItemAt(index_zone), BoxStartDate.getItemAt(index_start), BoxFinishDate.getItemAt(index_finish)};
+        String index_start = DateStartField.getText();
+        String index_finish = DateEndField.getText();
+        String filters [] = {BoxFilter.getItemAt(index_category), BoxFilterSpecify.getItemAt(index_zone), index_start, index_finish};
         String newFilters [] = {};
         for(int i = 0; i <= filters.length; i++) {
             if(filters[i] == "Default" || filters[i] == "Start Date" || filters[i] == "Finish Date") {
@@ -4460,7 +4777,7 @@ public class Login extends javax.swing.JFrame {
         JPCreateOffender.setVisible(true);
         JPLogged.setVisible(true);
         try {
-            fillInComboBox_signIn();
+            fillInComboBox_Offender();
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -4545,9 +4862,9 @@ public class Login extends javax.swing.JFrame {
         NameOffenderField.setText(null);
         MiddleNameOffenderField.setText(null);
         LastNameOffenderField.setText(null);
-        BirthdayNewUser.getModel().setDate(Calendar.getInstance().get(Calendar.DAY_OF_MONTH),Calendar.getInstance().get(Calendar.MONTH),Calendar.getInstance().get(Calendar.YEAR));
+        BirthdayOffenderField.setText(null);
         BoxGenderOffender.setSelectedIndex(0);
-        BoxCommunityOffender.setSelectedIndex(0);
+        BoxDistrictOffender.setSelectedIndex(0);
         BoxInstitutionOffender.setSelectedIndex(0);
     }//GEN-LAST:event_ButtonCancelOffenderActionPerformed
 
@@ -4577,7 +4894,7 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Fill the birthday field.");
         } else if(BoxGenderOffender.getSelectedIndex() == 0){
             JOptionPane.showMessageDialog(this, "Choose a valid option.");
-        } else if(BoxCommunityOffender.getSelectedIndex() == 0){
+        } else if(BoxDistrictOffender.getSelectedIndex() == 0){
             JOptionPane.showMessageDialog(this, "Choose a valid option.");
         } else if(BoxInstitutionOffender.getSelectedIndex() == 0){
             JOptionPane.showMessageDialog(this, "Choose a valid option.");
@@ -4634,7 +4951,7 @@ public class Login extends javax.swing.JFrame {
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
         NumberTopField.setText(null);
-        PlacesList.removeAll();
+        Table.removeAll();
     }//GEN-LAST:event_ButtonRollbackQueryPlacesActionPerformed
 
     private void ButtonRollbackQueryRecordsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryRecordsMouseEntered
@@ -4665,8 +4982,8 @@ public class Login extends javax.swing.JFrame {
         RecordDescriptionText.setText(null);
         BoxFilter.setSelectedIndex(0);
         BoxFilterSpecify.setSelectedIndex(0);
-        BoxStartDate.setSelectedIndex(0);
-        BoxFinishDate.setSelectedIndex(0);
+        DateStartField.setText(null);
+        DateEndField.setText(null);
     }//GEN-LAST:event_ButtonRollbackQueryRecordsActionPerformed
 
     private void ButtonRollbackQueryUsersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryUsersMouseEntered
@@ -4901,9 +5218,10 @@ public class Login extends javax.swing.JFrame {
         NameOffenderField.setText(null);
         MiddleNameOffenderField.setText(null);
         LastNameOffenderField.setText(null);
-        BirthdayNewUser.getModel().setDate(Calendar.getInstance().get(Calendar.DAY_OF_MONTH),Calendar.getInstance().get(Calendar.MONTH),Calendar.getInstance().get(Calendar.YEAR));
+        DateCrimeField.setText(null);
+        ExpireDateField.setText(null);
         BoxGenderOffender.setSelectedIndex(0);
-        BoxCommunityOffender.setSelectedIndex(0);
+        BoxDistrictOffender.setSelectedIndex(0);
         BoxInstitutionOffender.setSelectedIndex(0);
     }//GEN-LAST:event_ButtonCancelNewRecordActionPerformed
 
@@ -4921,6 +5239,9 @@ public class Login extends javax.swing.JFrame {
         String date_crime = DateCrimeField.getText();
         String expire_date = ExpireDateField.getText();
         String resolution = ResolutionField.getText();
+        String approved = "N";
+        String[] pictures = null; //Moficar para que aquí reciba los paths de las fotos
+        ArrayList<Pictures> pics = null;
         if(number_record.isEmpty()){
             JOptionPane.showMessageDialog(this, "Fill the number of the record field.");
         } else if(crime_description.isEmpty()){
@@ -4937,24 +5258,44 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Choose a valid option.");
         } else if(BoxVeredict.getSelectedIndex() == 0){
             JOptionPane.showMessageDialog(this, "Choose a valid option.");
+        } else if(BoxDistrictRecord.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(this, "Choose a valid option.");
         } else {
-            JOptionPane.showMessageDialog(this, "The record was created successfully in the system.");
-            JPAdminMenu.setVisible(true);
-            AdminQuery.setVisible(false);
-            AdminConfiguration.setVisible(false);
-            UserCatalogues.setVisible(false);
-            PersonCatalogues.setVisible(false);
-            RecordCatalogues.setVisible(false);
-            AdminStatistics.setVisible(false);
-            JPUserMenu.setVisible(false);
-            JPWelcome.setVisible(false);
-            JPSignUp.setVisible(false);
-            UserQuery.setVisible(false);
-            UserConfiguration.setVisible(false);
-            JPCreateRecord.setVisible(false);
-            JPCreateOffender.setVisible(false);
-            JPLogin.setVisible(false);
-            JPLogged.setVisible(true);
+            try{
+                if(CheckBoxApproved.isSelected())
+                {
+                    approved = "Y";
+                }
+                var record = new BL.Record(number_record, crime_description, new SimpleDateFormat("dd/MM/yyyy").parse(date_crime),
+                        resolution, new SimpleDateFormat("dd/MM/yyyy").parse(expire_date), approved, BoxCrimeType.getSelectedIndex(), 
+                        BoxOffender.getSelectedIndex(), BoxVeredict.getSelectedIndex(), BoxDistrictRecord.getSelectedIndex());
+                
+                ConnectDB.insert_record(record);
+                for(String picture : pictures)
+                {
+                    Pictures pic = new BL.Pictures(picture,number_record);
+                    pics.add(pic);
+                    ConnectDB.insert_picture(pic);
+                }
+                JOptionPane.showMessageDialog(this, "The record was created successfully in the system.");
+                JPAdminMenu.setVisible(true);
+                AdminQuery.setVisible(false);
+                AdminConfiguration.setVisible(false);
+                UserCatalogues.setVisible(false);
+                PersonCatalogues.setVisible(false);
+                RecordCatalogues.setVisible(false);
+                AdminStatistics.setVisible(false);
+                JPUserMenu.setVisible(false);
+                JPWelcome.setVisible(false);
+                JPSignUp.setVisible(false);
+                UserQuery.setVisible(false);
+                UserConfiguration.setVisible(false);
+                JPCreateRecord.setVisible(false);
+                JPCreateOffender.setVisible(false);
+                JPLogin.setVisible(false);
+                JPLogged.setVisible(true);
+            }
+            catch(Exception e){}
         }
     }//GEN-LAST:event_ButtonConfirmNewRecordActionPerformed
 
@@ -5003,7 +5344,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_AddNewRecordMouseExited
 
     private void AddNewRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddNewRecordActionPerformed
-        // TODO add your handling code here:
+
+        
     }//GEN-LAST:event_AddNewRecordActionPerformed
 
     private void PictureNewRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PictureNewRecordActionPerformed
@@ -5185,30 +5527,78 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonConfirmChangesUpdatePersonalInfoMouseExited
 
     private void ButtonConfirmChangesUpdatePersonalInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmChangesUpdatePersonalInfoActionPerformed
-        String new_username = UpdateUsernameField.getText();
-        String actual_password = (String) JOptionPane.showInputDialog(null,"Current password: ",JOptionPane.QUESTION_MESSAGE);
-        //Que revise si es la contraseña igual y set en la base de datos
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPUserMenu.setVisible(true);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        JPCreateRecord.setVisible(false);
-        JPCreateOffender.setVisible(false);
-        JPLogin.setVisible(false);
-        JPLogged.setVisible(true);
+        String id = IdUpdateField.getText();
+        String name = NameUpdateField.getText();
+        String middle_name = MiddleNameUpdateField.getText();
+        String last_name = LastNameUpdateField.getText();
+        String birthday = BirthdayUpdateField.getText();
+        if(id.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Fill the id of the person field.");
+        } else if(name.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Fill the name of the person field.");
+        } else if(middle_name.isEmpty()){
+            middle_name = null;
+        } else if(last_name.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Fill the expire date field.");
+        }else if(BoxGenderUpdate.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(this, "Choose a valid option.");
+        } else if(BoxCommunityUpdate.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(this, "Choose a valid option.");
+        } else if(BoxInstitutionUpdate.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(this, "Choose a valid option.");
+        } else {
+            try{
+                Person person = new Person(Integer.parseInt(id), name, middle_name, 
+                        last_name, new SimpleDateFormat("dd/MM/yyyy").parse(birthday), 
+                        BoxGenderUpdate.getSelectedIndex(), BoxInstitutionUpdate.getSelectedIndex(), 
+                        BoxCommunityUpdate.getSelectedIndex());
+                ConnectDB.insert_person(person);
+                JOptionPane.showMessageDialog(this, "The person was updated successfully in the system.");
+                JPAdminMenu.setVisible(false);
+                AdminQuery.setVisible(false);
+                AdminConfiguration.setVisible(false);
+                UserCatalogues.setVisible(false);
+                PersonCatalogues.setVisible(false);
+                RecordCatalogues.setVisible(false);
+                AdminStatistics.setVisible(false);
+                JPUserMenu.setVisible(true);
+                JPWelcome.setVisible(false);
+                JPSignUp.setVisible(false);
+                UserQuery.setVisible(false);
+                UserConfiguration.setVisible(false);
+                JPCreateRecord.setVisible(false);
+                JPCreateOffender.setVisible(false);
+                JPLogin.setVisible(false);
+                JPLogged.setVisible(true);
+            }
+            catch(Exception e){
+                JOptionPane.showMessageDialog(this, "The person was NOT updated successfully in the system. Try again");
+            }
+        }
     }//GEN-LAST:event_ButtonConfirmChangesUpdatePersonalInfoActionPerformed
 
     private void ButtonShowFilteredUserListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowFilteredUserListActionPerformed
-        ListUserWithoutChangePassword.removeAll();
-        //Meter los datos a la lista
+        TableUsersPassword.removeAll();
+        try {
+            ResultSet all = ConnectDB.query("APP", "admin_queries.password_not_changed");
+            DefaultTableModel modelo = (DefaultTableModel)TableUsersPassword.getModel();
+            modelo.addColumn("Username");
+            modelo.addColumn("Days");
+            modelo.addColumn("Name");
+            modelo.addColumn("Last Name");
+            modelo.addColumn("Id");
+            while(all.next())
+            {
+                modelo.addRow(new Object[]{all.getString("name_district")});
+                BoxFilterIdPerson.addItem(all.getString("id"));
+                BoxFilterNamePerson.addItem(all.getString("name"));
+                BoxFilterLastNamePerson.addItem(all.getString("last_name"));
+                BoxFilterUsernamePerson.addItem(all.getString("username"));   
+            }
+            TableUsersPassword.setModel(modelo);
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_ButtonShowFilteredUserListActionPerformed
 
     private void PictureNewReportListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PictureNewReportListActionPerformed
@@ -5293,7 +5683,7 @@ public class Login extends javax.swing.JFrame {
         JPCreateOffender.setVisible(false);
         JPLogin.setVisible(false);
         JPLogged.setVisible(true);
-        ListUserWithoutChangePassword.removeAll();
+        TableUsersPassword.removeAll();
     }//GEN-LAST:event_ButtonRollbackUserListNotChangePasswordActionPerformed
 
     private void AdminQueryMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AdminQueryMouseEntered
@@ -5311,9 +5701,9 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_AdminQueryMouseEntered
 
     private void ButtonLogUserListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonLogUserListActionPerformed
-        int index_start = BoxStartDate.getSelectedIndex();
-        int index_finish = BoxFinishDate.getSelectedIndex();
-        String filters [] = {BoxStartDate.getItemAt(index_start), BoxFinishDate.getItemAt(index_finish)};
+        String dateStart = DateStartField.getText();
+        String dateFinish = DateEndField.getText();
+        String filters [] = {dateStart, dateFinish};
         String newFilters [] = {};
         for(int i = 0; i <= filters.length; i++) {
             if(filters[i] == "Start Date" || filters[i] == "FinishDate") {
@@ -5409,27 +5799,57 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonConfirmChangesAdminMouseExited
 
     private void ButtonConfirmChangesAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmChangesAdminActionPerformed
-        String actual_username = Username.getText();
+        String actual_username = ActualUsername.getText();
         String new_username = AdminUpdateUsernameField.getText();
-        String actual_password = (String) JOptionPane.showInputDialog(null,"Current password: ",JOptionPane.QUESTION_MESSAGE);
-        //Que revise si es la contraseña igual y set en la base de datos
-        JPAdminMenu.setVisible(true);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPUserMenu.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        JPCreateRecord.setVisible(false);
-        JPCreateOffender.setVisible(false);
-        JPLogin.setVisible(false);
-        JPLogged.setVisible(true);
-        Username.setText(new_username);
+        String password = (String) JOptionPane.showInputDialog(null,"Current password: ",JOptionPane.QUESTION_MESSAGE);
+        String newPassword = AdminUpdatePasswordField.getText();
+        int newType = BoxAdminUserTypeUpdate.getSelectedIndex();
+        if(actual_username.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Fill the actual username field.");
+        } else if(new_username.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Fill the new username field.");
+        } else if(password.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Fill the password field.");
+        } else if(newPassword.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Fill the new pasword field.");
+        } else if(newType == 0){
+            JOptionPane.showMessageDialog(this, "Fill the new type field.");    
+        } else {
+             try{
+                if(ConnectDB.checkLogin(actual_username, password) == -1)
+                {
+                    JOptionPane.showMessageDialog(this, "Incorrect Username or password.");
+                }
+                else
+                {
+                    ConnectDB.editUserPassword(actual_username, password, newPassword);
+                    ConnectDB.editUserType(actual_username,newType);
+                    ConnectDB.editUsername(actual_username, new_username);
+                    JOptionPane.showMessageDialog(this, "The user was updated successfully in the system.");
+                    Animacion.Animacion.mover_derecha(290, 1100, 1, 1, JPCreateOffender);
+                    JPAdminMenu.setVisible(true);
+                    AdminQuery.setVisible(false);
+                    AdminConfiguration.setVisible(false);
+                    UserCatalogues.setVisible(false);
+                    PersonCatalogues.setVisible(false);
+                    RecordCatalogues.setVisible(false);
+                    AdminStatistics.setVisible(false);
+                    JPUserMenu.setVisible(false);
+                    JPWelcome.setVisible(false);
+                    JPSignUp.setVisible(false);
+                    UserQuery.setVisible(false);
+                    UserConfiguration.setVisible(false);
+                    JPCreateRecord.setVisible(false);
+                    JPCreateOffender.setVisible(false);
+                    JPLogin.setVisible(false);
+                    JPLogged.setVisible(true);
+                    Username.setText(new_username);
+                }
+            }
+            catch(Exception e){
+                JOptionPane.showMessageDialog(this, "The user was NOT updated successfully. Try again.");
+            }
+        }
     }//GEN-LAST:event_ButtonConfirmChangesAdminActionPerformed
 
     private void ButtonCancelUpdatesAdminInfoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelUpdatesAdminInfoMouseEntered
@@ -5468,25 +5888,57 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonConfirmChangesUpdateAdminPersonalInfoMouseExited
 
     private void ButtonConfirmChangesUpdateAdminPersonalInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmChangesUpdateAdminPersonalInfoActionPerformed
-        String actual_username = Username.getText();
-        String actual_password = (String) JOptionPane.showInputDialog(null,"Current password: ",JOptionPane.QUESTION_MESSAGE);
-        //Que revise si es la contraseña igual y set en la base de datos
-        JPAdminMenu.setVisible(true);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPUserMenu.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        JPCreateRecord.setVisible(false);
-        JPCreateOffender.setVisible(false);
-        JPLogin.setVisible(false);
-        JPLogged.setVisible(true);
+        String id = UpdateAdminIdField.getText();
+        String new_name = UpdateAdminNameField.getText();
+        String new_middle_name = UpdateAdminMiddleNameField.getText();
+        String new_last_name = UpdateAdminLastNameField.getText();
+        String new_birthday = UpdateAdminBirthdayField.getText();
+        if(id.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Fill the id field.");
+        } else if(new_name.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Fill the name field.");
+        } else if(new_middle_name.isEmpty()){
+            new_middle_name = null;
+        } else if(new_last_name.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Fill the last name field.");
+        } else if(new_birthday.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Fill the birthday field.");
+        } else if(BoxGenderAdminUpdate.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(this, "Choose a valid option.");
+        } else if(BoxDistrictAdminUpdate.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(this, "Choose a valid option.");
+        } else if(BoxInstitutionAdminUpdate.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(this, "Choose a valid option.");
+        } else {
+             try{
+                Person person = new Person(Integer.parseInt(id), new_name, new_middle_name, 
+                        new_last_name, new SimpleDateFormat("dd/MM/yyyy").parse(new_birthday), 
+                        BoxGenderAdminUpdate.getSelectedIndex(), BoxInstitutionAdminUpdate.getSelectedIndex(), 
+                        BoxDistrictAdminUpdate.getSelectedIndex());
+                ConnectDB.update_person(person);
+                JOptionPane.showMessageDialog(this, "The person was updated successfully in the system.");
+                Animacion.Animacion.mover_derecha(290, 1100, 1, 1, JPCreateOffender);
+                JPAdminMenu.setVisible(true);
+                AdminQuery.setVisible(false);
+                AdminConfiguration.setVisible(false);
+                UserCatalogues.setVisible(false);
+                PersonCatalogues.setVisible(false);
+                RecordCatalogues.setVisible(false);
+                AdminStatistics.setVisible(false);
+                JPUserMenu.setVisible(false);
+                JPWelcome.setVisible(false);
+                JPSignUp.setVisible(false);
+                UserQuery.setVisible(false);
+                UserConfiguration.setVisible(false);
+                JPCreateRecord.setVisible(false);
+                JPCreateOffender.setVisible(false);
+                JPLogin.setVisible(false);
+                JPLogged.setVisible(true);
+            }
+            catch(Exception e){
+                JOptionPane.showMessageDialog(this, "The person was NOT updated successfully. Try again.");
+            }
+        }
     }//GEN-LAST:event_ButtonConfirmChangesUpdateAdminPersonalInfoActionPerformed
 
     private void ButtonRollbackCataloguesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackCataloguesMouseEntered
@@ -5552,7 +6004,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonBanUserMouseExited
 
     private void ButtonBanUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBanUserActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_ButtonBanUserActionPerformed
 
     private void PictureUnapprovedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PictureUnapprovedActionPerformed
@@ -5616,9 +6068,14 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonConfirmUnapprovedMouseExited
 
     private void ButtonConfirmUnapprovedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmUnapprovedActionPerformed
-        String actual_username = Username.getText();
-        String actual_password = (String) JOptionPane.showInputDialog(null,"Password: ",JOptionPane.QUESTION_MESSAGE);
-        //Que revise si es la contraseña igual y set en la base de datos
+        if(CheckBoxApprovedOrNot.isSelected())
+        {
+            try {
+                ConnectDB.approve_record(ListUnapprovedRecords.getSelectedValue());
+            } catch (SQLException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         JPAdminMenu.setVisible(true);
         AdminQuery.setVisible(false);
         AdminConfiguration.setVisible(false);
@@ -5638,27 +6095,22 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonConfirmUnapprovedActionPerformed
 
     private void ButtonConfirmUserCatalogueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmUserCatalogueActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ButtonConfirmUserCatalogueActionPerformed
-
-    private void ButtonCancelUserCatalogueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelUserCatalogueActionPerformed
-        JPAdminMenu.setVisible(true);
+        JPAdminMenu.setVisible(false);
         AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
+        AdminConfiguration.setVisible(true);
         UserCatalogues.setVisible(false);
         PersonCatalogues.setVisible(false);
         RecordCatalogues.setVisible(false);
         AdminStatistics.setVisible(false);
-        JPUserMenu.setVisible(false);
         JPWelcome.setVisible(false);
         JPSignUp.setVisible(false);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
+        JPLogin.setVisible(false);
         JPCreateRecord.setVisible(false);
         JPCreateOffender.setVisible(false);
-        JPLogin.setVisible(false);
         JPLogged.setVisible(true);
-    }//GEN-LAST:event_ButtonCancelUserCatalogueActionPerformed
+    }//GEN-LAST:event_ButtonConfirmUserCatalogueActionPerformed
 
     private void AddUserTypeCatalogueMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddUserTypeCatalogueMouseEntered
         AddUserTypeCatalogue.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
@@ -5692,58 +6144,65 @@ public class Login extends javax.swing.JFrame {
         ButtonConfirmUserCatalogue.setBorder(null);
     }//GEN-LAST:event_ButtonConfirmUserCatalogueMouseExited
 
-    private void ButtonCancelUserCatalogueMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelUserCatalogueMouseEntered
-        ButtonCancelUserCatalogue.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
-    }//GEN-LAST:event_ButtonCancelUserCatalogueMouseEntered
-
-    private void ButtonCancelUserCatalogueMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelUserCatalogueMouseExited
-        ButtonCancelUserCatalogue.setBorder(null);
-    }//GEN-LAST:event_ButtonCancelUserCatalogueMouseExited
-
     private void AddUserTypeCatalogueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddUserTypeCatalogueActionPerformed
         String new_user_type = (String) JOptionPane.showInputDialog(null,"New user type: ",JOptionPane.QUESTION_MESSAGE);
-        //Agregarlo a la base
+        UserType usertype = new UserType(new_user_type);
+        try {
+            ConnectDB.insertUserType(usertype);
+            JOptionPane.showMessageDialog(this, "The user type was created successfully.");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "The user type was NOT created successfully. Try again.");
+        }
     }//GEN-LAST:event_AddUserTypeCatalogueActionPerformed
 
     private void RemoveUserTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveUserTypeActionPerformed
         int index_usertype = BoxModifyUserType.getSelectedIndex();
-        String usertype = BoxModifyUserType.getItemAt(index_usertype);
-        //Borrar de la base 
+        try {
+            ConnectDB.delete("ADM", "adminUser.removeUserType", index_usertype);
+            JOptionPane.showMessageDialog(this, "The user type was deleted successfully.");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "The user type was NOT deleted successfully. Try again.");
+        }
     }//GEN-LAST:event_RemoveUserTypeActionPerformed
 
     private void AddBannedReasonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddBannedReasonActionPerformed
         String new_banned_reason = (String) JOptionPane.showInputDialog(null,"New banned reason: ",JOptionPane.QUESTION_MESSAGE);
-        //Agregarlo a la base
+        BannedReason banned_reason = new BannedReason(new_banned_reason);
+        try {
+            ConnectDB.insertBannedReason(banned_reason);
+            JOptionPane.showMessageDialog(this, "The banned reason was created successfully.");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "The banned reason was NOT created successfully. Try again.");
+        }
     }//GEN-LAST:event_AddBannedReasonActionPerformed
 
     private void RemoveBannedReasonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveBannedReasonActionPerformed
         int index_bannedReason = BoxModifyBannedReason.getSelectedIndex();
-        String usertype = BoxModifyBannedReason.getItemAt(index_bannedReason);
-        //Borrar de la base 
+       try {
+            ConnectDB.delete("ADM", "adminUser.removeBannedReason", index_bannedReason);
+            JOptionPane.showMessageDialog(this, "The banned reason was deleted successfully.");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "The banned reason was NOT deleted successfully. Try again.");
+        }
     }//GEN-LAST:event_RemoveBannedReasonActionPerformed
 
     private void ButtonConfirmPersonCatalogueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmPersonCatalogueActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ButtonConfirmPersonCatalogueActionPerformed
-
-    private void ButtonCancelPersonCatalogueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelPersonCatalogueActionPerformed
-        JPAdminMenu.setVisible(true);
+        JPAdminMenu.setVisible(false);
         AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
+        AdminConfiguration.setVisible(true);
         UserCatalogues.setVisible(false);
         PersonCatalogues.setVisible(false);
         RecordCatalogues.setVisible(false);
         AdminStatistics.setVisible(false);
-        JPUserMenu.setVisible(false);
         JPWelcome.setVisible(false);
         JPSignUp.setVisible(false);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
+        JPLogin.setVisible(false);
         JPCreateRecord.setVisible(false);
         JPCreateOffender.setVisible(false);
-        JPLogin.setVisible(false);
         JPLogged.setVisible(true);
-    }//GEN-LAST:event_ButtonCancelPersonCatalogueActionPerformed
+    }//GEN-LAST:event_ButtonConfirmPersonCatalogueActionPerformed
 
     private void AddGenderMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddGenderMouseEntered
         AddGender.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
@@ -5829,93 +6288,154 @@ public class Login extends javax.swing.JFrame {
         ButtonConfirmPersonCatalogue.setBorder(null);
     }//GEN-LAST:event_ButtonConfirmPersonCatalogueMouseExited
 
-    private void ButtonCancelPersonCatalogueMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelPersonCatalogueMouseEntered
-        ButtonCancelPersonCatalogue.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
-    }//GEN-LAST:event_ButtonCancelPersonCatalogueMouseEntered
-
-    private void ButtonCancelPersonCatalogueMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelPersonCatalogueMouseExited
-        ButtonCancelPersonCatalogue.setBorder(null);
-    }//GEN-LAST:event_ButtonCancelPersonCatalogueMouseExited
-
     private void AddGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddGenderActionPerformed
         String new_gender = (String) JOptionPane.showInputDialog(null,"New gender: ",JOptionPane.QUESTION_MESSAGE);
-        //Agregarlo a la base
+        Gender gender = new Gender(new_gender);
+        try {
+            ConnectDB.insert_gender(gender);
+            JOptionPane.showMessageDialog(this, "The gender was created successfully.");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "The gender was NOT created successfully. Try again.");
+        }
     }//GEN-LAST:event_AddGenderActionPerformed
 
     private void RemoveGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveGenderActionPerformed
         int index_gender = BoxModifyGender.getSelectedIndex();
-        String gender = BoxModifyGender.getItemAt(index_gender);
-        //Borrar de la base
+        try {
+            ConnectDB.delete("APP", "admin_gender.remove_gender", index_gender);
+            JOptionPane.showMessageDialog(this, "The gender was deleted successfully.");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "The gender was NOT deleted successfully. Try again.");
+        }
     }//GEN-LAST:event_RemoveGenderActionPerformed
 
     private void AddInstitutionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddInstitutionActionPerformed
         String new_institution= (String) JOptionPane.showInputDialog(null,"New institution: ",JOptionPane.QUESTION_MESSAGE);
-        //Agregarlo a la base
+        Institution institution = new Institution(new_institution);
+        try {
+            ConnectDB.insert_institution(institution);
+            JOptionPane.showMessageDialog(this, "The institution was created successfully.");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "The institution was NOT created successfully. Try again.");
+        }
     }//GEN-LAST:event_AddInstitutionActionPerformed
 
     private void RemoveInstitutionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveInstitutionActionPerformed
         int index_institution = BoxModifyInstitution.getSelectedIndex();
-        String institution = BoxModifyInstitution.getItemAt(index_institution);
-        //Borrar de la base
+        try {
+            ConnectDB.delete("APP", "admin_institution.remove_institution", index_institution);
+            JOptionPane.showMessageDialog(this, "The institutions was deleted successfully.");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "The institutions was NOT deleted successfully. Try again.");
+        }
     }//GEN-LAST:event_RemoveInstitutionActionPerformed
 
     private void AddCountryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddCountryActionPerformed
         String new_country = (String) JOptionPane.showInputDialog(null,"New country: ",JOptionPane.QUESTION_MESSAGE);
-        //Agregarlo a la base
+        Country country = new Country(new_country);
+        try {
+            ConnectDB.insert_country(country);
+            JOptionPane.showMessageDialog(this, "The country was created successfully. Try again.");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "The country was NOT created successfully. Try again.");
+        }
     }//GEN-LAST:event_AddCountryActionPerformed
 
     private void RemoveCountryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveCountryActionPerformed
         int index_country = BoxModifyCountry.getSelectedIndex();
-        String country = BoxModifyCountry.getItemAt(index_country);
-        //Borrar de la base
+        try {
+            ConnectDB.delete("APP", "admin_country.remove_country", index_country);
+            JOptionPane.showMessageDialog(this, "The country was deleted successfully. Try again.");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "The country was NOT deleted successfully. Try again.");
+        }
     }//GEN-LAST:event_RemoveCountryActionPerformed
 
     private void AddStateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddStateActionPerformed
         String new_state = (String) JOptionPane.showInputDialog(null,"New state: ",JOptionPane.QUESTION_MESSAGE);
-        //Agregarlo a la base
+        if(JOptionPane.showConfirmDialog(null,"The state will be added with the country selected",
+                "WARNING", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
+        {
+            int country_index = BoxModifyCountry.getSelectedIndex();
+            if(country_index != 0)
+            {
+                State state = new State(new_state, country_index);
+                try {
+                    ConnectDB.insert_state(state);
+                    JOptionPane.showMessageDialog(this, "The state was created successfully. Try again.");
+                } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, "The state was NOT created successfully. Try again.");
+                }
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Please select a Country. And try again.");
+            }
+        }
     }//GEN-LAST:event_AddStateActionPerformed
 
     private void RemoveStateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveStateActionPerformed
         int index_state = BoxModifyState.getSelectedIndex();
-        String state = BoxModifyState.getItemAt(index_state);
-        //Borrar de la base
+        try {
+            ConnectDB.delete("APP", "admin_state.remove_state", index_state);
+            JOptionPane.showMessageDialog(this, "The state was deleted successfully. Try again.");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "The state was NOT deleted successfully. Try again.");
+        }
     }//GEN-LAST:event_RemoveStateActionPerformed
 
     private void AddCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddCityActionPerformed
         String new_city = (String) JOptionPane.showInputDialog(null,"New city: ",JOptionPane.QUESTION_MESSAGE);
-        //Agregarlo a la base
+        if(JOptionPane.showConfirmDialog(null,"The city will be added with the State selected",
+                "WARNING", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
+        {
+            int state_index = BoxModifyState.getSelectedIndex();
+            if(state_index != 0)
+            {
+                City city = new City(new_city, state_index);
+                try {
+                    ConnectDB.insert_city(city);
+                    JOptionPane.showMessageDialog(this, "The city was created successfully. Try again.");
+                } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, "The city was NOT created successfully. Try again.");
+                }
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Please select a State. And try again.");
+            }
+        }
     }//GEN-LAST:event_AddCityActionPerformed
 
     private void RemoveCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveCityActionPerformed
         int index_city = BoxModifyCity.getSelectedIndex();
-        String city = BoxModifyCity.getItemAt(index_city);
-        //Borrar de la base
+        try {
+            ConnectDB.delete("APP", "admin_city.remove_city", index_city);
+            JOptionPane.showMessageDialog(this, "The city was deleted successfully. Try again.");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "The city was NOT deleted successfully. Try again.");
+        }
     }//GEN-LAST:event_RemoveCityActionPerformed
 
     private void RemoveCityMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RemoveCityMouseExited
         RemoveCity.setBorder(null);
     }//GEN-LAST:event_RemoveCityMouseExited
 
-    private void ButtonConfirmRecordCatalogueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmRecordCatalogueActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ButtonConfirmRecordCatalogueActionPerformed
-
     private void ButtonCancelRecordCatalogueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelRecordCatalogueActionPerformed
-        JPAdminMenu.setVisible(true);
+        JPAdminMenu.setVisible(false);
         AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
+        AdminConfiguration.setVisible(true);
         UserCatalogues.setVisible(false);
         PersonCatalogues.setVisible(false);
         RecordCatalogues.setVisible(false);
         AdminStatistics.setVisible(false);
-        JPUserMenu.setVisible(false);
         JPWelcome.setVisible(false);
         JPSignUp.setVisible(false);
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
+        JPLogin.setVisible(false);
         JPCreateRecord.setVisible(false);
         JPCreateOffender.setVisible(false);
-        JPLogin.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonCancelRecordCatalogueActionPerformed
 
@@ -5951,14 +6471,6 @@ public class Login extends javax.swing.JFrame {
         RemoveTypeSentence.setBorder(null);
     }//GEN-LAST:event_RemoveTypeSentenceMouseExited
 
-    private void ButtonConfirmRecordCatalogueMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonConfirmRecordCatalogueMouseEntered
-        ButtonConfirmRecordCatalogue.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
-    }//GEN-LAST:event_ButtonConfirmRecordCatalogueMouseEntered
-
-    private void ButtonConfirmRecordCatalogueMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonConfirmRecordCatalogueMouseExited
-        ButtonConfirmRecordCatalogue.setBorder(null);
-    }//GEN-LAST:event_ButtonConfirmRecordCatalogueMouseExited
-
     private void ButtonCancelRecordCatalogueMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelRecordCatalogueMouseEntered
         ButtonCancelRecordCatalogue.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
     }//GEN-LAST:event_ButtonCancelRecordCatalogueMouseEntered
@@ -5968,8 +6480,14 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonCancelRecordCatalogueMouseExited
 
     private void AddTypeCrimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddTypeCrimeActionPerformed
-        String new_type_crime = (String) JOptionPane.showInputDialog(null,"New type crime: ",JOptionPane.QUESTION_MESSAGE);
-        //Agregarlo a la base
+        String new_type = (String) JOptionPane.showInputDialog(null,"New type crime: ",JOptionPane.QUESTION_MESSAGE);
+        var type = new Types(" ");
+        try {
+            ConnectDB.insert_type(type);
+            JOptionPane.showMessageDialog(this, "The type was created successfully.");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "The type was NOT created successfully. Try again.");
+        }
     }//GEN-LAST:event_AddTypeCrimeActionPerformed
 
     private void RemoveTypeCrimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveTypeCrimeActionPerformed
@@ -6010,7 +6528,22 @@ public class Login extends javax.swing.JFrame {
             }
         }
         filters = newFilters;
-        //Aquí es donde se llama la función de la base de datos con los filtros y se agrega en la lista los valores
+        try {
+            ResultSet records = ConnectDB.query("ADM","statics.records_clasification");
+            DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+            float per = 0;
+            while(records.next())
+            {
+                per = records.getFloat("percentage");
+                dataset.addValue(new Double(per),records.getString("name"), "Quantity");
+            }
+            var chart = ChartFactory.createBarChart("Records by zone", "Zones", "Quantity",dataset, PlotOrientation.VERTICAL, 
+                    true,true, false);
+            ChartPanel panel = new ChartPanel(chart);
+            jPanel1.add(panel);
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
         String example[] = {"3D", "a5"};
         RecordsList.setListData(example);
     }//GEN-LAST:event_ButtonEnterReportsZoneActionPerformed
@@ -6099,6 +6632,11 @@ public class Login extends javax.swing.JFrame {
         JPCreateRecord.setVisible(false);
         JPCreateOffender.setVisible(false);
         JPLogged.setVisible(true);
+        try {
+            fillInPersonCatalogues();
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_ButtonPersonCataloguesActionPerformed
 
     private void ButtonRecordCataloguesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRecordCataloguesActionPerformed
@@ -6119,83 +6657,217 @@ public class Login extends javax.swing.JFrame {
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonRecordCataloguesActionPerformed
 
-    private void ButtonRollbackUserCataloguesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackUserCataloguesMouseEntered
-        ButtonRollbackUserCatalogues.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
-    }//GEN-LAST:event_ButtonRollbackUserCataloguesMouseEntered
+    private void AddDistrictMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddDistrictMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddDistrictMouseEntered
 
-    private void ButtonRollbackUserCataloguesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackUserCataloguesMouseExited
-        ButtonRollbackUserCatalogues.setBorder(null);
-    }//GEN-LAST:event_ButtonRollbackUserCataloguesMouseExited
+    private void AddDistrictMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddDistrictMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddDistrictMouseExited
 
-    private void ButtonRollbackUserCataloguesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackUserCataloguesActionPerformed
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(true);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        JPLogin.setVisible(false);
-        JPCreateRecord.setVisible(false);
-        JPCreateOffender.setVisible(false);
-        JPLogged.setVisible(true);
-    }//GEN-LAST:event_ButtonRollbackUserCataloguesActionPerformed
+    private void AddDistrictActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddDistrictActionPerformed
+        String new_district = (String) JOptionPane.showInputDialog(null,"New district: ",JOptionPane.QUESTION_MESSAGE);
+        if(JOptionPane.showConfirmDialog(null,"The district will be added with the City selected",
+                "WARNING", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
+        {
+            int city_index = BoxModifyCity.getSelectedIndex();
+            if(city_index != 0)
+            {
+                District district = new District(new_district, city_index);
+                try {
+                    ConnectDB.insert_district(district);
+                    JOptionPane.showMessageDialog(this, "The district was created successfully. Try again.");
+                } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, "The district was NOT created successfully. Try again.");
+                }
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Please select a City. And try again.");
+            }
+        }
+    }//GEN-LAST:event_AddDistrictActionPerformed
 
-    private void ButtonRollbackPersonCataloguesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackPersonCataloguesMouseEntered
-        ButtonRollbackPersonCatalogues.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
-    }//GEN-LAST:event_ButtonRollbackPersonCataloguesMouseEntered
+    private void RemoveDistrictMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RemoveDistrictMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RemoveDistrictMouseEntered
 
-    private void ButtonRollbackPersonCataloguesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackPersonCataloguesMouseExited
-        ButtonRollbackPersonCatalogues.setBorder(null);
-    }//GEN-LAST:event_ButtonRollbackPersonCataloguesMouseExited
+    private void RemoveDistrictMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RemoveDistrictMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RemoveDistrictMouseExited
 
-    private void ButtonRollbackPersonCataloguesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackPersonCataloguesActionPerformed
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(true);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        JPLogin.setVisible(false);
-        JPCreateRecord.setVisible(false);
-        JPCreateOffender.setVisible(false);
-        JPLogged.setVisible(true);
-    }//GEN-LAST:event_ButtonRollbackPersonCataloguesActionPerformed
+    private void RemoveDistrictActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveDistrictActionPerformed
+        int index_district = BoxModifyDistrict.getSelectedIndex();
+        try {
+            ConnectDB.delete("APP", "admin_district.remove_district", index_district);
+            JOptionPane.showMessageDialog(this, "The district was deleted successfully. Try again.");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "The district was NOT deleted successfully. Try again.");
+        }
+    }//GEN-LAST:event_RemoveDistrictActionPerformed
 
-    private void ButtonRollbackRecordCataloguesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackRecordCataloguesMouseEntered
-        ButtonRollbackRecordCatalogues.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
-    }//GEN-LAST:event_ButtonRollbackRecordCataloguesMouseEntered
+    private void ButtonRefreshMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRefreshMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonRefreshMouseEntered
 
-    private void ButtonRollbackRecordCataloguesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackRecordCataloguesMouseExited
-        ButtonRollbackRecordCatalogues.setBorder(null);
-    }//GEN-LAST:event_ButtonRollbackRecordCataloguesMouseExited
+    private void ButtonRefreshMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRefreshMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonRefreshMouseExited
 
-    private void ButtonRollbackRecordCataloguesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackRecordCataloguesActionPerformed
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(true);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        JPLogin.setVisible(false);
-        JPCreateRecord.setVisible(false);
-        JPCreateOffender.setVisible(false);
-        JPLogged.setVisible(true);
-    }//GEN-LAST:event_ButtonRollbackRecordCataloguesActionPerformed
+    private void ButtonRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRefreshActionPerformed
+        try {
+            ResultSet unapproved = ConnectDB.query("APP","admin_queries.not_approved");
+            DefaultListModel listModel = new DefaultListModel<>();
+            add(new JScrollPane(ListUnapprovedRecords));
+            ListUnapprovedRecords.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+            while(unapproved.next())
+            {
+                listModel.addElement(unapproved.getObject("numberr"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ButtonRefreshActionPerformed
+
+    private void ListUnapprovedRecordsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListUnapprovedRecordsMouseClicked
+        try {
+            String numberr = ListUnapprovedRecords.getSelectedValue();
+            ResultSet record = ConnectDB.query("APP","admin_record.getRecord", numberr);
+            UnapprovedCrimeDescriptionField.setText((String)record.getObject("description_crime"));
+            UnapprovedDateCrimeField.setText((String) record.getObject("date_crime"));
+            UnapprovedResolutionField.setText((String) record.getObject("resolution"));
+            UnapprovedExpireDateField.setText((String) record.getObject("crime_expition_date"));
+            UnapprovedIdOffender.setText((String) record.getObject("id_person"));
+            UnapprovedTypeField.setText((String) record.getObject("id_type"));
+            UnapprovedVeredictField.setText((String) record.getObject("id_veredict"));
+            ResultSet pictures = ConnectDB.query("APP","admin_picture.getAll", numberr);
+            ArrayList<String> paths = null;
+            while(pictures.next())
+            {
+                paths.add((String) pictures.getObject("pic_str"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ListUnapprovedRecordsMouseClicked
+
+    private void ButtonShowUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowUsersActionPerformed
+        DefaultTableModel modelo = (DefaultTableModel)TableUsers.getModel();
+        modelo.setRowCount(0);
+        modelo.addColumn("Username");
+        modelo.addColumn("Type");
+        try {
+            ResultSet userList = ConnectDB.query("APP","user_queries.user_list");
+            int i = 0;
+            while(userList.next())
+            {
+                modelo.addRow(new Object[]{userList.getObject("username"), userList.getObject("user_type")});
+            }
+            TableUsers.setModel(modelo);
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ButtonShowUsersActionPerformed
+
+    private void ButtonShowBannedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowBannedActionPerformed
+        DefaultTableModel modelo = (DefaultTableModel)TableBanned.getModel();
+        modelo.setRowCount(0);
+        modelo.addColumn("Username");
+        modelo.addColumn("Is Permanent");
+        modelo.addColumn("Description");
+        try {
+            ResultSet bannedList = ConnectDB.query("APP","user_queries.user_banned");
+            int i = 0;
+            while(bannedList.next())
+            {
+                modelo.addRow(new Object[]{bannedList.getObject("username"), bannedList.getObject("ispermanent"), 
+                    bannedList.getObject("description")});
+            }
+            TableBanned.setModel(modelo);
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ButtonShowBannedActionPerformed
+
+    private void ButtonShowCataloguesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowCataloguesActionPerformed
+        try {
+            fillIn_Records();
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ButtonShowCataloguesActionPerformed
+
+    private void ButtonShowListOfReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowListOfReportsActionPerformed
+        try {
+            ResultSet new_records = ConnectDB.query("APP", "admin_queries.get_new_records");
+            DefaultListModel listModel = new DefaultListModel();
+            add(new JScrollPane(NewReportList));
+            NewReportList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+            while(new_records.next())
+            {
+                listModel.addElement(new_records.getString("numberr"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+    }//GEN-LAST:event_ButtonShowListOfReportsActionPerformed
+
+    private void NewReportListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NewReportListMouseClicked
+        try {
+            ResultSet record = ConnectDB.query("ADM", "admin_record.getRecord");
+            ReportInformation.setText("Number: " + record.getString("numberr") + 
+                                      "Crime Description" + record.getString("description_crime") +
+                                      "Resolution" + record.getString("resolution") +
+                                      "Crime Expiration Date" + record.getString("crime_expiration_date") + 
+                                      "Id Type" + record.getString("id_type")+
+                                      "Id Veredict" + record.getString("description_crime") +
+                                      "Id Person" + record.getString("id_person")+
+                                      "Approved" + record.getString("approved") + 
+                                      "Username Creator" + record.getString("username_creator") + 
+                                      "Id District" + record.getString("id_district"));
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }  
+    }//GEN-LAST:event_NewReportListMouseClicked
+
+    private void ButtonEnterReportsZone1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonEnterReportsZone1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonEnterReportsZone1MouseEntered
+
+    private void ButtonEnterReportsZone1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonEnterReportsZone1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonEnterReportsZone1MouseExited
+
+    private void ButtonEnterReportsZone1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEnterReportsZone1ActionPerformed
+        try {
+            ResultSet records = ConnectDB.query("ADM","statics.records_clasification");
+            DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+            float per = 0;
+            while(records.next())
+            {
+                per = records.getFloat("percentage");
+                dataset.addValue(new Double(per), records.getString("name"), records.getString("name"));
+            }
+            var chart = ChartFactory.createBarChart("Records by zone", "Type", "Quantity",dataset, PlotOrientation.VERTICAL, 
+                    true,true, false);
+            ChartPanel panel = new ChartPanel(chart);
+            jPanel1.add(panel);
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ButtonEnterReportsZone1ActionPerformed
+
+    private void ButtonRefreshTotalRecordsByZoneMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRefreshTotalRecordsByZoneMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonRefreshTotalRecordsByZoneMouseEntered
+
+    private void ButtonRefreshTotalRecordsByZoneMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRefreshTotalRecordsByZoneMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonRefreshTotalRecordsByZoneMouseExited
+
+    private void ButtonRefreshTotalRecordsByZoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRefreshTotalRecordsByZoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonRefreshTotalRecordsByZoneActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -6230,9 +6902,11 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField ActualUsername;
     private javax.swing.JButton AddBannedReason;
     private javax.swing.JButton AddCity;
     private javax.swing.JButton AddCountry;
+    private javax.swing.JButton AddDistrict;
     private javax.swing.JButton AddGender;
     private javax.swing.JButton AddInstitution;
     private javax.swing.JButton AddNewRecord;
@@ -6249,27 +6923,26 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField AdminUpdateUsernameField;
     private javax.swing.JPanel ApproveRecords;
     private javax.swing.JPanel BannedUsers;
-    private org.jdatepicker.JDatePicker BirthdayNewUser;
     private javax.swing.JFormattedTextField BirthdayOffenderField;
     private javax.swing.JFormattedTextField BirthdayUpdateField;
     private javax.swing.JComboBox<String> BoxAdminUserTypeUpdate;
     private javax.swing.JComboBox<String> BoxCity;
     private javax.swing.JComboBox<String> BoxCityPersonRecords;
-    private javax.swing.JComboBox<String> BoxCommunityAdminUpdate;
-    private javax.swing.JComboBox<String> BoxCommunityOffender;
     private javax.swing.JComboBox<String> BoxCommunityUpdate;
     private javax.swing.JComboBox<String> BoxCountry;
     private javax.swing.JComboBox<String> BoxCountryPersonRecords;
     private javax.swing.JComboBox<String> BoxCrimeType;
     private javax.swing.JComboBox<String> BoxDistrict;
+    private javax.swing.JComboBox<String> BoxDistrictAdminUpdate;
+    private javax.swing.JComboBox<String> BoxDistrictOffender;
     private javax.swing.JComboBox<String> BoxDistrictPersonRecords;
+    private javax.swing.JComboBox<String> BoxDistrictRecord;
     private javax.swing.JComboBox<String> BoxFilter;
     private javax.swing.JComboBox<String> BoxFilterIdPerson;
     private javax.swing.JComboBox<String> BoxFilterLastNamePerson;
     private javax.swing.JComboBox<String> BoxFilterNamePerson;
     private javax.swing.JComboBox<String> BoxFilterSpecify;
-    private javax.swing.JComboBox<String> BoxFilterUsenamePerson;
-    private javax.swing.JComboBox<String> BoxFinishDate;
+    private javax.swing.JComboBox<String> BoxFilterUsernamePerson;
     private javax.swing.JComboBox<String> BoxFinishDate1;
     private javax.swing.JComboBox<String> BoxGenderAdminUpdate;
     private javax.swing.JComboBox<String> BoxGenderNewUser;
@@ -6284,6 +6957,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> BoxModifyBannedReason;
     private javax.swing.JComboBox<String> BoxModifyCity;
     private javax.swing.JComboBox<String> BoxModifyCountry;
+    private javax.swing.JComboBox<String> BoxModifyDistrict;
     private javax.swing.JComboBox<String> BoxModifyGender;
     private javax.swing.JComboBox<String> BoxModifyInstitution;
     private javax.swing.JComboBox<String> BoxModifyState;
@@ -6292,13 +6966,9 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> BoxModifyUserType;
     private javax.swing.JComboBox<String> BoxNewUserCommunity;
     private javax.swing.JComboBox<String> BoxOffender;
-    private javax.swing.JComboBox<String> BoxStartDate;
     private javax.swing.JComboBox<String> BoxStartDate1;
     private javax.swing.JComboBox<String> BoxState;
     private javax.swing.JComboBox<String> BoxStatePersonRecords;
-    private javax.swing.JComboBox<String> BoxUnapprovedCrimeType;
-    private javax.swing.JComboBox<String> BoxUnapprovedOffender;
-    private javax.swing.JComboBox<String> BoxUnapprovedVeredict;
     private javax.swing.JComboBox<String> BoxUserTypeNewUser;
     private javax.swing.JComboBox<String> BoxUserTypeUpdateUser;
     private javax.swing.JComboBox<String> BoxVeredict;
@@ -6308,14 +6978,12 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton ButtonCancel;
     private javax.swing.JButton ButtonCancelNewRecord;
     private javax.swing.JButton ButtonCancelOffender;
-    private javax.swing.JButton ButtonCancelPersonCatalogue;
     private javax.swing.JButton ButtonCancelRecordCatalogue;
     private javax.swing.JButton ButtonCancelUnapproved;
     private javax.swing.JButton ButtonCancelUpdatesAdminInfo;
     private javax.swing.JButton ButtonCancelUpdatesUserInfo;
     private javax.swing.JButton ButtonCancelUpdatesUserLogin;
     private javax.swing.JButton ButtonCancelUpdatesUserLoginAdmin;
-    private javax.swing.JButton ButtonCancelUserCatalogue;
     private javax.swing.JButton ButtonClose;
     private javax.swing.JButton ButtonConfiguration;
     private javax.swing.JButton ButtonConfirmChanges;
@@ -6325,13 +6993,13 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton ButtonConfirmNewRecord;
     private javax.swing.JButton ButtonConfirmOffender;
     private javax.swing.JButton ButtonConfirmPersonCatalogue;
-    private javax.swing.JButton ButtonConfirmRecordCatalogue;
     private javax.swing.JButton ButtonConfirmUnapproved;
     private javax.swing.JButton ButtonConfirmUserCatalogue;
     private javax.swing.JButton ButtonCreateRecord;
     private javax.swing.JButton ButtonEnter;
     private javax.swing.JButton ButtonEnterPersonRecords;
     private javax.swing.JButton ButtonEnterReportsZone;
+    private javax.swing.JButton ButtonEnterReportsZone1;
     private javax.swing.JButton ButtonJoin;
     private javax.swing.JButton ButtonLogOut;
     private javax.swing.JButton ButtonLogOutAdminUser;
@@ -6340,23 +7008,26 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton ButtonPersonCatalogues;
     private javax.swing.JButton ButtonQuery;
     private javax.swing.JButton ButtonRecordCatalogues;
+    private javax.swing.JButton ButtonRefresh;
+    private javax.swing.JButton ButtonRefreshTotalRecordsByZone;
     private javax.swing.JButton ButtonRollbackCatalogues;
     private javax.swing.JButton ButtonRollbackCreateRecord;
     private javax.swing.JButton ButtonRollbackLog;
-    private javax.swing.JButton ButtonRollbackPersonCatalogues;
     private javax.swing.JButton ButtonRollbackQueryBanned;
     private javax.swing.JButton ButtonRollbackQueryExpire;
     private javax.swing.JButton ButtonRollbackQueryPlaces;
     private javax.swing.JButton ButtonRollbackQueryRecords;
     private javax.swing.JButton ButtonRollbackQueryUsers;
-    private javax.swing.JButton ButtonRollbackRecordCatalogues;
     private javax.swing.JButton ButtonRollbackReportList;
-    private javax.swing.JButton ButtonRollbackUserCatalogues;
     private javax.swing.JButton ButtonRollbackUserListNotChangePassword;
+    private javax.swing.JButton ButtonShowBanned;
+    private javax.swing.JButton ButtonShowCatalogues;
     private javax.swing.JButton ButtonShowFilteredUserList;
+    private javax.swing.JButton ButtonShowListOfReports;
     private javax.swing.JButton ButtonShowPlaces;
     private javax.swing.JButton ButtonShowRecords;
     private javax.swing.JButton ButtonShowRecordsDate;
+    private javax.swing.JButton ButtonShowUsers;
     private javax.swing.JButton ButtonSignUp;
     private javax.swing.JButton ButtonStatistics;
     private javax.swing.JButton ButtonUserCatalogues;
@@ -6364,6 +7035,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JCheckBox CheckBoxApprovedOrNot;
     private javax.swing.JTextArea CrimeDescriptionField;
     private javax.swing.JFormattedTextField DateCrimeField;
+    private javax.swing.JFormattedTextField DateEndField;
+    private javax.swing.JFormattedTextField DateStartField;
     private javax.swing.JFormattedTextField ExpireDateField;
     private javax.swing.JLabel IconCreateReacord;
     private javax.swing.JLabel IconLogged;
@@ -6400,9 +7073,12 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel LabelAdminPasswordUpdateLogin;
     private javax.swing.JLabel LabelAdminUpdateLoginFields;
     private javax.swing.JLabel LabelAdminUsernameUpdateLogin;
+    private javax.swing.JLabel LabelAdminUsernameUpdateLogin1;
     private javax.swing.JLabel LabelApproveRecords;
     private javax.swing.JLabel LabelBannedReason;
     private javax.swing.JLabel LabelChooseFilterRecords;
+    private javax.swing.JLabel LabelChooseFilterRecords1;
+    private javax.swing.JLabel LabelChooseFilterRecords2;
     private javax.swing.JLabel LabelChooseFilterUserListNotChangePassword;
     private javax.swing.JLabel LabelChooseFilterUserListNotChangePassword1;
     private javax.swing.JLabel LabelChooseFilterUserListNotChangePassword2;
@@ -6415,9 +7091,11 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel LabelCrimeDescription;
     private javax.swing.JLabel LabelCrimeDescriptionUnapproved;
     private javax.swing.JLabel LabelCrimeType;
+    private javax.swing.JLabel LabelCrimeType1;
     private javax.swing.JLabel LabelCrimeTypeUnapproved;
     private javax.swing.JLabel LabelDateCrime;
     private javax.swing.JLabel LabelDateCrimeUnapproved;
+    private javax.swing.JLabel LabelDistrict;
     private javax.swing.JLabel LabelExpireDate;
     private javax.swing.JLabel LabelExpireDateUnapproved;
     private javax.swing.JLabel LabelFilterIdPerson;
@@ -6502,7 +7180,9 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton LeftUnapprovedPic;
     private javax.swing.JSeparator LineAdminBirthday;
     private javax.swing.JSeparator LineDateCrime;
+    private javax.swing.JSeparator LineDateCrime1;
     private javax.swing.JSeparator LineDateCrime2;
+    private javax.swing.JSeparator LineDateCrime3;
     private javax.swing.JSeparator LineExpireDate;
     private javax.swing.JSeparator LineExpireDate2;
     private javax.swing.JSeparator LineNewUserId;
@@ -6514,6 +7194,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JSeparator LineNumberRecord;
     private javax.swing.JSeparator LineOffenderBirthday;
     private javax.swing.JSeparator LineOffenderBirthday1;
+    private javax.swing.JSeparator LineOffenderBirthday2;
     private javax.swing.JSeparator LineOffenderId;
     private javax.swing.JSeparator LineOffenderLastName;
     private javax.swing.JSeparator LineOffenderMiddleName;
@@ -6522,22 +7203,23 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JSeparator LinePassword;
     private javax.swing.JSeparator LineResolution;
     private javax.swing.JSeparator LineResolution2;
+    private javax.swing.JSeparator LineResolution3;
+    private javax.swing.JSeparator LineResolution4;
+    private javax.swing.JSeparator LineResolution5;
     private javax.swing.JSeparator LineUpdateAdminId;
     private javax.swing.JSeparator LineUpdateAdminLastName;
     private javax.swing.JSeparator LineUpdateAdminMiddleName;
     private javax.swing.JSeparator LineUpdateAdminName;
     private javax.swing.JSeparator LineUpdateAdminPassword;
     private javax.swing.JSeparator LineUpdateAdminUsername;
+    private javax.swing.JSeparator LineUpdateAdminUsername1;
     private javax.swing.JSeparator LineUpdateId;
     private javax.swing.JSeparator LineUpdateLastName;
     private javax.swing.JSeparator LineUpdateMiddleName;
     private javax.swing.JSeparator LineUpdatePassword;
     private javax.swing.JSeparator LineUpdateUsername;
     private javax.swing.JSeparator LineUsername;
-    private javax.swing.JTextArea ListBannedUsers;
     private javax.swing.JList<String> ListUnapprovedRecords;
-    private javax.swing.JList<String> ListUserWithoutChangePassword;
-    private javax.swing.JTextArea ListUsers;
     private javax.swing.JPanel Log;
     private javax.swing.JList<String> LogUserList;
     private javax.swing.JTextField MiddleNameNewUserField;
@@ -6547,6 +7229,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField NameOffenderField;
     private javax.swing.JTextField NameUpdateField;
     private javax.swing.JList<String> NewReportList;
+    private javax.swing.JFormattedTextField NewUserBirthday;
     private javax.swing.JTextField NewUserPasswordField;
     private javax.swing.JTextField NewUsernameField;
     private javax.swing.JTextField NumberTopField;
@@ -6558,7 +7241,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton PictureRecordToExpire;
     private javax.swing.JButton PictureShowRecords;
     private javax.swing.JButton PictureUnapproved;
-    private javax.swing.JList<String> PlacesList;
     private javax.swing.JPanel PlacesMoreRecords;
     private javax.swing.JPanel RecordCatalogues;
     private javax.swing.JTextArea RecordDescriptionText;
@@ -6571,6 +7253,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton RemoveBannedReason;
     private javax.swing.JButton RemoveCity;
     private javax.swing.JButton RemoveCountry;
+    private javax.swing.JButton RemoveDistrict;
     private javax.swing.JButton RemoveGender;
     private javax.swing.JButton RemoveInstitution;
     private javax.swing.JButton RemoveNewRecord;
@@ -6587,10 +7270,17 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton RightPicRecordToExpire;
     private javax.swing.JButton RightPicShowRecords;
     private javax.swing.JButton RightUnapprovedPic;
+    private javax.swing.JTable Table;
+    private javax.swing.JTable TableBanned;
+    private javax.swing.JTable TableUsers;
+    private javax.swing.JTable TableUsersPassword;
     private javax.swing.JTextArea UnapprovedCrimeDescriptionField;
-    private javax.swing.JFormattedTextField UnapprovedDateCrimeField1;
+    private javax.swing.JFormattedTextField UnapprovedDateCrimeField;
     private javax.swing.JFormattedTextField UnapprovedExpireDateField;
+    private javax.swing.JTextField UnapprovedIdOffender;
     private javax.swing.JTextField UnapprovedResolutionField;
+    private javax.swing.JTextField UnapprovedTypeField;
+    private javax.swing.JTextField UnapprovedVeredictField;
     private javax.swing.JFormattedTextField UpdateAdminBirthdayField;
     private javax.swing.JTextField UpdateAdminIdField;
     private javax.swing.JTextField UpdateAdminLastNameField;
@@ -6623,6 +7313,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
+    private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JScrollPane jScrollPane17;
     private javax.swing.JScrollPane jScrollPane2;
@@ -6632,7 +7323,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }

@@ -8,6 +8,7 @@ CREATE OR REPLACE PACKAGE admin_district IS
     PROCEDURE remove_district(pnIdDistrict NUMBER);
     FUNCTION getName (vId NUMBER) RETURN VARCHAR2;
     FUNCTION getIdCity (vId NUMBER) RETURN NUMBER;
+    FUNCTION getAll RETURN sys_refcursor;
 END admin_district;
 /
 
@@ -21,7 +22,7 @@ CREATE OR REPLACE PACKAGE BODY admin_district AS
     PROCEDURE update_district(pnId NUMBER, pnName VARCHAR2, pnCity NUMBER) IS
         BEGIN
             UPDATE district
-            SET name = pnName, SET id_city = pnCity
+            SET name = pnName, id_city = pnCity
             WHERE id = pnId;
         END;
 
@@ -49,6 +50,15 @@ CREATE OR REPLACE PACKAGE BODY admin_district AS
         FROM district
         WHERE id = vId;
         RETURN rIdCity;
+    END;
+
+    FUNCTION getAll RETURN sys_refcursor
+        AS rAll sys_refcursor;
+    BEGIN
+    OPEN rALL FOR
+            SELECT id, name, id_city
+            FROM district;
+        RETURN rAll;
     END;
 END admin_district;
 /

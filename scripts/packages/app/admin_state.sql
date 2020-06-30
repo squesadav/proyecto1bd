@@ -8,6 +8,7 @@ CREATE OR REPLACE PACKAGE admin_state IS
     PROCEDURE remove_state(pnIdState NUMBER);
     FUNCTION getName (vId NUMBER) RETURN VARCHAR2;
     FUNCTION getIdCountry (vId NUMBER) RETURN NUMBER;
+    FUNCTION getALL RETURN sys_refcursor;
 END admin_state;
 /
 
@@ -21,7 +22,7 @@ CREATE OR REPLACE PACKAGE BODY admin_state AS
     PROCEDURE update_state(pnId NUMBER, pnName VARCHAR2, pnIdCountry NUMBER) IS
         BEGIN
             UPDATE state
-            SET name = pnName, SET id_country = pnIdCountry
+            SET name = pnName, id_country = pnIdCountry
             WHERE id = pnId;
         END;
 
@@ -50,5 +51,16 @@ CREATE OR REPLACE PACKAGE BODY admin_state AS
         WHERE id = vId;
         RETURN rIdCountry;
     END;
+    
+    FUNCTION getALL RETURN sys_refcursor
+    AS
+        cstate sys_refcursor;
+        BEGIN
+            OPEN cstate FOR
+                SELECT id, name, id_country
+                FROM state;
+            RETURN cstate;
+        END;
+        
 END admin_state;
 /

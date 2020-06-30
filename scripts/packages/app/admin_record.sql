@@ -9,14 +9,16 @@ CREATE OR REPLACE PACKAGE admin_record IS
     FUNCTION getDateCrime (pnNumberr VARCHAR2) RETURN DATE;
     FUNCTION getResolution (pnNumberr VARCHAR2) RETURN VARCHAR2;
     FUNCTION getCrimeExpirationDate (pnNumberr VARCHAR2) RETURN DATE;
-    FUNCTION getAproved (pnNumberr VARCHAR2) RETURN VARCHAR2;
+    FUNCTION getApproved (pnNumberr VARCHAR2) RETURN VARCHAR2;
     FUNCTION getIdType (pnNumberr VARCHAR2) RETURN NUMBER;
     FUNCTION getIdVeredict (pnNumberr VARCHAR2) RETURN NUMBER;
     FUNCTION getIdPerson (pnNumberr VARCHAR2) RETURN NUMBER;
     FUNCTION getIdDistrict (pnNumberr VARCHAR2) RETURN NUMBER;
     FUNCTION getUsernameCreator (pnNumberr VARCHAR2) RETURN VARCHAR2;
     PROCEDURE approve_record(pnNumberr VARCHAR2);
+    FUNCTION getPictures (pnNumberr VARCHAR2) RETURN sys_refcursor;
     FUNCTION getAll RETURN SYS_REFCURSOR;
+    FUNCTION getRecord(numberr VARCHAR2) RETURN SYS_REFCURSOR;
 END admin_record;
 /
 
@@ -88,7 +90,7 @@ CREATE OR REPLACE PACKAGE BODY admin_record AS
             RETURN rCrimeExpirationDate;
         END;
         
-    FUNCTION getAproved (pnNumberr VARCHAR2) RETURN VARCHAR2 
+    FUNCTION getApproved (pnNumberr VARCHAR2) RETURN VARCHAR2 
     IS rApproved VARCHAR2(1);
         BEGIN
             SELECT approved
@@ -155,6 +157,17 @@ CREATE OR REPLACE PACKAGE BODY admin_record AS
             WHERE numberr = pnNumberr;
         END;
         
+    FUNCTION getPictures (pnNumberr VARCHAR2) RETURN sys_refcursor
+    AS
+        cpictures sys_refcursor;
+        BEGIN
+            OPEN cpictures FOR
+                SELECT pic_str
+                FROM picture
+                WHERE numberr = pnNumberr;
+            RETURN cpictures;
+        END;
+        
     FUNCTION getAll RETURN sys_refcursor
         AS rAll sys_refcursor;
     BEGIN
@@ -164,5 +177,13 @@ CREATE OR REPLACE PACKAGE BODY admin_record AS
         RETURN rAll;
     END;
 
+    FUNCTION getRecord(pnNumberr VARCHAR2) RETURN SYS_REFCURSOR
+    AS rRecord  sys_refcursor;
+    BEGIN
+        OPEN rCrimeExpirationDate FOR
+            SELECT numberr, description_crime, date_crime, resolution, crime_expiration_date, id_type, id_veredict, id_person, approved, username_creator, id_district
+            FROM record
+            WHERE numberr = pnNumberr;
+        return rRecord;
 END admin_record;
 /
