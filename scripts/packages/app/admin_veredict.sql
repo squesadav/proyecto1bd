@@ -3,8 +3,8 @@
 -- Creation date: 20/06/2020
 
 CREATE OR REPLACE PACKAGE admin_veredict IS
-    PROCEDURE insert_veredict(pnYears NUMBER, pnIdPlace NUMBER, pnDateStart DATE, pnDateEnd DATE);
-    PROCEDURE update_veredict(pnYears NUMBER, pnIdPlace NUMBER, pnDateStart DATE, pnDateEnd DATE);
+    PROCEDURE insert_veredict(pnIdPlace NUMBER, pnDateStart DATE, pnDateEnd DATE);
+    PROCEDURE update_veredict(pnIdVeredict NUMBER, pnIdPlace NUMBER, pnDateStart DATE, pnDateEnd DATE);
     PROCEDURE remove_veredict(pnIdVeredict NUMBER);
     FUNCTION getYears (vId NUMBER) RETURN NUMBER;
     FUNCTION getIdPlace (vId NUMBER) RETURN NUMBER;
@@ -14,20 +14,20 @@ END admin_veredict;
 /
 
 CREATE OR REPLACE PACKAGE BODY admin_veredict AS
-    PROCEDURE insert_veredict(pnYears NUMBER, pnIdPlace NUMBER, pnDateStart DATE, pnDateEnd DATE) IS
+    PROCEDURE insert_veredict(pnIdPlace NUMBER, pnDateStart DATE, pnDateEnd DATE) IS
         BEGIN
             INSERT INTO veredict(id, years, id_place, date_start, date_end)
-            VALUES (app.seq_veredict.nextval, pnYears, pnIdPlace, pnDateStart, pnDateEnd);
+            VALUES (app.seq_veredict.nextval, round(months_between(pnDateEnd, pnDateStart)/12, 2), pnIdPlace, pnDateStart, pnDateEnd);
         END;
 
-    PROCEDURE update_veredict(pnYears NUMBER, pnIdPlace NUMBER, pnDateStart DATE, pnDateEnd DATE) IS
+    PROCEDURE update_veredict(pnIdVeredict NUMBER, pnIdPlace NUMBER, pnDateStart DATE, pnDateEnd DATE) IS
         BEGIN
             UPDATE veredict
-            SET years = pnYears,
-            SET id_place = pnIdPlace,
-            SET date_start = pnDateStart,
-            SET date_end = pnDateEnd
-            WHERE id = pnId;
+            SET years = round(months_between(pnDateEnd, pnDateStart)/12, 2),
+                id_place = pnIdPlace,
+                date_start = pnDateStart,
+                date_end = pnDateEnd
+            WHERE id = pnIdVeredict;
         END;
 
     PROCEDURE remove_veredict(pnIdVeredict NUMBER) IS
