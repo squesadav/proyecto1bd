@@ -6,10 +6,9 @@ CREATE OR REPLACE PACKAGE record_publishing IS
     /* Returns a cursor of rows from Record with the given values, if given, in ascending creation date order.
        For example, if no values are given all rows are returned in the cursor */
     FUNCTION with_numberr(vnumberr INTEGER) RETURN sys_refcursor;
-    FUNCTION filter_records_by(vdate_crime DATE DEFAULT NULL,
-                               vdate_expiration DATE DEFAULT NULL,
+    FUNCTION filter_records_by(vnumberr NUMBER DEFAULT NULL,
+                               vdate_crime DATE DEFAULT NULL,
                                vid_type INTEGER DEFAULT NULL,
-                               vid_veredict INTEGER DEFAULT NULL,
                                vid_person INTEGER DEFAULT NULL,
                                vid_district INTEGER DEFAULT NULL,
                                vid_city INTEGER DEFAULT NULL,
@@ -67,10 +66,9 @@ CREATE OR REPLACE PACKAGE BODY record_publishing IS
                 WHERE numberr = vnumberr;
             RETURN crecord;
         END with_numberr;
-    FUNCTION filter_records_by(vdate_crime DATE DEFAULT NULL,
-                               vdate_expiration DATE DEFAULT NULL,
+    FUNCTION filter_records_by(vnumberr NUMBER DEFAULT NULL,
+                               vdate_crime DATE DEFAULT NULL,
                                vid_type INTEGER DEFAULT NULL,
-                               vid_veredict INTEGER DEFAULT NULL,
                                vid_person INTEGER DEFAULT NULL,
                                vid_district INTEGER DEFAULT NULL,
                                vid_city INTEGER DEFAULT NULL,
@@ -80,39 +78,21 @@ CREATE OR REPLACE PACKAGE BODY record_publishing IS
         crecord sys_refcursor;
         BEGIN
             OPEN crecord FOR
-                SELECT numberr
-                FROM record
+                SELECT r.numberr
+                FROM record r
+                inner join district d on r.id_district = d.id
+                inner join city ci on d.id_city = ci.id
+                inner join state s on ci.id_state = s.id
+                inner join country co on s.id_country = co.id
                 WHERE approved = 'Y' AND
-                      (date_crime = NVL(vdate_crime, date_crime) OR date_crime IS NULL) AND
-                      (crime_expiration_date = NVL(vdate_expiration, crime_expiration_date) OR crime_expiration_date IS NULL) AND
-                      (id_type = NVL(vid_type, id_type) OR id_type IS NULL) AND
-                      (id_veredict = NVL(vid_veredict, id_veredict) OR id_veredict IS NULL) AND
-                      (id_person = NVL(vid_person, id_person) OR id_person IS NULL) AND
-                      (id_person = 
-                        (SELECT id FROM person WHERE id_district = NVL(vid_district, id_district) OR id_district IS NULL)
-                       OR id_person IS NULL) AND
-                      (id_person = 
-                        (SELECT id FROM person WHERE id_district = 
-                            (SELECT id FROM district WHERE id_city = NVL(vid_city, id_city) OR id_city IS NULL) 
-                         OR id_district IS NULL)
-                       OR id_person IS NULL) AND
-                      (id_person = 
-                        (SELECT id FROM person WHERE id_district = 
-                            (SELECT id FROM district WHERE id_city = 
-                                (SELECT id FROM city WHERE id_state = NVL(vid_state, id_state) OR id_state IS NULL)
-                             OR id_city IS NULL) 
-                         OR id_district IS NULL)
-                       OR id_person IS NULL) AND
-                      (id_person = 
-                        (SELECT id FROM person WHERE id_district = 
-                            (SELECT id FROM district WHERE id_city = 
-                                (SELECT id FROM city WHERE id_state = 
-                                    (SELECT id FROM state WHERE id_country = NVL(vid_country, id_country) OR id_country IS NULL)
-                                 OR id_state IS NULL)
-                             OR id_city IS NULL) 
-                         OR id_district IS NULL)
-                       OR id_person IS NULL)
-                ORDER BY creation_date ASC;
+                      r.numberr = NVL(vnumberr, r.numberr) AND
+                      (r.date_crime = NVL(vdate_crime, r.date_crime) OR r.date_crime IS NULL) AND
+                      (r.id_type = NVL(vid_type, r.id_type) OR r.id_type IS NULL) AND
+                      d.id = NVL(vid_district, d.id) AND
+                      ci.id = NVL(vid_city, ci.id) AND
+                      s.id = NVL(vid_state, s.id) AND
+                      co.id = NVL(vid_country, co.id)
+                ORDER BY r.creation_date ASC;
             RETURN crecord;
         END filter_records_by;
 END record_publishing;

@@ -21,12 +21,19 @@ grant all on app.veredict to app;
 -- Conected from APP
 CREATE OR REPLACE PACKAGE user_queries IS
     FUNCTION dangerous_places(vquantity INTEGER) RETURN sys_refcursor;
-    FUNCTION recordInformation RETURN sys_refcursor;
+    FUNCTION recordsByClassification (vid_type NUMBER DEFAULT NULL, 
+                                      vdate_start DATE DEFAULT NULL, 
+                                      vdate_end DATE DEFAULT NULL, 
+                                      vid_district NUMBER DEFAULT NULL,
+                                      vid_city NUMBER DEFAULT NULL,
+                                      vid_state NUMBER DEFAULT NULL,
+                                      vid_country NUMBER DEFAULT NULL) RETURN sys_refcursor;
     FUNCTION user_list RETURN sys_refcursor;
     FUNCTION users_banned RETURN sys_refcursor;
     FUNCTION records_expiring_between(vdate1 DATE, vdate2 DATE) RETURN sys_refcursor;
     FUNCTION user_list_by_type(vid_type NUMBER) RETURN sys_refcursor;
     FUNCTION records_of_person(vid_person NUMBER) RETURN sys_refcursor;
+    FUNCTION records_with_name_person (vfirst_name NUMBER) RETURN sys_refcursor;
 END;
 /
 
@@ -51,17 +58,33 @@ CREATE OR REPLACE PACKAGE BODY user_queries IS
             RETURN cplaces;
         END dangerous_places;
 
-    FUNCTION recordInformation RETURN sys_refcursor
+    FUNCTION recordsByClassification (vid_type NUMBER DEFAULT NULL, 
+                                      vdate_start DATE DEFAULT NULL, 
+                                      vdate_end DATE DEFAULT NULL, 
+                                      vid_district NUMBER DEFAULT NULL,
+                                      vid_city NUMBER DEFAULT NULL,
+                                      vid_state NUMBER DEFAULT NULL,
+                                      vid_country NUMBER DEFAULT NULL) RETURN sys_refcursor
     AS 
         crecords sys_refcursor;
         BEGIN
             OPEN crecords FOR
-                SELECT *
-                FROM record
-                inner join type on record.id_type = type.id
-                group by id_type;
+                SELECT r.numberr record_number
+                FROM record r
+                inner join type t on r.id_type = t.id
+                inner join district d on r.id_district = d.id
+                inner join city ci on d.id_city = ci.id
+                inner join state s on ci.id_state = s.id
+                inner join country co on s.id_country = co.id
+                WHERE r.approved = 'Y' AND
+                      t.id = NVL(vid_type, t.id) AND
+                      r.date_crime between NVL(vdate_start, r.date_crime) and NVL(vdate_end, r.date_crime) AND
+                      d.id = NVL(vid_district, d.id) AND
+                      ci.id = NVL(vid_city, ci.id) AND
+                      s.id = NVL(vid_state, s.id) AND
+                      co.id = NVL(vid_country, co.id);
             RETURN crecords;
-         END recordInformation;
+         END recordsByClassification;
 
     FUNCTION user_list RETURN sys_refcursor
     AS
@@ -120,5 +143,17 @@ CREATE OR REPLACE PACKAGE BODY user_queries IS
                 WHERE p.id = vid_person;
             RETURN cuser;
         END records_of_person;
+        
+    FUNCTION records_with_name_person (vfirst_name NUMBER) RETURN sys_refcursor
+    AS
+        crecords sys_refcursor;
+        BEGIN
+            OPEN crecords FOR
+                SELECT r.numberr record_number
+                FROM record r
+                inner join person p on r.id_person = p.id
+                WHERE p.name = vfirst_name;
+            RETURN crecords;
+        END records_with_name_person;
 END user_queries;
 /
