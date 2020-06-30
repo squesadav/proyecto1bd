@@ -46,7 +46,6 @@ CREATE OR REPLACE PACKAGE BODY admin_country AS
     BEGIN
     OPEN rALL FOR
             SELECT id, name
-            INTO rAll
             FROM country;
         RETURN rAll;
     END;
