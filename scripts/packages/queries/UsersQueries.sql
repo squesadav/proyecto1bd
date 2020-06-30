@@ -29,7 +29,7 @@ CREATE OR REPLACE PACKAGE user_queries IS
                                       vid_state NUMBER DEFAULT NULL,
                                       vid_country NUMBER DEFAULT NULL) RETURN sys_refcursor;
     FUNCTION user_list RETURN sys_refcursor;
-    FUNCTION users_banned RETURN sys_refcursor;
+    FUNCTION  RETURN sys_refcursor;
     FUNCTION records_expiring_between(vdate1 DATE, vdate2 DATE) RETURN sys_refcursor;
     FUNCTION user_list_by_type(vid_type NUMBER) RETURN sys_refcursor;
     FUNCTION records_of_person(vid_person NUMBER) RETURN sys_refcursor;
@@ -101,7 +101,7 @@ CREATE OR REPLACE PACKAGE BODY user_queries IS
     AS
         cusersBanned sys_refcursor;
         BEGIN
-            OPEN cusersBanned FOR
+            OPEN cusersBanned FORd
                 SELECT bn.username, bn.ispermanent, br.description
                 FROM adm.banned bn
                 inner join adm.bannedreason br on bn.id_bannedreason = br.id_bannedreason

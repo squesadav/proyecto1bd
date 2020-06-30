@@ -291,6 +291,16 @@ BEGIN
     END checkLogin;
 END adminUser;
 
+FUNCTION getAllUsernames RETURN sys_refcursor
+        AS rAll sys_refcursor;
+    BEGIN
+    OPEN rALL FOR
+            SELECT username
+            INTO rAll
+            FROM appuser;
+        RETURN rAll;
+    END;
+
 
 
 
