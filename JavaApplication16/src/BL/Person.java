@@ -19,9 +19,10 @@ public class Person {
     private Date birthday;
     private int id_gender;
     private int id_institution;
-    private int id_community;
+    private int id_district;
 
-    public Person(int id, String name, String middle_name, String last_name, Date birthday, int id_gender, int id_institution, int id_community) {
+    public Person(int id, String name, String middle_name, String last_name, Date birthday, 
+            int id_gender, int id_institution, int id_district) {
         this.id = id;
         this.name = name;
         this.middle_name = middle_name;
@@ -29,7 +30,7 @@ public class Person {
         this.birthday = birthday;
         this.id_gender = id_gender;
         this.id_institution = id_institution;
-        this.id_community = id_community;
+        this.id_district = id_district;
     }
 
     public int getId() {
@@ -88,12 +89,12 @@ public class Person {
         this.id_institution = id_institution;
     }
 
-    public int getId_community() {
-        return id_community;
+    public int getId_district() {
+        return id_district;
     }
 
-    public void setId_community(int id_community) {
-        this.id_community = id_community;
+    public void setId_district(int id_district) {
+        this.id_district = id_district;
     }
     
     

@@ -228,6 +228,26 @@ BEGIN
     RETURN rPersonId;
 END;
 
+FUNCTION getAllUserType RETURN sys_refcursor
+        AS rAll sys_refcursor;
+    BEGIN
+    OPEN rALL FOR
+            SELECT id, name
+            INTO rAll
+            FROM usertype;
+        RETURN rAll;
+    END;
+
+FUNCTION getAllBannedReason RETURN sys_refcursor
+        AS rAll sys_refcursor;
+    BEGIN
+    OPEN rALL FOR
+            SELECT id, name
+            INTO rAll
+            FROM bannedreason;
+        RETURN rAll;
+    END;
+
 FUNCTION isBanned (vUsername VARCHAR2) RETURN VARCHAR2
     IS rBanned VARCHAR2(1);
 BEGIN

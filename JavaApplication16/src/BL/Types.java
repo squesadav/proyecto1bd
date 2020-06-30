@@ -4,16 +4,15 @@ package BL;
  *
  * @author Sebas
  */
-public class Community {
+public class Types
+{
     private int id;
     private String name;
-    private int id_district;
 
-    public Community(String name, int id_district) {
+    public Types(String name) {
         this.name = name;
-        this.id_district = id_district;
     }
-
+    
     public int getId() {
         return id;
     }
@@ -28,16 +27,5 @@ public class Community {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getId_district() {
-        return id_district;
-    }
-
-    public void setId_district(int id_district) {
-        this.id_district = id_district;
-    }
-    
-    
-    
+    }    
 }
