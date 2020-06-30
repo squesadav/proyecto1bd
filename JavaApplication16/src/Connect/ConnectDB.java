@@ -766,11 +766,131 @@ public class ConnectDB {
         String uPass = "ADM";
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ ? = call ? } ");
+        CallableStatement stmnt = con.prepareCall("{ ? = call statistics.records_by_district(?,?,?)} ");
         
         stmnt.registerOutParameter(1, OracleTypes.CURSOR);
+        stmnt.setInt(2, idCity);
+        stmnt.setInt(3, idState);
+        stmnt.setInt(4, idCountry);
         stmnt.executeQuery(); 
         ResultSet result = (ResultSet) stmnt.getObject(1);
         return result;
     }
+
+    public static ResultSet records_by_city(int idState, int idCountry) throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
+        String uName = "ADM";
+        String uPass = "ADM";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ ? = call statistics.records_by_city(?,?)} ");
+        
+        stmnt.registerOutParameter(1, OracleTypes.CURSOR);
+        stmnt.setInt(2, idState);
+        stmnt.setInt(3, idCountry);
+        stmnt.executeQuery(); 
+        ResultSet result = (ResultSet) stmnt.getObject(1);
+        return result;
+    }
+
+    public static ResultSet criminals_by_district(int idCity, int idState, int idCountry)
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
+        String uName = "ADM";
+        String uPass = "ADM";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ ? = call statistics.criminals_by_district(?,?,?)} ");
+        
+        stmnt.registerOutParameter(1, OracleTypes.CURSOR);
+        stmnt.setInt(2, idCity);
+        stmnt.setInt(3, idState);
+        stmnt.setInt(4, idCountry);
+        stmnt.executeQuery(); 
+        ResultSet result = (ResultSet) stmnt.getObject(1);
+        return result;
+    }
+
+    public static ResultSet criminals_by_city(int idState, int idCountry)
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
+        String uName = "ADM";
+        String uPass = "ADM";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ ? = call statistics.criminals_by_city(?,?)} ");
+        
+        stmnt.registerOutParameter(1, OracleTypes.CURSOR);
+        stmnt.setInt(2, idState);
+        stmnt.setInt(3, idCountry);
+        stmnt.executeQuery(); 
+        ResultSet result = (ResultSet) stmnt.getObject(1);
+        return result;
+    }
+
+    public static ResultSet passwords_not_changed(int numberDays, String first_name, String last_name, int id_person, String username)
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ ? = call admin_queries.passwords_not_changed(?,?,?,?,?)} ");
+        
+        stmnt.registerOutParameter(1, OracleTypes.CURSOR);
+        stmnt.setInt(2, numberDays);
+        stmnt.setString(3, first_name);
+        stmnt.setString(4, last_name);
+        stmnt.setInt(5, id_person);
+        stmnt.setString(6, username);
+        stmnt.executeQuery(); 
+        ResultSet result = (ResultSet) stmnt.getObject(1);
+        return result;
+    }
+
+    public static ResultSet recordsByClassification(int id_type, Date date_start, Date date_end, int idDistrict, int idCity, int idState, int idCountry)
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ ? = call user_queries.recordsByClassification(?,?,?,?,?)} ");
+        
+        stmnt.registerOutParameter(1, OracleTypes.CURSOR);
+        stmnt.setInt(2, id_type);
+        stmnt.setDate(3, date_start);
+        stmnt.setDate(4, date_end);
+        stmnt.setInt(5, idDistrict);
+        stmnt.setInt(6, idCity);
+        stmnt.setInt(7, idState);
+        stmnt.setInt(8, idCountry);
+        stmnt.executeQuery(); 
+        ResultSet result = (ResultSet) stmnt.getObject(1);
+        return result;
+    }
+
+    public static ResultSet getSubtotal(int id_type, Date date_start, Date date_end, int idDistrict, int idCity, int idState, int idCountry)
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ ? = call user_queries.getSubtotal(?,?,?,?,?)} ");
+        
+        stmnt.registerOutParameter(1, OracleTypes.CURSOR);
+        stmnt.setInt(2, id_type);
+        stmnt.setDate(3, date_start);
+        stmnt.setDate(4, date_end);
+        stmnt.setInt(5, idDistrict);
+        stmnt.setInt(6, idCity);
+        stmnt.setInt(7, idState);
+        stmnt.setInt(8, idCountry);
+        stmnt.executeQuery(); 
+        ResultSet result = (ResultSet) stmnt.getObject(1);
+        return result;
+    }
+
 }
