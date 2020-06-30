@@ -19,6 +19,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
 
 public class Login extends javax.swing.JFrame {
 
@@ -311,9 +312,6 @@ public class Login extends javax.swing.JFrame {
         LineResolution2 = new javax.swing.JSeparator();
         LineDateCrime2 = new javax.swing.JSeparator();
         UnapprovedDateCrimeField = new javax.swing.JFormattedTextField();
-        BoxUnapprovedVeredict = new javax.swing.JComboBox<>();
-        BoxUnapprovedOffender = new javax.swing.JComboBox<>();
-        BoxUnapprovedCrimeType = new javax.swing.JComboBox<>();
         ButtonCancelUnapproved = new javax.swing.JButton();
         ButtonBanUser = new javax.swing.JButton();
         jScrollPane16 = new javax.swing.JScrollPane();
@@ -333,6 +331,12 @@ public class Login extends javax.swing.JFrame {
         LabelCrimeDescriptionUnapproved = new javax.swing.JLabel();
         ButtonConfirmUnapproved = new javax.swing.JButton();
         ButtonRefresh = new javax.swing.JButton();
+        UnapprovedVeredictField = new javax.swing.JTextField();
+        LineResolution3 = new javax.swing.JSeparator();
+        LineResolution4 = new javax.swing.JSeparator();
+        UnapprovedIdOffender = new javax.swing.JTextField();
+        UnapprovedTypeField = new javax.swing.JTextField();
+        LineResolution5 = new javax.swing.JSeparator();
         UserCatalogues = new javax.swing.JPanel();
         BoxModifyUserType = new javax.swing.JComboBox<>();
         LabelUserType = new javax.swing.JLabel();
@@ -479,10 +483,10 @@ public class Login extends javax.swing.JFrame {
         LabelTop = new javax.swing.JLabel();
         NumberTopField = new javax.swing.JTextField();
         NumberTopLine = new javax.swing.JSeparator();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        PlacesList = new javax.swing.JList<>();
         ButtonShowPlaces = new javax.swing.JButton();
         ButtonRollbackQueryPlaces = new javax.swing.JButton();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        Table = new javax.swing.JTable();
         Records = new javax.swing.JPanel();
         LabelChooseFilterRecords = new javax.swing.JLabel();
         BoxFilter = new javax.swing.JComboBox<>();
@@ -1744,21 +1748,6 @@ public class Login extends javax.swing.JFrame {
         UnapprovedDateCrimeField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
         ApproveRecords.add(UnapprovedDateCrimeField, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 110, 30));
 
-        BoxUnapprovedVeredict.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
-        BoxUnapprovedVeredict.setForeground(new java.awt.Color(29, 41, 81));
-        BoxUnapprovedVeredict.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
-        ApproveRecords.add(BoxUnapprovedVeredict, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 250, 170, 30));
-
-        BoxUnapprovedOffender.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
-        BoxUnapprovedOffender.setForeground(new java.awt.Color(29, 41, 81));
-        BoxUnapprovedOffender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
-        ApproveRecords.add(BoxUnapprovedOffender, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, 170, 30));
-
-        BoxUnapprovedCrimeType.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
-        BoxUnapprovedCrimeType.setForeground(new java.awt.Color(29, 41, 81));
-        BoxUnapprovedCrimeType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
-        ApproveRecords.add(BoxUnapprovedCrimeType, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 420, 120, 30));
-
         ButtonCancelUnapproved.setBackground(new java.awt.Color(255, 255, 255));
         ButtonCancelUnapproved.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         ButtonCancelUnapproved.setForeground(new java.awt.Color(29, 41, 81));
@@ -1980,6 +1969,30 @@ public class Login extends javax.swing.JFrame {
             }
         });
         ApproveRecords.add(ButtonRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 100, 40));
+
+        UnapprovedVeredictField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        UnapprovedVeredictField.setForeground(new java.awt.Color(29, 41, 81));
+        UnapprovedVeredictField.setBorder(null);
+        ApproveRecords.add(UnapprovedVeredictField, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 240, 220, 30));
+
+        LineResolution3.setForeground(new java.awt.Color(29, 41, 81));
+        ApproveRecords.add(LineResolution3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 270, 220, 20));
+
+        LineResolution4.setForeground(new java.awt.Color(29, 41, 81));
+        ApproveRecords.add(LineResolution4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 400, 220, 20));
+
+        UnapprovedIdOffender.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        UnapprovedIdOffender.setForeground(new java.awt.Color(29, 41, 81));
+        UnapprovedIdOffender.setBorder(null);
+        ApproveRecords.add(UnapprovedIdOffender, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, 220, 30));
+
+        UnapprovedTypeField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        UnapprovedTypeField.setForeground(new java.awt.Color(29, 41, 81));
+        UnapprovedTypeField.setBorder(null);
+        ApproveRecords.add(UnapprovedTypeField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 420, 220, 30));
+
+        LineResolution5.setForeground(new java.awt.Color(29, 41, 81));
+        ApproveRecords.add(LineResolution5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 450, 220, 20));
 
         AdminConfiguration.addTab("Approve records", ApproveRecords);
 
@@ -3297,13 +3310,6 @@ public class Login extends javax.swing.JFrame {
         NumberTopLine.setForeground(new java.awt.Color(29, 41, 81));
         PlacesMoreRecords.add(NumberTopLine, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 80, 20));
 
-        PlacesList.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
-        PlacesList.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        PlacesList.setForeground(new java.awt.Color(29, 41, 81));
-        jScrollPane1.setViewportView(PlacesList);
-
-        PlacesMoreRecords.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 450, 220));
-
         ButtonShowPlaces.setBackground(new java.awt.Color(255, 255, 255));
         ButtonShowPlaces.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ButtonShowPlaces.setForeground(new java.awt.Color(29, 41, 81));
@@ -3336,6 +3342,22 @@ public class Login extends javax.swing.JFrame {
             }
         });
         PlacesMoreRecords.add(ButtonRollbackQueryPlaces, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 50));
+
+        Table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        Table.setAutoscrolls(false);
+        jScrollPane13.setViewportView(Table);
+
+        PlacesMoreRecords.add(jScrollPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 520, 310));
 
         UserQuery.addTab("Places with more records", PlacesMoreRecords);
 
@@ -4495,26 +4517,23 @@ public class Login extends javax.swing.JFrame {
         if(number_top.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Fill the field for show the top.");
         }
-        else{
-            
-        }
-        /*
-        try {
-            String numberr = ListUnapprovedRecords.getSelectedValue();
-            ResultSet record = ConnectDB.query("APP","admin_record.getRecord", numberr);
-            UnapprovedCrimeDescriptionField.setText((String)record.getObject("description_crime"));
-            UnapprovedDateCrimeField.setText((String) record.getObject("date_crime"));
-            UnapprovedResolutionField.setText((String) record.getObject("resolution"));
-            UnapprovedExpireDateField.setText((String) record.getObject("crime_expition_date"));
-            ResultSet pictures = ConnectDB.query("APP","admin_picture.getAll", numberr);
-            ArrayList<String> paths = null;
-            while(pictures.next())
+        else
+        {
+            try {
+            ResultSet dangerous_places = ConnectDB.query("APP","user_queries.dangerous_places", Integer.parseInt(number_top));
+            String col[] = {"District", "Quantity"};
+            String data[][] = null;
+            int i;
+            while(dangerous_places.next())
             {
-                paths.add((String) pictures.getObject("pic_str"));
+                data[i] = {dangerous_places.getObject("name_district", "quant_records")};
+                i++;
             }
-        } catch (SQLException ex) {
+            Table.setModel(new DefaultTableModel(data,col)));
+            } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+            }
+        }
     }//GEN-LAST:event_ButtonShowPlacesActionPerformed
 
     private void ButtonShowRecordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowRecordsActionPerformed
@@ -5774,7 +5793,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonBanUserMouseExited
 
     private void ButtonBanUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBanUserActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_ButtonBanUserActionPerformed
 
     private void PictureUnapprovedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PictureUnapprovedActionPerformed
@@ -5838,9 +5857,14 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonConfirmUnapprovedMouseExited
 
     private void ButtonConfirmUnapprovedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmUnapprovedActionPerformed
-        String actual_username = Username.getText();
-        String actual_password = (String) JOptionPane.showInputDialog(null,"Password: ",JOptionPane.QUESTION_MESSAGE);
-        //Que revise si es la contraseña igual y set en la base de datos
+        if(CheckBoxApprovedOrNot.isSelected())
+        {
+            try {
+                ConnectDB.approve_record(ListUnapprovedRecords.getSelectedValue());
+            } catch (SQLException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         JPAdminMenu.setVisible(true);
         AdminQuery.setVisible(false);
         AdminConfiguration.setVisible(false);
@@ -6487,6 +6511,9 @@ public class Login extends javax.swing.JFrame {
             UnapprovedDateCrimeField.setText((String) record.getObject("date_crime"));
             UnapprovedResolutionField.setText((String) record.getObject("resolution"));
             UnapprovedExpireDateField.setText((String) record.getObject("crime_expition_date"));
+            UnapprovedIdOffender.setText((String) record.getObject("id_person"));
+            UnapprovedTypeField.setText((String) record.getObject("id_type"));
+            UnapprovedVeredictField.setText((String) record.getObject("id_veredict"));
             ResultSet pictures = ConnectDB.query("APP","admin_picture.getAll", numberr);
             ArrayList<String> paths = null;
             while(pictures.next())
@@ -6600,9 +6627,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> BoxStartDate1;
     private javax.swing.JComboBox<String> BoxState;
     private javax.swing.JComboBox<String> BoxStatePersonRecords;
-    private javax.swing.JComboBox<String> BoxUnapprovedCrimeType;
-    private javax.swing.JComboBox<String> BoxUnapprovedOffender;
-    private javax.swing.JComboBox<String> BoxUnapprovedVeredict;
     private javax.swing.JComboBox<String> BoxUserTypeNewUser;
     private javax.swing.JComboBox<String> BoxUserTypeUpdateUser;
     private javax.swing.JComboBox<String> BoxVeredict;
@@ -6825,6 +6849,9 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JSeparator LinePassword;
     private javax.swing.JSeparator LineResolution;
     private javax.swing.JSeparator LineResolution2;
+    private javax.swing.JSeparator LineResolution3;
+    private javax.swing.JSeparator LineResolution4;
+    private javax.swing.JSeparator LineResolution5;
     private javax.swing.JSeparator LineUpdateAdminId;
     private javax.swing.JSeparator LineUpdateAdminLastName;
     private javax.swing.JSeparator LineUpdateAdminMiddleName;
@@ -6863,7 +6890,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton PictureRecordToExpire;
     private javax.swing.JButton PictureShowRecords;
     private javax.swing.JButton PictureUnapproved;
-    private javax.swing.JList<String> PlacesList;
     private javax.swing.JPanel PlacesMoreRecords;
     private javax.swing.JPanel RecordCatalogues;
     private javax.swing.JTextArea RecordDescriptionText;
@@ -6893,10 +6919,14 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton RightPicRecordToExpire;
     private javax.swing.JButton RightPicShowRecords;
     private javax.swing.JButton RightUnapprovedPic;
+    private javax.swing.JTable Table;
     private javax.swing.JTextArea UnapprovedCrimeDescriptionField;
     private javax.swing.JFormattedTextField UnapprovedDateCrimeField;
     private javax.swing.JFormattedTextField UnapprovedExpireDateField;
+    private javax.swing.JTextField UnapprovedIdOffender;
     private javax.swing.JTextField UnapprovedResolutionField;
+    private javax.swing.JTextField UnapprovedTypeField;
+    private javax.swing.JTextField UnapprovedVeredictField;
     private javax.swing.JFormattedTextField UpdateAdminBirthdayField;
     private javax.swing.JTextField UpdateAdminIdField;
     private javax.swing.JTextField UpdateAdminLastNameField;
@@ -6925,10 +6955,10 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
+    private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JScrollPane jScrollPane17;
     private javax.swing.JScrollPane jScrollPane2;

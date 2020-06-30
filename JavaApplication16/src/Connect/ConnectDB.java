@@ -392,6 +392,19 @@ public class ConnectDB {
         stmnt.setString(2, place.getName());
         stmnt.execute();
     }
+    
+    public static void approve_record(String number) throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ call admin_record.approve_record(?) } ");
+        
+        stmnt.setString(1, number);
+        stmnt.execute();
+    }
 
     public static void insert_record(BL.Record record) throws SQLException 
     {
