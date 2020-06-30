@@ -28,8 +28,16 @@ CREATE OR REPLACE PACKAGE user_queries IS
                                       vid_city NUMBER DEFAULT NULL,
                                       vid_state NUMBER DEFAULT NULL,
                                       vid_country NUMBER DEFAULT NULL) RETURN sys_refcursor;
+    FUNCTION getSubtotal (vid_type NUMBER DEFAULT NULL, 
+                          vdate_start DATE DEFAULT NULL, 
+                          vdate_end DATE DEFAULT NULL, 
+                          vid_district NUMBER DEFAULT NULL,
+                          vid_city NUMBER DEFAULT NULL,
+                          vid_state NUMBER DEFAULT NULL,
+                          vid_country NUMBER DEFAULT NULL) RETURN NUMBER;
+    FUNCTION getTotalRecords RETURN NUMBER;
     FUNCTION user_list RETURN sys_refcursor;
-    FUNCTION  RETURN sys_refcursor;
+    FUNCTION users_banned RETURN sys_refcursor;
     FUNCTION records_expiring_between(vdate1 DATE, vdate2 DATE) RETURN sys_refcursor;
     FUNCTION user_list_by_type(vid_type NUMBER) RETURN sys_refcursor;
     FUNCTION records_of_person(vid_person NUMBER) RETURN sys_refcursor;
@@ -85,6 +93,43 @@ CREATE OR REPLACE PACKAGE BODY user_queries IS
                       co.id = NVL(vid_country, co.id);
             RETURN crecords;
          END recordsByClassification;
+         
+    FUNCTION getSubtotal (vid_type NUMBER DEFAULT NULL, 
+                          vdate_start DATE DEFAULT NULL, 
+                          vdate_end DATE DEFAULT NULL, 
+                          vid_district NUMBER DEFAULT NULL,
+                          vid_city NUMBER DEFAULT NULL,
+                          vid_state NUMBER DEFAULT NULL,
+                          vid_country NUMBER DEFAULT NULL) RETURN NUMBER
+    AS rsubtotal NUMBER(10);
+        BEGIN
+            SELECT count(r.numberr) subtotal
+            into rsubtotal
+            FROM record r
+            inner join type t on r.id_type = t.id
+            inner join district d on r.id_district = d.id
+            inner join city ci on d.id_city = ci.id
+            inner join state s on ci.id_state = s.id
+            inner join country co on s.id_country = co.id
+            WHERE r.approved = 'Y' AND
+                  t.id = NVL(vid_type, t.id) AND
+                  r.date_crime between NVL(vdate_start, r.date_crime) and NVL(vdate_end, r.date_crime) AND
+                  d.id = NVL(vid_district, d.id) AND
+                  ci.id = NVL(vid_city, ci.id) AND
+                  s.id = NVL(vid_state, s.id) AND
+                  co.id = NVL(vid_country, co.id);
+        RETURN rsubtotal;
+    END;
+                        
+    FUNCTION getTotalRecords RETURN NUMBER
+    AS rtotal NUMBER(10);
+        BEGIN
+            SELECT count(numberr) total
+            INTO rtotal
+            FROM record
+            WHERE approved = 'Y';
+        RETURN rtotal;
+    END;
 
     FUNCTION user_list RETURN sys_refcursor
     AS
@@ -101,7 +146,7 @@ CREATE OR REPLACE PACKAGE BODY user_queries IS
     AS
         cusersBanned sys_refcursor;
         BEGIN
-            OPEN cusersBanned FORd
+            OPEN cusersBanned FOR
                 SELECT bn.username, bn.ispermanent, br.description
                 FROM adm.banned bn
                 inner join adm.bannedreason br on bn.id_bannedreason = br.id_bannedreason
