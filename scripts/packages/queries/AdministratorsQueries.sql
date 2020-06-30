@@ -47,7 +47,7 @@ CREATE OR REPLACE PACKAGE BODY admin_queries IS
         capproved sys_refcursor;
         BEGIN
             OPEN capproved FOR
-                SELECT *
+                SELECT numberr
                 FROM record
                 WHERE record.approved = 'N';
             RETURN capproved;
@@ -58,7 +58,7 @@ CREATE OR REPLACE PACKAGE BODY admin_queries IS
         crecords sys_refcursor;
         BEGIN
             OPEN crecords FOR
-                SELECT *
+                SELECT numberr
                 FROM record
                 WHERE username_creator = vusername;
             RETURN crecords;
@@ -69,7 +69,7 @@ CREATE OR REPLACE PACKAGE BODY admin_queries IS
         cnrecords sys_refcursor;
         BEGIN
             OPEN cnrecords FOR
-                SELECT *
+                SELECT numberr
                 FROM new_records;
             RETURN cnrecords;
         END get_new_records;

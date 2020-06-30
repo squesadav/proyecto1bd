@@ -8,6 +8,7 @@ CREATE OR REPLACE PACKAGE admin_picture IS
     PROCEDURE remove_picture(pnId NUMBER);
     FUNCTION get_pic_str (vId NUMBER) RETURN VARCHAR2;
     FUNCTION get_numberr (vId NUMBER) RETURN VARCHAR2;
+    FUNCTION getAll RETURN SYS_REFCURSOR;
 END admin_picture;
 /
 
@@ -49,6 +50,17 @@ CREATE OR REPLACE PACKAGE BODY admin_picture AS
         FROM picture
         WHERE id = vId;
         RETURN rNumberr;
+    END;
+
+    FUNCTION getAll(pnNumberr) RETURN sys_refcursor
+        AS rAll sys_refcursor;
+    BEGIN
+    OPEN rALL FOR
+            SELECT pic_str
+            INTO rAll
+            FROM picture
+            WHERE numberr = pnNumberr;
+        RETURN rAll;
     END;
 END admin_picture;
 /

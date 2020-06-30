@@ -46,9 +46,8 @@ CREATE OR REPLACE PACKAGE BODY admin_gender AS
     FUNCTION getAll RETURN sys_refcursor
         AS rAll sys_refcursor;
     BEGIN
-	OPEN rALL FOR
+        OPEN rALL FOR
             SELECT id, name
-            INTO rAll
             FROM gender;
         RETURN rAll;
     END;

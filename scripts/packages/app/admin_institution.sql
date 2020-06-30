@@ -20,7 +20,7 @@ CREATE OR REPLACE PACKAGE BODY admin_institution AS
 
     PROCEDURE update_institution(pnId NUMBER, pnName VARCHAR2) IS
         BEGIN
-            UPDATE insittution
+            UPDATE institution
             SET name = pnName
             WHERE id = pnId;
         END;
@@ -44,9 +44,8 @@ CREATE OR REPLACE PACKAGE BODY admin_institution AS
     FUNCTION getAll RETURN sys_refcursor
         AS rAll sys_refcursor;
     BEGIN
-	OPEN rAll FOR
+        OPEN rAll FOR
             SELECT id, name
-            INTO rAll
             FROM institution;
         RETURN rAll;
     END;

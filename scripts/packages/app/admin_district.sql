@@ -22,7 +22,7 @@ CREATE OR REPLACE PACKAGE BODY admin_district AS
     PROCEDURE update_district(pnId NUMBER, pnName VARCHAR2, pnCity NUMBER) IS
         BEGIN
             UPDATE district
-            SET name = pnName, SET id_city = pnCity
+            SET name = pnName, id_city = pnCity
             WHERE id = pnId;
         END;
 
@@ -56,8 +56,7 @@ CREATE OR REPLACE PACKAGE BODY admin_district AS
         AS rAll sys_refcursor;
     BEGIN
     OPEN rALL FOR
-            SELECT id, name
-            INTO rAll
+            SELECT id, name, id_city
             FROM district;
         RETURN rAll;
     END;
