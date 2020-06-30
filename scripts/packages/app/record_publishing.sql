@@ -29,6 +29,9 @@ CREATE OR REPLACE PACKAGE BODY record_publishing IS
                        t.name,
                        r.date_crime date_crime,
                        dr.name district_crime,
+                       cir.name city_crime,
+                       sr.name state_crime,
+                       cor.name country_crime,
                        r.crime_expiration_date crime_expiration_date,
                        p.id id_accused,
                        p.name first_name_accused,
@@ -38,6 +41,9 @@ CREATE OR REPLACE PACKAGE BODY record_publishing IS
                        g.name gender_accused,
                        i.name workplace_accused,
                        dp.name district_accused,
+                       cip.name city_accused,
+                       sp.name state_accused,
+                       cop.name country_accused,
                        r.resolution resolution,
                        v.years years_sentence,
                        v.date_start sentence_start,
@@ -48,11 +54,17 @@ CREATE OR REPLACE PACKAGE BODY record_publishing IS
                 INNER JOIN person p ON r.id_person = p.id
                 INNER JOIN gender g ON p.id_gender = g.id
                 INNER JOIN district dp ON p.id_district = dp.id
+                INNER JOIN city cip ON dp.id_city = cip.id
+                INNER JOIN state sp ON cip.id_state = sp.id
+                INNER JOIN country cop ON sp.id_country = cop.id
                 INNER JOIN district dr ON r.id_district = dr.id
+                INNER JOIN city cir ON dr.id_city = cir.id
+                INNER JOIN state sr ON cir.id_state = sr.id
+                INNER JOIN country cor ON sr.id_country = cor.id
                 LEFT JOIN institution i ON p.id_institution = i.id
                 LEFT JOIN veredict v ON r.id_veredict = v.id
                 LEFT JOIN place pl ON v.id_place = pl.id
-                WHERE numberr = 1;
+                WHERE numberr = vnumberr;
             RETURN crecord;
         END with_numberr;
     FUNCTION filter_records_by(vdate_crime DATE DEFAULT NULL,
