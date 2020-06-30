@@ -758,4 +758,19 @@ public class ConnectDB {
         
         return result;
     }
+    
+    public static ResultSet records_by_district(int idCity, int idState, int idCountry) throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
+        String uName = "ADM";
+        String uPass = "ADM";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ ? = call ? } ");
+        
+        stmnt.registerOutParameter(1, OracleTypes.CURSOR);
+        stmnt.executeQuery(); 
+        ResultSet result = (ResultSet) stmnt.getObject(1);
+        return result;
+    }
 }
