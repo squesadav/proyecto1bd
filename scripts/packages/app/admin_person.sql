@@ -16,6 +16,7 @@ CREATE OR REPLACE PACKAGE admin_person IS
     FUNCTION getIdDistrict (vId NUMBER) RETURN NUMBER;
     PROCEDURE updateAge (pnId NUMBER);
     PROCEDURE updateAllAges;
+    FUNCTION getAll RETURN SYS_REFCURSOR;
 END admin_person;
 /
 
@@ -138,6 +139,16 @@ CREATE OR REPLACE PACKAGE BODY admin_person AS
             UPDATE person
             SET age = trunc(months_between(sysdate, birthday)/12);
         END;
+
+    FUNCTION getAll RETURN sys_refcursor
+        AS rAll sys_refcursor;
+    BEGIN
+    OPEN rALL FOR
+            SELECT id, name
+            INTO rAll
+            FROM person;
+        RETURN rAll;
+    END;
 
 END admin_person;
 /
