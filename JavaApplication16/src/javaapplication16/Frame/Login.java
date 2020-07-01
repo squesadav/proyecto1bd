@@ -26,29 +26,34 @@ public class Login extends javax.swing.JFrame {
     void fillInComboBox_signIn() throws SQLException
     {
         ResultSet genders = null;
-        ResultSet communities = null;
+        ResultSet district = null;
         ResultSet institutions = null;
+        ResultSet type = null;
         try
         {
-            genders = ConnectDB.query("APP", "admin_gender.getAll");
-            communities = ConnectDB.query("APP","admin_community.getAll");
+            genders = ConnectDB.query("APP","admin_community.getAll");
+            district = ConnectDB.query("APP","admin_district.getAll");
             institutions = ConnectDB.query("APP","admin_institution.getAll");
+            type = ConnectDB.query("APP","admin_type.getAll");
         }
         catch(Exception e)
         {
-            
         }
         while(genders.next())
         {
             BoxGenderNewUser.addItem(genders.getString("name"));
         }
-        while(communities.next())
+        while(district.next())
         {
-            BoxGenderNewUser.addItem(communities.getString("name"));
+            BoxNewUserDistrict.addItem(district.getString("name"));
         }
         while(institutions.next())
         {
-            BoxGenderNewUser.addItem(institutions.getString("name"));
+            BoxInstitutionNewUser.addItem(institutions.getString("name"));
+        }
+        while(type.next())
+        {
+            BoxUserTypeNewUser.addItem(type.getString("name"));
         }
     }
     
@@ -248,7 +253,7 @@ public class Login extends javax.swing.JFrame {
         LineNewUserLastName = new javax.swing.JSeparator();
         LastNameNewUserField = new javax.swing.JTextField();
         BoxGenderNewUser = new javax.swing.JComboBox<>();
-        BoxNewUserCommunity = new javax.swing.JComboBox<>();
+        BoxNewUserDistrict = new javax.swing.JComboBox<>();
         BoxInstitutionNewUser = new javax.swing.JComboBox<>();
         ButtonCancel = new javax.swing.JButton();
         ButtonJoin = new javax.swing.JButton();
@@ -865,10 +870,10 @@ public class Login extends javax.swing.JFrame {
         BoxGenderNewUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
         JPSignUp.add(BoxGenderNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 120, 30));
 
-        BoxNewUserCommunity.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
-        BoxNewUserCommunity.setForeground(new java.awt.Color(29, 41, 81));
-        BoxNewUserCommunity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
-        JPSignUp.add(BoxNewUserCommunity, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 350, 170, 30));
+        BoxNewUserDistrict.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
+        BoxNewUserDistrict.setForeground(new java.awt.Color(29, 41, 81));
+        BoxNewUserDistrict.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        JPSignUp.add(BoxNewUserDistrict, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 350, 170, 30));
 
         BoxInstitutionNewUser.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
         BoxInstitutionNewUser.setForeground(new java.awt.Color(29, 41, 81));
@@ -4579,7 +4584,7 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Fill the last name field.");
         } else if(BoxGenderNewUser.getSelectedIndex() == 0){
             JOptionPane.showMessageDialog(this, "Choose a valid option.");
-        } else if(BoxNewUserCommunity.getSelectedIndex() == 0){
+        } else if(BoxNewUserDistrict.getSelectedIndex() == 0){
             JOptionPane.showMessageDialog(this, "Choose a valid option.");
         } else if(BoxInstitutionNewUser.getSelectedIndex() == 0){
             JOptionPane.showMessageDialog(this, "Choose a valid option.");
@@ -4589,7 +4594,7 @@ public class Login extends javax.swing.JFrame {
                 Person person = new Person(Integer.parseInt(new_user_id), new_user_name, new_user_middle_name, 
                     new_user_last_name, new SimpleDateFormat("dd/MM/yyyy").parse(new_user_birthday),
                     BoxGenderNewUser.getSelectedIndex(), BoxInstitutionNewUser.getSelectedIndex(), 
-                    BoxNewUserCommunity.getSelectedIndex());
+                    BoxNewUserDistrict.getSelectedIndex());
                 User user = new User(new_user, new_user_password, person);
                 ConnectDB.insertUser(user);
                 JOptionPane.showMessageDialog(this, "The user was created successfully.");
@@ -4900,7 +4905,7 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Choose a valid option.");
         } else {
              try{
-                Person person = new Person(Integer.parseInt(offender_id), offender_name, offender_middle_name, offender_last_name, new SimpleDateFormat("dd/MM/yyyy").parse(offender_birthday), BoxGenderNewUser.getSelectedIndex(), BoxInstitutionNewUser.getSelectedIndex(), BoxNewUserCommunity.getSelectedIndex());
+                Person person = new Person(Integer.parseInt(offender_id), offender_name, offender_middle_name, offender_last_name, new SimpleDateFormat("dd/MM/yyyy").parse(offender_birthday), BoxGenderNewUser.getSelectedIndex(), BoxInstitutionNewUser.getSelectedIndex(), BoxNewUserDistrict.getSelectedIndex());
                 ConnectDB.insert_person(person);
                 JOptionPane.showMessageDialog(this, "The person was created successfully in the system.");
                 Animacion.Animacion.mover_derecha(290, 1100, 1, 1, JPCreateOffender);
@@ -6964,7 +6969,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> BoxModifyTypeCrime;
     private javax.swing.JComboBox<String> BoxModifyTypeSentence;
     private javax.swing.JComboBox<String> BoxModifyUserType;
-    private javax.swing.JComboBox<String> BoxNewUserCommunity;
+    private javax.swing.JComboBox<String> BoxNewUserDistrict;
     private javax.swing.JComboBox<String> BoxOffender;
     private javax.swing.JComboBox<String> BoxStartDate1;
     private javax.swing.JComboBox<String> BoxState;
