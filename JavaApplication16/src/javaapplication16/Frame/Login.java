@@ -1,4 +1,3 @@
-
 package javaapplication16.Frame;
 import BL.*;
 import Connect.ConnectDB;
@@ -9,7 +8,6 @@ import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import org.jfree.chart.JFreeChart;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
