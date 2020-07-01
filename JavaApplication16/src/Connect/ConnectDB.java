@@ -726,7 +726,7 @@ public class ConnectDB {
 
     public static int checkLogin(String username, String password) throws SQLException 
     {
-        int result = -1;
+        int result = 0;
         String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "ADM";
         String uPass = "ADM";
@@ -734,17 +734,11 @@ public class ConnectDB {
         Connection con = DriverManager.getConnection(host, uName, uPass);
         CallableStatement stmnt = con.prepareCall("{ ? = call adminUser.checkLogin(?,?) } ");
         
-        stmnt.registerOutParameter(1, OracleTypes.VARCHAR);
+        stmnt.registerOutParameter(1, OracleTypes.NUMBER);
         stmnt.setString(2, username);
-        stmnt.setString(2, password);
+        stmnt.setString(3, password);
         stmnt.executeQuery(); 
-        try
-        {
-            result = (int) stmnt.getObject(1);
-        }
-        catch(Exception e){}
-        
-        
+        result = stmnt.getInt(1);
         return result;
     }
     
