@@ -551,7 +551,7 @@ public class ConnectDB {
         stmnt.registerOutParameter(1, OracleTypes.VARCHAR);
         stmnt.setInt(2, atributo);
         stmnt.executeQuery(); 
-        String result = (String) stmnt.getObject(1);
+        String result = (String) stmnt.getString(1);
         return result;
     }
     
@@ -567,7 +567,7 @@ public class ConnectDB {
         stmnt.registerOutParameter(1, OracleTypes.NUMBER);
         stmnt.setInt(2, atributo);
         stmnt.executeQuery(); 
-        int result = (int) stmnt.getObject(1);
+        int result = (int) stmnt.getInt(1);
         return result;
     }
     
@@ -583,7 +583,7 @@ public class ConnectDB {
         stmnt.registerOutParameter(1, OracleTypes.DATE);
         stmnt.setInt(2, atributo);
         stmnt.executeQuery(); 
-        Date result = (Date) stmnt.getObject(1);
+        Date result = (Date) stmnt.getDate(1);
         return result;
     } 
      
@@ -599,7 +599,7 @@ public class ConnectDB {
         stmnt.registerOutParameter(1, OracleTypes.VARCHAR);
         stmnt.setString(2, atributo);
         stmnt.executeQuery(); 
-        String result = (String) stmnt.getObject(1);
+        String result = (String) stmnt.getString(1);
         return result;
     }
     
@@ -615,7 +615,7 @@ public class ConnectDB {
         stmnt.registerOutParameter(1, OracleTypes.NUMBER);
         stmnt.setString(2, atributo);
         stmnt.executeQuery(); 
-        int result = (int) stmnt.getObject(1);
+        int result = (int) stmnt.getInt(1);
         return result;
     }
     
@@ -631,7 +631,7 @@ public class ConnectDB {
         stmnt.registerOutParameter(1, OracleTypes.DATE);
         stmnt.setString(2, atributo);
         stmnt.executeQuery(); 
-        Date result = (Date) stmnt.getObject(1);
+        Date result = (Date) stmnt.getDate(1);
         return result;
     }
     
@@ -719,7 +719,7 @@ public class ConnectDB {
         
         stmnt.registerOutParameter(1, OracleTypes.VARCHAR);
         stmnt.setString(2, username);
-        String result = (String) stmnt.getObject(1);
+        String result = (String) stmnt.getString(1);
         stmnt.executeQuery(); 
         return result;
     }
