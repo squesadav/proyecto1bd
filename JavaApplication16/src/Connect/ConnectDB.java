@@ -16,7 +16,7 @@ public class ConnectDB {
     
     public static void insertUser(User user) throws SQLException 
     {        
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "ADM";
         String uPass = "ADM";
         
@@ -32,7 +32,7 @@ public class ConnectDB {
     
     public static void insertBanned(Banned banned) throws SQLException 
     {        
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "ADM";
         String uPass = "ADM";
         
@@ -49,7 +49,7 @@ public class ConnectDB {
     
     public static void insertBannedReason(BannedReason bannedreason) throws SQLException 
     {        
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "ADM";
         String uPass = "ADM";
         
@@ -62,7 +62,7 @@ public class ConnectDB {
     
     public static void insertUserType(UserType usertype) throws SQLException 
     {        
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "ADM";
         String uPass = "ADM";
         
@@ -75,7 +75,7 @@ public class ConnectDB {
     
     public static void editUserPassword(String username, String oldPassword, String newPassword) throws SQLException 
     {        
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "ADM";
         String uPass = "ADM";
         
@@ -90,7 +90,7 @@ public class ConnectDB {
     
     public static void editUserType(String username, int userType) throws SQLException 
     {        
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "ADM";
         String uPass = "ADM";
         
@@ -104,7 +104,7 @@ public class ConnectDB {
     
     public static void editUsername(String oldUsername, String newUsername) throws SQLException 
     {        
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "ADM";
         String uPass = "ADM";
         
@@ -118,7 +118,7 @@ public class ConnectDB {
     
     public static void editBannedReason(int idBanned, int idBannedReason) throws SQLException 
     {        
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "ADM";
         String uPass = "ADM";
         
@@ -132,7 +132,7 @@ public class ConnectDB {
     
     public static void editBannedReasonDescription(int idBanned, String newDescription) throws SQLException 
     {        
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "ADM";
         String uPass = "ADM";
         
@@ -146,7 +146,7 @@ public class ConnectDB {
     
     public static void editUserTypeDescription(int idUserType, String newDescription) throws SQLException 
     {        
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "ADM";
         String uPass = "ADM";
         
@@ -160,7 +160,7 @@ public class ConnectDB {
     
     public static void insert_city(City city) throws SQLException 
     {
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "APP";
         String uPass = "APP";
         
@@ -174,7 +174,7 @@ public class ConnectDB {
     
     public static void update_city(City city) throws SQLException 
     {
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "APP";
         String uPass = "APP";
         
@@ -189,7 +189,7 @@ public class ConnectDB {
     
     public static void insert_country(Country country) throws SQLException 
     {
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "APP";
         String uPass = "APP";
         
@@ -202,7 +202,7 @@ public class ConnectDB {
     
     public static void update_country(Country country) throws SQLException 
     {
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "APP";
         String uPass = "APP";
         
@@ -216,7 +216,7 @@ public class ConnectDB {
     
     public static void insert_district(District district) throws SQLException 
     {
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "APP";
         String uPass = "APP";
         
@@ -230,7 +230,7 @@ public class ConnectDB {
     
     public static void update_district(District district) throws SQLException 
     {
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "APP";
         String uPass = "APP";
         
@@ -245,7 +245,7 @@ public class ConnectDB {
 
     public static void insert_gender(Gender gender) throws SQLException 
     {
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "APP";
         String uPass = "APP";
         
@@ -258,7 +258,7 @@ public class ConnectDB {
 
     public static void update_gender(Gender gender) throws SQLException 
     {
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "APP";
         String uPass = "APP";
         
@@ -272,7 +272,7 @@ public class ConnectDB {
 
     public static void insert_institution(Institution institution) throws SQLException 
     {
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "APP";
         String uPass = "APP";
         
@@ -285,7 +285,7 @@ public class ConnectDB {
 
     public static void update_institution(Institution institution) throws SQLException 
     {
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "APP";
         String uPass = "APP";
         
@@ -299,7 +299,7 @@ public class ConnectDB {
     
     public static void insert_person(Person person) throws SQLException 
     {
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "APP";
         String uPass = "APP";
         
@@ -319,7 +319,7 @@ public class ConnectDB {
 
     public static void update_person(Person person) throws SQLException 
     {
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "APP";
         String uPass = "APP";
         
@@ -339,7 +339,7 @@ public class ConnectDB {
 
     public static void insert_picture(Pictures picture) throws SQLException 
     {
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "APP";
         String uPass = "APP";
         
@@ -353,7 +353,7 @@ public class ConnectDB {
 
     public static void update_picture(Pictures picture) throws SQLException 
     {
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "APP";
         String uPass = "APP";
         
@@ -368,7 +368,7 @@ public class ConnectDB {
     
     public static void insert_place(Place place) throws SQLException 
     {
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "APP";
         String uPass = "APP";
         
@@ -381,7 +381,7 @@ public class ConnectDB {
 
     public static void update_place(Place place) throws SQLException 
     {
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "APP";
         String uPass = "APP";
         
@@ -395,7 +395,7 @@ public class ConnectDB {
     
     public static void approve_record(String number) throws SQLException 
     {
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "APP";
         String uPass = "APP";
         
@@ -408,7 +408,7 @@ public class ConnectDB {
 
     public static void insert_record(BL.Record record) throws SQLException 
     {
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "APP";
         String uPass = "APP";
         
@@ -430,7 +430,7 @@ public class ConnectDB {
 
     public static void update_record(BL.Record record) throws SQLException 
     {
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "APP";
         String uPass = "APP";
         
@@ -452,7 +452,7 @@ public class ConnectDB {
 
     public static void insert_state(State state) throws SQLException 
     {
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "APP";
         String uPass = "APP";
         
@@ -466,7 +466,7 @@ public class ConnectDB {
 
     public static void update_state(State state) throws SQLException 
     {
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "APP";
         String uPass = "APP";
         
@@ -481,7 +481,7 @@ public class ConnectDB {
 
     public static void insert_type(Types type) throws SQLException 
     {
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "APP";
         String uPass = "APP";
         
@@ -494,7 +494,7 @@ public class ConnectDB {
 
     public static void update_type(Types type) throws SQLException 
     {
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "APP";
         String uPass = "APP";
         
@@ -508,7 +508,7 @@ public class ConnectDB {
 
     public static void insert_veredict(Veredict veredict) throws SQLException 
     {
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "APP";
         String uPass = "APP";
         
@@ -524,7 +524,7 @@ public class ConnectDB {
 
     public static void update_veredict(Veredict veredict) throws SQLException 
     {
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "APP";
         String uPass = "APP";
         
@@ -541,16 +541,15 @@ public class ConnectDB {
     
     public static String getString(String schema, String function, int atributo) throws SQLException 
     {
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = schema;
         String uPass = schema;
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ ? = call ?(?) } ");
+        CallableStatement stmnt = con.prepareCall("{ ? = call " + function + "(?) } ");
         
         stmnt.registerOutParameter(1, OracleTypes.VARCHAR);
-        stmnt.setString(2, function);
-        stmnt.setInt(3, atributo);
+        stmnt.setInt(2, atributo);
         stmnt.executeQuery(); 
         String result = (String) stmnt.getObject(1);
         return result;
@@ -558,16 +557,15 @@ public class ConnectDB {
     
     public static int getInt(String schema, String function, int atributo) throws SQLException 
     {
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = schema;
         String uPass = schema;
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ ? = call ?(?) } ");
+        CallableStatement stmnt = con.prepareCall("{ ? = call " + function + "(?) } ");
         
         stmnt.registerOutParameter(1, OracleTypes.NUMBER);
-        stmnt.setString(2, function);
-        stmnt.setInt(3, atributo);
+        stmnt.setInt(2, atributo);
         stmnt.executeQuery(); 
         int result = (int) stmnt.getObject(1);
         return result;
@@ -575,16 +573,15 @@ public class ConnectDB {
     
     public static Date getDate(String schema, String function, int atributo) throws SQLException 
     {
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = schema;
         String uPass = schema;
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ ? = call ?(?) } ");
+        CallableStatement stmnt = con.prepareCall("{ ? = call " + function + "(?) } ");
         
         stmnt.registerOutParameter(1, OracleTypes.DATE);
-        stmnt.setString(2, function);
-        stmnt.setInt(3, atributo);
+        stmnt.setInt(2, atributo);
         stmnt.executeQuery(); 
         Date result = (Date) stmnt.getObject(1);
         return result;
@@ -592,16 +589,15 @@ public class ConnectDB {
      
     public static String getString(String schema, String function, String atributo) throws SQLException 
     {
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = schema;
         String uPass = schema;
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ ? = call ?(?) } ");
+        CallableStatement stmnt = con.prepareCall("{ ? = call " + function + "(?) } ");
         
         stmnt.registerOutParameter(1, OracleTypes.VARCHAR);
-        stmnt.setString(2, function);
-        stmnt.setString(3, atributo);
+        stmnt.setString(2, atributo);
         stmnt.executeQuery(); 
         String result = (String) stmnt.getObject(1);
         return result;
@@ -609,16 +605,15 @@ public class ConnectDB {
     
     public static int getInt(String schema, String function, String atributo) throws SQLException 
     {
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = schema;
         String uPass = schema;
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ ? = call ?(?) } ");
+        CallableStatement stmnt = con.prepareCall("{ ? = call " + function + "(?) } ");
         
         stmnt.registerOutParameter(1, OracleTypes.NUMBER);
-        stmnt.setString(2, function);
-        stmnt.setString(3, atributo);
+        stmnt.setString(2, atributo);
         stmnt.executeQuery(); 
         int result = (int) stmnt.getObject(1);
         return result;
@@ -626,16 +621,15 @@ public class ConnectDB {
     
     public static Date getDate(String schema, String function, String atributo) throws SQLException 
     {
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = schema;
         String uPass = schema;
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ ? = call ?(?) } ");
+        CallableStatement stmnt = con.prepareCall("{ ? = call " + function + "(?) } ");
         
         stmnt.registerOutParameter(1, OracleTypes.DATE);
-        stmnt.setString(2, function);
-        stmnt.setString(3, atributo);
+        stmnt.setString(2, atributo);
         stmnt.executeQuery(); 
         Date result = (Date) stmnt.getObject(1);
         return result;
@@ -643,32 +637,16 @@ public class ConnectDB {
     
     public static ResultSet query(String schema,String function,String atributo) throws SQLException 
     {
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = schema;
         String uPass = schema;
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ ? = call ?(?) } ");
+        CallableStatement stmnt = con.prepareCall("{ ? = call " + function + "(?) } ");
         
         stmnt.registerOutParameter(1, OracleTypes.CURSOR);
-        stmnt.setString(2, function);
-        stmnt.setString(3, atributo);
+        stmnt.setString(2, atributo);
         stmnt.executeQuery(); 
-        ResultSet result = (ResultSet) stmnt.getObject(1);
-        return result;
-    }
-    
-    public static ResultSet getAllGenders() throws SQLException 
-    {
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
-        String uName = "APP";
-        String uPass = "APP";
-        
-        Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ ? = call  } ");
-        
-        stmnt.registerOutParameter(1, OracleTypes.CURSOR);
-        stmnt.executeQuery();
         ResultSet result = (ResultSet) stmnt.getObject(1);
         return result;
     }
@@ -680,11 +658,10 @@ public class ConnectDB {
         String uPass = schema;
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ ? = call ?(?) } ");
+        CallableStatement stmnt = con.prepareCall("{ ? = call " + function + "(?) } ");
         
         stmnt.registerOutParameter(1, OracleTypes.CURSOR);
-        stmnt.setString(2, function);
-        stmnt.setInt(3, atributo);
+        stmnt.setInt(2, atributo);
         stmnt.executeQuery(); 
         ResultSet result = (ResultSet) stmnt.getObject(1);
         return result;
@@ -697,10 +674,9 @@ public class ConnectDB {
         String uPass = schema;
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ ? = call ? } ");
+        CallableStatement stmnt = con.prepareCall("{ ? = call " + function + " } ");
         
         stmnt.registerOutParameter(1, OracleTypes.CURSOR);
-        stmnt.setString(2, function);
         stmnt.executeQuery(); 
         ResultSet result = (ResultSet) stmnt.getObject(1);
         return result;
@@ -708,15 +684,14 @@ public class ConnectDB {
    
     public void delete(String schema,String function,String atributo) throws SQLException 
     {
-        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = schema;
         String uPass = schema;
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ call ?(?) } ");
+        CallableStatement stmnt = con.prepareCall("{ call " + function + "(?) } ");
         
-        stmnt.setString(1, function);
-        stmnt.setString(2, atributo);
+        stmnt.setString(1, atributo);
         stmnt.executeQuery(); 
     }
     
@@ -727,10 +702,9 @@ public class ConnectDB {
         String uPass = schema;
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ call ?(?) } ");
+        CallableStatement stmnt = con.prepareCall("{ call " + function + "(?) } ");
         
-        stmnt.setString(1, function);
-        stmnt.setInt(2, atributo);
+        stmnt.setInt(1, atributo);
         stmnt.executeQuery(); 
     }
 

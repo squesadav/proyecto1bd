@@ -31,10 +31,10 @@ public class Login extends javax.swing.JFrame {
         ResultSet type = null;
         try
         {
-            genders = ConnectDB.getAllGenders();
+            genders = ConnectDB.query("APP","admin_gender.getAll");
             district = ConnectDB.query("APP","admin_district.getAll");
             institutions = ConnectDB.query("APP","admin_institution.getAll");
-            type = ConnectDB.query("APP","admin_type.getAll");
+            type = ConnectDB.query("ADM","adminUser.getAllUserType");
         }
         catch(Exception e)
         {
