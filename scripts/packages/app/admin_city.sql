@@ -69,7 +69,7 @@ CREATE OR REPLACE PACKAGE BODY admin_city AS
             OPEN ccity FOR
                 SELECT name
                 FROM city
-                WHERE id_state = vIdCountry;
+                WHERE id_state = vIdState;
             RETURN ccity;
     END;
 END admin_city;

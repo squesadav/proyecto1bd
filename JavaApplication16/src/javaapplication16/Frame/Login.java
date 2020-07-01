@@ -26,6 +26,34 @@ public class Login extends javax.swing.JFrame {
     int indexPictures;
     ArrayList<String> paths;
 
+    void blockAll()
+    {
+        JPWelcome.setVisible(false);
+        JPLogin.setVisible(false);
+        JPSignUp.setVisible(false);
+        JPWindow.setVisible(false);
+        JPLogged.setVisible(false);
+        JPAdminMenu.setVisible(false);
+        AdminQuery.setVisible(false);
+        AdminConfiguration.setVisible(false);
+        UserCatalogues.setVisible(false);
+        PersonCatalogues.setVisible(false);
+        RecordCatalogues.setVisible(false);
+        CreatePersonAdmin.setVisible(false);
+        CreateRecordAdmin.setVisible(false);
+        CreateBanUser.setVisible(false);
+        DeleteUser.setVisible(false);
+        DeletePerson.setVisible(false);
+        DeleteRecord.setVisible(false);
+        DeleteBan.setVisible(false);
+        AdminStatistics.setVisible(false);
+        JPUserMenu.setVisible(false);
+        CreatePerson.setVisible(false);
+        CreateRecord.setVisible(false);
+        UserQuery.setVisible(false);
+        UserConfiguration.setVisible(false);
+    }
+
     void fillInComboBox_signIn() throws SQLException
     {
         BoxGenderNewUser.removeAllItems();

@@ -9,7 +9,7 @@ CREATE OR REPLACE PACKAGE admin_state IS
     FUNCTION getName (vId NUMBER) RETURN VARCHAR2;
     FUNCTION getIdCountry (vId NUMBER) RETURN NUMBER;
     FUNCTION getAll RETURN sys_refcursor;
-    FUNCTION getInCountry   RETURN sys_refcursor;
+    FUNCTION getInCountry(vIdCountry) RETURN sys_refcursor;
 END admin_state;
 /
 
@@ -68,7 +68,7 @@ CREATE OR REPLACE PACKAGE BODY admin_state AS
         cstate sys_refcursor;
         BEGIN
             OPEN cstate FOR
-                SELECT id, name, id_country
+                SELECT name
                 FROM state
                 WHERE id_country = vIdCountry;
             RETURN cstate;
