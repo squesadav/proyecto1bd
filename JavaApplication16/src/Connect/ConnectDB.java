@@ -759,4 +759,139 @@ public class ConnectDB {
         ResultSet result = (ResultSet) stmnt.getObject(1);
         return result;
     }
+    
+    public static ResultSet records_by_city(int idState, int idCountry) throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
+        String uName = "ADM";
+        String uPass = "ADM";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ ? = call statics.records_by_city(?,?,?) } ");
+        
+        stmnt.registerOutParameter(1, OracleTypes.CURSOR);
+        stmnt.setInt(2, idState);
+        stmnt.setInt(3, idCountry);
+        stmnt.executeQuery(); 
+        ResultSet result = (ResultSet) stmnt.getObject(1);
+        return result;
+    }
+    
+    public static ResultSet criminals_by_district(int idCity,int idState, int idCountry) throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
+        String uName = "ADM";
+        String uPass = "ADM";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ ? = call statics.criminals_by_city(?,?,?) } ");
+        
+        stmnt.registerOutParameter(1, OracleTypes.CURSOR);
+        stmnt.setInt(2, idCity);
+        stmnt.setInt(3, idState);
+        stmnt.setInt(4, idCountry);
+        stmnt.executeQuery(); 
+        ResultSet result = (ResultSet) stmnt.getObject(1);
+        return result;
+    }
+    
+    public static ResultSet criminals_by_city(int idState, int idCountry) throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
+        String uName = "ADM";
+        String uPass = "ADM";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ ? = call statics.criminals_by_city(?,?,?) } ");
+        
+        stmnt.registerOutParameter(1, OracleTypes.CURSOR);
+        stmnt.setInt(2, idState);
+        stmnt.setInt(3, idCountry);
+        stmnt.executeQuery(); 
+        ResultSet result = (ResultSet) stmnt.getObject(1);
+        return result;
+    }
+    
+    public static ResultSet password_not_changed(int numberDays, String firstName, String lastName, int idPerson, String username) throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ ? = call admin_queries.password_not_changed(?,?,?,?) } ");
+        
+        stmnt.registerOutParameter(1, OracleTypes.CURSOR);
+        stmnt.setInt(2, numberDays);
+        stmnt.setString(3, firstName);
+        stmnt.setString(4, lastName);
+        stmnt.setInt(5, idPerson);
+        stmnt.setString(6, username);
+        stmnt.executeQuery(); 
+        ResultSet result = (ResultSet) stmnt.getObject(1);
+        return result;
+    }
+    
+    public static ResultSet recordsByClasification(int idType, Date dateStart, Date dateEnd, int idDistrict, int idCity, 
+            int idState, int idCountry) throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ ? = call user_queries.recordsByClasification(?,?,?,?,?,?,?) } ");
+        
+        stmnt.registerOutParameter(1, OracleTypes.CURSOR);
+        stmnt.setInt(2, idType);
+        stmnt.setDate(3, dateStart);
+        stmnt.setDate(4, dateEnd);
+        stmnt.setInt(5, idDistrict);
+        stmnt.setInt(6, idCity);
+        stmnt.setInt(7, idState);
+        stmnt.setInt(8, idCountry);
+        stmnt.executeQuery(); 
+        ResultSet result = (ResultSet) stmnt.getObject(1);
+        return result;
+    }
+    
+    public static ResultSet getSubTotal(int idType, Date dateStart, Date dateEnd, int idDistrict, int idCity, 
+            int idState, int idCountry) throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ ? = call user_queries.getSubtotal(?,?,?,?,?,?,?) } ");
+        
+        stmnt.registerOutParameter(1, OracleTypes.CURSOR);
+        stmnt.setInt(2, idType);
+        stmnt.setDate(3, dateStart);
+        stmnt.setDate(4, dateEnd);
+        stmnt.setInt(5, idDistrict);
+        stmnt.setInt(6, idCity);
+        stmnt.setInt(7, idState);
+        stmnt.setInt(8, idCountry);
+        stmnt.executeQuery(); 
+        ResultSet result = (ResultSet) stmnt.getObject(1);
+        return result;
+    }
+    
+    public static ResultSet records_expiring_between(Date firstDate, Date secondDate) throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ ? = call user_queries.records_expiring_between(?,?) } ");
+        
+        stmnt.registerOutParameter(1, OracleTypes.CURSOR);
+        stmnt.setDate(2, firstDate);
+        stmnt.setDate(3, secondDate);
+        stmnt.executeQuery(); 
+        ResultSet result = (ResultSet) stmnt.getObject(1);
+        return result;
+    }
 }

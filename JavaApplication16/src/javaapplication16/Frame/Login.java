@@ -29,6 +29,11 @@ public class Login extends javax.swing.JFrame {
     void fillInComboBox_signIn() throws SQLException
     {
         BoxGenderNewUser.removeAllItems();
+        BoxNewUserDistrict.removeAllItems();
+        BoxInstitutionNewUser.removeAllItems();
+        BoxGenderNewUser.addItem("Default");
+        BoxNewUserDistrict.addItem("Default");
+        BoxInstitutionNewUser.addItem("Default");
         ResultSet genders = null;
         ResultSet districts = null;
         ResultSet institutions = null;
@@ -38,26 +43,29 @@ public class Login extends javax.swing.JFrame {
             districts = ConnectDB.query("APP","admin_district.getAll");
             institutions = ConnectDB.query("APP","admin_institution.getAll");
         }
-        catch(Exception e)
-        {
-            
-        }
+        catch(Exception e){}
         while(genders.next())
         {
             BoxGenderNewUser.addItem(genders.getString("name"));
         }
         while(districts.next())
         {
-            BoxGenderNewUser.addItem(districts.getString("name"));
+            BoxNewUserDistrict.addItem(districts.getString("name"));
         }
         while(institutions.next())
         {
-            BoxGenderNewUser.addItem(institutions.getString("name"));
+            BoxInstitutionNewUser.addItem(institutions.getString("name"));
         }
     }
     
     void fillInComboBox_Offender() throws SQLException
     {
+        BoxGenderPerson.removeAllItems();
+        BoxDistrictPerson.removeAllItems();
+        BoxInstitutionPerson.removeAllItems();
+        BoxGenderPerson.addItem("Default");
+        BoxDistrictPerson.addItem("Default");
+        BoxInstitutionPerson.addItem("Default");
         ResultSet genders = null;
         ResultSet districts = null;
         ResultSet institutions = null;
@@ -67,10 +75,7 @@ public class Login extends javax.swing.JFrame {
             districts = ConnectDB.query("APP","admin_district.getAll");
             institutions = ConnectDB.query("APP","admin_institution.getAll");
         }
-        catch(Exception e)
-        {
-            
-        }
+        catch(Exception e){}
         while(genders.next())
         {
             BoxGenderPerson.addItem(genders.getString("name"));
@@ -87,29 +92,45 @@ public class Login extends javax.swing.JFrame {
     
     void fillInComboBox_UserCatalogues() throws SQLException
     {
+        BoxModifyUserType.removeAllItems();
+        BoxModifyBannedReason.removeAllItems();
+        BoxModifyUserType.addItem("Default");
+        BoxModifyBannedReason.addItem("Default");
         ResultSet userType = null;
         ResultSet BannedReason = null;
         try
         {
             userType = ConnectDB.query("ADM", "adminUser.getAllUserType");
-            BannedReason = ConnectDB.query("ADM","admin_district.getAllBannedReason");
+            BannedReason = ConnectDB.query("ADM","adminUser.getAllBannedReason");
         }
-        catch(Exception e)
-        {
-            
-        }
+        catch(Exception e){}
         while(userType.next())
         {
-            BoxGenderPerson.addItem(userType.getString("name"));
+            BoxModifyUserType.addItem(userType.getString("name"));
         }
         while(BannedReason.next())
         {
-            BoxDistrictPerson.addItem(BannedReason.getString("name"));
+            BoxModifyBannedReason.addItem(BannedReason.getString("name"));
         }
     }
     
     void fillInPersonCatalogues() throws SQLException
     {
+        BoxModifyGender.removeAllItems();
+        BoxModifyGender.addItem("Default");
+       
+        BoxModifyInstitution.removeAllItems();
+        BoxModifyInstitution.addItem("Default");
+        
+        BoxModifyCountry.removeAllItems();
+        BoxModifyCountry.addItem("Default");
+        
+        BoxModifyState.removeAllItems();
+        BoxModifyState.addItem("Default");
+        
+        BoxModifyCity.removeAllItems();
+        BoxModifyCity.addItem("Default");
+        
         ResultSet genders = null;
         ResultSet institutions = null;
         ResultSet countries = null;
@@ -148,6 +169,18 @@ public class Login extends javax.swing.JFrame {
     
      void fillInZones() throws SQLException
     {
+        BoxDistrict.removeAllItems();
+        BoxDistrict.addItem("Default");
+        
+        BoxCountry.removeAllItems();
+        BoxCountry.addItem("Default");
+        
+        BoxState.removeAllItems();
+        BoxState.addItem("Default");
+        
+        BoxCity.removeAllItems();
+        BoxCity.addItem("Default");
+        
         ResultSet districts = null;
         ResultSet countries = null;
         ResultSet states = null;
@@ -180,6 +213,13 @@ public class Login extends javax.swing.JFrame {
     
     void fillIn_Records() throws SQLException
     {
+        BoxFilter.removeAllItems();
+        BoxFilter.addItem("Default");
+        
+        
+        BoxFilterSpecify.removeAllItems();
+        BoxFilterSpecify.addItem("Default");
+        
         ResultSet types = null;
         ResultSet districts = null;
         try
@@ -279,7 +319,7 @@ public class Login extends javax.swing.JFrame {
         LineNewUserLastName = new javax.swing.JSeparator();
         LastNameNewUserField = new javax.swing.JTextField();
         BoxGenderNewUser = new javax.swing.JComboBox<>();
-        BoxNewUserCommunity = new javax.swing.JComboBox<>();
+        BoxNewUserDistrict = new javax.swing.JComboBox<>();
         BoxInstitutionNewUser = new javax.swing.JComboBox<>();
         ButtonCancel = new javax.swing.JButton();
         ButtonJoin = new javax.swing.JButton();
@@ -1040,10 +1080,10 @@ public class Login extends javax.swing.JFrame {
         BoxGenderNewUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
         JPSignUp.add(BoxGenderNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 120, 30));
 
-        BoxNewUserCommunity.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
-        BoxNewUserCommunity.setForeground(new java.awt.Color(29, 41, 81));
-        BoxNewUserCommunity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
-        JPSignUp.add(BoxNewUserCommunity, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 350, 170, 30));
+        BoxNewUserDistrict.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
+        BoxNewUserDistrict.setForeground(new java.awt.Color(29, 41, 81));
+        BoxNewUserDistrict.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        JPSignUp.add(BoxNewUserDistrict, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 350, 170, 30));
 
         BoxInstitutionNewUser.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
         BoxInstitutionNewUser.setForeground(new java.awt.Color(29, 41, 81));
@@ -6063,7 +6103,7 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Fill the last name field.");
         } else if(BoxGenderNewUser.getSelectedIndex() == 0){
             JOptionPane.showMessageDialog(this, "Choose a valid option.");
-        } else if(BoxNewUserCommunity.getSelectedIndex() == 0){
+        } else if(BoxNewUserDistrict.getSelectedIndex() == 0){
             JOptionPane.showMessageDialog(this, "Choose a valid option.");
         } else if(BoxInstitutionNewUser.getSelectedIndex() == 0){
             JOptionPane.showMessageDialog(this, "Choose a valid option.");
@@ -6073,7 +6113,7 @@ public class Login extends javax.swing.JFrame {
                 Person person = new Person(Integer.parseInt(new_user_id), new_user_name, new_user_middle_name, 
                     new_user_last_name, new SimpleDateFormat("dd/MM/yyyy").parse(new_user_birthday),
                     BoxGenderNewUser.getSelectedIndex(), BoxInstitutionNewUser.getSelectedIndex(), 
-                    BoxNewUserCommunity.getSelectedIndex());
+                    BoxNewUserDistrict.getSelectedIndex());
                 User user = new User(new_user, new_user_password, person);
                 user.setId_userType(2);
                 ConnectDB.insertUser(user);
@@ -6363,7 +6403,7 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Choose a valid option.");
         } else {
              try{
-                Person person = new Person(Integer.parseInt(offender_id), offender_name, offender_middle_name, offender_last_name, new SimpleDateFormat("dd/MM/yyyy").parse(offender_birthday), BoxGenderNewUser.getSelectedIndex(), BoxInstitutionNewUser.getSelectedIndex(), BoxNewUserCommunity.getSelectedIndex());
+                Person person = new Person(Integer.parseInt(offender_id), offender_name, offender_middle_name, offender_last_name, new SimpleDateFormat("dd/MM/yyyy").parse(offender_birthday), BoxGenderNewUser.getSelectedIndex(), BoxInstitutionNewUser.getSelectedIndex(), BoxNewUserDistrict.getSelectedIndex());
                 ConnectDB.insert_person(person);
                 JOptionPane.showMessageDialog(this, "The person was created successfully in the system.");
                 Animacion.Animacion.mover_derecha(290, 1100, 1, 1, CreatePerson);
@@ -9537,7 +9577,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> BoxModifyTypeCrime;
     private javax.swing.JComboBox<String> BoxModifyTypeSentence;
     private javax.swing.JComboBox<String> BoxModifyUserType;
-    private javax.swing.JComboBox<String> BoxNewUserCommunity;
+    private javax.swing.JComboBox<String> BoxNewUserDistrict;
     private javax.swing.JComboBox<String> BoxOffender;
     private javax.swing.JComboBox<String> BoxOffender1;
     private javax.swing.JComboBox<String> BoxReasonBanned;
