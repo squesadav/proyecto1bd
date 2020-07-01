@@ -1,4 +1,3 @@
-
 package javaapplication16.Frame;
 import BL.*;
 import Connect.ConnectDB;
@@ -30,12 +29,12 @@ public class Login extends javax.swing.JFrame {
     void fillInComboBox_signIn() throws SQLException
     {
         ResultSet genders = null;
-        ResultSet communities = null;
+        ResultSet districts = null;
         ResultSet institutions = null;
         try
         {
             genders = ConnectDB.query("APP", "admin_gender.getAll");
-            communities = ConnectDB.query("APP","admin_community.getAll");
+            districts = ConnectDB.query("APP","admin_district.getAll");
             institutions = ConnectDB.query("APP","admin_institution.getAll");
         }
         catch(Exception e)
@@ -46,9 +45,9 @@ public class Login extends javax.swing.JFrame {
         {
             BoxGenderNewUser.addItem(genders.getString("name"));
         }
-        while(communities.next())
+        while(districts.next())
         {
-            BoxGenderNewUser.addItem(communities.getString("name"));
+            BoxGenderNewUser.addItem(districts.getString("name"));
         }
         while(institutions.next())
         {
@@ -5708,7 +5707,7 @@ public class Login extends javax.swing.JFrame {
         JPLogin.setVisible(false);
         JPLogged.setVisible(true);
         UpdateUsernameField.setText(Username.getText());
-        /Agregar la información personal del usuario en UpdatePersonalInfo
+        //Agregar la información personal del usuario en UpdatePersonalInfo
     }//GEN-LAST:event_ButtonConfigurationActionPerformed
 
     private void ButtonLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonLogOutActionPerformed
@@ -5786,7 +5785,7 @@ public class Login extends javax.swing.JFrame {
         JPSignUp.setVisible(false);
         JPLogged.setVisible(true);
         JPLogin.setVisible(false);
-        /Rellenar la info;
+        //Rellenar la info;
     }//GEN-LAST:event_ButtonAdminQueryActionPerformed
 
     private void ButtonAdminConfigurationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAdminConfigurationActionPerformed
@@ -5807,9 +5806,9 @@ public class Login extends javax.swing.JFrame {
         JPLogged.setVisible(true);
         JPLogin.setVisible(false);
         UpdateUsernameField.setText(Username.getText());
-        /Agregar la información personal del usuario en UpdateAdminPersonalInfo
-        /Rellenar las comboBox de AdminCatalogues
-        /Rellenar la lista con la funcion de expedientes en ApproveReports
+        //Agregar la información personal del usuario en UpdateAdminPersonalInfo
+        //Rellenar las comboBox de AdminCatalogues
+        //Rellenar la lista con la funcion de expedientes en ApproveReports
     }//GEN-LAST:event_ButtonAdminConfigurationActionPerformed
 
     private void ButtonSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSignUpActionPerformed
@@ -6225,7 +6224,7 @@ public class Login extends javax.swing.JFrame {
         RecordDescriptionText.setText(record_number);
         indexPictures = 0;
         ArrayList<String> paths = null;
-        /Obtener las pictures del expediente seleccionado y guardar en la global paths;
+        //Obtener las pictures del expediente seleccionado y guardar en la global paths;
         loadPictures(PictureShowRecords, LeftPicShowRecords, RightPicShowRecords);
     }//GEN-LAST:event_RecordsListMouseClicked
 
@@ -6641,11 +6640,11 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_RecordsConvictionsToExpireOrExpiredMouseEntered
 
     private void PictureShowRecordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PictureShowRecordsActionPerformed
-        if(!paths.isEmpty()) {
-            Picture v = new Picture(null, true, paths.get(indexPictures).toString());
+        /*if(!paths.isEmpty()) {
+            Pictures v = new Pictures(null, true, paths.get(indexPictures).toString());
             v.setVisible(true);
         }
-        /Aquí necesito una clase picture :(;
+        //Aquí necesito una clase picture :(;*/
     }//GEN-LAST:event_PictureShowRecordsActionPerformed
 
     private void RightPicShowRecordsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RightPicShowRecordsMouseEntered
@@ -6680,11 +6679,11 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_LeftPicShowRecordsActionPerformed
 
     private void PictureRecordToExpireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PictureRecordToExpireActionPerformed
-        if(!paths.isEmpty()) {
+        /*if(!paths.isEmpty()) {
             Picture v = new Picture(null, true, paths.get(indexPictures).toString());
             v.setVisible(true);
         }
-        /Necesito una clase Picture;
+        /Necesito una clase Picture;*/
     }//GEN-LAST:event_PictureRecordToExpireActionPerformed
 
     private void RightPicRecordToExpireMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RightPicRecordToExpireMouseEntered
@@ -6758,7 +6757,7 @@ public class Login extends javax.swing.JFrame {
     private void ButtonConfirmChangesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmChangesActionPerformed
         String new_username = UpdateUsernameField.getText();
         String actual_password = (String) JOptionPane.showInputDialog(null,"Current password: ",JOptionPane.QUESTION_MESSAGE);
-        /Que revise si es la contraseña igual;
+        //Que revise si es la contraseña igual;
         JPAdminMenu.setVisible(false);
         AdminQuery.setVisible(false);
         AdminConfiguration.setVisible(false);
@@ -6912,11 +6911,11 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonShowFilteredUserListActionPerformed
 
     private void PictureNewReportListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PictureNewReportListActionPerformed
-        if(!paths.isEmpty()) {
+        /*if(!paths.isEmpty()) {
             Picture v = new Picture(null, true, paths.get(indexPictures).toString());
             v.setVisible(true);
         }
-        /Necesito una clase Picture;
+        //Necesito una clase Picture;*/
     }//GEN-LAST:event_PictureNewReportListActionPerformed
 
     private void RightPicNewReportListMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RightPicNewReportListMouseEntered
@@ -7032,9 +7031,9 @@ public class Login extends javax.swing.JFrame {
             }
         }
         filters = newFilters;
-        /Aquí es donde se llama la función de la base de datos con los filtros y se agrega en la lista los valores
+        //Aquí es donde se llama la función de la base de datos con los filtros y se agrega en la lista los valores
         String example[] = {"3D", "a5"};
-        /Sino hubieran datos que tire los usuarios de forma ascendente o como sea haha
+        //Sino hubieran datos que tire los usuarios de forma ascendente o como sea haha
         RecordsList.setListData(example);
     }//GEN-LAST:event_ButtonLogUserListActionPerformed
 
@@ -7069,7 +7068,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonRollbackLogActionPerformed
 
     private void ButtonShowRecordsDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowRecordsDateActionPerformed
-        /Filtro de rango de fechas para los expedientes
+        //Filtro de rango de fechas para los expedientes
     }//GEN-LAST:event_ButtonShowRecordsDateActionPerformed
 
     private void ButtonCancelUpdatesUserLoginAdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelUpdatesUserLoginAdminMouseEntered
@@ -7305,11 +7304,11 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonCancelUnapprovedActionPerformed
 
     private void PictureUnapprovedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PictureUnapprovedActionPerformed
-        if(!paths.isEmpty()) {
+       /* if(!paths.isEmpty()) {
             Picture v = new Picture(null, true, paths.get(indexPictures).toString());
             v.setVisible(true);
         }
-        /Necesito una clase Picture;
+        /Necesito una clase Picture;*/
     }//GEN-LAST:event_PictureUnapprovedActionPerformed
 
     private void RightUnapprovedPicMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RightUnapprovedPicMouseEntered
@@ -7352,7 +7351,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_AddUnapprovedPicMouseExited
 
     private void AddUnapprovedPicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddUnapprovedPicActionPerformed
-        /Agregar imágenes al expediente;
+        //Agregar imágenes al expediente;
     }//GEN-LAST:event_AddUnapprovedPicActionPerformed
 
     private void RemoveUnapprovedPicMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RemoveUnapprovedPicMouseEntered
@@ -7364,7 +7363,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_RemoveUnapprovedPicMouseExited
 
     private void RemoveUnapprovedPicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveUnapprovedPicActionPerformed
-        /eliminar imagenes al expediente;
+        //eliminar imagenes al expediente;
     }//GEN-LAST:event_RemoveUnapprovedPicActionPerformed
 
     private void ButtonConfirmUnapprovedMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonConfirmUnapprovedMouseEntered
@@ -7801,18 +7800,18 @@ public class Login extends javax.swing.JFrame {
     private void RemoveTypeCrimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveTypeCrimeActionPerformed
         int index_type_crime = BoxModifyTypeCrime.getSelectedIndex();
         String type_crime = BoxModifyTypeCrime.getItemAt(index_type_crime);
-        /Borrar de la base
+        //Borrar de la base
     }//GEN-LAST:event_RemoveTypeCrimeActionPerformed
 
     private void AddTypeSentenceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddTypeSentenceActionPerformed
        String new_type_sentence = (String) JOptionPane.showInputDialog(null,"New type sentence: ",JOptionPane.QUESTION_MESSAGE);
-        /Agregarlo a la base
+        //Agregarlo a la base
     }//GEN-LAST:event_AddTypeSentenceActionPerformed
 
     private void RemoveTypeSentenceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveTypeSentenceActionPerformed
         int index_type_sentence = BoxModifyTypeSentence.getSelectedIndex();
         String type_sentence = BoxModifyTypeSentence.getItemAt(index_type_sentence);
-        /Borrar de la base
+        //Borrar de la base
     }//GEN-LAST:event_RemoveTypeSentenceActionPerformed
 
     private void ButtonEnterReportsZoneMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonEnterReportsZoneMouseEntered
@@ -7859,7 +7858,7 @@ public class Login extends javax.swing.JFrame {
         int index_state = BoxStatePersonRecords.getSelectedIndex();
         int index_city = BoxCityPersonRecords.getSelectedIndex();
         int index_district = BoxDistrictPersonRecords.getSelectedIndex();
-        /Aquí es donde se llama la función de la base de datos con los filtros y se agrega en la lista los valores
+        //Aquí es donde se llama la función de la base de datos con los filtros y se agrega en la lista los valores
     }//GEN-LAST:event_ButtonEnterPersonRecordsActionPerformed
 
     private void ButtonUserCataloguesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonUserCataloguesMouseEntered
@@ -8023,10 +8022,10 @@ public class Login extends javax.swing.JFrame {
             ResultSet record = ConnectDB.query("APP","admin_record.getRecord", numberr);
             UnapprovedCrimeDescriptionField.setText((String)record.getObject("description_crime"));
             UnapprovedDateCrimeField.setText((String) record.getObject("date_crime"));
-            UnapprovedResolutionField.setText((String) record.getObject("resolution"));
+            //UnapprovedResolutionField.setText((String) record.getObject("resolution"));
             UnapprovedExpireDateField.setText((String) record.getObject("crime_expition_date"));
             UnapprovedIdOffender.setText((String) record.getObject("id_person"));
-            UnapprovedTypeField.setText((String) record.getObject("id_type"));
+            //UnapprovedTypeField.setText((String) record.getObject("id_type"));
             YearsSentenceUnapproved.setText((String) record.getObject("id_veredict"));
             ResultSet pictures = ConnectDB.query("APP","admin_picture.getAll", numberr);
             ArrayList<String> paths = null;
@@ -8037,7 +8036,7 @@ public class Login extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
-        /Hay que cambiar lo de la resolución y el veredicto
+        //Hay que cambiar lo de la resolución y el veredicto
     }//GEN-LAST:event_ListUnapprovedRecordsMouseClicked
 
     private void ButtonShowUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowUsersActionPerformed
@@ -8155,7 +8154,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonRefreshTotalRecordsByZoneMouseExited
 
     private void ButtonRefreshTotalRecordsByZoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRefreshTotalRecordsByZoneActionPerformed
-        /No sé para que es este botón;
+        //No sé para que es este botón;
     }//GEN-LAST:event_ButtonRefreshTotalRecordsByZoneActionPerformed
 
     private void BoxResolutionUnapprovedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoxResolutionUnapprovedActionPerformed
@@ -8253,7 +8252,7 @@ public class Login extends javax.swing.JFrame {
         CreateRecord.setVisible(false);
         CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
-        /Llenar las combo box
+        //Llenar las combo box
     }//GEN-LAST:event_ButtonRecordActionPerformed
 
     private void ButtonRollbackCreateSystemMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackCreateSystemMouseEntered
@@ -8490,11 +8489,11 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonRollbackCreateRecord1ActionPerformed
 
     private void PictureNewRecord1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PictureNewRecord1ActionPerformed
-        if(!paths.isEmpty()) {
+        /*if(!paths.isEmpty()) {
             Picture v = new Picture(null, true, paths.get(indexPictures).toString());
             v.setVisible(true);
         }
-        /Necesito una clase Picture;
+        /Necesito una clase Picture;*/
     }//GEN-LAST:event_PictureNewRecord1ActionPerformed
 
     private void RightPicRecordAdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RightPicRecordAdminMouseEntered
@@ -8570,7 +8569,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_RemovePicRecordAdminMouseExited
 
     private void RemovePicRecordAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemovePicRecordAdminActionPerformed
-        /eliminar imagen del expediente;
+        //eliminar imagen del expediente;
     }//GEN-LAST:event_RemovePicRecordAdminActionPerformed
 
     private void ButtonCancelRecordAdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelRecordAdminMouseEntered
@@ -8622,7 +8621,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonConfirmRecordAdminMouseExited
 
     private void ButtonConfirmRecordAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmRecordAdminActionPerformed
-        String number_record = RecordNumberField.getText();
+       /* String number_record = RecordNumberField.getText();
         String crime_description = CrimeDescriptionCreateRecord.getText();
         String date_crime = DateCrimeCreateRecord.getText();
         String expire_date = ExpireDateCreateRecord.getText();
@@ -8634,7 +8633,7 @@ public class Login extends javax.swing.JFrame {
             BoxTypeSentenceCreateRecord.setEnabled(false);
         }
         String approved = "N";
-        String[] pictures = null; /Moficar para que aquí reciba los paths de las fotos;
+        //String[] pictures = null; /Moficar para que aquí reciba los paths de las fotos;
         ArrayList<Pictures> pics = null;
         if(number_record.isEmpty()){
             JOptionPane.showMessageDialog(this, "Fill the number of the record field.");
@@ -8645,7 +8644,7 @@ public class Login extends javax.swing.JFrame {
         } else if(expire_date.isEmpty()){
             JOptionPane.showMessageDialog(this, "Fill the expire date field.");
         } else {
-            /Falta crear una tupla en la tabla veredicto y utilizar ese id en la creación del expediente
+            //Falta crear una tupla en la tabla veredicto y utilizar ese id en la creación del expediente
             try{
                 if(CheckBoxApprovedOrNotCreateRecord.isSelected())
                 {
@@ -8684,7 +8683,7 @@ public class Login extends javax.swing.JFrame {
                 JPLogged.setVisible(true);
             }
             catch(Exception e){}
-        }
+        }*/
     }//GEN-LAST:event_ButtonConfirmRecordAdminActionPerformed
 
     private void AddPicRecordAdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddPicRecordAdminMouseEntered
@@ -8696,7 +8695,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_AddPicRecordAdminMouseExited
 
     private void AddPicRecordAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddPicRecordAdminActionPerformed
-        /agregar imagen al expediente;
+        //agregar imagen al expediente;
     }//GEN-LAST:event_AddPicRecordAdminActionPerformed
 
     private void CreateRecordAdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CreateRecordAdminMouseEntered
@@ -8726,7 +8725,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_CreateRecordMouseEntered
 
     private void AddRecordUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddRecordUserActionPerformed
-        /Agregar imagen al expediente;
+        //Agregar imagen al expediente;
     }//GEN-LAST:event_AddRecordUserActionPerformed
 
     private void AddRecordUserMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddRecordUserMouseExited
@@ -8738,7 +8737,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_AddRecordUserMouseEntered
 
     private void ButtonConfirmRecordUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmRecordUserActionPerformed
-        String number_record = RecordNumberField.getText();
+        /*String number_record = RecordNumberField.getText();
         String crime_description = CrimeDescriptionCreateRecord.getText();
         String date_crime = DateCrimeCreateRecord.getText();
         String expire_date = ExpireDateCreateRecord.getText();
@@ -8796,7 +8795,7 @@ public class Login extends javax.swing.JFrame {
                 JPLogged.setVisible(true);
             }
             catch(Exception e){}
-        }
+        }*/
     }//GEN-LAST:event_ButtonConfirmRecordUserActionPerformed
 
     private void ButtonConfirmRecordUserMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonConfirmRecordUserMouseExited
@@ -8848,7 +8847,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonCancelRecordUserMouseEntered
 
     private void RemoveRecordUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveRecordUserActionPerformed
-        /eliminar la imagen del expediente;
+        //eliminar la imagen del expediente;
     }//GEN-LAST:event_RemoveRecordUserActionPerformed
 
     private void RemoveRecordUserMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RemoveRecordUserMouseExited
@@ -8920,11 +8919,11 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_RightRecordUserMouseEntered
 
     private void PictureNewRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PictureNewRecordActionPerformed
-        if(!paths.isEmpty()) {
+        /*if(!paths.isEmpty()) {
             Picture v = new Picture(null, true, paths.get(indexPictures));
             v.setVisible(true);
         }
-        /Falta clase Picture;
+        /Falta clase Picture;*/
     }//GEN-LAST:event_PictureNewRecordActionPerformed
 
     private void ButtonRollbackCreateRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackCreateRecordActionPerformed
@@ -9015,7 +9014,7 @@ public class Login extends javax.swing.JFrame {
         JPLogin.setVisible(false);
         CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
-        /Falta crear el baneo en la base
+        //Falta crear el baneo en la base
     }//GEN-LAST:event_ButtonConfirmBannedActionPerformed
 
     private void CreateBanUserMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CreateBanUserMouseEntered
@@ -9083,7 +9082,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonDeleteMouseExited
 
     private void ButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonDeleteActionPerformed
-        /Borrar el usuario de la base;
+        //Borrar el usuario de la base;
         JPUserMenu.setVisible(false);
         JPAdminMenu.setVisible(false);
         AdminQuery.setVisible(false);
@@ -9178,7 +9177,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonPersonDeleteMouseExited
 
     private void ButtonPersonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonPersonDeleteActionPerformed
-        /Eliminar persona de la base;
+        //Eliminar persona de la base;
         JPUserMenu.setVisible(false);
         JPAdminMenu.setVisible(false);
         AdminQuery.setVisible(false);
@@ -9247,7 +9246,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonRecordDeleteMouseExited
 
     private void ButtonRecordDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRecordDeleteActionPerformed
-        /Eliminar de la base de datos;
+        //Eliminar de la base de datos;
         JPUserMenu.setVisible(false);
         JPAdminMenu.setVisible(false);
         AdminQuery.setVisible(false);
@@ -9368,7 +9367,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonBanDeleteMouseExited
 
     private void ButtonBanDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBanDeleteActionPerformed
-        /Eliminar el baneo al usuario;
+        //Eliminar el baneo al usuario;
         JPUserMenu.setVisible(false);
         JPAdminMenu.setVisible(false);
         AdminQuery.setVisible(false);
@@ -9421,11 +9420,11 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_DeleteBanMouseEntered
 
     private void RecordsExpireListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RecordsExpireListMouseClicked
-        if(!paths.isEmpty()) {
+        /*if(!paths.isEmpty()) {
             Picture v = new Picture(null, true, paths.get(indexPictures));
             v.setVisible(true);
         }
-        /Falta la clase Picture;
+        /Falta la clase Picture;*/
     }//GEN-LAST:event_RecordsExpireListMouseClicked
 
     public static void main(String args[]) {
