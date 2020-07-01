@@ -9,6 +9,7 @@ CREATE OR REPLACE PACKAGE admin_city IS
     FUNCTION getName(vId NUMBER) RETURN VARCHAR2;
     FUNCTION getIdState (vId NUMBER) RETURN NUMBER;
     FUNCTION getAll RETURN sys_refcursor;
+    FUNCTION getAllInState(vIdState) RETURN sys_refcursor;
 END admin_city;
 /
 
@@ -59,6 +60,17 @@ CREATE OR REPLACE PACKAGE BODY admin_city AS
             SELECT id, name, id_state
             FROM city;
         RETURN rAll;
+    END;
+
+    FUNCTION getAllIndState(vIdState NUMBER) RETURN sys_refcursor
+    AS
+        ccity sys_refcursor;
+    BEGIN
+            OPEN ccity FOR
+                SELECT name
+                FROM city
+                WHERE id_state = vIdCountry;
+            RETURN ccity;
     END;
 END admin_city;
 
