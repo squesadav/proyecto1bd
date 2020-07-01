@@ -5769,6 +5769,12 @@ public class Login extends javax.swing.JFrame {
         JPSignUp.setVisible(false);
         JPLogged.setVisible(true);
         JPLogin.setVisible(false);
+        CreatePersonAdmin.setVisible(false);
+        CreateRecordAdmin.setVisible(false);
+        DeletePerson.setVisible(false);
+        DeleteRecord.setVisible(false);
+        DeleteUser.setVisible(false);
+        CreateBanUser.setVisible(false);
         //Rellenar la info;
     }//GEN-LAST:event_ButtonAdminQueryActionPerformed
 
@@ -5851,6 +5857,12 @@ public class Login extends javax.swing.JFrame {
                 CreateRecord.setVisible(false);
                 UserQuery.setVisible(false);
                 UserConfiguration.setVisible(false);
+                CreatePersonAdmin.setVisible(false);
+                CreateRecordAdmin.setVisible(false);
+                DeletePerson.setVisible(false);
+                DeleteRecord.setVisible(false);
+                DeleteUser.setVisible(false);
+                CreateBanUser.setVisible(false);
             }
             else if(type > 1){
                 Username.setText(user_field);
@@ -5870,6 +5882,12 @@ public class Login extends javax.swing.JFrame {
                 CreateRecord.setVisible(false);
                 UserQuery.setVisible(false);
                 UserConfiguration.setVisible(false);
+                CreatePersonAdmin.setVisible(false);
+                CreateRecordAdmin.setVisible(false);
+                DeletePerson.setVisible(false);
+                DeleteRecord.setVisible(false);
+                DeleteUser.setVisible(false);
+                CreateBanUser.setVisible(false);
             } else if (type == 0){
                 JOptionPane.showMessageDialog(this, "User or password incorrect","Error", JOptionPane.ERROR_MESSAGE);
              } else if (type == -1){
