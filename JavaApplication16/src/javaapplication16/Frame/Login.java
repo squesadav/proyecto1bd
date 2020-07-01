@@ -28,6 +28,7 @@ public class Login extends javax.swing.JFrame {
 
     void fillInComboBox_signIn() throws SQLException
     {
+        BoxGenderNewUser.removeAllItems();
         ResultSet genders = null;
         ResultSet districts = null;
         ResultSet institutions = null;
@@ -282,8 +283,6 @@ public class Login extends javax.swing.JFrame {
         BoxInstitutionNewUser = new javax.swing.JComboBox<>();
         ButtonCancel = new javax.swing.JButton();
         ButtonJoin = new javax.swing.JButton();
-        LabelNewUserUserType = new javax.swing.JLabel();
-        BoxUserTypeNewUser = new javax.swing.JComboBox<>();
         LineOffenderBirthday2 = new javax.swing.JSeparator();
         NewUserBirthday = new javax.swing.JFormattedTextField();
         JPWindow = new javax.swing.JPanel();
@@ -1092,17 +1091,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
         JPSignUp.add(ButtonJoin, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 470, 100, 40));
-
-        LabelNewUserUserType.setBackground(new java.awt.Color(255, 255, 255));
-        LabelNewUserUserType.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
-        LabelNewUserUserType.setForeground(new java.awt.Color(29, 41, 81));
-        LabelNewUserUserType.setText("User Type:");
-        JPSignUp.add(LabelNewUserUserType, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 90, 30));
-
-        BoxUserTypeNewUser.setFont(new java.awt.Font("Yu Gothic UI", 0, 18)); // NOI18N
-        BoxUserTypeNewUser.setForeground(new java.awt.Color(29, 41, 81));
-        BoxUserTypeNewUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
-        JPSignUp.add(BoxUserTypeNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 430, 120, 30));
 
         LineOffenderBirthday2.setForeground(new java.awt.Color(29, 41, 81));
         JPSignUp.add(LineOffenderBirthday2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, 130, 20));
@@ -6064,6 +6052,7 @@ public class Login extends javax.swing.JFrame {
                     BoxGenderNewUser.getSelectedIndex(), BoxInstitutionNewUser.getSelectedIndex(), 
                     BoxNewUserCommunity.getSelectedIndex());
                 User user = new User(new_user, new_user_password, person);
+                user.setId_userType(2);
                 ConnectDB.insertUser(user);
                 JOptionPane.showMessageDialog(this, "The user was created successfully.");
             JPWelcome.setVisible(true);
@@ -9540,7 +9529,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> BoxTypeSentenceCreateRecord;
     private javax.swing.JComboBox<String> BoxTypeSentenceCreateRecord1;
     private javax.swing.JComboBox<String> BoxTypeSentenceUnapproved;
-    private javax.swing.JComboBox<String> BoxUserTypeNewUser;
     private javax.swing.JComboBox<String> BoxUserTypeUpdateUser;
     private javax.swing.JButton ButtonAdminConfiguration;
     private javax.swing.JButton ButtonAdminQuery;
@@ -9768,7 +9756,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel LabelNewUserBirthday;
     private javax.swing.JLabel LabelNewUserGender;
     private javax.swing.JLabel LabelNewUserPassword;
-    private javax.swing.JLabel LabelNewUserUserType;
     private javax.swing.JLabel LabelNewUsername;
     private javax.swing.JLabel LabelNewUsername1;
     private javax.swing.JLabel LabelNewUsername2;

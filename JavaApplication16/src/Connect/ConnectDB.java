@@ -546,13 +546,12 @@ public class ConnectDB {
         String uPass = schema;
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ ? = call ?(?) } ");
+        CallableStatement stmnt = con.prepareCall("{ ? = call "+ function +"(?) } ");
         
         stmnt.registerOutParameter(1, OracleTypes.VARCHAR);
-        stmnt.setString(2, function);
-        stmnt.setInt(3, atributo);
+        stmnt.setInt(2, atributo);
         stmnt.executeQuery(); 
-        String result = (String) stmnt.getObject(1);
+        String result = (String) stmnt.getString(1);
         return result;
     }
     
@@ -563,13 +562,12 @@ public class ConnectDB {
         String uPass = schema;
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ ? = call ?(?) } ");
+        CallableStatement stmnt = con.prepareCall("{ ? = call "+ function +"(?) } ");
         
         stmnt.registerOutParameter(1, OracleTypes.NUMBER);
-        stmnt.setString(2, function);
-        stmnt.setInt(3, atributo);
+        stmnt.setInt(2, atributo);
         stmnt.executeQuery(); 
-        int result = (int) stmnt.getObject(1);
+        int result = (int) stmnt.getInt(1);
         return result;
     }
     
@@ -580,13 +578,12 @@ public class ConnectDB {
         String uPass = schema;
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ ? = call ?(?) } ");
+        CallableStatement stmnt = con.prepareCall("{ ? = call "+ function +"(?) }  ");
         
         stmnt.registerOutParameter(1, OracleTypes.DATE);
-        stmnt.setString(2, function);
-        stmnt.setInt(3, atributo);
+        stmnt.setInt(2, atributo);
         stmnt.executeQuery(); 
-        Date result = (Date) stmnt.getObject(1);
+        Date result = (Date) stmnt.getDate(1);
         return result;
     } 
      
@@ -597,13 +594,12 @@ public class ConnectDB {
         String uPass = schema;
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ ? = call ?(?) } ");
+        CallableStatement stmnt = con.prepareCall("{ ? = call "+ function +"(?) }  ");
         
         stmnt.registerOutParameter(1, OracleTypes.VARCHAR);
-        stmnt.setString(2, function);
-        stmnt.setString(3, atributo);
+        stmnt.setString(2, atributo);
         stmnt.executeQuery(); 
-        String result = (String) stmnt.getObject(1);
+        String result = (String) stmnt.getString(1);
         return result;
     }
     
@@ -614,13 +610,12 @@ public class ConnectDB {
         String uPass = schema;
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ ? = call ?(?) } ");
+        CallableStatement stmnt = con.prepareCall("{ ? = call "+ function +"(?) }  ");
         
         stmnt.registerOutParameter(1, OracleTypes.NUMBER);
-        stmnt.setString(2, function);
-        stmnt.setString(3, atributo);
+        stmnt.setString(2, atributo);
         stmnt.executeQuery(); 
-        int result = (int) stmnt.getObject(1);
+        int result = (int) stmnt.getInt(1);
         return result;
     }
     
@@ -631,13 +626,12 @@ public class ConnectDB {
         String uPass = schema;
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ ? = call ?(?) } ");
+        CallableStatement stmnt = con.prepareCall("{ ? = call "+ function +"(?) }  ");
         
         stmnt.registerOutParameter(1, OracleTypes.DATE);
-        stmnt.setString(2, function);
-        stmnt.setString(3, atributo);
+        stmnt.setString(2, atributo);
         stmnt.executeQuery(); 
-        Date result = (Date) stmnt.getObject(1);
+        Date result = (Date) stmnt.getDate(1);
         return result;
     }
     
@@ -648,11 +642,10 @@ public class ConnectDB {
         String uPass = schema;
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ ? = call ?(?) } ");
+        CallableStatement stmnt = con.prepareCall("{ ? = call "+ function +"(?) }  ");
         
         stmnt.registerOutParameter(1, OracleTypes.CURSOR);
-        stmnt.setString(2, function);
-        stmnt.setString(3, atributo);
+        stmnt.setString(2, atributo);
         stmnt.executeQuery(); 
         ResultSet result = (ResultSet) stmnt.getObject(1);
         return result;
@@ -665,11 +658,10 @@ public class ConnectDB {
         String uPass = schema;
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ ? = call ?(?) } ");
+        CallableStatement stmnt = con.prepareCall("{ ? = call "+ function +"(?) }");
         
         stmnt.registerOutParameter(1, OracleTypes.CURSOR);
-        stmnt.setString(2, function);
-        stmnt.setInt(3, atributo);
+        stmnt.setInt(2, atributo);
         stmnt.executeQuery(); 
         ResultSet result = (ResultSet) stmnt.getObject(1);
         return result;
@@ -682,10 +674,10 @@ public class ConnectDB {
         String uPass = schema;
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ ? = call ? } ");
+        CallableStatement stmnt = con.prepareCall("{? = call "+ function +"} ");
+        
         
         stmnt.registerOutParameter(1, OracleTypes.CURSOR);
-        stmnt.setString(2, function);
         stmnt.executeQuery(); 
         ResultSet result = (ResultSet) stmnt.getObject(1);
         return result;
@@ -698,10 +690,9 @@ public class ConnectDB {
         String uPass = schema;
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ call ?(?) } ");
+        CallableStatement stmnt = con.prepareCall("{ call "+ function +"(?)} ");
         
-        stmnt.setString(1, function);
-        stmnt.setString(2, atributo);
+        stmnt.setString(1, atributo);
         stmnt.executeQuery(); 
     }
     
@@ -712,10 +703,9 @@ public class ConnectDB {
         String uPass = schema;
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ call ?(?) } ");
+        CallableStatement stmnt = con.prepareCall("{ call "+ function +"(?)} ");
         
-        stmnt.setString(1, function);
-        stmnt.setInt(2, atributo);
+        stmnt.setInt(1, atributo);
         stmnt.executeQuery(); 
     }
 
@@ -730,14 +720,13 @@ public class ConnectDB {
         
         stmnt.registerOutParameter(1, OracleTypes.VARCHAR);
         stmnt.setString(2, username);
-        String result = (String) stmnt.getObject(1);
+        String result = (String) stmnt.getString(1);
         stmnt.executeQuery(); 
         return result;
     }
 
     public static int checkLogin(String username, String password) throws SQLException 
     {
-        int result = -1;
         String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "ADM";
         String uPass = "ADM";
@@ -749,11 +738,7 @@ public class ConnectDB {
         stmnt.setString(2, username);
         stmnt.setString(2, password);
         stmnt.executeQuery(); 
-        try
-        {
-            result = (int) stmnt.getObject(1);
-        }
-        catch(Exception e){}
+        int result = stmnt.getInt(1);
         return result;
     }
     
@@ -764,9 +749,12 @@ public class ConnectDB {
         String uPass = "ADM";
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ ? = call ? } ");
+        CallableStatement stmnt = con.prepareCall("{ ? = call statics.records_by_district(?,?,?) } ");
         
         stmnt.registerOutParameter(1, OracleTypes.CURSOR);
+        stmnt.setInt(2, idCity);
+        stmnt.setInt(3, idState);
+        stmnt.setInt(4, idCountry);
         stmnt.executeQuery(); 
         ResultSet result = (ResultSet) stmnt.getObject(1);
         return result;
