@@ -167,50 +167,6 @@ public class Login extends javax.swing.JFrame {
         }
     }
     
-     void fillInZones() throws SQLException
-    {
-        BoxDistrict.removeAllItems();
-        BoxDistrict.addItem("Default");
-        
-        BoxCountry.removeAllItems();
-        BoxCountry.addItem("Default");
-        
-        BoxState.removeAllItems();
-        BoxState.addItem("Default");
-        
-        BoxCity.removeAllItems();
-        BoxCity.addItem("Default");
-        
-        ResultSet districts = null;
-        ResultSet countries = null;
-        ResultSet states = null;
-        ResultSet cities = null;
-        try
-        {
-            districts = ConnectDB.query("APP","admin_institution.getAll");
-            countries = ConnectDB.query("APP","admin_country.getAll");
-            states = ConnectDB.query("APP","admin_states.getAll");
-            cities = ConnectDB.query("APP","admin_cities.getAll");
-        }
-        catch(Exception e){}
-        while(districts.next())
-        {
-            BoxDistrict.addItem(districts.getString("name"));
-        }
-        while(countries.next())
-        {
-            BoxCountry.addItem(countries.getString("name"));
-        }
-        while(states.next())
-        {
-            BoxState.addItem(states.getString("name"));
-        }
-        while(cities.next())
-        {
-            BoxCity.addItem(cities.getString("name"));
-        }
-    }
-    
     void fillIn_Records() throws SQLException
     {
         BoxFilter.removeAllItems();
@@ -5872,7 +5828,7 @@ public class Login extends javax.swing.JFrame {
         } else if(user_password.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Fill the password field.");
         } else try {
-            int type = ConnectDB.getInt("ADM", "adminUser.getUserType", user_field);
+            int type = ConnectDB.checkLogin(user_field, user_password);
             if (type == 1)
             {
                 currentUser uc = currentUser.getInstance();
@@ -7879,8 +7835,27 @@ public class Login extends javax.swing.JFrame {
         int index_state = BoxState.getSelectedIndex();
         int index_city = BoxCity.getSelectedIndex();
         int index_district = BoxDistrict.getSelectedIndex();
+        if(index_country== 0){
+            JOptionPane.showMessageDialog(this, "Choose a valid option.");
+        }
         try {
-            ResultSet records = ConnectDB.query("ADM","statics.records_clasification");
+            ResultSet records = null;
+            if(index_district > 0)
+            {
+                records = ConnectDB.records_by_district(index_city, index_state, index_country);
+            }
+            else if(index_city > 0)
+            {
+                records = ConnectDB.records_by_city(index_state, index_country);
+            }
+            else if(index_state > 0)
+            {
+                records = ConnectDB.query("ADM", "statistics.records_by_state", index_country);
+            }
+            else if(index_state > 0)
+            {
+                records = ConnectDB.query("ADM", "statistics.records_by_state", index_country);
+            }
             DefaultCategoryDataset dataset = new DefaultCategoryDataset();
             float per = 0;
             while(records.next())
@@ -8206,7 +8181,51 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonRefreshTotalRecordsByZoneMouseExited
 
     private void ButtonRefreshTotalRecordsByZoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRefreshTotalRecordsByZoneActionPerformed
-        //No sé para que es este botón;
+        try{
+            BoxDistrict.removeAllItems();
+            BoxDistrict.addItem("Default");
+            BoxState.removeAllItems();
+            BoxState.addItem("Default");
+            BoxCity.removeAllItems();
+            BoxCity.addItem("Default");
+            ResultSet districts = null;
+            ResultSet countries = null;
+            ResultSet states = null;
+            ResultSet cities = null;
+            countries = ConnectDB.query("APP","admin_country.getAll");
+            while(countries.next())
+            {
+                BoxCountry.addItem(countries.getString("name"));
+            }
+            int index_country = BoxCountry.getSelectedIndex();
+            int index_state = BoxState.getSelectedIndex();
+            int index_city = BoxCity.getSelectedIndex();
+            int index_district = BoxDistrict.getSelectedIndex();
+            if(index_country !=0)
+            {
+                states = ConnectDB.query("APP","admin_state.getAllInCountry", index_country);
+            }
+            else if(index_country == 0)
+            {
+                BoxCountry.removeAllItems();
+                BoxCountry.addItem("Default");
+            }
+
+            cities = ConnectDB.query("APP","admin_cities.getAll");
+            districts = ConnectDB.query("APP","admin_institution.getAll");
+            while(districts.next())
+            {
+                BoxDistrict.addItem(districts.getString("name"));
+            }
+            while(states.next())
+            {
+                BoxState.addItem(states.getString("name"));
+            }
+            while(cities.next())
+            {
+                BoxCity.addItem(cities.getString("name"));
+            }
+        }catch(Exception e){}
     }//GEN-LAST:event_ButtonRefreshTotalRecordsByZoneActionPerformed
 
     private void BoxResolutionUnapprovedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoxResolutionUnapprovedActionPerformed

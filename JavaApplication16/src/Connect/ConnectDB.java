@@ -734,9 +734,9 @@ public class ConnectDB {
         Connection con = DriverManager.getConnection(host, uName, uPass);
         CallableStatement stmnt = con.prepareCall("{ ? = call adminUser.checkLogin(?,?) } ");
         
-        stmnt.registerOutParameter(1, OracleTypes.VARCHAR);
+        stmnt.registerOutParameter(1, OracleTypes.NUMBER);
         stmnt.setString(2, username);
-        stmnt.setString(2, password);
+        stmnt.setString(3, password);
         stmnt.executeQuery(); 
         int result = stmnt.getInt(1);
         return result;
@@ -749,7 +749,7 @@ public class ConnectDB {
         String uPass = "ADM";
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ ? = call statics.records_by_district(?,?,?) } ");
+        CallableStatement stmnt = con.prepareCall("{ ? = call statistics.records_by_district(?,?,?) } ");
         
         stmnt.registerOutParameter(1, OracleTypes.CURSOR);
         stmnt.setInt(2, idCity);
@@ -767,7 +767,7 @@ public class ConnectDB {
         String uPass = "ADM";
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ ? = call statics.records_by_city(?,?,?) } ");
+        CallableStatement stmnt = con.prepareCall("{ ? = call statistics.records_by_city(?,?,?) } ");
         
         stmnt.registerOutParameter(1, OracleTypes.CURSOR);
         stmnt.setInt(2, idState);
@@ -784,7 +784,7 @@ public class ConnectDB {
         String uPass = "ADM";
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ ? = call statics.criminals_by_city(?,?,?) } ");
+        CallableStatement stmnt = con.prepareCall("{ ? = call statistics.criminals_by_city(?,?,?) } ");
         
         stmnt.registerOutParameter(1, OracleTypes.CURSOR);
         stmnt.setInt(2, idCity);
@@ -802,7 +802,7 @@ public class ConnectDB {
         String uPass = "ADM";
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ ? = call statics.criminals_by_city(?,?,?) } ");
+        CallableStatement stmnt = con.prepareCall("{ ? = call statistics.criminals_by_city(?,?,?) } ");
         
         stmnt.registerOutParameter(1, OracleTypes.CURSOR);
         stmnt.setInt(2, idState);
