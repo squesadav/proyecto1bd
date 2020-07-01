@@ -794,7 +794,7 @@ public class ConnectDB {
         return result;
     }
 
-    public static ResultSet criminals_by_district(int idCity, int idState, int idCountry)
+    public static ResultSet criminals_by_district(int idCity, int idState, int idCountry) throws SQLException
     {
         String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "ADM";
@@ -812,7 +812,7 @@ public class ConnectDB {
         return result;
     }
 
-    public static ResultSet criminals_by_city(int idState, int idCountry)
+    public static ResultSet criminals_by_city(int idState, int idCountry) throws SQLException
     {
         String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "ADM";
@@ -829,7 +829,7 @@ public class ConnectDB {
         return result;
     }
 
-    public static ResultSet passwords_not_changed(int numberDays, String first_name, String last_name, int id_person, String username)
+    public static ResultSet passwords_not_changed(int numberDays, String first_name, String last_name, int id_person, String username) throws SQLException
     {
         String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "APP";
@@ -849,7 +849,7 @@ public class ConnectDB {
         return result;
     }
 
-    public static ResultSet recordsByClassification(int id_type, Date date_start, Date date_end, int idDistrict, int idCity, int idState, int idCountry)
+    public static ResultSet recordsByClassification(int id_type, Date date_start, Date date_end, int idDistrict, int idCity, int idState, int idCountry) throws SQLException
     {
         String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "APP";
@@ -871,7 +871,7 @@ public class ConnectDB {
         return result;
     }
 
-    public static ResultSet getSubtotal(int id_type, Date date_start, Date date_end, int idDistrict, int idCity, int idState, int idCountry)
+    public static ResultSet getSubtotal(int id_type, Date date_start, Date date_end, int idDistrict, int idCity, int idState, int idCountry) throws SQLException
     {
         String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "APP";
