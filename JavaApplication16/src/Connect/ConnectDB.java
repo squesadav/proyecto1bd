@@ -734,9 +734,9 @@ public class ConnectDB {
         Connection con = DriverManager.getConnection(host, uName, uPass);
         CallableStatement stmnt = con.prepareCall("{ ? = call adminUser.checkLogin(?,?) } ");
         
-        stmnt.registerOutParameter(1, OracleTypes.VARCHAR);
+        stmnt.registerOutParameter(1, OracleTypes.NUMBER);
         stmnt.setString(2, username);
-        stmnt.setString(2, password);
+        stmnt.setString(3, password);
         stmnt.executeQuery(); 
         int result = stmnt.getInt(1);
         return result;

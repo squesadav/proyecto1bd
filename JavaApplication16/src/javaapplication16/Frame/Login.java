@@ -5828,7 +5828,7 @@ public class Login extends javax.swing.JFrame {
         } else if(user_password.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Fill the password field.");
         } else try {
-            int type = ConnectDB.getInt("ADM", "adminUser.getUserType", user_field);
+            int type = ConnectDB.checkLogin(user_field, user_password);
             if (type == 1)
             {
                 currentUser uc = currentUser.getInstance();
