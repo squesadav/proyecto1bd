@@ -53,7 +53,7 @@ public class Login extends javax.swing.JFrame {
         }
         while(type.next())
         {
-            BoxUserTypeNewUser.addItem(type.getString("name"));
+            BoxUserTypeNewUser.addItem(type.getString("description"));
         }
     }
     
@@ -4376,7 +4376,8 @@ public class Login extends javax.swing.JFrame {
         } else if(user_password.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Fill the password field.");
         } else try {
-            if(ConnectDB.checkLogin(user_field, user_password) != -1){
+            int loginResult = ConnectDB.checkLogin(user_field, user_password);
+            if(loginResult > 0){
                 Username.setText(user_field);
                 Animacion.Animacion.mover_derecha(290, 1100, 1, 1, JPWelcome);
                 Animacion.Animacion.mover_izquierda(0, -1100, 1, 1, JPLogin);
@@ -4397,8 +4398,10 @@ public class Login extends javax.swing.JFrame {
                 currentUser uc = currentUser.getInstance();
                 uc.setUsername(user_field);
                 uc.setId_userType(ConnectDB.getInt("ADM", "adminUser.getUserType", user_field));
-            } else{
+            } else if (loginResult == 0){
                 JOptionPane.showMessageDialog(this, "User or password incorrect","Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(this, "This user is currently banned","Error", JOptionPane.ERROR_MESSAGE);
             }
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
