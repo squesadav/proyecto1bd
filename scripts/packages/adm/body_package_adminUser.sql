@@ -232,7 +232,8 @@ FUNCTION getAllUserType RETURN sys_refcursor
         AS rAll sys_refcursor;
     BEGIN
     OPEN rALL FOR
-            SELECT id_usertype, description
+            SELECT id, name
+            INTO rAll
             FROM usertype;
         RETURN rAll;
     END;
@@ -241,7 +242,8 @@ FUNCTION getAllBannedReason RETURN sys_refcursor
         AS rAll sys_refcursor;
     BEGIN
     OPEN rALL FOR
-            SELECT id_bannedreason, description
+            SELECT id, name
+            INTO rAll
             FROM bannedreason;
         RETURN rAll;
     END;
@@ -287,17 +289,17 @@ BEGIN
         END IF;
         RETURN rUserType;
     END checkLogin;
+END adminUser;
 
 FUNCTION getAllUsernames RETURN sys_refcursor
         AS rAll sys_refcursor;
     BEGIN
     OPEN rALL FOR
             SELECT username
+            INTO rAll
             FROM appuser;
         RETURN rAll;
     END;
-
-END adminUser;
 
 
 

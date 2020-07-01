@@ -14,6 +14,7 @@ CREATE OR REPLACE PACKAGE admin_person IS
     FUNCTION getIdGender (vId NUMBER) RETURN NUMBER;
     FUNCTION getIdInstitution (vId NUMBER) RETURN NUMBER;
     FUNCTION getIdDistrict (vId NUMBER) RETURN NUMBER;
+    FUNCTION getALL RETURN sys_refcursor;
     PROCEDURE updateAge (pnId NUMBER);
     PROCEDURE updateAllAges;
     FUNCTION getAll RETURN SYS_REFCURSOR;
@@ -127,6 +128,16 @@ CREATE OR REPLACE PACKAGE BODY admin_person AS
             WHERE id = vId;
             RETURN rIdDistrict;
         END;
+    
+    FUNCTION getALL RETURN sys_refcursor
+    AS
+        cperson sys_refcursor;
+        BEGIN
+            OPEN cperson FOR
+                SELECT id, name, middle_name, last_name, birthday, age, id_gender, id_institution, id_district
+                FROM person;
+            RETURN cperson;
+        END;
         
     PROCEDURE updateAge (pnId NUMBER) IS
         BEGIN
@@ -146,6 +157,7 @@ CREATE OR REPLACE PACKAGE BODY admin_person AS
     BEGIN
     OPEN rALL FOR
             SELECT id, name
+            INTO rAll
             FROM person;
         RETURN rAll;
     END;
@@ -155,6 +167,7 @@ CREATE OR REPLACE PACKAGE BODY admin_person AS
     BEGIN
     OPEN rALL FOR
             SELECT id, name, last_name
+            INTO rAll
             FROM person;
         RETURN rAll;
     END;
