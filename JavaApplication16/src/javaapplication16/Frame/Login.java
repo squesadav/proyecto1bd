@@ -5832,7 +5832,31 @@ public class Login extends javax.swing.JFrame {
         } else if(user_password.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Fill the password field.");
         } else try {
-            if(ConnectDB.checkLogin(user_field, user_password) != -1){
+            int type = ConnectDB.getInt("ADM", "adminUser.getUserType", user_field);
+            if (type == 1)
+            {
+                currentUser uc = currentUser.getInstance();
+                uc.setUsername(user_field);
+                uc.setId_userType(type);
+                Username.setText(user_field);
+                Animacion.Animacion.mover_derecha(290, 1100, 1, 1, JPWelcome);
+                Animacion.Animacion.mover_izquierda(0, -1100, 1, 1, JPLogin);
+                JPLogged.setVisible(true);
+                JPUserMenu.setVisible(false);
+                JPSignUp.setVisible(false);
+                JPAdminMenu.setVisible(true);
+                AdminQuery.setVisible(false);
+                AdminConfiguration.setVisible(false);
+                UserCatalogues.setVisible(false);
+                PersonCatalogues.setVisible(false);
+                RecordCatalogues.setVisible(false);
+                AdminStatistics.setVisible(false);
+                CreatePerson.setVisible(false);
+                CreateRecord.setVisible(false);
+                UserQuery.setVisible(false);
+                UserConfiguration.setVisible(false);
+            }
+            else if(type > 1){
                 Username.setText(user_field);
                 Animacion.Animacion.mover_derecha(290, 1100, 1, 1, JPWelcome);
                 Animacion.Animacion.mover_izquierda(0, -1100, 1, 1, JPLogin);
@@ -5850,11 +5874,10 @@ public class Login extends javax.swing.JFrame {
                 CreateRecord.setVisible(false);
                 UserQuery.setVisible(false);
                 UserConfiguration.setVisible(false);
-                currentUser uc = currentUser.getInstance();
-                uc.setUsername(user_field);
-                uc.setId_userType(ConnectDB.getInt("ADM", "adminUser.getUserType", user_field));
-            } else{
+            } else if (type == 0){
                 JOptionPane.showMessageDialog(this, "User or password incorrect","Error", JOptionPane.ERROR_MESSAGE);
+             } else if (type == -1){
+                JOptionPane.showMessageDialog(this, "User is currently banned","Error", JOptionPane.ERROR_MESSAGE);
             }
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
