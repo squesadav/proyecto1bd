@@ -18,7 +18,7 @@ CREATE OR REPLACE PACKAGE admin_record IS
     PROCEDURE approve_record(pnNumberr VARCHAR2);
     FUNCTION getPictures (pnNumberr VARCHAR2) RETURN sys_refcursor;
     FUNCTION getAll RETURN SYS_REFCURSOR;
-    FUNCTION getRecord(pnNumberr VARCHAR2) RETURN SYS_REFCURSOR;
+    FUNCTION getRecord(numberr VARCHAR2) RETURN SYS_REFCURSOR;
 END admin_record;
 /
 
@@ -180,11 +180,10 @@ CREATE OR REPLACE PACKAGE BODY admin_record AS
     FUNCTION getRecord(pnNumberr VARCHAR2) RETURN SYS_REFCURSOR
     AS rRecord  sys_refcursor;
     BEGIN
-        OPEN rRecord FOR
+        OPEN rCrimeExpirationDate FOR
             SELECT numberr, description_crime, date_crime, resolution, crime_expiration_date, id_type, id_veredict, id_person, approved, username_creator, id_district
             FROM record
             WHERE numberr = pnNumberr;
         return rRecord;
-    END;
 END admin_record;
 /

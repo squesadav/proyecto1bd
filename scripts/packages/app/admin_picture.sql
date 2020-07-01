@@ -52,12 +52,14 @@ CREATE OR REPLACE PACKAGE BODY admin_picture AS
         RETURN rNumberr;
     END;
 
-    FUNCTION getAll RETURN sys_refcursor
+    FUNCTION getAll(pnNumberr) RETURN sys_refcursor
         AS rAll sys_refcursor;
     BEGIN
     OPEN rALL FOR
             SELECT pic_str
-            FROM picture;
+            INTO rAll
+            FROM picture
+            WHERE numberr = pnNumberr;
         RETURN rAll;
     END;
 END admin_picture;
