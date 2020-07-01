@@ -658,6 +658,21 @@ public class ConnectDB {
         return result;
     }
     
+    public static ResultSet getAllGenders() throws SQLException 
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:DB";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ ? = call  } ");
+        
+        stmnt.registerOutParameter(1, OracleTypes.CURSOR);
+        stmnt.executeQuery();
+        ResultSet result = (ResultSet) stmnt.getObject(1);
+        return result;
+    }
+    
     public static ResultSet query(String schema,String function,int atributo) throws SQLException 
     {
         String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";

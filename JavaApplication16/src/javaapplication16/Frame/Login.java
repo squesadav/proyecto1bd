@@ -31,7 +31,7 @@ public class Login extends javax.swing.JFrame {
         ResultSet type = null;
         try
         {
-            genders = ConnectDB.query("APP","admin_community.getAll");
+            genders = ConnectDB.getAllGenders();
             district = ConnectDB.query("APP","admin_district.getAll");
             institutions = ConnectDB.query("APP","admin_institution.getAll");
             type = ConnectDB.query("APP","admin_type.getAll");
