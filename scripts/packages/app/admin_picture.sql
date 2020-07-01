@@ -57,6 +57,7 @@ CREATE OR REPLACE PACKAGE BODY admin_picture AS
     BEGIN
     OPEN rALL FOR
             SELECT pic_str
+            INTO rAll
             FROM picture
             WHERE numberr = pnNumberr;
         RETURN rAll;

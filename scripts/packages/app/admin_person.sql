@@ -157,6 +157,7 @@ CREATE OR REPLACE PACKAGE BODY admin_person AS
     BEGIN
     OPEN rALL FOR
             SELECT id, name
+            INTO rAll
             FROM person;
         RETURN rAll;
     END;
@@ -166,6 +167,7 @@ CREATE OR REPLACE PACKAGE BODY admin_person AS
     BEGIN
     OPEN rALL FOR
             SELECT id, name, last_name
+            INTO rAll
             FROM person;
         RETURN rAll;
     END;
