@@ -947,8 +947,6 @@ public class Login extends javax.swing.JFrame {
         LabelSignUp.setForeground(new java.awt.Color(29, 41, 81));
         LabelSignUp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/AddUser.png"))); // NOI18N
         LabelSignUp.setText("Welcome");
-        LabelSignUp.setMaximumSize(new java.awt.Dimension(240, 128));
-        LabelSignUp.setMinimumSize(new java.awt.Dimension(240, 128));
         JPSignUp.add(LabelSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 260, 130));
 
         LabelNewUserPassword.setBackground(new java.awt.Color(255, 255, 255));
@@ -5797,6 +5795,13 @@ public class Login extends javax.swing.JFrame {
         JPSignUp.setVisible(false);
         JPLogged.setVisible(true);
         JPLogin.setVisible(false);
+        CreatePersonAdmin.setVisible(false);
+        CreateRecordAdmin.setVisible(false);
+        DeletePerson.setVisible(false);
+        DeleteRecord.setVisible(false);
+        DeleteUser.setVisible(false);
+        CreateBanUser.setVisible(false);
+        DeleteBan.setVisible(false);
         //Rellenar la info;
     }//GEN-LAST:event_ButtonAdminQueryActionPerformed
 
@@ -5879,6 +5884,13 @@ public class Login extends javax.swing.JFrame {
                 CreateRecord.setVisible(false);
                 UserQuery.setVisible(false);
                 UserConfiguration.setVisible(false);
+                CreatePersonAdmin.setVisible(false);
+                CreateRecordAdmin.setVisible(false);
+                DeletePerson.setVisible(false);
+                DeleteRecord.setVisible(false);
+                DeleteUser.setVisible(false);
+                CreateBanUser.setVisible(false);
+                DeleteBan.setVisible(false);
             }
             else if(type > 1){
                 Username.setText(user_field);
@@ -5898,6 +5910,13 @@ public class Login extends javax.swing.JFrame {
                 CreateRecord.setVisible(false);
                 UserQuery.setVisible(false);
                 UserConfiguration.setVisible(false);
+                CreatePersonAdmin.setVisible(false);
+                CreateRecordAdmin.setVisible(false);
+                DeletePerson.setVisible(false);
+                DeleteRecord.setVisible(false);
+                DeleteUser.setVisible(false);
+                CreateBanUser.setVisible(false);
+                DeleteBan.setVisible(false);
             } else if (type == 0){
                 JOptionPane.showMessageDialog(this, "User or password incorrect","Error", JOptionPane.ERROR_MESSAGE);
              } else if (type == -1){
