@@ -25,13 +25,13 @@ import org.jfree.data.category.DefaultCategoryDataset;
 public class Login extends javax.swing.JFrame {
     int indexPictures;
     ArrayList<String> paths;
+    boolean firstRunning = true;
 
     void blockAll()
     {
         JPWelcome.setVisible(false);
         JPLogin.setVisible(false);
         JPSignUp.setVisible(false);
-        JPWindow.setVisible(false);
         JPLogged.setVisible(false);
         JPAdminMenu.setVisible(false);
         AdminQuery.setVisible(false);
@@ -1144,6 +1144,11 @@ public class Login extends javax.swing.JFrame {
 
         JPWindow.setBackground(new java.awt.Color(255, 255, 255));
         JPWindow.setForeground(new java.awt.Color(255, 255, 255));
+        JPWindow.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JPWindowMouseEntered(evt);
+            }
+        });
         JPWindow.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ButtonMinimize.setBackground(new java.awt.Color(255, 255, 255));
@@ -1604,7 +1609,7 @@ public class Login extends javax.swing.JFrame {
 
         AdminQuery.addTab("Log", Log);
 
-        getContentPane().add(AdminQuery, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 530));
+        getContentPane().add(AdminQuery, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
 
         AdminConfiguration.setBackground(new java.awt.Color(255, 255, 255));
         AdminConfiguration.setForeground(new java.awt.Color(29, 41, 81));
@@ -5840,6 +5845,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonAdminConfigurationActionPerformed
 
     private void ButtonSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSignUpActionPerformed
+        firstRunning = false;
         Animacion.Animacion.mover_derecha(290, 1100, 1, 1, JPWelcome);
         Animacion.Animacion.mover_izquierda(0, -1100, 1, 1, JPLogin);
         JPUserMenu.setVisible(false);
@@ -5865,6 +5871,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonSignUpActionPerformed
 
     private void ButtonEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEnterActionPerformed
+        firstRunning = false;
         String user_field = UsernameField.getText();
         String user_password = new String(PasswordField.getPassword());
         if(user_field.isEmpty()) {
@@ -9454,6 +9461,14 @@ public class Login extends javax.swing.JFrame {
         }
         /Falta la clase Picture;*/
     }//GEN-LAST:event_RecordsExpireListMouseClicked
+
+    private void JPWindowMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPWindowMouseEntered
+        if(firstRunning) {
+            blockAll();
+            JPLogin.setVisible(true);
+            JPWelcome.setVisible(true);
+        }
+    }//GEN-LAST:event_JPWindowMouseEntered
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
