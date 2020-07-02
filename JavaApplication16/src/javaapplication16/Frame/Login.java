@@ -6,8 +6,10 @@ import java.awt.Cursor;
 import java.awt.Image;
 import java.sql.SQLException;
 import java.sql.ResultSet;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import org.jfree.chart.JFreeChart;
 import java.util.logging.Level;
@@ -678,6 +680,7 @@ public class Login extends javax.swing.JFrame {
         ButtonDelete = new javax.swing.JButton();
         jScrollPane18 = new javax.swing.JScrollPane();
         ListUsersDelete = new javax.swing.JList<>();
+        ButtonRefreshForDeleteUser = new javax.swing.JButton();
         DeletePerson = new javax.swing.JPanel();
         ButtonRollbackPersonDelete = new javax.swing.JButton();
         IconCreateReacord4 = new javax.swing.JLabel();
@@ -685,6 +688,7 @@ public class Login extends javax.swing.JFrame {
         ButtonPersonDelete = new javax.swing.JButton();
         jScrollPane19 = new javax.swing.JScrollPane();
         ListPersonDelete = new javax.swing.JList<>();
+        ButtonPersonRefreshForDelete = new javax.swing.JButton();
         DeleteRecord = new javax.swing.JPanel();
         ButtonRollbackRecordDelete = new javax.swing.JButton();
         IconCreateReacord5 = new javax.swing.JLabel();
@@ -692,6 +696,7 @@ public class Login extends javax.swing.JFrame {
         ButtonRecordDelete = new javax.swing.JButton();
         jScrollPane20 = new javax.swing.JScrollPane();
         ListRecordsDelete = new javax.swing.JList<>();
+        ButtonPersonRefreshForDelete1 = new javax.swing.JButton();
         DeleteBan = new javax.swing.JPanel();
         ButtonRollbackDeleteBan = new javax.swing.JButton();
         IconCreateReacord6 = new javax.swing.JLabel();
@@ -699,6 +704,7 @@ public class Login extends javax.swing.JFrame {
         ButtonBanDelete = new javax.swing.JButton();
         jScrollPane21 = new javax.swing.JScrollPane();
         BannedListDelete = new javax.swing.JList<>();
+        ButtonPersonRefreshForDelete2 = new javax.swing.JButton();
         AdminStatistics = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         ButtonEnterReportsZone1 = new javax.swing.JButton();
@@ -800,8 +806,6 @@ public class Login extends javax.swing.JFrame {
         LabelExpireDateUnapproved5 = new javax.swing.JLabel();
         LineDateCrime7 = new javax.swing.JSeparator();
         FinishDateSentenceCreateRecord = new javax.swing.JFormattedTextField();
-        LabelResolutionUnapproved3 = new javax.swing.JLabel();
-        BoxTypeSentenceCreateRecord = new javax.swing.JComboBox<>();
         LabelCrimeTypeUnapproved1 = new javax.swing.JLabel();
         ButtonConfirmRecordUser = new javax.swing.JButton();
         BoxTypeCrimeCreateRecord = new javax.swing.JComboBox<>();
@@ -3842,7 +3846,7 @@ public class Login extends javax.swing.JFrame {
                 ButtonDeleteActionPerformed(evt);
             }
         });
-        DeleteUser.add(ButtonDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 450, 100, 40));
+        DeleteUser.add(ButtonDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 450, 100, 40));
 
         jScrollPane18.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane18.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
@@ -3856,6 +3860,27 @@ public class Login extends javax.swing.JFrame {
         jScrollPane18.setViewportView(ListUsersDelete);
 
         DeleteUser.add(jScrollPane18, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 280, 250));
+
+        ButtonRefreshForDeleteUser.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonRefreshForDeleteUser.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        ButtonRefreshForDeleteUser.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonRefreshForDeleteUser.setText("Refresh");
+        ButtonRefreshForDeleteUser.setBorder(null);
+        ButtonRefreshForDeleteUser.setContentAreaFilled(false);
+        ButtonRefreshForDeleteUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonRefreshForDeleteUserMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonRefreshForDeleteUserMouseExited(evt);
+            }
+        });
+        ButtonRefreshForDeleteUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonRefreshForDeleteUserActionPerformed(evt);
+            }
+        });
+        DeleteUser.add(ButtonRefreshForDeleteUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 450, 100, 40));
 
         getContentPane().add(DeleteUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
 
@@ -3922,7 +3947,7 @@ public class Login extends javax.swing.JFrame {
                 ButtonPersonDeleteActionPerformed(evt);
             }
         });
-        DeletePerson.add(ButtonPersonDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 450, 100, 40));
+        DeletePerson.add(ButtonPersonDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 450, 100, 40));
 
         jScrollPane19.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane19.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
@@ -3936,6 +3961,27 @@ public class Login extends javax.swing.JFrame {
         jScrollPane19.setViewportView(ListPersonDelete);
 
         DeletePerson.add(jScrollPane19, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 280, 240));
+
+        ButtonPersonRefreshForDelete.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonPersonRefreshForDelete.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        ButtonPersonRefreshForDelete.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonPersonRefreshForDelete.setText("Refresh");
+        ButtonPersonRefreshForDelete.setBorder(null);
+        ButtonPersonRefreshForDelete.setContentAreaFilled(false);
+        ButtonPersonRefreshForDelete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonPersonRefreshForDeleteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonPersonRefreshForDeleteMouseExited(evt);
+            }
+        });
+        ButtonPersonRefreshForDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonPersonRefreshForDeleteActionPerformed(evt);
+            }
+        });
+        DeletePerson.add(ButtonPersonRefreshForDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 450, 100, 40));
 
         getContentPane().add(DeletePerson, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
 
@@ -4002,7 +4048,7 @@ public class Login extends javax.swing.JFrame {
                 ButtonRecordDeleteActionPerformed(evt);
             }
         });
-        DeleteRecord.add(ButtonRecordDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 450, 100, 40));
+        DeleteRecord.add(ButtonRecordDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 450, 100, 40));
 
         jScrollPane20.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane20.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
@@ -4016,6 +4062,27 @@ public class Login extends javax.swing.JFrame {
         jScrollPane20.setViewportView(ListRecordsDelete);
 
         DeleteRecord.add(jScrollPane20, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 280, 250));
+
+        ButtonPersonRefreshForDelete1.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonPersonRefreshForDelete1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        ButtonPersonRefreshForDelete1.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonPersonRefreshForDelete1.setText("Refresh");
+        ButtonPersonRefreshForDelete1.setBorder(null);
+        ButtonPersonRefreshForDelete1.setContentAreaFilled(false);
+        ButtonPersonRefreshForDelete1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonPersonRefreshForDelete1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonPersonRefreshForDelete1MouseExited(evt);
+            }
+        });
+        ButtonPersonRefreshForDelete1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonPersonRefreshForDelete1ActionPerformed(evt);
+            }
+        });
+        DeleteRecord.add(ButtonPersonRefreshForDelete1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 450, 100, 40));
 
         getContentPane().add(DeleteRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
 
@@ -4082,7 +4149,7 @@ public class Login extends javax.swing.JFrame {
                 ButtonBanDeleteActionPerformed(evt);
             }
         });
-        DeleteBan.add(ButtonBanDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 450, 100, 40));
+        DeleteBan.add(ButtonBanDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 450, 100, 40));
 
         jScrollPane21.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane21.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
@@ -4096,6 +4163,27 @@ public class Login extends javax.swing.JFrame {
         jScrollPane21.setViewportView(BannedListDelete);
 
         DeleteBan.add(jScrollPane21, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 280, 250));
+
+        ButtonPersonRefreshForDelete2.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonPersonRefreshForDelete2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        ButtonPersonRefreshForDelete2.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonPersonRefreshForDelete2.setText("Refresh");
+        ButtonPersonRefreshForDelete2.setBorder(null);
+        ButtonPersonRefreshForDelete2.setContentAreaFilled(false);
+        ButtonPersonRefreshForDelete2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonPersonRefreshForDelete2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonPersonRefreshForDelete2MouseExited(evt);
+            }
+        });
+        ButtonPersonRefreshForDelete2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonPersonRefreshForDelete2ActionPerformed(evt);
+            }
+        });
+        DeleteBan.add(ButtonPersonRefreshForDelete2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 450, 100, 40));
 
         getContentPane().add(DeleteBan, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
 
@@ -4917,22 +5005,22 @@ public class Login extends javax.swing.JFrame {
         CheckBoxApprovedOrNotCreateRecord.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         CheckBoxApprovedOrNotCreateRecord.setForeground(new java.awt.Color(29, 41, 81));
         CheckBoxApprovedOrNotCreateRecord.setText("Approved");
-        CreateRecord.add(CheckBoxApprovedOrNotCreateRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, 110, -1));
+        CreateRecord.add(CheckBoxApprovedOrNotCreateRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 380, 110, -1));
 
         ExpireDateCreateRecord.setBorder(null);
         ExpireDateCreateRecord.setForeground(new java.awt.Color(29, 41, 81));
         ExpireDateCreateRecord.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
         ExpireDateCreateRecord.setCaretColor(new java.awt.Color(204, 204, 204));
-        CreateRecord.add(ExpireDateCreateRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 420, 70, 30));
+        CreateRecord.add(ExpireDateCreateRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 420, 70, 30));
 
         LineExpireDate3.setForeground(new java.awt.Color(29, 41, 81));
-        CreateRecord.add(LineExpireDate3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 450, 70, 20));
+        CreateRecord.add(LineExpireDate3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 450, 70, 20));
 
         LabelExpireDateUnapproved3.setBackground(new java.awt.Color(255, 255, 255));
         LabelExpireDateUnapproved3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         LabelExpireDateUnapproved3.setForeground(new java.awt.Color(29, 41, 81));
         LabelExpireDateUnapproved3.setText("Expire date:");
-        CreateRecord.add(LabelExpireDateUnapproved3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, 100, 30));
+        CreateRecord.add(LabelExpireDateUnapproved3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 420, 100, 30));
 
         YearsSentenceCreateRecord.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         YearsSentenceCreateRecord.setForeground(new java.awt.Color(29, 41, 81));
@@ -4986,17 +5074,6 @@ public class Login extends javax.swing.JFrame {
         FinishDateSentenceCreateRecord.setForeground(new java.awt.Color(29, 41, 81));
         FinishDateSentenceCreateRecord.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
         CreateRecord.add(FinishDateSentenceCreateRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 330, 110, 30));
-
-        LabelResolutionUnapproved3.setBackground(new java.awt.Color(255, 255, 255));
-        LabelResolutionUnapproved3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
-        LabelResolutionUnapproved3.setForeground(new java.awt.Color(29, 41, 81));
-        LabelResolutionUnapproved3.setText("Type of sentence:");
-        CreateRecord.add(LabelResolutionUnapproved3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 380, 160, 30));
-
-        BoxTypeSentenceCreateRecord.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        BoxTypeSentenceCreateRecord.setForeground(new java.awt.Color(29, 41, 81));
-        BoxTypeSentenceCreateRecord.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
-        CreateRecord.add(BoxTypeSentenceCreateRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 380, 120, 30));
 
         LabelCrimeTypeUnapproved1.setBackground(new java.awt.Color(255, 255, 255));
         LabelCrimeTypeUnapproved1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
@@ -6104,6 +6181,7 @@ public class Login extends javax.swing.JFrame {
     private void JPWelcomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPWelcomeMouseEntered
         blockAll();
         JPWelcome.setVisible(true);
+        JPLogin.setVisible(true);
     }//GEN-LAST:event_JPWelcomeMouseEntered
 
     private void ButtonCancelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelMouseEntered
@@ -7838,6 +7916,17 @@ public class Login extends javax.swing.JFrame {
         blockAll();
         CreateBanUser.setVisible(true);
         JPLogged.setVisible(true);
+        try {
+            ResultSet lista = ConnectDB.query("ADM", "adminUser.getAllUsernames");
+            DefaultListModel model = new DefaultListModel();
+            while(lista.next())
+            {
+                model.addElement(lista.getString("username"));
+            }
+            ListUsersForBan.setModel(model);
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_ButtonBanUserActionPerformed
 
     private void ButtonPersonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonPersonMouseEntered
@@ -8121,7 +8210,6 @@ public class Login extends javax.swing.JFrame {
             YearsSentenceCreateRecord.setEnabled(false);
             StartDateSentenceCreateRecord.setEnabled(false);
             FinishDateSentenceCreateRecord.setEnabled(false);
-            BoxTypeSentenceCreateRecord.setEnabled(false);
         }
     }//GEN-LAST:event_BoxResolutionCreateRecord1ActionPerformed
 
@@ -8236,14 +8324,26 @@ public class Login extends javax.swing.JFrame {
     private void ButtonConfirmRecordUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmRecordUserActionPerformed
         String number_record = RecordNumberField.getText();
         String crime_description = CrimeDescriptionCreateRecord.getText();
-        String date_crime = DateCrimeCreateRecord.getText();
+        String stringDatecrime = DateCrimeCreateRecord.getText();
         String expire_date = ExpireDateCreateRecord.getText();
+        String years = YearsSentenceCreateRecord.getText();
+        String start_date = StartDateSentenceCreateRecord.getText();
+        String end_date = FinishDateSentenceCreateRecord.getText();
+        try {
+            Date dateCrime = new SimpleDateFormat("dd/MM/yyyy").parse(stringDatecrime);
+            Date expireDateCrime = new SimpleDateFormat("dd/MM/yyyy").parse(expire_date);
+            Date startDate = new SimpleDateFormat("dd/MM/yyyy").parse(start_date);
+            Date endDate = new SimpleDateFormat("dd/MM/yyyy").parse(end_date);
+        } catch (ParseException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String idOffender = BoxOffender.getItemAt(BoxOffender.getSelectedIndex());
+        String typeOfCrime = BoxTypeCrimeCreateRecord.getItemAt(BoxTypeCrimeCreateRecord.getSelectedIndex());
         String resolution = BoxResolutionCreateRecord.getItemAt(BoxResolutionCreateRecord.getSelectedIndex());
         if(resolution == "Innocent"){
             YearsSentenceCreateRecord.setEnabled(false);
             StartDateSentenceCreateRecord.setEnabled(false);
             FinishDateSentenceCreateRecord.setEnabled(false);
-            BoxTypeSentenceCreateRecord.setEnabled(false);
         }
         String approved = "N";
         String[] pictures = null; //Moficar para que aquí reciba los paths de las fotos;
@@ -8252,21 +8352,28 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Fill the number of the record field.");
         } else if(crime_description.isEmpty()){
             JOptionPane.showMessageDialog(this, "Fill the crime description field.");
-        } else if(date_crime.isEmpty()){
+        } else if(stringDatecrime.isEmpty()){
             JOptionPane.showMessageDialog(this, "Fill the date of the crime field.");
         } else if(expire_date.isEmpty()){
             JOptionPane.showMessageDialog(this, "Fill the expire date field.");
+        }else if (BoxOffender.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(this, "Fill the offender person field.");
+        }else if (BoxTypeCrimeCreateRecord.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(this, "Fill the type of crime field.");
+        }else if (BoxResolutionCreateRecord.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(this, "Fill the resolution of crime field.");
         } else {
             try{
                 if(CheckBoxApprovedOrNotCreateRecord.isSelected())
                 {
                     approved = "Y";
                 }
-                //var record = new BL.Record(number_record, crime_description, new SimpleDateFormat("dd/MM/yyyy").parse(date_crime),
-                    //resolution, new SimpleDateFormat("dd/MM/yyyy").parse(expire_date), approved, CheckBoxApprovedOrNotCreateRecord.getSelectedIndex(),
-                   // BoxOffender.getSelectedIndex(), BoxVeredict.getSelectedIndex(), BoxDistrictRecord.getSelectedIndex());
+                var veredict = new Veredict(Integer.parseInt(years));
+                var record = new BL.Record(number_record, crime_description, new SimpleDateFormat("dd/MM/yyyy").parse(date_crime),
+                    resolution, new SimpleDateFormat("dd/MM/yyyy").parse(expire_date), approved, CheckBoxApprovedOrNotCreateRecord.getSelectedIndex(),
+                   BoxOffender.getSelectedIndex(), BoxVeredict.getSelectedIndex(), BoxDistrictRecord.getSelectedIndex());
 
-                //ConnectDB.insert_record(record);
+                ConnectDB.insert_record(record);
                 for(String picture : pictures)
                 {
                     Pictures pic = new BL.Pictures(picture,number_record);
@@ -8296,7 +8403,6 @@ public class Login extends javax.swing.JFrame {
             YearsSentenceCreateRecord.setEnabled(false);
             StartDateSentenceCreateRecord.setEnabled(false);
             FinishDateSentenceCreateRecord.setEnabled(false);
-            BoxTypeSentenceCreateRecord.setEnabled(false);
         }
     }//GEN-LAST:event_BoxResolutionCreateRecordActionPerformed
 
@@ -8417,11 +8523,46 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonConfirmBannedMouseExited
 
     private void ButtonConfirmBannedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmBannedActionPerformed
-        JOptionPane.showMessageDialog(this, "The user was banned of the system succefully.");
-        blockAll();
-        AdminConfiguration.setVisible(true);
-        JPLogged.setVisible(true);
-        //Falta crear el baneo en la base
+        String username = ListUsersForBan.getSelectedValue();
+        boolean isPermanent = CheckBoxPermanency.isSelected();
+        String ispermanent = "N";
+        if(isPermanent)
+            ispermanent = "Y";
+        String DateStart = DateStartField2.getText();
+        String DateEnd = DateEndField2.getText();
+        int bannedReason = Integer.parseInt(BoxReasonBanned.getItemAt(BoxReasonBanned.getSelectedIndex()));
+        if(username.isEmpty())
+        {
+            JOptionPane.showMessageDialog(this, "Fill the username field.");
+        }
+        else if(DateStart.isEmpty())
+        {
+            JOptionPane.showMessageDialog(this, "Fill the start date field.");
+        }
+        else if(DateEnd.isEmpty())
+        {
+            JOptionPane.showMessageDialog(this, "Fill the end date field.");
+        }
+        currentUser cu = currentUser.getInstance();
+        if(cu.getUsername().equals(username))
+        {
+            JOptionPane.showMessageDialog(this, "You can´t banned yourself.");
+        }
+        try {
+            Banned banned = new Banned(ispermanent, new SimpleDateFormat("dd/MM/yyyy").parse(DateStart),
+                    new SimpleDateFormat("dd/MM/yyyy").parse(DateEnd), username,bannedReason);
+            ConnectDB.insertBanned(banned);
+            JOptionPane.showMessageDialog(this, "The user was banned of the system succefully.");
+            blockAll();
+            AdminConfiguration.setVisible(true);
+            JPLogged.setVisible(true);
+        } catch (ParseException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "The user was not banned of the system succefully.");
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "The user was not banned of the system succefully.");
+        }
     }//GEN-LAST:event_ButtonConfirmBannedActionPerformed
 
     private void CreateBanUserMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CreateBanUserMouseEntered
@@ -8453,10 +8594,17 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonDeleteMouseExited
 
     private void ButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonDeleteActionPerformed
-        //Borrar el usuario de la base;
-        blockAll();
-        AdminConfiguration.setVisible(true);
-        JPLogged.setVisible(true);
+        String username = ListUsersDelete.getSelectedValue();
+        try {
+            ConnectDB.delete("ADM", "adminUser.removeUser",username);
+            JOptionPane.showMessageDialog(this, "The user was deleted successfully in the system.");
+            blockAll();
+            AdminConfiguration.setVisible(true);
+            JPLogged.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "The user was NOT deleted successfully in the system. Try again.");
+        }
     }//GEN-LAST:event_ButtonDeleteActionPerformed
 
     private void DeleteUserMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeleteUserMouseEntered
@@ -8488,10 +8636,17 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonPersonDeleteMouseExited
 
     private void ButtonPersonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonPersonDeleteActionPerformed
-        //Eliminar persona de la base;
-        blockAll();
-        AdminConfiguration.setVisible(true);
-        JPLogged.setVisible(true);
+        String person = ListPersonDelete.getSelectedValue();
+        try {
+            ConnectDB.delete("APP", "admin_person.remove_person",person);
+            JOptionPane.showMessageDialog(this, "The person was deleted successfully in the system.");
+            blockAll();
+            AdminConfiguration.setVisible(true);
+            JPLogged.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "The person was NOT deleted successfully in the system. Try again.");
+        }
     }//GEN-LAST:event_ButtonPersonDeleteActionPerformed
 
     private void ButtonRollbackRecordDeleteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackRecordDeleteMouseEntered
@@ -8517,10 +8672,17 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonRecordDeleteMouseExited
 
     private void ButtonRecordDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRecordDeleteActionPerformed
-        //Eliminar de la base de datos;
-        blockAll();        
-        AdminConfiguration.setVisible(true);
-        JPLogged.setVisible(true);
+        String record = ListRecordsDelete.getSelectedValue();
+        try {
+            ConnectDB.delete("APP", "admin_record.remove_record",record);
+            JOptionPane.showMessageDialog(this, "The record was deleted successfully in the system.");
+            blockAll();
+            AdminConfiguration.setVisible(true);
+            JPLogged.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "The record was NOT deleted successfully in the system. Try again.");
+        }
     }//GEN-LAST:event_ButtonRecordDeleteActionPerformed
 
     private void DeleteRecordMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeleteRecordMouseEntered
@@ -8778,6 +8940,99 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ButtonEnterReportsZone7ActionPerformed
 
+<<<<<<< HEAD
+    private void ButtonRefreshForDeleteUserMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRefreshForDeleteUserMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonRefreshForDeleteUserMouseEntered
+
+    private void ButtonRefreshForDeleteUserMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRefreshForDeleteUserMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonRefreshForDeleteUserMouseExited
+
+    private void ButtonRefreshForDeleteUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRefreshForDeleteUserActionPerformed
+        try {
+            ResultSet usernames = ConnectDB.query("ADM", "adminUser.getAllUsernames");
+            DefaultListModel model = new DefaultListModel();
+            model.removeAllElements();
+            while(usernames.next())
+            {
+                model.addElement(usernames.getString("username"));
+            }
+            ListUsersDelete.setModel(model);
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ButtonRefreshForDeleteUserActionPerformed
+
+    private void ButtonPersonRefreshForDeleteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonPersonRefreshForDeleteMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonPersonRefreshForDeleteMouseEntered
+
+    private void ButtonPersonRefreshForDeleteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonPersonRefreshForDeleteMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonPersonRefreshForDeleteMouseExited
+
+    private void ButtonPersonRefreshForDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonPersonRefreshForDeleteActionPerformed
+        try {
+            ResultSet ids = ConnectDB.query("APP", "admin_person.getAll");
+            DefaultListModel model = new DefaultListModel();
+            model.removeAllElements();
+            while(ids.next())
+            {
+                model.addElement(ids.getString("id"));
+            }
+            ListPersonDelete.setModel(model);
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ButtonPersonRefreshForDeleteActionPerformed
+
+    private void ButtonPersonRefreshForDelete1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonPersonRefreshForDelete1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonPersonRefreshForDelete1MouseEntered
+
+    private void ButtonPersonRefreshForDelete1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonPersonRefreshForDelete1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonPersonRefreshForDelete1MouseExited
+
+    private void ButtonPersonRefreshForDelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonPersonRefreshForDelete1ActionPerformed
+        try {
+            ResultSet records = ConnectDB.query("APP", "admin_record.getAllNumberr");
+            DefaultListModel model = new DefaultListModel();
+            model.removeAllElements();
+            while(records.next())
+            {
+                model.addElement(records.getString("numberr"));
+            }
+            ListRecordsDelete.setModel(model);
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ButtonPersonRefreshForDelete1ActionPerformed
+
+    private void ButtonPersonRefreshForDelete2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonPersonRefreshForDelete2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonPersonRefreshForDelete2MouseEntered
+
+    private void ButtonPersonRefreshForDelete2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonPersonRefreshForDelete2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonPersonRefreshForDelete2MouseExited
+
+    private void ButtonPersonRefreshForDelete2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonPersonRefreshForDelete2ActionPerformed
+        try {
+            ResultSet bans = ConnectDB.query("ADM", "adminUser.getAllUsernamedBanned");
+            DefaultListModel model = new DefaultListModel();
+            model.removeAllElements();
+            while(bans.next())
+            {
+                model.addElement(bans.getString("username"));
+            }
+            ListRecordsDelete.setModel(model);
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ButtonPersonRefreshForDelete2ActionPerformed
+=======
     private void BoxTypeOfZoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoxTypeOfZoneActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BoxTypeOfZoneActionPerformed
@@ -8785,6 +9040,7 @@ public class Login extends javax.swing.JFrame {
     private void BoxCountryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoxCountryActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BoxCountryActionPerformed
+>>>>>>> 653e0236660db913da87004de71b9faf5ff034fb
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -8896,7 +9152,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> BoxTypeCrimeCreateRecord1;
     private javax.swing.JComboBox<String> BoxTypeOfZone;
     private javax.swing.JComboBox<String> BoxTypeOfZone1;
-    private javax.swing.JComboBox<String> BoxTypeSentenceCreateRecord;
     private javax.swing.JComboBox<String> BoxTypeSentenceCreateRecord1;
     private javax.swing.JComboBox<String> BoxTypeSentenceUnapproved;
     private javax.swing.JComboBox<String> BoxUserTypeUpdateUser;
@@ -8955,11 +9210,19 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton ButtonPerson;
     private javax.swing.JButton ButtonPersonCatalogues;
     private javax.swing.JButton ButtonPersonDelete;
+    private javax.swing.JButton ButtonPersonRefreshForDelete;
+    private javax.swing.JButton ButtonPersonRefreshForDelete1;
+    private javax.swing.JButton ButtonPersonRefreshForDelete2;
     private javax.swing.JButton ButtonQuery;
     private javax.swing.JButton ButtonRecord;
     private javax.swing.JButton ButtonRecordCatalogues;
     private javax.swing.JButton ButtonRecordDelete;
     private javax.swing.JButton ButtonRefresh;
+<<<<<<< HEAD
+    private javax.swing.JButton ButtonRefreshForDeleteUser;
+    private javax.swing.JButton ButtonRefreshTotalRecordsByZone;
+=======
+>>>>>>> 653e0236660db913da87004de71b9faf5ff034fb
     private javax.swing.JButton ButtonRollbackBanUser;
     private javax.swing.JButton ButtonRollbackCatalogues;
     private javax.swing.JButton ButtonRollbackCreateRecord;
@@ -9156,7 +9419,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel LabelResolutionUnapproved13;
     private javax.swing.JLabel LabelResolutionUnapproved15;
     private javax.swing.JLabel LabelResolutionUnapproved2;
-    private javax.swing.JLabel LabelResolutionUnapproved3;
     private javax.swing.JLabel LabelResolutionUnapproved4;
     private javax.swing.JLabel LabelResolutionUnapproved5;
     private javax.swing.JLabel LabelResolutionUnapproved7;
