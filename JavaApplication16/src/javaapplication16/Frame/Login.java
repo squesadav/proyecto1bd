@@ -131,7 +131,49 @@ void fillInComboBox_CreatePersonAdmin() throws SQLException
             BoxInstitutionPerson1.addItem(institutions.getString("name"));
         }
     }
+void fillInComboBox_CreateRecordUser() throws SQLException
+    {
+        BoxOffender.removeAllItems();
+        BoxOffender.addItem("Default");
 
+        BoxTypeCrimeCreateRecord.removeAllItems();
+        BoxTypeCrimeCreateRecord.addItem("Default");
+
+        BoxDistrictCreateRecord.removeAllItems();
+        BoxDistrictCreateRecord.addItem("Default");
+
+        BoxPlaceCreateRecord.removeAllItems();
+        BoxPlaceCreateRecord.addItem("Default");
+
+        ResultSet persons = null;
+        ResultSet districts = null;
+        ResultSet types = null;
+        ResultSet places = null;
+        try
+        {
+            persons = ConnectDB.query("APP", "admin_person.getAll");
+            districts = ConnectDB.query("APP","admin_district.getAll");
+            types = ConnectDB.query("APP","admin_institution.getAll");
+            places = ConnectDB.query("APP","admin_place.getAll");
+        }
+        catch(Exception e){}
+        while(persons.next())
+        {
+            BoxGenderPerson.addItem(persons.getString("name"));
+        }
+        while(districts.next())
+        {
+            BoxDistrictPerson.addItem(districts.getString("name"));
+        }
+        while(types.next())
+        {
+            BoxTypeCrimeCreateRecord.addItem(types.getString("name"));
+        }
+        while(places.next())
+        {
+            BoxPlaceCreateRecord.addItem(places.getString("name"));
+        }
+    }
 
 void fillInComboBox_CreateRecordAdmin() throws SQLException
     {
@@ -176,7 +218,8 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
             BoxPlaceCreateRecord1.addItem(places.getString("name"));
         }
     }
-        void fillInComboBoxStatistics1() throws SQLException
+        
+    void fillInComboBoxStatistics1() throws SQLException
     {
         BoxTypeOfZone.removeAllItems();
         BoxCity.removeAllItems();
@@ -6492,18 +6535,18 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         }
         else
         {
-            DefaultTableModel modelo = (DefaultTableModel)Table.getModel();
+            DefaultTableModel modelo = new DefaultTableModel();
             modelo.setRowCount(0);
             modelo.setColumnCount(0);
             modelo.addColumn("District");
             modelo.addColumn("Quantity");
             try {
-            ResultSet dangerous_places = ConnectDB.query("APP","user_queries.dangerous_places", Integer.parseInt(number_top));
-            while(dangerous_places.next())
-            {
-                modelo.addRow(new Object[]{dangerous_places.getString("name_district"), dangerous_places.getInt("quant_record")});
-            }
-            Table.setModel(modelo);
+                ResultSet dangerous_places = ConnectDB.query("APP","user_queries.dangerous_places", Integer.parseInt(number_top));
+                while(dangerous_places.next())
+                {
+                    modelo.addRow(new Object[]{dangerous_places.getString("name_district"), dangerous_places.getInt("quant_record")});
+                }
+                Table.setModel(modelo);
             } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -6588,7 +6631,8 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         JPLogged.setVisible(true);
         CheckBoxApprovedOrNotCreateRecord.setEnabled(false);
         try {
-            fillInComboBox_Offender();
+            //fillInComboBox_Offender();
+            fillInComboBox_CreateRecordUser();
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -8025,7 +8069,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     }//GEN-LAST:event_ListUnapprovedRecordsMouseClicked
 
     private void ButtonShowUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowUsersActionPerformed
-        DefaultTableModel modelo = (DefaultTableModel)TableUsers.getModel();
+        DefaultTableModel modelo = new DefaultTableModel();
         modelo.setRowCount(0);
         modelo.setColumnCount(0);
         modelo.addColumn("Username");
@@ -8035,7 +8079,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
             int i = 0;
             while(userList.next())
             {
-                modelo.addRow(new Object[]{userList.getObject("username"), userList.getObject("user_type")});
+                modelo.addRow(new Object[]{userList.getString("username"), userList.getInt("user_type")});
             }
             TableUsers.setModel(modelo);
         } catch (SQLException ex) {
