@@ -56,7 +56,82 @@ public class Login extends javax.swing.JFrame {
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
     }
+void fillInComboBox_CreatePersonAdmin() throws SQLException
+    {
+        BoxGenderPerson1.removeAllItems();
+        BoxDistrictPerson1.removeAllItems();
+        BoxInstitutionPerson1.removeAllItems();
+        BoxGenderPerson1.addItem("Default");
+        BoxDistrictPerson1.addItem("Default");
+        BoxInstitutionPerson1.addItem("Default");
+        ResultSet genders = null;
+        ResultSet districts = null;
+        ResultSet institutions = null;
+        try
+        {
+            genders = ConnectDB.query("APP", "admin_gender.getAll");
+            districts = ConnectDB.query("APP","admin_district.getAll");
+            institutions = ConnectDB.query("APP","admin_institution.getAll");
+        }
+        catch(Exception e){}
+        while(genders.next())
+        {
+            BoxGenderPerson1.addItem(genders.getString("name"));
+        }
+        while(districts.next())
+        {
+            BoxDistrictPerson1.addItem(districts.getString("name"));
+        }
+        while(institutions.next())
+        {
+            BoxInstitutionPerson1.addItem(institutions.getString("name"));
+        }
+    }
 
+
+void fillInComboBox_CreateRecordAdmin() throws SQLException
+    {
+        BoxOffender1.removeAllItems();
+        BoxOffender1.addItem("Default");
+
+        BoxTypeCrimeCreateRecord1.removeAllItems();
+        BoxTypeCrimeCreateRecord1.addItem("Default");
+
+        BoxDistrictCreateRecord1.removeAllItems();
+        BoxDistrictCreateRecord1.addItem("Default");
+
+        BoxPlaceCreateRecord1.removeAllItems();
+        BoxPlaceCreateRecord1.addItem("Default");
+
+        ResultSet persons = null;
+        ResultSet districts = null;
+        ResultSet types = null;
+        ResultSet places = null;
+        try
+        {
+            persons = ConnectDB.query("APP", "admin_person.getAll");
+            districts = ConnectDB.query("APP","admin_district.getAll");
+            types = ConnectDB.query("APP","admin_institution.getAll");
+            places = ConnectDB.query("APP","admin_place.getAll");
+        }
+        catch(Exception e){}
+        while(persons.next())
+        {
+            BoxGenderPerson1.addItem(persons.getString("name"));
+        }
+        while(districts.next())
+        {
+            BoxDistrictPerson1.addItem(districts.getString("name"));
+        }
+        while(types.next())
+        {
+            BoxTypeCrimeCreateRecord1.addItem(types.getString("name"));
+        }
+        while(places.next())
+        {
+            BoxPlaceCreateRecord1.addItem(places.getString("name"));
+        }
+    }
         void fillInComboBoxStatistics1() throws SQLException
     {
         BoxTypeOfZone.removeAllItems();
@@ -7995,12 +8070,19 @@ public class Login extends javax.swing.JFrame {
         blockAll();
         CreateBanUser.setVisible(true);
         JPLogged.setVisible(true);
+        BoxReasonBanned.removeAllItems();
+        BoxReasonBanned.addItem("Default");
         try {
+            ResultSet reasonsBanned = ConnectDB.query("APP","adminUser.getAllBannedReason"); 
             ResultSet lista = ConnectDB.query("ADM", "adminUser.getAllUsernames");
             DefaultListModel model = new DefaultListModel();
             while(lista.next())
             {
                 model.addElement(lista.getString("username"));
+            }
+            while(reasonsBanned.next())
+            {
+                BoxReasonBanned.addItem(reasonsBanned.getString("description"));
             }
             ListUsersForBan.setModel(model);
         } catch (SQLException ex) {
@@ -8021,6 +8103,11 @@ public class Login extends javax.swing.JFrame {
         blockAll();
         CreatePersonAdmin.setVisible(true);
         JPLogged.setVisible(true);
+        try { 
+            fillInComboBox_CreatePersonAdmin();
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_ButtonPersonActionPerformed
 
     private void ButtonRecordMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRecordMouseEntered
@@ -8036,7 +8123,11 @@ public class Login extends javax.swing.JFrame {
         blockAll();
         CreateRecordAdmin.setVisible(true);
         JPLogged.setVisible(true);
-        //Llenar las combo box
+        try {
+            fillInComboBox_CreateRecordAdmin();
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_ButtonRecordActionPerformed
 
     private void ButtonRollbackCreateSystemMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackCreateSystemMouseEntered
