@@ -400,25 +400,51 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         BoxFilter.removeAllItems();
         BoxFilter.addItem("Default");
         
+        BoxModifyCountry1.removeAllItems();
+        BoxModifyCountry1.addItem("Default");
         
-        BoxFilterSpecify.removeAllItems();
-        BoxFilterSpecify.addItem("Default");
+        BoxModifyState1.removeAllItems();
+        BoxModifyState1.addItem("Default");
+        
+        BoxModifyCity1.removeAllItems();
+        BoxModifyCity1.addItem("Default");
+        
+        BoxModifyDistrict1.removeAllItems();
+        BoxModifyDistrict1.addItem("Default");
         
         ResultSet types = null;
+        ResultSet countries = null;
+        ResultSet states = null;
+        ResultSet cities = null;
         ResultSet districts = null;
         try
         {
             types = ConnectDB.query("APP", "admin_type.getAll");
-            districts = ConnectDB.query("APP","admin_institution.getAll");
+            countries = ConnectDB.query("APP","admin_country.getAll");
+            states = ConnectDB.query("APP","admin_state.getAll");
+            cities = ConnectDB.query("APP","admin_city.getAll");
+            districts = ConnectDB.query("APP","admin_district.getAll");
         }
         catch(Exception e){}
         while(types.next())
         {
             BoxFilter.addItem(types.getString("name"));
         }
+        while(countries.next())
+        {
+            BoxModifyCountry1.addItem(countries.getString("name"));
+        }
+        while(states.next())
+        {
+            BoxModifyState1.addItem(states.getString("name"));
+        }
+        while(cities.next())
+        {
+            BoxModifyCity1.addItem(cities.getString("name"));
+        }
         while(districts.next())
         {
-            BoxFilterSpecify.addItem(districts.getString("name"));
+            BoxModifyDistrict1.addItem(districts.getString("name"));
         }
     }
     
@@ -943,7 +969,6 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         Records = new javax.swing.JPanel();
         LabelChooseFilterRecords = new javax.swing.JLabel();
         BoxFilter = new javax.swing.JComboBox<>();
-        BoxFilterSpecify = new javax.swing.JComboBox<>();
         ButtonShowRecords = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         RecordsList = new javax.swing.JList<>();
@@ -958,12 +983,19 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         LineDateCrime1 = new javax.swing.JSeparator();
         DateEndField = new javax.swing.JFormattedTextField();
         LineDateCrime3 = new javax.swing.JSeparator();
-        LabelChooseFilterRecords1 = new javax.swing.JLabel();
         LabelChooseFilterRecords2 = new javax.swing.JLabel();
         LabelChooseFilterRecords3 = new javax.swing.JLabel();
         LabelChooseFilterRecords4 = new javax.swing.JLabel();
         LabelChooseFilterRecords7 = new javax.swing.JLabel();
         LabelChooseFilterRecords8 = new javax.swing.JLabel();
+        LabelCountry1 = new javax.swing.JLabel();
+        BoxModifyCountry1 = new javax.swing.JComboBox<>();
+        LabelCity1 = new javax.swing.JLabel();
+        BoxModifyCity1 = new javax.swing.JComboBox<>();
+        LabelState1 = new javax.swing.JLabel();
+        BoxModifyState1 = new javax.swing.JComboBox<>();
+        LabelDistrict1 = new javax.swing.JLabel();
+        BoxModifyDistrict1 = new javax.swing.JComboBox<>();
         UsersList = new javax.swing.JPanel();
         ButtonRollbackQueryUsers = new javax.swing.JButton();
         ButtonShowUsers = new javax.swing.JButton();
@@ -5344,11 +5376,6 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         });
         Records.add(BoxFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 140, 30));
 
-        BoxFilterSpecify.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        BoxFilterSpecify.setForeground(new java.awt.Color(29, 41, 81));
-        BoxFilterSpecify.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
-        Records.add(BoxFilterSpecify, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 140, 30));
-
         ButtonShowRecords.setBackground(new java.awt.Color(255, 255, 255));
         ButtonShowRecords.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ButtonShowRecords.setForeground(new java.awt.Color(29, 41, 81));
@@ -5360,7 +5387,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
                 ButtonShowRecordsActionPerformed(evt);
             }
         });
-        Records.add(ButtonShowRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 100, 30));
+        Records.add(ButtonShowRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, 100, 30));
 
         jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
@@ -5388,7 +5415,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         RecordDescriptionText.setRows(5);
         jScrollPane3.setViewportView(RecordDescriptionText);
 
-        Records.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 290, 350, 170));
+        Records.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 450, 350, 170));
 
         ButtonRollbackQueryRecords.setBackground(new java.awt.Color(255, 255, 255));
         ButtonRollbackQueryRecords.setForeground(new java.awt.Color(255, 255, 255));
@@ -5421,7 +5448,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
                 PictureShowRecordsActionPerformed(evt);
             }
         });
-        Records.add(PictureShowRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 130, 150));
+        Records.add(PictureShowRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 460, 130, 150));
 
         RightPicShowRecords.setBackground(new java.awt.Color(255, 255, 255));
         RightPicShowRecords.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/RightPic.png"))); // NOI18N
@@ -5440,7 +5467,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
                 RightPicShowRecordsActionPerformed(evt);
             }
         });
-        Records.add(RightPicShowRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 380, 40, 40));
+        Records.add(RightPicShowRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 520, 40, 40));
 
         LeftPicShowRecords.setBackground(new java.awt.Color(255, 255, 255));
         LeftPicShowRecords.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/LeftPic.png"))); // NOI18N
@@ -5459,7 +5486,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
                 LeftPicShowRecordsActionPerformed(evt);
             }
         });
-        Records.add(LeftPicShowRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 40, 40));
+        Records.add(LeftPicShowRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 520, 40, 40));
 
         ButtonShowCatalogues.setBackground(new java.awt.Color(255, 255, 255));
         ButtonShowCatalogues.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -5472,7 +5499,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
                 ButtonShowCataloguesActionPerformed(evt);
             }
         });
-        Records.add(ButtonShowCatalogues, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 200, 100, 30));
+        Records.add(ButtonShowCatalogues, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 100, 30));
 
         DateStartField.setBorder(null);
         DateStartField.setForeground(new java.awt.Color(29, 41, 81));
@@ -5490,11 +5517,6 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         LineDateCrime3.setForeground(new java.awt.Color(29, 41, 81));
         Records.add(LineDateCrime3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 110, 20));
 
-        LabelChooseFilterRecords1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        LabelChooseFilterRecords1.setForeground(new java.awt.Color(29, 41, 81));
-        LabelChooseFilterRecords1.setText("Place of the crime:");
-        Records.add(LabelChooseFilterRecords1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, 30));
-
         LabelChooseFilterRecords2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         LabelChooseFilterRecords2.setForeground(new java.awt.Color(29, 41, 81));
         LabelChooseFilterRecords2.setText("Start Date:");
@@ -5508,7 +5530,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         LabelChooseFilterRecords4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         LabelChooseFilterRecords4.setForeground(new java.awt.Color(29, 41, 81));
         LabelChooseFilterRecords4.setText("Description of the selected report:");
-        Records.add(LabelChooseFilterRecords4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, -1, 30));
+        Records.add(LabelChooseFilterRecords4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 390, -1, 30));
 
         LabelChooseFilterRecords7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         LabelChooseFilterRecords7.setForeground(new java.awt.Color(29, 41, 81));
@@ -5519,6 +5541,42 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         LabelChooseFilterRecords8.setForeground(new java.awt.Color(29, 41, 81));
         LabelChooseFilterRecords8.setText("Type of report:");
         Records.add(LabelChooseFilterRecords8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, 30));
+
+        LabelCountry1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        LabelCountry1.setForeground(new java.awt.Color(29, 41, 81));
+        LabelCountry1.setText("Country:");
+        Records.add(LabelCountry1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, -1));
+
+        BoxModifyCountry1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        BoxModifyCountry1.setForeground(new java.awt.Color(29, 41, 81));
+        Records.add(BoxModifyCountry1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 130, 30));
+
+        LabelCity1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        LabelCity1.setForeground(new java.awt.Color(29, 41, 81));
+        LabelCity1.setText("City:");
+        Records.add(LabelCity1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, -1, -1));
+
+        BoxModifyCity1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        BoxModifyCity1.setForeground(new java.awt.Color(29, 41, 81));
+        Records.add(BoxModifyCity1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, 130, 30));
+
+        LabelState1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        LabelState1.setForeground(new java.awt.Color(29, 41, 81));
+        LabelState1.setText("State:");
+        Records.add(LabelState1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, -1, -1));
+
+        BoxModifyState1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        BoxModifyState1.setForeground(new java.awt.Color(29, 41, 81));
+        Records.add(BoxModifyState1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 240, 140, 30));
+
+        LabelDistrict1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        LabelDistrict1.setForeground(new java.awt.Color(29, 41, 81));
+        LabelDistrict1.setText("District:");
+        Records.add(LabelDistrict1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, -1, -1));
+
+        BoxModifyDistrict1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        BoxModifyDistrict1.setForeground(new java.awt.Color(29, 41, 81));
+        Records.add(BoxModifyDistrict1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 290, 140, 30));
 
         UserQuery.addTab("Records", Records);
 
@@ -6477,6 +6535,13 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
             endDate =(java.sql.Date) new SimpleDateFormat("dd/MM/yy").parse(DateEndField.getText());
             ResultSet records = ConnectDB.recordsByClasification(index_type, startDate, endDate, index_district,
                 index_city, index_state, index_country);
+            DefaultListModel model = new DefaultListModel();
+            model.removeAllElements();
+            while(records.next())
+            {
+                model.addElement(records.getInt("record_number"));
+            }
+            RecordsList.setModel(model);
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParseException ex) {
@@ -6486,10 +6551,27 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
 
     private void RecordsListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RecordsListMouseClicked
         String record_number = RecordsList.getSelectedValue();
-        RecordDescriptionText.setText(record_number);
         indexPictures = 0;
         ArrayList<String> paths = null;
         //Obtener las pictures del expediente seleccionado y guardar en la global paths;
+        try {
+            /* if(!paths.isEmpty()) {
+            Pictures v = new Pictures(null, true, paths.get(indexPictures));
+            v.setVisible(true);
+            }*/
+            ResultSet record = ConnectDB.query("APP","admin_record.getAll", record_number);
+            RecordDescriptionText.setText("Number:" + record.getString("numberr") + 
+                                                "Crime Description:" + record.getString("description_crime") +
+                                                "Date Crime:" + record.getDate("date_crime") +
+                                                "Resolution" + record.getString("resolution") +
+                                                "Crime expiration date: " + record.getDate("crime_expiration_date") +
+                                                "id type: " + record.getInt("id_type") +
+                                                "id veredict: " + record.getInt("id_veredict") +
+                                                "id person: " + record.getInt("id_person") +
+                                                "id district" + record.getInt("id_district"));
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
         loadPictures(PictureShowRecords, LeftPicShowRecords, RightPicShowRecords);
     }//GEN-LAST:event_RecordsListMouseClicked
 
@@ -6623,7 +6705,6 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         RecordsList.removeAll();
         RecordDescriptionText.setText(null);
         BoxFilter.setSelectedIndex(0);
-        BoxFilterSpecify.setSelectedIndex(0);
         DateStartField.setText(null);
         DateEndField.setText(null);
     }//GEN-LAST:event_ButtonRollbackQueryRecordsActionPerformed
@@ -7045,7 +7126,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
             {
                 model.addElement(records.getInt("record_number"));
             }
-            RecordsExpireList.setModel(RecordsExpireList);
+            RecordsExpireList.setModel(model);
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParseException ex) {
@@ -8927,11 +9008,25 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     }//GEN-LAST:event_DeleteBanMouseEntered
 
     private void RecordsExpireListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RecordsExpireListMouseClicked
-        /*if(!paths.isEmpty()) {
-            Picture v = new Picture(null, true, paths.get(indexPictures));
+        String recordL = RecordsExpireList.getSelectedValue();
+        try {
+            /* if(!paths.isEmpty()) {
+            Pictures v = new Pictures(null, true, paths.get(indexPictures));
             v.setVisible(true);
+            }*/
+            ResultSet record = ConnectDB.query("APP","admin_record.getAll",recordL);
+            RecordDescriptionTextExpire.setText("Number:" + record.getString("numberr") + 
+                                                "Crime Description:" + record.getString("description_crime") +
+                                                "Date Crime:" + record.getDate("date_crime") +
+                                                "Resolution" + record.getString("resolution") +
+                                                "Crime expiration date: " + record.getDate("crime_expiration_date") +
+                                                "id type: " + record.getInt("id_type") +
+                                                "id veredict: " + record.getInt("id_veredict") +
+                                                "id person: " + record.getInt("id_person") +
+                                                "id district" + record.getInt("id_district"));
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
-        /Falta la clase Picture;*/
     }//GEN-LAST:event_RecordsExpireListMouseClicked
 
     private void JPWindowMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPWindowMouseEntered
@@ -9346,7 +9441,6 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     private javax.swing.JComboBox<String> BoxFilterIdPerson;
     private javax.swing.JComboBox<String> BoxFilterLastNamePerson;
     private javax.swing.JComboBox<String> BoxFilterNamePerson;
-    private javax.swing.JComboBox<String> BoxFilterSpecify;
     private javax.swing.JComboBox<String> BoxFilterUsernamePerson;
     private javax.swing.JComboBox<String> BoxGenderAdminUpdate;
     private javax.swing.JComboBox<String> BoxGenderNewUser;
@@ -9362,12 +9456,16 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     private javax.swing.JComboBox<String> BoxLogStartDate;
     private javax.swing.JComboBox<String> BoxModifyBannedReason;
     private javax.swing.JComboBox<String> BoxModifyCity;
+    private javax.swing.JComboBox<String> BoxModifyCity1;
     private javax.swing.JComboBox<String> BoxModifyCountry;
+    private javax.swing.JComboBox<String> BoxModifyCountry1;
     private javax.swing.JComboBox<String> BoxModifyDistrict;
+    private javax.swing.JComboBox<String> BoxModifyDistrict1;
     private javax.swing.JComboBox<String> BoxModifyGender;
     private javax.swing.JComboBox<String> BoxModifyInstitution;
     private javax.swing.JComboBox<String> BoxModifyPlace;
     private javax.swing.JComboBox<String> BoxModifyState;
+    private javax.swing.JComboBox<String> BoxModifyState1;
     private javax.swing.JComboBox<String> BoxModifyTypeCrime;
     private javax.swing.JComboBox<String> BoxNewUserDistrict;
     private javax.swing.JComboBox<String> BoxOffender;
@@ -9557,7 +9655,6 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     private javax.swing.JLabel LabelApproveRecords;
     private javax.swing.JLabel LabelBannedReason;
     private javax.swing.JLabel LabelChooseFilterRecords;
-    private javax.swing.JLabel LabelChooseFilterRecords1;
     private javax.swing.JLabel LabelChooseFilterRecords10;
     private javax.swing.JLabel LabelChooseFilterRecords2;
     private javax.swing.JLabel LabelChooseFilterRecords3;
@@ -9572,11 +9669,13 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     private javax.swing.JLabel LabelChooseFilterUserListNotChangePassword2;
     private javax.swing.JLabel LabelChooseFilterUserListNotChangePassword3;
     private javax.swing.JLabel LabelCity;
+    private javax.swing.JLabel LabelCity1;
     private javax.swing.JLabel LabelCommunityNewUser;
     private javax.swing.JLabel LabelCommunityOffender;
     private javax.swing.JLabel LabelCommunityOffender1;
     private javax.swing.JLabel LabelCommunityUpdate;
     private javax.swing.JLabel LabelCountry;
+    private javax.swing.JLabel LabelCountry1;
     private javax.swing.JLabel LabelCrimeDescription;
     private javax.swing.JLabel LabelCrimeDescription1;
     private javax.swing.JLabel LabelCrimeDescriptionUnapproved;
@@ -9588,6 +9687,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     private javax.swing.JLabel LabelDateCrime1;
     private javax.swing.JLabel LabelDateCrimeUnapproved;
     private javax.swing.JLabel LabelDistrict;
+    private javax.swing.JLabel LabelDistrict1;
     private javax.swing.JLabel LabelExpireDateUnapproved;
     private javax.swing.JLabel LabelExpireDateUnapproved1;
     private javax.swing.JLabel LabelExpireDateUnapproved2;
@@ -9660,6 +9760,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     private javax.swing.JLabel LabelResolutionUnapproved9;
     private javax.swing.JLabel LabelSignUp;
     private javax.swing.JLabel LabelState;
+    private javax.swing.JLabel LabelState1;
     private javax.swing.JLabel LabelTop;
     private javax.swing.JLabel LabelUpdateAdminBirthday;
     private javax.swing.JLabel LabelUpdateAdminCommunity;
