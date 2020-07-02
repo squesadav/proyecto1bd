@@ -682,7 +682,7 @@ public class ConnectDB {
         return result;
     }
    
-    public void delete(String schema,String function,String atributo) throws SQLException 
+    public static void delete(String schema,String function,String atributo) throws SQLException 
     {
         String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = schema;

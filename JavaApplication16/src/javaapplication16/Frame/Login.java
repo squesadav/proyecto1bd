@@ -637,7 +637,9 @@ public class Login extends javax.swing.JFrame {
         LabelNewUsername4 = new javax.swing.JLabel();
         ButtonRefreshTotalRecordsByZone = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        ButtonEnterReportsZone2 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
+        ButtonEnterReportsZone4 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         BoxCountryPersonRecords = new javax.swing.JComboBox<>();
         ButtonEnterPersonRecords = new javax.swing.JButton();
@@ -649,9 +651,13 @@ public class Login extends javax.swing.JFrame {
         LabelNewUsername7 = new javax.swing.JLabel();
         LabelNewUsername8 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
+        ButtonEnterReportsZone3 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
+        ButtonEnterReportsZone5 = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
+        ButtonEnterReportsZone6 = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
+        ButtonEnterReportsZone7 = new javax.swing.JButton();
         JPUserMenu = new javax.swing.JPanel();
         ButtonQuery = new javax.swing.JButton();
         ButtonConfiguration = new javax.swing.JButton();
@@ -4139,10 +4145,54 @@ public class Login extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ButtonEnterReportsZone2.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonEnterReportsZone2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        ButtonEnterReportsZone2.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonEnterReportsZone2.setText("Enter");
+        ButtonEnterReportsZone2.setBorder(null);
+        ButtonEnterReportsZone2.setContentAreaFilled(false);
+        ButtonEnterReportsZone2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonEnterReportsZone2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonEnterReportsZone2MouseExited(evt);
+            }
+        });
+        ButtonEnterReportsZone2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonEnterReportsZone2ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(ButtonEnterReportsZone2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 120, 30));
+
         AdminStatistics.addTab("Age range of users", jPanel3);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ButtonEnterReportsZone4.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonEnterReportsZone4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        ButtonEnterReportsZone4.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonEnterReportsZone4.setText("Enter");
+        ButtonEnterReportsZone4.setBorder(null);
+        ButtonEnterReportsZone4.setContentAreaFilled(false);
+        ButtonEnterReportsZone4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonEnterReportsZone4MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonEnterReportsZone4MouseExited(evt);
+            }
+        });
+        ButtonEnterReportsZone4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonEnterReportsZone4ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(ButtonEnterReportsZone4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 120, 30));
+
         AdminStatistics.addTab("Age range of persons with records", jPanel4);
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
@@ -4217,18 +4267,106 @@ public class Login extends javax.swing.JFrame {
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ButtonEnterReportsZone3.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonEnterReportsZone3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        ButtonEnterReportsZone3.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonEnterReportsZone3.setText("Enter");
+        ButtonEnterReportsZone3.setBorder(null);
+        ButtonEnterReportsZone3.setContentAreaFilled(false);
+        ButtonEnterReportsZone3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonEnterReportsZone3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonEnterReportsZone3MouseExited(evt);
+            }
+        });
+        ButtonEnterReportsZone3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonEnterReportsZone3ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(ButtonEnterReportsZone3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 120, 30));
+
         AdminStatistics.addTab("Sentencing time for crime", jPanel6);
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ButtonEnterReportsZone5.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonEnterReportsZone5.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        ButtonEnterReportsZone5.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonEnterReportsZone5.setText("Enter");
+        ButtonEnterReportsZone5.setBorder(null);
+        ButtonEnterReportsZone5.setContentAreaFilled(false);
+        ButtonEnterReportsZone5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonEnterReportsZone5MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonEnterReportsZone5MouseExited(evt);
+            }
+        });
+        ButtonEnterReportsZone5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonEnterReportsZone5ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(ButtonEnterReportsZone5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 120, 30));
+
         AdminStatistics.addTab("Records with convictions expired or about to expire", jPanel7);
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ButtonEnterReportsZone6.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonEnterReportsZone6.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        ButtonEnterReportsZone6.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonEnterReportsZone6.setText("Enter");
+        ButtonEnterReportsZone6.setBorder(null);
+        ButtonEnterReportsZone6.setContentAreaFilled(false);
+        ButtonEnterReportsZone6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonEnterReportsZone6MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonEnterReportsZone6MouseExited(evt);
+            }
+        });
+        ButtonEnterReportsZone6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonEnterReportsZone6ActionPerformed(evt);
+            }
+        });
+        jPanel8.add(ButtonEnterReportsZone6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 120, 30));
+
         AdminStatistics.addTab("Number of years in jail by type of record", jPanel8);
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ButtonEnterReportsZone7.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonEnterReportsZone7.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        ButtonEnterReportsZone7.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonEnterReportsZone7.setText("Enter");
+        ButtonEnterReportsZone7.setBorder(null);
+        ButtonEnterReportsZone7.setContentAreaFilled(false);
+        ButtonEnterReportsZone7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonEnterReportsZone7MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonEnterReportsZone7MouseExited(evt);
+            }
+        });
+        ButtonEnterReportsZone7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonEnterReportsZone7ActionPerformed(evt);
+            }
+        });
+        jPanel9.add(ButtonEnterReportsZone7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 120, 30));
+
         AdminStatistics.addTab("Records with house by jail by type of record", jPanel9);
 
         getContentPane().add(AdminStatistics, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
@@ -5963,6 +6101,7 @@ public class Login extends javax.swing.JFrame {
                     BoxNewUserDistrict.getSelectedIndex());
                 User user = new User(new_user, new_user_password, person);
                 user.setId_userType(2);
+                ConnectDB.insert_person(person);
                 ConnectDB.insertUser(user);
                 JOptionPane.showMessageDialog(this, "The user was created successfully.");
             blockAll();
@@ -7196,8 +7335,8 @@ public class Login extends javax.swing.JFrame {
         int index_type_crime = BoxModifyTypeCrime.getSelectedIndex();
         String type_crime = BoxModifyTypeCrime.getItemAt(index_type_crime);
         try{
-            int type_number = ConnectionBD.query("APP", "admin_type.getId",type_crime);
-            ConnectionBD.delete("APP", "admin_type.remove_type",type_number);
+            int type_number = ConnectDB.getInt("APP", "admin_type.getId",type_crime);
+            ConnectDB.delete("APP", "admin_type.remove_type",type_number);
         }catch(Exception e){}
     }//GEN-LAST:event_RemoveTypeCrimeActionPerformed
 
@@ -7205,7 +7344,7 @@ public class Login extends javax.swing.JFrame {
        String new_type_sentence = (String) JOptionPane.showInputDialog(null,"New type sentence: ",JOptionPane.QUESTION_MESSAGE);
         //Agregarlo a la base
        try{
-            ConnectionBD.delete("APP", "admin_type.insert_type",new_type_sentence);
+            ConnectDB.delete("APP", "admin_type.insert_type",new_type_sentence);
         }catch(Exception e){}
     }//GEN-LAST:event_AddTypeSentenceActionPerformed
 
@@ -7761,7 +7900,39 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonConfirmPerson1MouseExited
 
     private void ButtonConfirmPerson1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmPerson1ActionPerformed
-        // TODO add your handling code here:
+        String offender_id = IdPersonField1.getText();
+        String offender_name = NamePersonField1.getText();
+        String offender_middle_name = MiddleNamePersonField1.getText();
+        String offender_last_name = LastNamePersonField1.getText();
+        String offender_birthday = BirthdayPersonField1.getText();
+        if(offender_id.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Fill the id field.");
+        } else if(offender_name.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Fill the name field.");
+        } else if(offender_middle_name.isEmpty()){
+            offender_middle_name = null;
+        } else if(offender_last_name.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Fill the last name field.");
+        } else if(offender_birthday.isEmpty()){
+            JOptionPane.showMessageDialog(this, "Fill the birthday field.");
+        } else if(BoxGenderPerson1.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(this, "Choose a valid option.");
+        } else if(BoxDistrictPerson1.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(this, "Choose a valid option.");
+        } else if(BoxInstitutionPerson1.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(this, "Choose a valid option.");
+        } else {
+             try{
+                Person person = new Person(Integer.parseInt(offender_id), offender_name, offender_middle_name, offender_last_name, new SimpleDateFormat("dd/MM/yyyy").parse(offender_birthday), BoxGenderNewUser.getSelectedIndex(), BoxInstitutionNewUser.getSelectedIndex(), BoxNewUserDistrict.getSelectedIndex());
+                ConnectDB.insert_person(person);
+                JOptionPane.showMessageDialog(this, "The person was created successfully in the system.");
+                Animacion.Animacion.mover_derecha(290, 1100, 1, 1, CreatePerson);
+                blockAll();
+                CreateRecord.setVisible(true);
+                JPLogged.setVisible(true);
+            }
+            catch(Exception e){}
+        }
     }//GEN-LAST:event_ButtonConfirmPerson1ActionPerformed
 
     private void CreatePersonAdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CreatePersonAdminMouseEntered
@@ -8345,6 +8516,198 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_JPWindowMouseEntered
 
+    private void ButtonEnterReportsZone2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonEnterReportsZone2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonEnterReportsZone2MouseEntered
+
+    private void ButtonEnterReportsZone2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonEnterReportsZone2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonEnterReportsZone2MouseExited
+
+    private void ButtonEnterReportsZone2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEnterReportsZone2ActionPerformed
+        try {
+            ResultSet records = ConnectDB.query("ADM","statistics.users_by_range");
+            DefaultPieDataset dataset = new DefaultPieDataset();
+            float per = 0;
+            while(records.next())
+            {
+                per = records.getFloat("percentage");
+                dataset.setValue(records.getString("age_range_users") + " / " + records.getString("quantity") + " / " + String.valueOf(per) + "%", new Double(per));
+            }
+            JFreeChart chart = ChartFactory.createPieChart("Users by range", dataset, 
+                    false,true, false);
+            ChartPanel panel = new ChartPanel(chart);
+            JFrame ventana = new JFrame("Users by range");
+            ventana.setVisible(true);
+            ventana.setSize(800, 600);
+            ventana.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            ventana.add(panel);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);           
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ButtonEnterReportsZone2ActionPerformed
+
+    private void ButtonEnterReportsZone3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonEnterReportsZone3MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonEnterReportsZone3MouseEntered
+
+    private void ButtonEnterReportsZone3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonEnterReportsZone3MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonEnterReportsZone3MouseExited
+
+    private void ButtonEnterReportsZone3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEnterReportsZone3ActionPerformed
+        try {
+            ResultSet records = ConnectDB.query("ADM","statistics.average_record_type_years");
+            DefaultPieDataset dataset = new DefaultPieDataset();
+            float per = 0;
+            while(records.next())
+            {
+                per = records.getFloat("percentage");
+                dataset.setValue(records.getString("record_type") + " / " + records.getString("quantity") + " / " + String.valueOf(per) + "%", new Double(per));
+            }
+            JFreeChart chart = ChartFactory.createPieChart("Average record type years", dataset, 
+                    false,true, false);
+            ChartPanel panel = new ChartPanel(chart);
+            JFrame ventana = new JFrame("Average record type years");
+            ventana.setVisible(true);
+            ventana.setSize(800, 600);
+            ventana.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            ventana.add(panel);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);           
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ButtonEnterReportsZone3ActionPerformed
+
+    private void ButtonEnterReportsZone4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonEnterReportsZone4MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonEnterReportsZone4MouseEntered
+
+    private void ButtonEnterReportsZone4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonEnterReportsZone4MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonEnterReportsZone4MouseExited
+
+    private void ButtonEnterReportsZone4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEnterReportsZone4ActionPerformed
+        try {
+            ResultSet records = ConnectDB.query("ADM","statistics.criminal_age_range");
+            DefaultPieDataset dataset = new DefaultPieDataset();
+            float per = 0;
+            while(records.next())
+            {
+                per = records.getFloat("percentage");
+                dataset.setValue(records.getString("age_range_criminals") + " / " + records.getString("quantity") + " / " + String.valueOf(per) + "%", new Double(per));
+            }
+            JFreeChart chart = ChartFactory.createPieChart("Person in record by age range", dataset, 
+                    false,true, false);
+            ChartPanel panel = new ChartPanel(chart);
+            JFrame ventana = new JFrame("Person in record by age rangee");
+            ventana.setVisible(true);
+            ventana.setSize(800, 600);
+            ventana.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            ventana.add(panel);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);           
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ButtonEnterReportsZone4ActionPerformed
+
+    private void ButtonEnterReportsZone5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonEnterReportsZone5MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonEnterReportsZone5MouseEntered
+
+    private void ButtonEnterReportsZone5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonEnterReportsZone5MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonEnterReportsZone5MouseExited
+
+    private void ButtonEnterReportsZone5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEnterReportsZone5ActionPerformed
+        try {
+            ResultSet records = ConnectDB.query("ADM","statistics.sentence_time_to_expiration");
+            DefaultPieDataset dataset = new DefaultPieDataset();
+            float per = 0;
+            while(records.next())
+            {
+                per = records.getFloat("percentage");
+                dataset.setValue(records.getString("range") + " / " + records.getString("quantity") + " / " + String.valueOf(per) + "%", new Double(per));
+            }
+            JFreeChart chart = ChartFactory.createPieChart("Sentence time to expiration", dataset, 
+                    false,true, false);
+            ChartPanel panel = new ChartPanel(chart);
+            JFrame ventana = new JFrame("Sentence time to expiration");
+            ventana.setVisible(true);
+            ventana.setSize(800, 600);
+            ventana.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            ventana.add(panel);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);           
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ButtonEnterReportsZone5ActionPerformed
+
+    private void ButtonEnterReportsZone6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonEnterReportsZone6MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonEnterReportsZone6MouseEntered
+
+    private void ButtonEnterReportsZone6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonEnterReportsZone6MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonEnterReportsZone6MouseExited
+
+    private void ButtonEnterReportsZone6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEnterReportsZone6ActionPerformed
+        try {
+            ResultSet records = ConnectDB.query("ADM","statistics.average_record_type_years");
+            DefaultPieDataset dataset = new DefaultPieDataset();
+            float per = 0;
+            while(records.next())
+            {
+                per = records.getFloat("percentage");
+                dataset.setValue(records.getString("record_type") + " / " + records.getString("quantity") + " / " + String.valueOf(per) + "%", new Double(per));
+            }
+            JFreeChart chart = ChartFactory.createPieChart("Average record type years", dataset, 
+                    false,true, false);
+            ChartPanel panel = new ChartPanel(chart);
+            JFrame ventana = new JFrame("Average record type years");
+            ventana.setVisible(true);
+            ventana.setSize(800, 600);
+            ventana.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            ventana.add(panel);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);           
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ButtonEnterReportsZone6ActionPerformed
+
+    private void ButtonEnterReportsZone7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonEnterReportsZone7MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonEnterReportsZone7MouseEntered
+
+    private void ButtonEnterReportsZone7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonEnterReportsZone7MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonEnterReportsZone7MouseExited
+
+    private void ButtonEnterReportsZone7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEnterReportsZone7ActionPerformed
+        try {
+            ResultSet records = ConnectDB.query("ADM","statistics.records_with_house_arrest");
+            DefaultPieDataset dataset = new DefaultPieDataset();
+            float per = 0;
+            while(records.next())
+            {
+                per = records.getFloat("percentage");
+                dataset.setValue(records.getString("name") + " / " + records.getString("quantity") + " / " + String.valueOf(per) + "%", new Double(per));
+            }
+            JFreeChart chart = ChartFactory.createPieChart("Records with house arrest", dataset, 
+                    false,true, false);
+            ChartPanel panel = new ChartPanel(chart);
+            JFrame ventana = new JFrame("Records with house arrest");
+            ventana.setVisible(true);
+            ventana.setSize(800, 600);
+            ventana.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            ventana.add(panel);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);           
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ButtonEnterReportsZone7ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -8500,6 +8863,12 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton ButtonEnterPersonRecords;
     private javax.swing.JButton ButtonEnterReportsZone;
     private javax.swing.JButton ButtonEnterReportsZone1;
+    private javax.swing.JButton ButtonEnterReportsZone2;
+    private javax.swing.JButton ButtonEnterReportsZone3;
+    private javax.swing.JButton ButtonEnterReportsZone4;
+    private javax.swing.JButton ButtonEnterReportsZone5;
+    private javax.swing.JButton ButtonEnterReportsZone6;
+    private javax.swing.JButton ButtonEnterReportsZone7;
     private javax.swing.JButton ButtonJoin;
     private javax.swing.JButton ButtonLogOut;
     private javax.swing.JButton ButtonLogOutAdminUser;
