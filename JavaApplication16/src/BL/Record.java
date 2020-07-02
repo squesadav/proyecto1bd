@@ -15,9 +15,9 @@ import java.sql.Date;
 public class Record {
     private String numberr;
     private String description_crime;
-    private Date date_crime;
+    private java.util.Date date_crime;
     private String resolution;
-    private Date crime_expiration_date;
+    private java.util.Date crime_expiration_date;
     private String approved;
     private int id_type;
     private String id_veredict;
@@ -25,8 +25,8 @@ public class Record {
     private int id_district;
     private ArrayList<Pictures> pictures;
 
-    public Record(String number, String description_crime, Date date_crime, String resolution, 
-        Date crime_expiration_date, String approved, int id_type, int id_person, int id_district) {
+    public Record(String number, String description_crime, java.util.Date date_crime, String resolution, 
+        java.util.Date crime_expiration_date, String approved, int id_type, int id_person, int id_district) {
         this.numberr = number;
         this.description_crime = description_crime;
         this.date_crime = date_crime;
@@ -56,7 +56,7 @@ public class Record {
         this.description_crime = description_crime;
     }
 
-    public Date getDate_crime() {
+    public java.util.Date getDate_crime() {
         return date_crime;
     }
 
@@ -72,7 +72,7 @@ public class Record {
         this.resolution = resolution;
     }
 
-    public Date getCrime_expiration_date() {
+    public java.util.Date getCrime_expiration_date() {
         return crime_expiration_date;
     }
 
