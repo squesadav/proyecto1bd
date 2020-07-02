@@ -6,8 +6,10 @@ import java.awt.Cursor;
 import java.awt.Image;
 import java.sql.SQLException;
 import java.sql.ResultSet;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import org.jfree.chart.JFreeChart;
 import java.util.logging.Level;
@@ -800,8 +802,6 @@ public class Login extends javax.swing.JFrame {
         LabelExpireDateUnapproved5 = new javax.swing.JLabel();
         LineDateCrime7 = new javax.swing.JSeparator();
         FinishDateSentenceCreateRecord = new javax.swing.JFormattedTextField();
-        LabelResolutionUnapproved3 = new javax.swing.JLabel();
-        BoxTypeSentenceCreateRecord = new javax.swing.JComboBox<>();
         LabelCrimeTypeUnapproved1 = new javax.swing.JLabel();
         ButtonConfirmRecordUser = new javax.swing.JButton();
         BoxTypeCrimeCreateRecord = new javax.swing.JComboBox<>();
@@ -4917,22 +4917,22 @@ public class Login extends javax.swing.JFrame {
         CheckBoxApprovedOrNotCreateRecord.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         CheckBoxApprovedOrNotCreateRecord.setForeground(new java.awt.Color(29, 41, 81));
         CheckBoxApprovedOrNotCreateRecord.setText("Approved");
-        CreateRecord.add(CheckBoxApprovedOrNotCreateRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, 110, -1));
+        CreateRecord.add(CheckBoxApprovedOrNotCreateRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 380, 110, -1));
 
         ExpireDateCreateRecord.setBorder(null);
         ExpireDateCreateRecord.setForeground(new java.awt.Color(29, 41, 81));
         ExpireDateCreateRecord.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
         ExpireDateCreateRecord.setCaretColor(new java.awt.Color(204, 204, 204));
-        CreateRecord.add(ExpireDateCreateRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 420, 70, 30));
+        CreateRecord.add(ExpireDateCreateRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 420, 70, 30));
 
         LineExpireDate3.setForeground(new java.awt.Color(29, 41, 81));
-        CreateRecord.add(LineExpireDate3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 450, 70, 20));
+        CreateRecord.add(LineExpireDate3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 450, 70, 20));
 
         LabelExpireDateUnapproved3.setBackground(new java.awt.Color(255, 255, 255));
         LabelExpireDateUnapproved3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         LabelExpireDateUnapproved3.setForeground(new java.awt.Color(29, 41, 81));
         LabelExpireDateUnapproved3.setText("Expire date:");
-        CreateRecord.add(LabelExpireDateUnapproved3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, 100, 30));
+        CreateRecord.add(LabelExpireDateUnapproved3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 420, 100, 30));
 
         YearsSentenceCreateRecord.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         YearsSentenceCreateRecord.setForeground(new java.awt.Color(29, 41, 81));
@@ -4986,17 +4986,6 @@ public class Login extends javax.swing.JFrame {
         FinishDateSentenceCreateRecord.setForeground(new java.awt.Color(29, 41, 81));
         FinishDateSentenceCreateRecord.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
         CreateRecord.add(FinishDateSentenceCreateRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 330, 110, 30));
-
-        LabelResolutionUnapproved3.setBackground(new java.awt.Color(255, 255, 255));
-        LabelResolutionUnapproved3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
-        LabelResolutionUnapproved3.setForeground(new java.awt.Color(29, 41, 81));
-        LabelResolutionUnapproved3.setText("Type of sentence:");
-        CreateRecord.add(LabelResolutionUnapproved3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 380, 160, 30));
-
-        BoxTypeSentenceCreateRecord.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        BoxTypeSentenceCreateRecord.setForeground(new java.awt.Color(29, 41, 81));
-        BoxTypeSentenceCreateRecord.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
-        CreateRecord.add(BoxTypeSentenceCreateRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 380, 120, 30));
 
         LabelCrimeTypeUnapproved1.setBackground(new java.awt.Color(255, 255, 255));
         LabelCrimeTypeUnapproved1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
@@ -8121,7 +8110,6 @@ public class Login extends javax.swing.JFrame {
             YearsSentenceCreateRecord.setEnabled(false);
             StartDateSentenceCreateRecord.setEnabled(false);
             FinishDateSentenceCreateRecord.setEnabled(false);
-            BoxTypeSentenceCreateRecord.setEnabled(false);
         }
     }//GEN-LAST:event_BoxResolutionCreateRecord1ActionPerformed
 
@@ -8236,14 +8224,25 @@ public class Login extends javax.swing.JFrame {
     private void ButtonConfirmRecordUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmRecordUserActionPerformed
         String number_record = RecordNumberField.getText();
         String crime_description = CrimeDescriptionCreateRecord.getText();
-        String date_crime = DateCrimeCreateRecord.getText();
+        String stringDatecrime = DateCrimeCreateRecord.getText();
         String expire_date = ExpireDateCreateRecord.getText();
+        String years_of_sentence = YearsSentenceCreateRecord.getText();
+        try {
+            Date dateCrime = new SimpleDateFormat("dd/MM/yyyy").parse(stringDatecrime);
+            Date expireDateCrime = new SimpleDateFormat("dd/MM/yyyy").parse(expire_date);
+            Date years = new SimpleDateFormat("dd/MM/yyyy").parse(years_of_sentence);
+        } catch (ParseException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String idOffender = BoxOffender.getItemAt(BoxOffender.getSelectedIndex());
+        String typeOfCrime = BoxTypeCrimeCreateRecord.getItemAt(BoxTypeCrimeCreateRecord.getSelectedIndex());
         String resolution = BoxResolutionCreateRecord.getItemAt(BoxResolutionCreateRecord.getSelectedIndex());
+        
+        
         if(resolution == "Innocent"){
             YearsSentenceCreateRecord.setEnabled(false);
             StartDateSentenceCreateRecord.setEnabled(false);
             FinishDateSentenceCreateRecord.setEnabled(false);
-            BoxTypeSentenceCreateRecord.setEnabled(false);
         }
         String approved = "N";
         String[] pictures = null; //Moficar para que aquí reciba los paths de las fotos;
@@ -8252,10 +8251,12 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Fill the number of the record field.");
         } else if(crime_description.isEmpty()){
             JOptionPane.showMessageDialog(this, "Fill the crime description field.");
-        } else if(date_crime.isEmpty()){
+        } else if(dateCrime.isEmpty()){
             JOptionPane.showMessageDialog(this, "Fill the date of the crime field.");
         } else if(expire_date.isEmpty()){
             JOptionPane.showMessageDialog(this, "Fill the expire date field.");
+        }else if (BoxOffender.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(this, "Fill the offender person field.");
         } else {
             try{
                 if(CheckBoxApprovedOrNotCreateRecord.isSelected())
@@ -8296,7 +8297,6 @@ public class Login extends javax.swing.JFrame {
             YearsSentenceCreateRecord.setEnabled(false);
             StartDateSentenceCreateRecord.setEnabled(false);
             FinishDateSentenceCreateRecord.setEnabled(false);
-            BoxTypeSentenceCreateRecord.setEnabled(false);
         }
     }//GEN-LAST:event_BoxResolutionCreateRecordActionPerformed
 
@@ -8896,7 +8896,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> BoxTypeCrimeCreateRecord1;
     private javax.swing.JComboBox<String> BoxTypeOfZone;
     private javax.swing.JComboBox<String> BoxTypeOfZone1;
-    private javax.swing.JComboBox<String> BoxTypeSentenceCreateRecord;
     private javax.swing.JComboBox<String> BoxTypeSentenceCreateRecord1;
     private javax.swing.JComboBox<String> BoxTypeSentenceUnapproved;
     private javax.swing.JComboBox<String> BoxUserTypeUpdateUser;
@@ -9156,7 +9155,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel LabelResolutionUnapproved13;
     private javax.swing.JLabel LabelResolutionUnapproved15;
     private javax.swing.JLabel LabelResolutionUnapproved2;
-    private javax.swing.JLabel LabelResolutionUnapproved3;
     private javax.swing.JLabel LabelResolutionUnapproved4;
     private javax.swing.JLabel LabelResolutionUnapproved5;
     private javax.swing.JLabel LabelResolutionUnapproved7;
