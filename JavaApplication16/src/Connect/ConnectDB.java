@@ -47,6 +47,22 @@ public class ConnectDB {
         stmnt.execute();
     }
     
+    public static void insertBanned2(Banned banned) throws SQLException 
+    {        
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
+        String uName = "ADM";
+        String uPass = "ADM";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ call adminUser.createbanned(?,?,?,?) } ");
+        
+        stmnt.setString(1, banned.getIsPermanent());
+        stmnt.setDate(2, (Date) banned.getDate_start());
+        stmnt.setString(3, banned.getUsername());
+        stmnt.setInt(4, banned.getId_bannedreason());
+        stmnt.execute();
+    }
+    
     public static void insertBannedReason(BannedReason bannedreason) throws SQLException 
     {        
         String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
@@ -422,7 +438,7 @@ public class ConnectDB {
         stmnt.setDate(5, (Date) record.getCrime_expiration_date());
         stmnt.setString(6, record.isApproved());
         stmnt.setInt(7, record.getId_type());
-        stmnt.setInt(8, record.getId_veredict());
+        stmnt.setString(8, record.getId_veredict());
         stmnt.setInt(9, record.getId_person());
         stmnt.setInt(10, record.getId_district());
         stmnt.execute();
@@ -444,7 +460,7 @@ public class ConnectDB {
         stmnt.setDate(5, (Date) record.getCrime_expiration_date());
         stmnt.setString(6, record.isApproved());
         stmnt.setInt(7, record.getId_type());
-        stmnt.setInt(8, record.getId_veredict());
+        stmnt.setString(8, record.getId_veredict());
         stmnt.setInt(9, record.getId_person());
         stmnt.setInt(10, record.getId_district());
         stmnt.execute();
@@ -531,7 +547,7 @@ public class ConnectDB {
         Connection con = DriverManager.getConnection(host, uName, uPass);
         CallableStatement stmnt = con.prepareCall("{ call admin_veredict.update_veredict(?,?,?,?,?) } ");
         
-        stmnt.setInt(1, veredict.getId());
+        stmnt.setString(1, veredict.getId());
         stmnt.setInt(2, veredict.getYears());
         stmnt.setInt(3, veredict.getId_place());
         stmnt.setDate(4, (Date) veredict.getDate_start());
@@ -1047,6 +1063,24 @@ public class ConnectDB {
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
         CallableStatement stmnt = con.prepareCall("{ ? = call adminUser.getIdUsertype(?) } ");
+        
+        stmnt.registerOutParameter(1, OracleTypes.NUMBER);
+        stmnt.setString(2, name);
+        stmnt.executeQuery(); 
+        
+        int result = (int) stmnt.getInt(1);
+        return result;
+    }
+    
+    public static int getIdBannedReason(String name) throws SQLException
+    {
+        if (name.toLowerCase().equals("null")) return 0;
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
+        String uName = "ADM";
+        String uPass = "ADM";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ ? = call adminUser.getIdBannedreason(?) } ");
         
         stmnt.registerOutParameter(1, OracleTypes.NUMBER);
         stmnt.setString(2, name);

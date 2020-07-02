@@ -317,6 +317,17 @@ AS
     RETURN rid;
     END;
     
+FUNCTION getIdBannedReason (vName VARCHAR2) RETURN NUMBER
+AS
+    rid NUMBER(8);
+    BEGIN
+        SELECT id_bannedreason
+        INTO rid
+        FROM bannedreason
+        WHERE description = vName;
+    RETURN rid;
+    END;
+    
 END adminUser;
 /
 

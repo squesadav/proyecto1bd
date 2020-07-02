@@ -5,7 +5,7 @@
  */
 package BL;
 
-import java.util.Date;
+import java.sql.Date;
 
 /**
  *
@@ -23,6 +23,13 @@ public class Banned {
         this.isPermanent = isPermanent;
         this.date_start = date_start;
         this.date_finish = date_finish;
+        this.username = username;
+        this.id_bannedreason = id_bannedreason;
+    }
+    
+    public Banned(String isPermanent, Date date_start, String username, int id_bannedreason) {
+        this.isPermanent = isPermanent;
+        this.date_start = date_start;
         this.username = username;
         this.id_bannedreason = id_bannedreason;
     }

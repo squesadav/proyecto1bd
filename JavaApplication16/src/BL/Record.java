@@ -6,14 +6,14 @@
 package BL;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 
 /**
  *
  * @author Sebas
  */
 public class Record {
-    private String number;
+    private String numberr;
     private String description_crime;
     private Date date_crime;
     private String resolution;
@@ -27,7 +27,7 @@ public class Record {
 
     public Record(String number, String description_crime, Date date_crime, String resolution, 
         Date crime_expiration_date, String approved, int id_type, int id_person, int id_district) {
-        this.number = number;
+        this.numberr = number;
         this.description_crime = description_crime;
         this.date_crime = date_crime;
         this.resolution = resolution;
@@ -41,11 +41,11 @@ public class Record {
     }
 
     public String getNumber() {
-        return number;
+        return numberr;
     }
 
     public void setNumber(String number) {
-        this.number = number;
+        this.numberr = number;
     }
 
     public String getDescription_crime() {
@@ -96,11 +96,11 @@ public class Record {
         this.id_type = id_type;
     }
 
-    public int getId_veredict() {
+    public String getId_veredict() {
         return id_veredict;
     }
 
-    public void setId_veredict(int id_veredict) {
+    public void setId_veredict(String id_veredict) {
         this.id_veredict = id_veredict;
     }
 

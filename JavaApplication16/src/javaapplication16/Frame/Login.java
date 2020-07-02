@@ -8590,20 +8590,18 @@ public class Login extends javax.swing.JFrame {
         String ispermanent = "N";
         if(isPermanent)
             ispermanent = "Y";
-        String DateStart = DateStartField2.getText();
-        String DateEnd = DateEndField2.getText();
-        int bannedReason = Integer.parseInt(BoxReasonBanned.getItemAt(BoxReasonBanned.getSelectedIndex()));
+        java.util.Date date_start = null;
+        java.util.Date date_end = null;
+        try {
+        date_start = new SimpleDateFormat("dd/MM/yy").parse(DateStartField2.getText());
+        date_end = new SimpleDateFormat("dd/MM/yy").parse(DateEndField2.getText());
+        }
+        catch (Exception e){}
+        java.sql.Date date_start_sql = new java.sql.Date(date_start.getTime());
+        java.sql.Date date_end_sql = new java.sql.Date(date_end.getTime());
         if(username.isEmpty())
         {
             JOptionPane.showMessageDialog(this, "Fill the username field.");
-        }
-        else if(DateStart.isEmpty())
-        {
-            JOptionPane.showMessageDialog(this, "Fill the start date field.");
-        }
-        else if(DateEnd.isEmpty())
-        {
-            JOptionPane.showMessageDialog(this, "Fill the end date field.");
         }
         currentUser cu = currentUser.getInstance();
         if(cu.getUsername().equals(username))
@@ -8611,16 +8609,19 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "You can´t banned yourself.");
         }
         try {
-            Banned banned = new Banned(ispermanent, new SimpleDateFormat("dd/MM/yy").parse(DateStart),
-                    new SimpleDateFormat("dd/MM/yy").parse(DateEnd), username,bannedReason);
-            ConnectDB.insertBanned(banned);
+            Banned banned = null;
+            if (ispermanent == "Y") {
+                banned = new Banned(ispermanent, date_start_sql, username, ConnectDB.getIdBannedReason(BoxReasonBanned.getSelectedItem().toString()));
+                ConnectDB.insertBanned(banned);
+            } else {
+                banned = new Banned(ispermanent, date_start_sql,
+                    date_end_sql, username,ConnectDB.getIdBannedReason(BoxReasonBanned.getSelectedItem().toString()));
+                ConnectDB.insertBanned2(banned);
+            }
             JOptionPane.showMessageDialog(this, "The user was banned of the system succefully.");
             blockAll();
             AdminConfiguration.setVisible(true);
             JPLogged.setVisible(true);
-        } catch (ParseException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(this, "The user was not banned of the system succefully.");
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(this, "The user was not banned of the system succefully.");
