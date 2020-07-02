@@ -6499,11 +6499,10 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
             modelo.addColumn("Quantity");
             try {
             ResultSet dangerous_places = ConnectDB.query("APP","user_queries.dangerous_places", Integer.parseInt(number_top));
-            int i = 0;
             while(dangerous_places.next())
             {
-                modelo.addRow(new Object[]{dangerous_places.getObject("name_district"), 
-                    dangerous_places.getObject("quant_record")});
+                modelo.addRow(new Object{dangerous_places.getString("name_district"), 
+                dangerous_places.getInt("quant_record")});
             }
             Table.setModel(modelo);
             } catch (SQLException ex) {
