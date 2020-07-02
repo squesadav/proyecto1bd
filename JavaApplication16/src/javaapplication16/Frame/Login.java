@@ -658,10 +658,6 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         LabelGender1 = new javax.swing.JLabel();
         AddTypeCrime = new javax.swing.JButton();
         RemoveTypeCrime = new javax.swing.JButton();
-        BoxModifyTypeSentence = new javax.swing.JComboBox<>();
-        LabelState1 = new javax.swing.JLabel();
-        AddTypeSentence = new javax.swing.JButton();
-        RemoveTypeSentence = new javax.swing.JButton();
         ButtonCancelRecordCatalogue = new javax.swing.JButton();
         LabelUserType3 = new javax.swing.JLabel();
         CreatePersonAdmin = new javax.swing.JPanel();
@@ -2683,7 +2679,12 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
 
         BoxModifyUserType.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         BoxModifyUserType.setForeground(new java.awt.Color(29, 41, 81));
-        UserCatalogues.add(BoxModifyUserType, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 130, 30));
+        BoxModifyUserType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BoxModifyUserTypeActionPerformed(evt);
+            }
+        });
+        UserCatalogues.add(BoxModifyUserType, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 140, 30));
 
         LabelUserType.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         LabelUserType.setForeground(new java.awt.Color(29, 41, 81));
@@ -2692,7 +2693,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
 
         BoxModifyBannedReason.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         BoxModifyBannedReason.setForeground(new java.awt.Color(29, 41, 81));
-        UserCatalogues.add(BoxModifyBannedReason, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, 150, 30));
+        UserCatalogues.add(BoxModifyBannedReason, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, 140, 30));
 
         LabelBannedReason.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         LabelBannedReason.setForeground(new java.awt.Color(29, 41, 81));
@@ -2700,8 +2701,8 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         UserCatalogues.add(LabelBannedReason, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, -1, -1));
 
         AddUserTypeCatalogue.setBackground(new java.awt.Color(255, 255, 255));
-        AddUserTypeCatalogue.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/AddPic.png"))); // NOI18N
-        AddUserTypeCatalogue.setBorder(null);
+        AddUserTypeCatalogue.setText("Add");
+        AddUserTypeCatalogue.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         AddUserTypeCatalogue.setContentAreaFilled(false);
         AddUserTypeCatalogue.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -2716,22 +2717,22 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
                 AddUserTypeCatalogueActionPerformed(evt);
             }
         });
-        UserCatalogues.add(AddUserTypeCatalogue, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 40, -1));
+        UserCatalogues.add(AddUserTypeCatalogue, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 50, 30));
 
         RemoveUserType.setBackground(new java.awt.Color(255, 255, 255));
-        RemoveUserType.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/RemovePic.png"))); // NOI18N
-        RemoveUserType.setBorder(null);
+        RemoveUserType.setText("Delete");
+        RemoveUserType.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         RemoveUserType.setContentAreaFilled(false);
         RemoveUserType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RemoveUserTypeActionPerformed(evt);
             }
         });
-        UserCatalogues.add(RemoveUserType, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 40, -1));
+        UserCatalogues.add(RemoveUserType, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, 60, 30));
 
         AddBannedReason.setBackground(new java.awt.Color(255, 255, 255));
-        AddBannedReason.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/AddPic.png"))); // NOI18N
-        AddBannedReason.setBorder(null);
+        AddBannedReason.setText("Add");
+        AddBannedReason.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         AddBannedReason.setContentAreaFilled(false);
         AddBannedReason.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -2746,11 +2747,11 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
                 AddBannedReasonActionPerformed(evt);
             }
         });
-        UserCatalogues.add(AddBannedReason, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, 40, -1));
+        UserCatalogues.add(AddBannedReason, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 240, 50, 30));
 
         RemoveBannedReason.setBackground(new java.awt.Color(255, 255, 255));
-        RemoveBannedReason.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/RemovePic.png"))); // NOI18N
-        RemoveBannedReason.setBorder(null);
+        RemoveBannedReason.setText("Delete");
+        RemoveBannedReason.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         RemoveBannedReason.setContentAreaFilled(false);
         RemoveBannedReason.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -2765,7 +2766,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
                 RemoveBannedReasonActionPerformed(evt);
             }
         });
-        UserCatalogues.add(RemoveBannedReason, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 250, 40, -1));
+        UserCatalogues.add(RemoveBannedReason, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, 60, 30));
 
         ButtonConfirmUserCatalogue.setBackground(new java.awt.Color(255, 255, 255));
         ButtonConfirmUserCatalogue.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -2801,16 +2802,16 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
 
         BoxModifyGender.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         BoxModifyGender.setForeground(new java.awt.Color(29, 41, 81));
-        PersonCatalogues.add(BoxModifyGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 130, 30));
+        PersonCatalogues.add(BoxModifyGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 130, 30));
 
         LabelGender.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         LabelGender.setForeground(new java.awt.Color(29, 41, 81));
         LabelGender.setText("Gender:");
-        PersonCatalogues.add(LabelGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, -1, -1));
+        PersonCatalogues.add(LabelGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, -1, -1));
 
         BoxModifyInstitution.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         BoxModifyInstitution.setForeground(new java.awt.Color(29, 41, 81));
-        PersonCatalogues.add(BoxModifyInstitution, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 150, 150, 30));
+        PersonCatalogues.add(BoxModifyInstitution, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 150, 140, 30));
 
         LabelInstitution.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         LabelInstitution.setForeground(new java.awt.Color(29, 41, 81));
@@ -2818,8 +2819,8 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         PersonCatalogues.add(LabelInstitution, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 160, -1, -1));
 
         AddGender.setBackground(new java.awt.Color(255, 255, 255));
-        AddGender.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/AddPic.png"))); // NOI18N
-        AddGender.setBorder(null);
+        AddGender.setText("Add");
+        AddGender.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         AddGender.setContentAreaFilled(false);
         AddGender.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -2834,11 +2835,12 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
                 AddGenderActionPerformed(evt);
             }
         });
-        PersonCatalogues.add(AddGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 40, -1));
+        PersonCatalogues.add(AddGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, 50, 30));
 
         RemoveGender.setBackground(new java.awt.Color(255, 255, 255));
-        RemoveGender.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/RemovePic.png"))); // NOI18N
-        RemoveGender.setBorder(null);
+        RemoveGender.setText("Delete");
+        RemoveGender.setToolTipText("");
+        RemoveGender.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         RemoveGender.setContentAreaFilled(false);
         RemoveGender.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -2853,11 +2855,11 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
                 RemoveGenderActionPerformed(evt);
             }
         });
-        PersonCatalogues.add(RemoveGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 40, -1));
+        PersonCatalogues.add(RemoveGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 60, 30));
 
         AddInstitution.setBackground(new java.awt.Color(255, 255, 255));
-        AddInstitution.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/AddPic.png"))); // NOI18N
-        AddInstitution.setBorder(null);
+        AddInstitution.setText("Add");
+        AddInstitution.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         AddInstitution.setContentAreaFilled(false);
         AddInstitution.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -2872,11 +2874,11 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
                 AddInstitutionActionPerformed(evt);
             }
         });
-        PersonCatalogues.add(AddInstitution, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 190, 40, -1));
+        PersonCatalogues.add(AddInstitution, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, 50, 30));
 
         RemoveInstitution.setBackground(new java.awt.Color(255, 255, 255));
-        RemoveInstitution.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/RemovePic.png"))); // NOI18N
-        RemoveInstitution.setBorder(null);
+        RemoveInstitution.setText("Delete");
+        RemoveInstitution.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         RemoveInstitution.setContentAreaFilled(false);
         RemoveInstitution.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -2891,7 +2893,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
                 RemoveInstitutionActionPerformed(evt);
             }
         });
-        PersonCatalogues.add(RemoveInstitution, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 190, 40, -1));
+        PersonCatalogues.add(RemoveInstitution, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 190, 60, 30));
 
         ButtonConfirmPersonCatalogue.setBackground(new java.awt.Color(255, 255, 255));
         ButtonConfirmPersonCatalogue.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -2912,7 +2914,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
                 ButtonConfirmPersonCatalogueActionPerformed(evt);
             }
         });
-        PersonCatalogues.add(ButtonConfirmPersonCatalogue, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 460, 100, 40));
+        PersonCatalogues.add(ButtonConfirmPersonCatalogue, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 450, 100, 40));
 
         BoxModifyCountry.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         BoxModifyCountry.setForeground(new java.awt.Color(29, 41, 81));
@@ -2925,7 +2927,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
 
         BoxModifyState.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         BoxModifyState.setForeground(new java.awt.Color(29, 41, 81));
-        PersonCatalogues.add(BoxModifyState, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 260, 150, 30));
+        PersonCatalogues.add(BoxModifyState, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 260, 140, 30));
 
         LabelState.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         LabelState.setForeground(new java.awt.Color(29, 41, 81));
@@ -2933,8 +2935,8 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         PersonCatalogues.add(LabelState, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 270, -1, -1));
 
         AddCountry.setBackground(new java.awt.Color(255, 255, 255));
-        AddCountry.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/AddPic.png"))); // NOI18N
-        AddCountry.setBorder(null);
+        AddCountry.setText("Add");
+        AddCountry.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         AddCountry.setContentAreaFilled(false);
         AddCountry.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -2949,11 +2951,11 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
                 AddCountryActionPerformed(evt);
             }
         });
-        PersonCatalogues.add(AddCountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, 40, -1));
+        PersonCatalogues.add(AddCountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, 50, 30));
 
         RemoveCountry.setBackground(new java.awt.Color(255, 255, 255));
-        RemoveCountry.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/RemovePic.png"))); // NOI18N
-        RemoveCountry.setBorder(null);
+        RemoveCountry.setText("Delete");
+        RemoveCountry.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         RemoveCountry.setContentAreaFilled(false);
         RemoveCountry.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -2968,11 +2970,11 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
                 RemoveCountryActionPerformed(evt);
             }
         });
-        PersonCatalogues.add(RemoveCountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 40, -1));
+        PersonCatalogues.add(RemoveCountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, 60, 30));
 
         AddState.setBackground(new java.awt.Color(255, 255, 255));
-        AddState.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/AddPic.png"))); // NOI18N
-        AddState.setBorder(null);
+        AddState.setText("Add");
+        AddState.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         AddState.setContentAreaFilled(false);
         AddState.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -2987,11 +2989,11 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
                 AddStateActionPerformed(evt);
             }
         });
-        PersonCatalogues.add(AddState, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 300, 40, -1));
+        PersonCatalogues.add(AddState, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 300, 50, 30));
 
         RemoveState.setBackground(new java.awt.Color(255, 255, 255));
-        RemoveState.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/RemovePic.png"))); // NOI18N
-        RemoveState.setBorder(null);
+        RemoveState.setText("Delete");
+        RemoveState.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         RemoveState.setContentAreaFilled(false);
         RemoveState.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -3006,7 +3008,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
                 RemoveStateActionPerformed(evt);
             }
         });
-        PersonCatalogues.add(RemoveState, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 300, 40, -1));
+        PersonCatalogues.add(RemoveState, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 300, 60, 30));
 
         BoxModifyCity.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         BoxModifyCity.setForeground(new java.awt.Color(29, 41, 81));
@@ -3018,8 +3020,8 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         PersonCatalogues.add(LabelCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, -1, -1));
 
         AddCity.setBackground(new java.awt.Color(255, 255, 255));
-        AddCity.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/AddPic.png"))); // NOI18N
-        AddCity.setBorder(null);
+        AddCity.setText("Add");
+        AddCity.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         AddCity.setContentAreaFilled(false);
         AddCity.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -3034,11 +3036,11 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
                 AddCityActionPerformed(evt);
             }
         });
-        PersonCatalogues.add(AddCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 400, 40, -1));
+        PersonCatalogues.add(AddCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 400, 50, 30));
 
         RemoveCity.setBackground(new java.awt.Color(255, 255, 255));
-        RemoveCity.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/RemovePic.png"))); // NOI18N
-        RemoveCity.setBorder(null);
+        RemoveCity.setText("Delete");
+        RemoveCity.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         RemoveCity.setContentAreaFilled(false);
         RemoveCity.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -3053,7 +3055,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
                 RemoveCityActionPerformed(evt);
             }
         });
-        PersonCatalogues.add(RemoveCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 400, 40, -1));
+        PersonCatalogues.add(RemoveCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 400, 60, 30));
 
         LabelUserType2.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         LabelUserType2.setForeground(new java.awt.Color(29, 41, 81));
@@ -3063,16 +3065,16 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
 
         BoxModifyDistrict.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         BoxModifyDistrict.setForeground(new java.awt.Color(29, 41, 81));
-        PersonCatalogues.add(BoxModifyDistrict, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 370, 140, 30));
+        PersonCatalogues.add(BoxModifyDistrict, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 370, 140, 30));
 
         LabelDistrict.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         LabelDistrict.setForeground(new java.awt.Color(29, 41, 81));
         LabelDistrict.setText("District:");
-        PersonCatalogues.add(LabelDistrict, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 380, -1, -1));
+        PersonCatalogues.add(LabelDistrict, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 370, -1, -1));
 
         AddDistrict.setBackground(new java.awt.Color(255, 255, 255));
-        AddDistrict.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/AddPic.png"))); // NOI18N
-        AddDistrict.setBorder(null);
+        AddDistrict.setText("Add");
+        AddDistrict.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         AddDistrict.setContentAreaFilled(false);
         AddDistrict.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -3087,11 +3089,11 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
                 AddDistrictActionPerformed(evt);
             }
         });
-        PersonCatalogues.add(AddDistrict, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 410, 40, -1));
+        PersonCatalogues.add(AddDistrict, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 410, 50, 30));
 
         RemoveDistrict.setBackground(new java.awt.Color(255, 255, 255));
-        RemoveDistrict.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/RemovePic.png"))); // NOI18N
-        RemoveDistrict.setBorder(null);
+        RemoveDistrict.setText("Delete");
+        RemoveDistrict.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         RemoveDistrict.setContentAreaFilled(false);
         RemoveDistrict.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -3106,7 +3108,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
                 RemoveDistrictActionPerformed(evt);
             }
         });
-        PersonCatalogues.add(RemoveDistrict, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 410, 40, -1));
+        PersonCatalogues.add(RemoveDistrict, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 410, 60, 30));
 
         getContentPane().add(PersonCatalogues, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
 
@@ -3115,16 +3117,16 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
 
         BoxModifyTypeCrime.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         BoxModifyTypeCrime.setForeground(new java.awt.Color(29, 41, 81));
-        RecordCatalogues.add(BoxModifyTypeCrime, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 130, 30));
+        RecordCatalogues.add(BoxModifyTypeCrime, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 240, 170, 30));
 
         LabelGender1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         LabelGender1.setForeground(new java.awt.Color(29, 41, 81));
         LabelGender1.setText("Type of crime:");
-        RecordCatalogues.add(LabelGender1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
+        RecordCatalogues.add(LabelGender1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, -1, -1));
 
         AddTypeCrime.setBackground(new java.awt.Color(255, 255, 255));
-        AddTypeCrime.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/AddPic.png"))); // NOI18N
-        AddTypeCrime.setBorder(null);
+        AddTypeCrime.setText("Add");
+        AddTypeCrime.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         AddTypeCrime.setContentAreaFilled(false);
         AddTypeCrime.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -3139,11 +3141,11 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
                 AddTypeCrimeActionPerformed(evt);
             }
         });
-        RecordCatalogues.add(AddTypeCrime, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 40, -1));
+        RecordCatalogues.add(AddTypeCrime, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 290, 60, 30));
 
         RemoveTypeCrime.setBackground(new java.awt.Color(255, 255, 255));
-        RemoveTypeCrime.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/RemovePic.png"))); // NOI18N
-        RemoveTypeCrime.setBorder(null);
+        RemoveTypeCrime.setText("Delete");
+        RemoveTypeCrime.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         RemoveTypeCrime.setContentAreaFilled(false);
         RemoveTypeCrime.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -3158,54 +3160,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
                 RemoveTypeCrimeActionPerformed(evt);
             }
         });
-        RecordCatalogues.add(RemoveTypeCrime, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 40, -1));
-
-        BoxModifyTypeSentence.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        BoxModifyTypeSentence.setForeground(new java.awt.Color(29, 41, 81));
-        RecordCatalogues.add(BoxModifyTypeSentence, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 210, 150, 30));
-
-        LabelState1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        LabelState1.setForeground(new java.awt.Color(29, 41, 81));
-        LabelState1.setText("Type of sentence:");
-        RecordCatalogues.add(LabelState1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, -1, -1));
-
-        AddTypeSentence.setBackground(new java.awt.Color(255, 255, 255));
-        AddTypeSentence.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/AddPic.png"))); // NOI18N
-        AddTypeSentence.setBorder(null);
-        AddTypeSentence.setContentAreaFilled(false);
-        AddTypeSentence.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                AddTypeSentenceMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                AddTypeSentenceMouseExited(evt);
-            }
-        });
-        AddTypeSentence.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddTypeSentenceActionPerformed(evt);
-            }
-        });
-        RecordCatalogues.add(AddTypeSentence, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, 40, -1));
-
-        RemoveTypeSentence.setBackground(new java.awt.Color(255, 255, 255));
-        RemoveTypeSentence.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/RemovePic.png"))); // NOI18N
-        RemoveTypeSentence.setBorder(null);
-        RemoveTypeSentence.setContentAreaFilled(false);
-        RemoveTypeSentence.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                RemoveTypeSentenceMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                RemoveTypeSentenceMouseExited(evt);
-            }
-        });
-        RemoveTypeSentence.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RemoveTypeSentenceActionPerformed(evt);
-            }
-        });
-        RecordCatalogues.add(RemoveTypeSentence, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 250, 40, -1));
+        RecordCatalogues.add(RemoveTypeCrime, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 290, 70, 30));
 
         ButtonCancelRecordCatalogue.setBackground(new java.awt.Color(255, 255, 255));
         ButtonCancelRecordCatalogue.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -7598,22 +7553,6 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         RemoveTypeCrime.setBorder(null);
     }//GEN-LAST:event_RemoveTypeCrimeMouseExited
 
-    private void AddTypeSentenceMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddTypeSentenceMouseEntered
-        AddTypeSentence.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
-    }//GEN-LAST:event_AddTypeSentenceMouseEntered
-
-    private void AddTypeSentenceMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddTypeSentenceMouseExited
-        AddTypeSentence.setBorder(null);
-    }//GEN-LAST:event_AddTypeSentenceMouseExited
-
-    private void RemoveTypeSentenceMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RemoveTypeSentenceMouseEntered
-        RemoveTypeSentence.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
-    }//GEN-LAST:event_RemoveTypeSentenceMouseEntered
-
-    private void RemoveTypeSentenceMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RemoveTypeSentenceMouseExited
-        RemoveTypeSentence.setBorder(null);
-    }//GEN-LAST:event_RemoveTypeSentenceMouseExited
-
     private void ButtonCancelRecordCatalogueMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelRecordCatalogueMouseEntered
         ButtonCancelRecordCatalogue.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
     }//GEN-LAST:event_ButtonCancelRecordCatalogueMouseEntered
@@ -7641,20 +7580,6 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
             ConnectDB.delete("APP", "admin_type.remove_type",type_number);
         }catch(Exception e){}
     }//GEN-LAST:event_RemoveTypeCrimeActionPerformed
-
-    private void AddTypeSentenceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddTypeSentenceActionPerformed
-       String new_type_sentence = (String) JOptionPane.showInputDialog(null,"New type sentence: ",JOptionPane.QUESTION_MESSAGE);
-        //Agregarlo a la base
-       try{
-            ConnectDB.delete("APP", "admin_type.insert_type",new_type_sentence);
-        }catch(Exception e){}
-    }//GEN-LAST:event_AddTypeSentenceActionPerformed
-
-    private void RemoveTypeSentenceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveTypeSentenceActionPerformed
-        int index_type_sentence = BoxModifyTypeSentence.getSelectedIndex();
-        String type_sentence = BoxModifyTypeSentence.getItemAt(index_type_sentence);
-        //Borrar de la base
-    }//GEN-LAST:event_RemoveTypeSentenceActionPerformed
 
     private void ButtonEnterReportsZoneMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonEnterReportsZoneMouseEntered
         ButtonEnterReportsZone.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
@@ -9233,6 +9158,10 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         // TODO add your handling code here:
     }//GEN-LAST:event_NewUserBirthdayActionPerformed
 
+    private void BoxModifyUserTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoxModifyUserTypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BoxModifyUserTypeActionPerformed
+
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -9278,7 +9207,6 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     private javax.swing.JButton AddRecordUser;
     private javax.swing.JButton AddState;
     private javax.swing.JButton AddTypeCrime;
-    private javax.swing.JButton AddTypeSentence;
     private javax.swing.JButton AddUnapprovedPic;
     private javax.swing.JButton AddUserTypeCatalogue;
     private javax.swing.JPanel AdminCatalogues;
@@ -9330,7 +9258,6 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     private javax.swing.JComboBox<String> BoxModifyInstitution;
     private javax.swing.JComboBox<String> BoxModifyState;
     private javax.swing.JComboBox<String> BoxModifyTypeCrime;
-    private javax.swing.JComboBox<String> BoxModifyTypeSentence;
     private javax.swing.JComboBox<String> BoxModifyUserType;
     private javax.swing.JComboBox<String> BoxNewUserDistrict;
     private javax.swing.JComboBox<String> BoxOffender;
@@ -9620,7 +9547,6 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     private javax.swing.JLabel LabelResolutionUnapproved9;
     private javax.swing.JLabel LabelSignUp;
     private javax.swing.JLabel LabelState;
-    private javax.swing.JLabel LabelState1;
     private javax.swing.JLabel LabelTop;
     private javax.swing.JLabel LabelUpdateAdminBirthday;
     private javax.swing.JLabel LabelUpdateAdminCommunity;
@@ -9770,7 +9696,6 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     private javax.swing.JButton RemoveRecordUser;
     private javax.swing.JButton RemoveState;
     private javax.swing.JButton RemoveTypeCrime;
-    private javax.swing.JButton RemoveTypeSentence;
     private javax.swing.JButton RemoveUnapprovedPic;
     private javax.swing.JButton RemoveUserType;
     private javax.swing.JTextArea ReportInformation;
