@@ -3,8 +3,8 @@
 -- Creation date: 20/06/2020
 
 CREATE OR REPLACE PACKAGE admin_place IS
-    PROCEDURE insert_place(pnName VARCHAR2, pnIdDistrict NUMBER);
-    PROCEDURE update_place(pnId NUMBER, pnName VARCHAR2, pnIdDistrict NUMBER);
+    PROCEDURE insert_place(pnName VARCHAR2);
+    PROCEDURE update_place(pnId NUMBER, pnName VARCHAR2);
     PROCEDURE remove_place(pnIdPlace NUMBER);
     FUNCTION getName (vId NUMBER) RETURN VARCHAR2;
     FUNCTION get_id_district (vId NUMBER) RETURN NUMBER;
@@ -14,16 +14,16 @@ END admin_place;
 /
 
 CREATE OR REPLACE PACKAGE BODY admin_place AS
-    PROCEDURE insert_place(pnName VARCHAR2, pnIdDistrict NUMBER) IS
+    PROCEDURE insert_place(pnName VARCHAR2) IS
         BEGIN
-            INSERT INTO place(id, name, id_district)
-            VALUES (app.seq_place.nextval, pnName, pnIdDistrict);
+            INSERT INTO place(id, name)
+            VALUES (app.seq_place.nextval, pnName);
         END;
 
-    PROCEDURE update_place(pnId NUMBER, pnName VARCHAR2, pnIdDistrict NUMBER) IS
+    PROCEDURE update_place(pnId NUMBER, pnName VARCHAR2) IS
         BEGIN
             UPDATE place
-            SET name = pnName, id_district = pnIdDistrict
+            SET name = pnName
             WHERE id = pnId;
         END;
 

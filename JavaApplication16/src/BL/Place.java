@@ -15,9 +15,8 @@ public class Place {
     private String name;
     private int id_district;
 
-    public Place(String name, int id_district) {
+    public Place(String name) {
         this.name = name;
-        this.id_district = id_district;
     }
 
     public int getId() {

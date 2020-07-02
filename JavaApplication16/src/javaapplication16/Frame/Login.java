@@ -56,6 +56,50 @@ public class Login extends javax.swing.JFrame {
         UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
     }
+    
+void fillInUserCatalogues() throws SQLException
+   {
+        BoxModifyBannedReason.removeAllItems();
+        BoxModifyBannedReason.addItem("Default");
+        
+        ResultSet bannedreasons = null;
+        try
+        {
+            bannedreasons = ConnectDB.query("APP","adminUser.getAllBannedReason");
+        }
+        catch(Exception e){}
+        while(bannedreasons.next())
+        {
+            BoxModifyBannedReason.addItem(bannedreasons.getString("description"));
+        }
+    }
+
+void fillInRecordCatalogues() throws SQLException
+   {
+        BoxModifyTypeCrime.removeAllItems();
+        BoxModifyTypeCrime.addItem("Default");
+        
+        BoxModifyPlace.removeAllItems();
+        BoxModifyPlace.addItem("Default");
+        
+        ResultSet typecrimes = null;
+        ResultSet places = null;
+        try
+        {
+            typecrimes = ConnectDB.query("APP","admin_type.getAll");
+            places = ConnectDB.query("APP", "admin_place.getAll");
+        }
+        catch(Exception e){}
+        while(typecrimes.next())
+        {
+            BoxModifyTypeCrime.addItem(typecrimes.getString("name"));
+        }
+        while(places.next())
+        {
+            BoxModifyPlace.addItem(places.getString("name"));
+        }
+    }
+        
 void fillInComboBox_CreatePersonAdmin() throws SQLException
     {
         BoxGenderPerson1.removeAllItems();
@@ -314,18 +358,23 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         BoxModifyCity.removeAllItems();
         BoxModifyCity.addItem("Default");
         
+        BoxModifyDistrict.removeAllItems();
+        BoxModifyDistrict.addItem("Default");
+        
         ResultSet genders = null;
         ResultSet institutions = null;
         ResultSet countries = null;
         ResultSet states = null;
         ResultSet cities = null;
+        ResultSet districts = null;
         try
         {
             genders = ConnectDB.query("APP", "admin_gender.getAll");
             institutions = ConnectDB.query("APP","admin_institution.getAll");
             countries = ConnectDB.query("APP","admin_country.getAll");
-            states = ConnectDB.query("APP","admin_states.getAll");
-            cities = ConnectDB.query("APP","admin_cities.getAll");
+            states = ConnectDB.query("APP","admin_state.getAll");
+            cities = ConnectDB.query("APP","admin_city.getAll");
+            districts = ConnectDB.query("APP", "admin_district.getAll");
         }
         catch(Exception e){}
         while(genders.next())
@@ -347,6 +396,10 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         while(cities.next())
         {
             BoxModifyCity.addItem(cities.getString("name"));
+        }
+        while(districts.next())
+        {
+            BoxModifyDistrict.addItem(districts.getString("name"));
         }
     }
     
@@ -660,6 +713,10 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         RemoveTypeCrime = new javax.swing.JButton();
         ButtonCancelRecordCatalogue = new javax.swing.JButton();
         LabelUserType3 = new javax.swing.JLabel();
+        LabelGender2 = new javax.swing.JLabel();
+        BoxModifyPlace = new javax.swing.JComboBox<>();
+        ButtonAddPlace = new javax.swing.JButton();
+        ButtonDeletePlace = new javax.swing.JButton();
         CreatePersonAdmin = new javax.swing.JPanel();
         LabelIdOffender1 = new javax.swing.JLabel();
         LabelNameOffender1 = new javax.swing.JLabel();
@@ -3119,12 +3176,12 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
 
         BoxModifyTypeCrime.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         BoxModifyTypeCrime.setForeground(new java.awt.Color(29, 41, 81));
-        RecordCatalogues.add(BoxModifyTypeCrime, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 240, 170, 30));
+        RecordCatalogues.add(BoxModifyTypeCrime, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 170, 30));
 
         LabelGender1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         LabelGender1.setForeground(new java.awt.Color(29, 41, 81));
-        LabelGender1.setText("Type of crime:");
-        RecordCatalogues.add(LabelGender1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, -1, -1));
+        LabelGender1.setText("Place:");
+        RecordCatalogues.add(LabelGender1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 230, -1, -1));
 
         AddTypeCrime.setBackground(new java.awt.Color(255, 255, 255));
         AddTypeCrime.setText("Add");
@@ -3143,7 +3200,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
                 AddTypeCrimeActionPerformed(evt);
             }
         });
-        RecordCatalogues.add(AddTypeCrime, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 290, 60, 30));
+        RecordCatalogues.add(AddTypeCrime, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 60, 30));
 
         RemoveTypeCrime.setBackground(new java.awt.Color(255, 255, 255));
         RemoveTypeCrime.setText("Delete");
@@ -3162,7 +3219,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
                 RemoveTypeCrimeActionPerformed(evt);
             }
         });
-        RecordCatalogues.add(RemoveTypeCrime, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 290, 70, 30));
+        RecordCatalogues.add(RemoveTypeCrime, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 70, 30));
 
         ButtonCancelRecordCatalogue.setBackground(new java.awt.Color(255, 255, 255));
         ButtonCancelRecordCatalogue.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -3190,6 +3247,35 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         LabelUserType3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/Catalogues.png"))); // NOI18N
         LabelUserType3.setText("Record Catalogues");
         RecordCatalogues.add(LabelUserType3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, -1, -1));
+
+        LabelGender2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        LabelGender2.setForeground(new java.awt.Color(29, 41, 81));
+        LabelGender2.setText("Type of crime:");
+        RecordCatalogues.add(LabelGender2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, -1, -1));
+
+        RecordCatalogues.add(BoxModifyPlace, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 230, 190, 30));
+
+        ButtonAddPlace.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonAddPlace.setText("Add");
+        ButtonAddPlace.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        ButtonAddPlace.setContentAreaFilled(false);
+        ButtonAddPlace.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonAddPlaceActionPerformed(evt);
+            }
+        });
+        RecordCatalogues.add(ButtonAddPlace, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 270, 60, 30));
+
+        ButtonDeletePlace.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonDeletePlace.setText("Delete");
+        ButtonDeletePlace.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        ButtonDeletePlace.setContentAreaFilled(false);
+        ButtonDeletePlace.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonDeletePlaceActionPerformed(evt);
+            }
+        });
+        RecordCatalogues.add(ButtonDeletePlace, new org.netbeans.lib.awtextra.AbsoluteConstraints(643, 270, 70, 30));
 
         getContentPane().add(RecordCatalogues, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
 
@@ -7280,13 +7366,15 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     }//GEN-LAST:event_AddUserTypeCatalogueActionPerformed
 
     private void RemoveUserTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveUserTypeActionPerformed
-        int index_usertype = BoxModifyUserType.getSelectedIndex();
+        int id_usertype = 0;
         try {
-            ConnectDB.delete("ADM", "adminUser.removeUserType", index_usertype);
-            JOptionPane.showMessageDialog(this, "The user type was deleted successfully.");
+            id_usertype = ConnectDB.getIdUserType((String)BoxModifyUserType.getSelectedItem());
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this, "The user type was NOT deleted successfully. Try again.");
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
+        try{
+            ConnectDB.delete("APP", "adminUsertype.removeUsertype",id_usertype);
+        }catch(Exception e){}
     }//GEN-LAST:event_RemoveUserTypeActionPerformed
 
     private void AddBannedReasonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddBannedReasonActionPerformed
@@ -7301,13 +7389,15 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     }//GEN-LAST:event_AddBannedReasonActionPerformed
 
     private void RemoveBannedReasonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveBannedReasonActionPerformed
-        int index_bannedReason = BoxModifyBannedReason.getSelectedIndex();
-       try {
-            ConnectDB.delete("ADM", "adminUser.removeBannedReason", index_bannedReason);
-            JOptionPane.showMessageDialog(this, "The banned reason was deleted successfully.");
+        int id_bannedreason = 0;
+        try {
+            id_bannedreason = ConnectDB.getIdBannedReason((String)BoxModifyBannedReason.getSelectedItem());
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this, "The banned reason was NOT deleted successfully. Try again.");
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
+        try{
+            ConnectDB.delete("APP", "adminUser.BannedReason",id_bannedreason);
+        }catch(Exception e){}
     }//GEN-LAST:event_RemoveBannedReasonActionPerformed
 
     private void ButtonConfirmPersonCatalogueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmPersonCatalogueActionPerformed
@@ -7412,13 +7502,15 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     }//GEN-LAST:event_AddGenderActionPerformed
 
     private void RemoveGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveGenderActionPerformed
-        int index_gender = BoxModifyGender.getSelectedIndex();
+        int id_gender = -1;
         try {
-            ConnectDB.delete("APP", "admin_gender.remove_gender", index_gender);
-            JOptionPane.showMessageDialog(this, "The gender was deleted successfully.");
+            id_gender = ConnectDB.getIdGender((String)BoxModifyGender.getSelectedItem());
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this, "The gender was NOT deleted successfully. Try again.");
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
+        try{
+            ConnectDB.delete("APP", "admin_gender.remove_gender",id_gender);
+        }catch(Exception e){}
     }//GEN-LAST:event_RemoveGenderActionPerformed
 
     private void AddInstitutionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddInstitutionActionPerformed
@@ -7433,13 +7525,15 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     }//GEN-LAST:event_AddInstitutionActionPerformed
 
     private void RemoveInstitutionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveInstitutionActionPerformed
-        int index_institution = BoxModifyInstitution.getSelectedIndex();
+        int id_institution = -1;
         try {
-            ConnectDB.delete("APP", "admin_institution.remove_institution", index_institution);
-            JOptionPane.showMessageDialog(this, "The institutions was deleted successfully.");
+            id_institution = ConnectDB.getIdInstitution((String)BoxModifyInstitution.getSelectedItem());
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this, "The institutions was NOT deleted successfully. Try again.");
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
+        try{
+            ConnectDB.delete("APP", "admin_institution.remove_institution",id_institution);
+        }catch(Exception e){}
     }//GEN-LAST:event_RemoveInstitutionActionPerformed
 
     private void AddCountryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddCountryActionPerformed
@@ -7447,20 +7541,22 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         Country country = new Country(new_country);
         try {
             ConnectDB.insert_country(country);
-            JOptionPane.showMessageDialog(this, "The country was created successfully. Try again.");
+            JOptionPane.showMessageDialog(this, "The country was created successfully.");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(this, "The country was NOT created successfully. Try again.");
         }
     }//GEN-LAST:event_AddCountryActionPerformed
 
     private void RemoveCountryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveCountryActionPerformed
-        int index_country = BoxModifyCountry.getSelectedIndex();
+        int id_country = -1;
         try {
-            ConnectDB.delete("APP", "admin_country.remove_country", index_country);
-            JOptionPane.showMessageDialog(this, "The country was deleted successfully. Try again.");
+            id_country = ConnectDB.getIdCountry((String)BoxModifyCountry.getSelectedItem());
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this, "The country was NOT deleted successfully. Try again.");
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
+        try{
+            ConnectDB.delete("APP", "admin_country.remove_country",id_country);
+        }catch(Exception e){}
     }//GEN-LAST:event_RemoveCountryActionPerformed
 
     private void AddStateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddStateActionPerformed
@@ -7468,13 +7564,18 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         if(JOptionPane.showConfirmDialog(null,"The state will be added with the country selected",
                 "WARNING", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
         {
-            int country_index = BoxModifyCountry.getSelectedIndex();
-            if(country_index != 0)
+            int id_country = -1;
+            try {
+                id_country = ConnectDB.getIdCountry((String)BoxModifyCountry.getSelectedItem());
+            } catch (SQLException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            if(id_country != -1)
             {
-                State state = new State(new_state, country_index);
+                State state = new State(new_state, id_country);
                 try {
                     ConnectDB.insert_state(state);
-                    JOptionPane.showMessageDialog(this, "The state was created successfully. Try again.");
+                    JOptionPane.showMessageDialog(this, "The state was created successfully.");
                 } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(this, "The state was NOT created successfully. Try again.");
                 }
@@ -7487,13 +7588,15 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     }//GEN-LAST:event_AddStateActionPerformed
 
     private void RemoveStateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveStateActionPerformed
-        int index_state = BoxModifyState.getSelectedIndex();
+        int id_state = -1;
         try {
-            ConnectDB.delete("APP", "admin_state.remove_state", index_state);
-            JOptionPane.showMessageDialog(this, "The state was deleted successfully. Try again.");
+            id_state = ConnectDB.getIdState((String)BoxModifyState.getSelectedItem());
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this, "The state was NOT deleted successfully. Try again.");
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
+        try{
+            ConnectDB.delete("APP", "admin_state.remove_state",id_state);
+        }catch(Exception e){}
     }//GEN-LAST:event_RemoveStateActionPerformed
 
     private void AddCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddCityActionPerformed
@@ -7501,13 +7604,18 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         if(JOptionPane.showConfirmDialog(null,"The city will be added with the State selected",
                 "WARNING", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
         {
-            int state_index = BoxModifyState.getSelectedIndex();
-            if(state_index != 0)
+            int id_state = -1;
+            try {
+                id_state = ConnectDB.getIdState((String)BoxModifyState.getSelectedItem());
+            } catch (SQLException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            if(id_state != -1)
             {
-                City city = new City(new_city, state_index);
+                City city = new City(new_city, id_state);
                 try {
                     ConnectDB.insert_city(city);
-                    JOptionPane.showMessageDialog(this, "The city was created successfully. Try again.");
+                    JOptionPane.showMessageDialog(this, "The city was created successfully.");
                 } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(this, "The city was NOT created successfully. Try again.");
                 }
@@ -7520,13 +7628,15 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     }//GEN-LAST:event_AddCityActionPerformed
 
     private void RemoveCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveCityActionPerformed
-        int index_city = BoxModifyCity.getSelectedIndex();
+        int id_city = -1;
         try {
-            ConnectDB.delete("APP", "admin_city.remove_city", index_city);
-            JOptionPane.showMessageDialog(this, "The city was deleted successfully. Try again.");
+            id_city = ConnectDB.getIdCity((String)BoxModifyCity.getSelectedItem());
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this, "The city was NOT deleted successfully. Try again.");
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
+        try{
+            ConnectDB.delete("APP", "admin_city.remove_city",id_city);
+        }catch(Exception e){}
     }//GEN-LAST:event_RemoveCityActionPerformed
 
     private void RemoveCityMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RemoveCityMouseExited
@@ -7575,7 +7685,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     }//GEN-LAST:event_AddTypeCrimeActionPerformed
 
     private void RemoveTypeCrimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveTypeCrimeActionPerformed
-        int id_type_crime = 0;
+        int id_type_crime = -1;
         try {
             id_type_crime = ConnectDB.getIdType((String)BoxModifyTypeCrime.getSelectedItem());
         } catch (SQLException ex) {
@@ -7750,6 +7860,11 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         blockAll();
         UserCatalogues.setVisible(true);
         JPLogged.setVisible(true);
+        try {
+            fillInUserCatalogues();
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_ButtonUserCataloguesActionPerformed
 
     private void ButtonPersonCataloguesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonPersonCataloguesActionPerformed
@@ -7769,6 +7884,11 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         blockAll();
         RecordCatalogues.setVisible(true);
         JPLogged.setVisible(true);
+        try {
+            fillInRecordCatalogues();
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_ButtonRecordCataloguesActionPerformed
 
     private void AddDistrictMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddDistrictMouseEntered
@@ -7784,13 +7904,18 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         if(JOptionPane.showConfirmDialog(null,"The district will be added with the City selected",
                 "WARNING", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
         {
-            int city_index = BoxModifyCity.getSelectedIndex();
-            if(city_index != 0)
+            int id_city = -1;
+            try {
+                id_city = ConnectDB.getIdCity((String)BoxModifyCity.getSelectedItem());
+            } catch (SQLException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            if(id_city != -1)
             {
-                District district = new District(new_district, city_index);
+                District district = new District(new_district, id_city);
                 try {
                     ConnectDB.insert_district(district);
-                    JOptionPane.showMessageDialog(this, "The district was created successfully. Try again.");
+                    JOptionPane.showMessageDialog(this, "The district was created successfully.");
                 } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(this, "The district was NOT created successfully. Try again.");
                 }
@@ -7811,13 +7936,15 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     }//GEN-LAST:event_RemoveDistrictMouseExited
 
     private void RemoveDistrictActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveDistrictActionPerformed
-        int index_district = BoxModifyDistrict.getSelectedIndex();
+        int id_district = -1;
         try {
-            ConnectDB.delete("APP", "admin_district.remove_district", index_district);
-            JOptionPane.showMessageDialog(this, "The district was deleted successfully. Try again.");
+            id_district = ConnectDB.getIdDistrict((String)BoxModifyDistrict.getSelectedItem());
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this, "The district was NOT deleted successfully. Try again.");
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
+        try{
+            ConnectDB.delete("APP", "admin_district.remove_district",id_district);
+        }catch(Exception e){}
     }//GEN-LAST:event_RemoveDistrictActionPerformed
 
     private void ButtonRefreshMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRefreshMouseEntered
@@ -9167,6 +9294,29 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         // TODO add your handling code here:
     }//GEN-LAST:event_BoxModifyUserTypeActionPerformed
 
+    private void ButtonAddPlaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAddPlaceActionPerformed
+        String new_place = (String) JOptionPane.showInputDialog(null,"New place arrest: ",JOptionPane.QUESTION_MESSAGE);
+        Place place = new Place(new_place);
+        try {
+            ConnectDB.insert_place(place);
+            JOptionPane.showMessageDialog(this, "The place was created successfully.");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "The place was NOT created successfully. Try again.");
+        }
+    }//GEN-LAST:event_ButtonAddPlaceActionPerformed
+
+    private void ButtonDeletePlaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonDeletePlaceActionPerformed
+        int id_place = -1;
+        try {
+            id_place = ConnectDB.getIdPlace((String)BoxModifyPlace.getSelectedItem());
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try{
+            ConnectDB.delete("APP", "admin_place.remove_place",id_place);
+        }catch(Exception e){}
+    }//GEN-LAST:event_ButtonDeletePlaceActionPerformed
+
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -9261,6 +9411,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     private javax.swing.JComboBox<String> BoxModifyDistrict;
     private javax.swing.JComboBox<String> BoxModifyGender;
     private javax.swing.JComboBox<String> BoxModifyInstitution;
+    private javax.swing.JComboBox<String> BoxModifyPlace;
     private javax.swing.JComboBox<String> BoxModifyState;
     private javax.swing.JComboBox<String> BoxModifyTypeCrime;
     private javax.swing.JComboBox<String> BoxModifyUserType;
@@ -9282,6 +9433,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     private javax.swing.JComboBox<String> BoxTypeOfZone1;
     private javax.swing.JComboBox<String> BoxTypeSentenceUnapproved;
     private javax.swing.JComboBox<String> BoxUserTypeUpdateUser;
+    private javax.swing.JButton ButtonAddPlace;
     private javax.swing.JButton ButtonAdminConfiguration;
     private javax.swing.JButton ButtonAdminQuery;
     private javax.swing.JButton ButtonBanDelete;
@@ -9317,6 +9469,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     private javax.swing.JButton ButtonDelete;
     private javax.swing.JButton ButtonDeleteBan;
     private javax.swing.JButton ButtonDeletePerson;
+    private javax.swing.JButton ButtonDeletePlace;
     private javax.swing.JButton ButtonDeleteRecord;
     private javax.swing.JButton ButtonDeleteUser;
     private javax.swing.JButton ButtonEnter;
@@ -9496,6 +9649,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     private javax.swing.JLabel LabelFilterUsername;
     private javax.swing.JLabel LabelGender;
     private javax.swing.JLabel LabelGender1;
+    private javax.swing.JLabel LabelGender2;
     private javax.swing.JLabel LabelIdNewUser;
     private javax.swing.JLabel LabelIdOffender;
     private javax.swing.JLabel LabelIdOffender1;
