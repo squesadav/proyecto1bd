@@ -319,25 +319,17 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     
     void fillInComboBox_UserCatalogues() throws SQLException
     {
-        BoxModifyUserType.removeAllItems();
         BoxModifyBannedReason.removeAllItems();
-        BoxModifyUserType.addItem("Default");
         BoxModifyBannedReason.addItem("Default");
-        ResultSet userType = null;
         ResultSet BannedReason = null;
         try
         {
-            userType = ConnectDB.query("ADM", "adminUser.getAllUserType");
             BannedReason = ConnectDB.query("ADM","adminUser.getAllBannedReason");
         }
         catch(Exception e){}
-        while(userType.next())
-        {
-            BoxModifyUserType.addItem(userType.getString("name"));
-        }
         while(BannedReason.next())
         {
-            BoxModifyBannedReason.addItem(BannedReason.getString("name"));
+            BoxModifyBannedReason.addItem(BannedReason.getString("description"));
         }
     }
     
@@ -669,12 +661,8 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         ButtonRollbackDeleteSystem = new javax.swing.JButton();
         ButtonDeleteUser = new javax.swing.JButton();
         UserCatalogues = new javax.swing.JPanel();
-        BoxModifyUserType = new javax.swing.JComboBox<>();
-        LabelUserType = new javax.swing.JLabel();
         BoxModifyBannedReason = new javax.swing.JComboBox<>();
         LabelBannedReason = new javax.swing.JLabel();
-        AddUserTypeCatalogue = new javax.swing.JButton();
-        RemoveUserType = new javax.swing.JButton();
         AddBannedReason = new javax.swing.JButton();
         RemoveBannedReason = new javax.swing.JButton();
         ButtonConfirmUserCatalogue = new javax.swing.JButton();
@@ -2736,58 +2724,14 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         UserCatalogues.setBackground(new java.awt.Color(255, 255, 255));
         UserCatalogues.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BoxModifyUserType.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        BoxModifyUserType.setForeground(new java.awt.Color(29, 41, 81));
-        BoxModifyUserType.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BoxModifyUserTypeActionPerformed(evt);
-            }
-        });
-        UserCatalogues.add(BoxModifyUserType, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 140, 30));
-
-        LabelUserType.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        LabelUserType.setForeground(new java.awt.Color(29, 41, 81));
-        LabelUserType.setText("User type:");
-        UserCatalogues.add(LabelUserType, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
-
         BoxModifyBannedReason.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         BoxModifyBannedReason.setForeground(new java.awt.Color(29, 41, 81));
-        UserCatalogues.add(BoxModifyBannedReason, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, 140, 30));
+        UserCatalogues.add(BoxModifyBannedReason, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, 140, 30));
 
         LabelBannedReason.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         LabelBannedReason.setForeground(new java.awt.Color(29, 41, 81));
         LabelBannedReason.setText("Banned Reason:");
-        UserCatalogues.add(LabelBannedReason, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, -1, -1));
-
-        AddUserTypeCatalogue.setBackground(new java.awt.Color(255, 255, 255));
-        AddUserTypeCatalogue.setText("Add");
-        AddUserTypeCatalogue.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        AddUserTypeCatalogue.setContentAreaFilled(false);
-        AddUserTypeCatalogue.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                AddUserTypeCatalogueMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                AddUserTypeCatalogueMouseExited(evt);
-            }
-        });
-        AddUserTypeCatalogue.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddUserTypeCatalogueActionPerformed(evt);
-            }
-        });
-        UserCatalogues.add(AddUserTypeCatalogue, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 50, 30));
-
-        RemoveUserType.setBackground(new java.awt.Color(255, 255, 255));
-        RemoveUserType.setText("Delete");
-        RemoveUserType.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        RemoveUserType.setContentAreaFilled(false);
-        RemoveUserType.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RemoveUserTypeActionPerformed(evt);
-            }
-        });
-        UserCatalogues.add(RemoveUserType, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, 60, 30));
+        UserCatalogues.add(LabelBannedReason, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, -1, -1));
 
         AddBannedReason.setBackground(new java.awt.Color(255, 255, 255));
         AddBannedReason.setText("Add");
@@ -2806,7 +2750,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
                 AddBannedReasonActionPerformed(evt);
             }
         });
-        UserCatalogues.add(AddBannedReason, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 240, 50, 30));
+        UserCatalogues.add(AddBannedReason, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 250, 50, 30));
 
         RemoveBannedReason.setBackground(new java.awt.Color(255, 255, 255));
         RemoveBannedReason.setText("Delete");
@@ -2825,7 +2769,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
                 RemoveBannedReasonActionPerformed(evt);
             }
         });
-        UserCatalogues.add(RemoveBannedReason, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, 60, 30));
+        UserCatalogues.add(RemoveBannedReason, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 250, 60, 30));
 
         ButtonConfirmUserCatalogue.setBackground(new java.awt.Color(255, 255, 255));
         ButtonConfirmUserCatalogue.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -3176,6 +3120,11 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
 
         BoxModifyTypeCrime.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         BoxModifyTypeCrime.setForeground(new java.awt.Color(29, 41, 81));
+        BoxModifyTypeCrime.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BoxModifyTypeCrimeActionPerformed(evt);
+            }
+        });
         RecordCatalogues.add(BoxModifyTypeCrime, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 170, 30));
 
         LabelGender1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -5388,6 +5337,11 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         BoxFilter.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         BoxFilter.setForeground(new java.awt.Color(29, 41, 81));
         BoxFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default", "Type", "Date", "Place" }));
+        BoxFilter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BoxFilterActionPerformed(evt);
+            }
+        });
         Records.add(BoxFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 140, 30));
 
         BoxFilterSpecify.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -6501,21 +6455,33 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     }//GEN-LAST:event_ButtonShowPlacesActionPerformed
 
     private void ButtonShowRecordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowRecordsActionPerformed
-        int index_category = BoxFilter.getSelectedIndex();
-        int index_zone = BoxFilterSpecify.getSelectedIndex();
-        String index_start = DateStartField.getText();
-        String index_finish = DateEndField.getText();
-        String filters [] = {BoxFilter.getItemAt(index_category), BoxFilterSpecify.getItemAt(index_zone), index_start, index_finish};
-        String newFilters [] = {};
-        for(int i = 0; i <= filters.length; i++) {
-            if(filters[i] == "Default" || filters[i] == "Start Date" || filters[i] == "Finish Date") {
-                newFilters[i] = "";
-            }
+        String type = (String)BoxFilter.getSelectedItem();
+        String country = (String) BoxModifyCountry1.getSelectedItem();
+        String state = (String) BoxModifyState1.getSelectedItem();
+        String city = (String) BoxModifyCity1.getSelectedItem();
+        String district = (String) BoxModifyDistrict1.getSelectedItem();
+        java.sql.Date startDate = null;
+        java.sql.Date endDate = null;
+        int index_type;
+        int index_country;
+        int index_state;
+        int index_city;
+        int index_district;
+        try {
+            index_type = ConnectDB.getIdType(type);
+            index_country = ConnectDB.getIdCountry(country);
+            index_state = ConnectDB.getIdState(state);
+            index_city = ConnectDB.getIdCity(city);
+            index_district = ConnectDB.getIdDistrict(district);
+            startDate =(java.sql.Date) new SimpleDateFormat("dd/MM/yy").parse(DateStartField.getText());
+            endDate =(java.sql.Date) new SimpleDateFormat("dd/MM/yy").parse(DateEndField.getText());
+            ResultSet records = ConnectDB.recordsByClasification(index_type, startDate, endDate, index_district,
+                index_city, index_state, index_country);
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
-        filters = newFilters;
-        //Aquí es donde se llama la función de la base de datos con los filtros y se agrega en la lista los valores
-        String example[] = {"3D", "a5"};
-        RecordsList.setListData(example);
     }//GEN-LAST:event_ButtonShowRecordsActionPerformed
 
     private void RecordsListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RecordsListMouseClicked
@@ -7067,7 +7033,24 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     }//GEN-LAST:event_ButtonRollbackLogActionPerformed
 
     private void ButtonShowRecordsDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowRecordsDateActionPerformed
-        //Filtro de rango de fechas para los expedientes
+        java.sql.Date startDate = null;
+        java.sql.Date endDate = null;
+        try {
+            startDate =(java.sql.Date) new SimpleDateFormat("dd/MM/yy").parse(DateStartField1.getText());
+            endDate =(java.sql.Date) new SimpleDateFormat("dd/MM/yy").parse(DateEndField1.getText());
+            ResultSet records = ConnectDB.records_expiring_between(startDate, endDate);
+            DefaultListModel model = new DefaultListModel();
+            model.removeAllElements();
+            while(records.next())
+            {
+                model.addElement(records.getInt("record_number"));
+            }
+            RecordsExpireList.setModel(RecordsExpireList);
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_ButtonShowRecordsDateActionPerformed
 
     private void ButtonCancelUpdatesUserLoginAdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelUpdatesUserLoginAdminMouseEntered
@@ -7322,14 +7305,6 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonConfirmUserCatalogueActionPerformed
 
-    private void AddUserTypeCatalogueMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddUserTypeCatalogueMouseEntered
-        AddUserTypeCatalogue.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
-    }//GEN-LAST:event_AddUserTypeCatalogueMouseEntered
-
-    private void AddUserTypeCatalogueMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddUserTypeCatalogueMouseExited
-        AddUserTypeCatalogue.setBorder(null);
-    }//GEN-LAST:event_AddUserTypeCatalogueMouseExited
-
     private void AddBannedReasonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddBannedReasonMouseEntered
         AddBannedReason.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
     }//GEN-LAST:event_AddBannedReasonMouseEntered
@@ -7353,29 +7328,6 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     private void ButtonConfirmUserCatalogueMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonConfirmUserCatalogueMouseExited
         ButtonConfirmUserCatalogue.setBorder(null);
     }//GEN-LAST:event_ButtonConfirmUserCatalogueMouseExited
-
-    private void AddUserTypeCatalogueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddUserTypeCatalogueActionPerformed
-        String new_user_type = (String) JOptionPane.showInputDialog(null,"New user type: ",JOptionPane.QUESTION_MESSAGE);
-        UserType usertype = new UserType(new_user_type);
-        try {
-            ConnectDB.insertUserType(usertype);
-            JOptionPane.showMessageDialog(this, "The user type was created successfully.");
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this, "The user type was NOT created successfully. Try again.");
-        }
-    }//GEN-LAST:event_AddUserTypeCatalogueActionPerformed
-
-    private void RemoveUserTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveUserTypeActionPerformed
-        int id_usertype = 0;
-        try {
-            id_usertype = ConnectDB.getIdUserType((String)BoxModifyUserType.getSelectedItem());
-        } catch (SQLException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try{
-            ConnectDB.delete("APP", "adminUsertype.removeUsertype",id_usertype);
-        }catch(Exception e){}
-    }//GEN-LAST:event_RemoveUserTypeActionPerformed
 
     private void AddBannedReasonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddBannedReasonActionPerformed
         String new_banned_reason = (String) JOptionPane.showInputDialog(null,"New banned reason: ",JOptionPane.QUESTION_MESSAGE);
@@ -9290,10 +9242,6 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         // TODO add your handling code here:
     }//GEN-LAST:event_NewUserBirthdayActionPerformed
 
-    private void BoxModifyUserTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoxModifyUserTypeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BoxModifyUserTypeActionPerformed
-
     private void ButtonAddPlaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAddPlaceActionPerformed
         String new_place = (String) JOptionPane.showInputDialog(null,"New place arrest: ",JOptionPane.QUESTION_MESSAGE);
         Place place = new Place(new_place);
@@ -9316,6 +9264,14 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
             ConnectDB.delete("APP", "admin_place.remove_place",id_place);
         }catch(Exception e){}
     }//GEN-LAST:event_ButtonDeletePlaceActionPerformed
+
+    private void BoxModifyTypeCrimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoxModifyTypeCrimeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BoxModifyTypeCrimeActionPerformed
+
+    private void BoxFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoxFilterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BoxFilterActionPerformed
 
 
     public static void main(String args[]) {
@@ -9363,7 +9319,6 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     private javax.swing.JButton AddState;
     private javax.swing.JButton AddTypeCrime;
     private javax.swing.JButton AddUnapprovedPic;
-    private javax.swing.JButton AddUserTypeCatalogue;
     private javax.swing.JPanel AdminCatalogues;
     private javax.swing.JTabbedPane AdminConfiguration;
     private javax.swing.JTabbedPane AdminQuery;
@@ -9414,7 +9369,6 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     private javax.swing.JComboBox<String> BoxModifyPlace;
     private javax.swing.JComboBox<String> BoxModifyState;
     private javax.swing.JComboBox<String> BoxModifyTypeCrime;
-    private javax.swing.JComboBox<String> BoxModifyUserType;
     private javax.swing.JComboBox<String> BoxNewUserDistrict;
     private javax.swing.JComboBox<String> BoxOffender;
     private javax.swing.JComboBox<String> BoxOffender1;
@@ -9722,7 +9676,6 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     private javax.swing.JLabel LabelUpdateNameUpdate;
     private javax.swing.JLabel LabelUpdateUserType;
     private javax.swing.JLabel LabelUserPasswordUpdateLogin;
-    private javax.swing.JLabel LabelUserType;
     private javax.swing.JLabel LabelUserType1;
     private javax.swing.JLabel LabelUserType2;
     private javax.swing.JLabel LabelUserType3;
@@ -9856,7 +9809,6 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     private javax.swing.JButton RemoveState;
     private javax.swing.JButton RemoveTypeCrime;
     private javax.swing.JButton RemoveUnapprovedPic;
-    private javax.swing.JButton RemoveUserType;
     private javax.swing.JTextArea ReportInformation;
     private javax.swing.JPanel ReportList;
     private javax.swing.JButton RightPicNewReportList;
