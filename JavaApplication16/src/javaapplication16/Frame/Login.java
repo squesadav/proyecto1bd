@@ -806,6 +806,8 @@ public class Login extends javax.swing.JFrame {
         LabelExpireDateUnapproved5 = new javax.swing.JLabel();
         LineDateCrime7 = new javax.swing.JSeparator();
         FinishDateSentenceCreateRecord = new javax.swing.JFormattedTextField();
+        LabelResolutionUnapproved3 = new javax.swing.JLabel();
+        BoxTypeSentenceCreateRecord = new javax.swing.JComboBox<>();
         LabelCrimeTypeUnapproved1 = new javax.swing.JLabel();
         ButtonConfirmRecordUser = new javax.swing.JButton();
         BoxTypeCrimeCreateRecord = new javax.swing.JComboBox<>();
@@ -918,12 +920,6 @@ public class Login extends javax.swing.JFrame {
         IconUpdateUsername5 = new javax.swing.JLabel();
         LabelUserUpdateLogin2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(255, 255, 255));
-        setUndecorated(true);
-        setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         JPWelcome.setBackground(new java.awt.Color(255, 255, 255));
         JPWelcome.setForeground(new java.awt.Color(255, 255, 255));
         JPWelcome.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -940,7 +936,11 @@ public class Login extends javax.swing.JFrame {
         LabelWelcome.setText("Welcome");
         JPWelcome.add(LabelWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 220, 70));
 
-        getContentPane().add(JPWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        setUndecorated(true);
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         JPLogin.setBackground(new java.awt.Color(29, 41, 81));
         JPLogin.setForeground(new java.awt.Color(255, 255, 255));
@@ -5005,22 +5005,22 @@ public class Login extends javax.swing.JFrame {
         CheckBoxApprovedOrNotCreateRecord.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         CheckBoxApprovedOrNotCreateRecord.setForeground(new java.awt.Color(29, 41, 81));
         CheckBoxApprovedOrNotCreateRecord.setText("Approved");
-        CreateRecord.add(CheckBoxApprovedOrNotCreateRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 380, 110, -1));
+        CreateRecord.add(CheckBoxApprovedOrNotCreateRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, 110, -1));
 
         ExpireDateCreateRecord.setBorder(null);
         ExpireDateCreateRecord.setForeground(new java.awt.Color(29, 41, 81));
         ExpireDateCreateRecord.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
         ExpireDateCreateRecord.setCaretColor(new java.awt.Color(204, 204, 204));
-        CreateRecord.add(ExpireDateCreateRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 420, 70, 30));
+        CreateRecord.add(ExpireDateCreateRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 420, 70, 30));
 
         LineExpireDate3.setForeground(new java.awt.Color(29, 41, 81));
-        CreateRecord.add(LineExpireDate3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 450, 70, 20));
+        CreateRecord.add(LineExpireDate3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 450, 70, 20));
 
         LabelExpireDateUnapproved3.setBackground(new java.awt.Color(255, 255, 255));
         LabelExpireDateUnapproved3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         LabelExpireDateUnapproved3.setForeground(new java.awt.Color(29, 41, 81));
         LabelExpireDateUnapproved3.setText("Expire date:");
-        CreateRecord.add(LabelExpireDateUnapproved3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 420, 100, 30));
+        CreateRecord.add(LabelExpireDateUnapproved3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, 100, 30));
 
         YearsSentenceCreateRecord.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         YearsSentenceCreateRecord.setForeground(new java.awt.Color(29, 41, 81));
@@ -5074,6 +5074,17 @@ public class Login extends javax.swing.JFrame {
         FinishDateSentenceCreateRecord.setForeground(new java.awt.Color(29, 41, 81));
         FinishDateSentenceCreateRecord.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
         CreateRecord.add(FinishDateSentenceCreateRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 330, 110, 30));
+
+        LabelResolutionUnapproved3.setBackground(new java.awt.Color(255, 255, 255));
+        LabelResolutionUnapproved3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelResolutionUnapproved3.setForeground(new java.awt.Color(29, 41, 81));
+        LabelResolutionUnapproved3.setText("Type of sentence:");
+        CreateRecord.add(LabelResolutionUnapproved3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 380, 160, 30));
+
+        BoxTypeSentenceCreateRecord.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        BoxTypeSentenceCreateRecord.setForeground(new java.awt.Color(29, 41, 81));
+        BoxTypeSentenceCreateRecord.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        CreateRecord.add(BoxTypeSentenceCreateRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 380, 120, 30));
 
         LabelCrimeTypeUnapproved1.setBackground(new java.awt.Color(255, 255, 255));
         LabelCrimeTypeUnapproved1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
@@ -8940,7 +8951,6 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ButtonEnterReportsZone7ActionPerformed
 
-<<<<<<< HEAD
     private void ButtonRefreshForDeleteUserMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRefreshForDeleteUserMouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_ButtonRefreshForDeleteUserMouseEntered
@@ -9032,7 +9042,7 @@ public class Login extends javax.swing.JFrame {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_ButtonPersonRefreshForDelete2ActionPerformed
-=======
+
     private void BoxTypeOfZoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoxTypeOfZoneActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BoxTypeOfZoneActionPerformed
@@ -9040,7 +9050,7 @@ public class Login extends javax.swing.JFrame {
     private void BoxCountryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoxCountryActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BoxCountryActionPerformed
->>>>>>> 653e0236660db913da87004de71b9faf5ff034fb
+
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -9152,6 +9162,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> BoxTypeCrimeCreateRecord1;
     private javax.swing.JComboBox<String> BoxTypeOfZone;
     private javax.swing.JComboBox<String> BoxTypeOfZone1;
+    private javax.swing.JComboBox<String> BoxTypeSentenceCreateRecord;
     private javax.swing.JComboBox<String> BoxTypeSentenceCreateRecord1;
     private javax.swing.JComboBox<String> BoxTypeSentenceUnapproved;
     private javax.swing.JComboBox<String> BoxUserTypeUpdateUser;
@@ -9218,11 +9229,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton ButtonRecordCatalogues;
     private javax.swing.JButton ButtonRecordDelete;
     private javax.swing.JButton ButtonRefresh;
-<<<<<<< HEAD
     private javax.swing.JButton ButtonRefreshForDeleteUser;
-    private javax.swing.JButton ButtonRefreshTotalRecordsByZone;
-=======
->>>>>>> 653e0236660db913da87004de71b9faf5ff034fb
     private javax.swing.JButton ButtonRollbackBanUser;
     private javax.swing.JButton ButtonRollbackCatalogues;
     private javax.swing.JButton ButtonRollbackCreateRecord;
@@ -9419,6 +9426,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel LabelResolutionUnapproved13;
     private javax.swing.JLabel LabelResolutionUnapproved15;
     private javax.swing.JLabel LabelResolutionUnapproved2;
+    private javax.swing.JLabel LabelResolutionUnapproved3;
     private javax.swing.JLabel LabelResolutionUnapproved4;
     private javax.swing.JLabel LabelResolutionUnapproved5;
     private javax.swing.JLabel LabelResolutionUnapproved7;
