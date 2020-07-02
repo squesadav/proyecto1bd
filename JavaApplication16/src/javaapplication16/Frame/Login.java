@@ -7195,12 +7195,18 @@ public class Login extends javax.swing.JFrame {
     private void RemoveTypeCrimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveTypeCrimeActionPerformed
         int index_type_crime = BoxModifyTypeCrime.getSelectedIndex();
         String type_crime = BoxModifyTypeCrime.getItemAt(index_type_crime);
-        //Borrar de la base
+        try{
+            int type_number = ConnectionBD.query("APP", "admin_type.getId",type_crime);
+            ConnectionBD.delete("APP", "admin_type.remove_type",type_number);
+        }catch(Exception e){}
     }//GEN-LAST:event_RemoveTypeCrimeActionPerformed
 
     private void AddTypeSentenceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddTypeSentenceActionPerformed
        String new_type_sentence = (String) JOptionPane.showInputDialog(null,"New type sentence: ",JOptionPane.QUESTION_MESSAGE);
         //Agregarlo a la base
+       try{
+            ConnectionBD.delete("APP", "admin_type.insert_type",new_type_sentence);
+        }catch(Exception e){}
     }//GEN-LAST:event_AddTypeSentenceActionPerformed
 
     private void RemoveTypeSentenceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveTypeSentenceActionPerformed
