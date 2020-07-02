@@ -9,6 +9,7 @@ CREATE OR REPLACE PACKAGE admin_place IS
     FUNCTION getName (vId NUMBER) RETURN VARCHAR2;
     FUNCTION get_id_district (vId NUMBER) RETURN NUMBER;
     FUNCTION getId(vName VARCHAR2) RETURN NUMBER;
+    FUNCTION getAll RETURN SYS_REFCURSOR;
 END admin_place;
 /
 
@@ -62,6 +63,16 @@ CREATE OR REPLACE PACKAGE BODY admin_place AS
         FROM place
         WHERE name = vName;
     RETURN rid;
+    END;
+
+    FUNCTION getAll RETURN sys_refcursor
+        AS rAll sys_refcursor;
+    BEGIN
+    OPEN rALL FOR
+            SELECT id, name
+            INTO rAll
+            FROM place;
+        RETURN rAll;
     END;
 END admin_place;
 /
