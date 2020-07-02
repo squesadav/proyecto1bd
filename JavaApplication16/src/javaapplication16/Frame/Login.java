@@ -436,9 +436,9 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         {
             BoxDistrictPerson.addItem(districts.getString("name"));
         }
-        while(institutions.next())
+        while(institutions.next())institutions
         {
-            BoxInstitutionPerson.addItem(institutions.getString("name"));
+            BoxInstitutionPerson.addItem(.getString("name"));
         }
     }
     
@@ -1090,7 +1090,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         ButtonShowPlaces = new javax.swing.JButton();
         ButtonRollbackQueryPlaces = new javax.swing.JButton();
         jScrollPane13 = new javax.swing.JScrollPane();
-        Query1Table = new javax.swing.JTable();
+        Table = new javax.swing.JTable();
         Records = new javax.swing.JPanel();
         LabelChooseFilterRecords = new javax.swing.JLabel();
         BoxFilter = new javax.swing.JComboBox<>();
@@ -1150,6 +1150,30 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         LabelChooseFilterRecords6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jPanel10 = new javax.swing.JPanel();
+        ButtonRollbackQueryExpire1 = new javax.swing.JButton();
+        BoxFilter1 = new javax.swing.JComboBox<>();
+        ButtonShowRecords1 = new javax.swing.JButton();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        RecordsExpireList1 = new javax.swing.JList<>();
+        LabelChooseFilterRecords11 = new javax.swing.JLabel();
+        jPanel11 = new javax.swing.JPanel();
+        ButtonRollbackQueryExpire2 = new javax.swing.JButton();
+        jScrollPane22 = new javax.swing.JScrollPane();
+        TableUsers1 = new javax.swing.JTable();
+        ButtonShowUsers1 = new javax.swing.JButton();
+        jPanel12 = new javax.swing.JPanel();
+        ButtonRollbackQueryExpire3 = new javax.swing.JButton();
+        jScrollPane23 = new javax.swing.JScrollPane();
+        TableUsers2 = new javax.swing.JTable();
+        ButtonShowUsers2 = new javax.swing.JButton();
+        jPanel13 = new javax.swing.JPanel();
+        ButtonRollbackQueryExpire4 = new javax.swing.JButton();
+        BoxFilter2 = new javax.swing.JComboBox<>();
+        LabelChooseFilterRecords12 = new javax.swing.JLabel();
+        ButtonShowRecords2 = new javax.swing.JButton();
+        jScrollPane24 = new javax.swing.JScrollPane();
+        RecordsExpireList2 = new javax.swing.JList<>();
         UserConfiguration = new javax.swing.JTabbedPane();
         UpdateLoginInfo = new javax.swing.JPanel();
         LabelUserPasswordUpdateLogin = new javax.swing.JLabel();
@@ -5422,11 +5446,6 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         NumberTopField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         NumberTopField.setForeground(new java.awt.Color(29, 41, 81));
         NumberTopField.setBorder(null);
-        NumberTopField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NumberTopFieldActionPerformed(evt);
-            }
-        });
         PlacesMoreRecords.add(NumberTopField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 80, 20));
 
         NumberTopLine.setForeground(new java.awt.Color(29, 41, 81));
@@ -5465,7 +5484,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         });
         PlacesMoreRecords.add(ButtonRollbackQueryPlaces, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 50));
 
-        Query1Table.setModel(new javax.swing.table.DefaultTableModel(
+        Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -5476,8 +5495,8 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        Query1Table.setAutoscrolls(false);
-        jScrollPane13.setViewportView(Query1Table);
+        Table.setAutoscrolls(false);
+        jScrollPane13.setViewportView(Table);
 
         PlacesMoreRecords.add(jScrollPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 520, 310));
 
@@ -5987,6 +6006,252 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         RecordsConvictionsToExpireOrExpired.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, -1, -1));
 
         UserQuery.addTab("Records with convictions about to expire or expired", RecordsConvictionsToExpireOrExpired);
+
+        jPanel10.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ButtonRollbackQueryExpire1.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonRollbackQueryExpire1.setForeground(new java.awt.Color(255, 255, 255));
+        ButtonRollbackQueryExpire1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/Rollback.png"))); // NOI18N
+        ButtonRollbackQueryExpire1.setBorder(null);
+        ButtonRollbackQueryExpire1.setContentAreaFilled(false);
+        ButtonRollbackQueryExpire1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonRollbackQueryExpire1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonRollbackQueryExpire1MouseExited(evt);
+            }
+        });
+        ButtonRollbackQueryExpire1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonRollbackQueryExpire1ActionPerformed(evt);
+            }
+        });
+        jPanel10.add(ButtonRollbackQueryExpire1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 50));
+
+        BoxFilter1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        BoxFilter1.setForeground(new java.awt.Color(29, 41, 81));
+        BoxFilter1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default", "Type", "Date", "Place" }));
+        BoxFilter1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BoxFilter1ActionPerformed(evt);
+            }
+        });
+        jPanel10.add(BoxFilter1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 160, 30));
+
+        ButtonShowRecords1.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonShowRecords1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ButtonShowRecords1.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonShowRecords1.setText("Enter");
+        ButtonShowRecords1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
+        ButtonShowRecords1.setContentAreaFilled(false);
+        ButtonShowRecords1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonShowRecords1ActionPerformed(evt);
+            }
+        });
+        jPanel10.add(ButtonShowRecords1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 100, 30));
+
+        jScrollPane14.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
+        jScrollPane14.setForeground(new java.awt.Color(29, 41, 81));
+        jScrollPane14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        RecordsExpireList1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
+        RecordsExpireList1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        RecordsExpireList1.setForeground(new java.awt.Color(29, 41, 81));
+        RecordsExpireList1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RecordsExpireList1MouseClicked(evt);
+            }
+        });
+        jScrollPane14.setViewportView(RecordsExpireList1);
+
+        jPanel10.add(jScrollPane14, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 280, 220));
+
+        LabelChooseFilterRecords11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        LabelChooseFilterRecords11.setForeground(new java.awt.Color(29, 41, 81));
+        LabelChooseFilterRecords11.setText("Type of crime:");
+        jPanel10.add(LabelChooseFilterRecords11, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, -1, 30));
+
+        UserQuery.addTab("Records by type of crime", jPanel10);
+
+        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ButtonRollbackQueryExpire2.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonRollbackQueryExpire2.setForeground(new java.awt.Color(255, 255, 255));
+        ButtonRollbackQueryExpire2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/Rollback.png"))); // NOI18N
+        ButtonRollbackQueryExpire2.setBorder(null);
+        ButtonRollbackQueryExpire2.setContentAreaFilled(false);
+        ButtonRollbackQueryExpire2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonRollbackQueryExpire2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonRollbackQueryExpire2MouseExited(evt);
+            }
+        });
+        ButtonRollbackQueryExpire2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonRollbackQueryExpire2ActionPerformed(evt);
+            }
+        });
+        jPanel11.add(ButtonRollbackQueryExpire2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 50));
+
+        TableUsers1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane22.setViewportView(TableUsers1);
+
+        jPanel11.add(jScrollPane22, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, -1, 190));
+
+        ButtonShowUsers1.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonShowUsers1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ButtonShowUsers1.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonShowUsers1.setText("Refresh");
+        ButtonShowUsers1.setBorder(null);
+        ButtonShowUsers1.setContentAreaFilled(false);
+        ButtonShowUsers1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonShowUsers1ActionPerformed(evt);
+            }
+        });
+        jPanel11.add(ButtonShowUsers1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 350, 100, 30));
+
+        UserQuery.addTab("Records for years of sentence", jPanel11);
+
+        jPanel12.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ButtonRollbackQueryExpire3.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonRollbackQueryExpire3.setForeground(new java.awt.Color(255, 255, 255));
+        ButtonRollbackQueryExpire3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/Rollback.png"))); // NOI18N
+        ButtonRollbackQueryExpire3.setBorder(null);
+        ButtonRollbackQueryExpire3.setContentAreaFilled(false);
+        ButtonRollbackQueryExpire3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonRollbackQueryExpire3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonRollbackQueryExpire3MouseExited(evt);
+            }
+        });
+        ButtonRollbackQueryExpire3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonRollbackQueryExpire3ActionPerformed(evt);
+            }
+        });
+        jPanel12.add(ButtonRollbackQueryExpire3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 50));
+
+        TableUsers2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane23.setViewportView(TableUsers2);
+
+        jPanel12.add(jScrollPane23, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, -1, 190));
+
+        ButtonShowUsers2.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonShowUsers2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ButtonShowUsers2.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonShowUsers2.setText("Refresh");
+        ButtonShowUsers2.setBorder(null);
+        ButtonShowUsers2.setContentAreaFilled(false);
+        ButtonShowUsers2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonShowUsers2ActionPerformed(evt);
+            }
+        });
+        jPanel12.add(ButtonShowUsers2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 350, 100, 30));
+
+        UserQuery.addTab("Top 5 ages with more records", jPanel12);
+
+        jPanel13.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ButtonRollbackQueryExpire4.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonRollbackQueryExpire4.setForeground(new java.awt.Color(255, 255, 255));
+        ButtonRollbackQueryExpire4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/Rollback.png"))); // NOI18N
+        ButtonRollbackQueryExpire4.setBorder(null);
+        ButtonRollbackQueryExpire4.setContentAreaFilled(false);
+        ButtonRollbackQueryExpire4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonRollbackQueryExpire4MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonRollbackQueryExpire4MouseExited(evt);
+            }
+        });
+        ButtonRollbackQueryExpire4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonRollbackQueryExpire4ActionPerformed(evt);
+            }
+        });
+        jPanel13.add(ButtonRollbackQueryExpire4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 50));
+
+        BoxFilter2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        BoxFilter2.setForeground(new java.awt.Color(29, 41, 81));
+        BoxFilter2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default", "Type", "Date", "Place" }));
+        BoxFilter2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BoxFilter2ActionPerformed(evt);
+            }
+        });
+        jPanel13.add(BoxFilter2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, 160, 30));
+
+        LabelChooseFilterRecords12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        LabelChooseFilterRecords12.setForeground(new java.awt.Color(29, 41, 81));
+        LabelChooseFilterRecords12.setText("Id persons:");
+        jPanel13.add(LabelChooseFilterRecords12, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, -1, 30));
+
+        ButtonShowRecords2.setBackground(new java.awt.Color(255, 255, 255));
+        ButtonShowRecords2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ButtonShowRecords2.setForeground(new java.awt.Color(29, 41, 81));
+        ButtonShowRecords2.setText("Enter");
+        ButtonShowRecords2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
+        ButtonShowRecords2.setContentAreaFilled(false);
+        ButtonShowRecords2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonShowRecords2ActionPerformed(evt);
+            }
+        });
+        jPanel13.add(ButtonShowRecords2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 100, 30));
+
+        jScrollPane24.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
+        jScrollPane24.setForeground(new java.awt.Color(29, 41, 81));
+        jScrollPane24.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        RecordsExpireList2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(29, 41, 81)));
+        RecordsExpireList2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        RecordsExpireList2.setForeground(new java.awt.Color(29, 41, 81));
+        RecordsExpireList2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RecordsExpireList2MouseClicked(evt);
+            }
+        });
+        jScrollPane24.setViewportView(RecordsExpireList2);
+
+        jPanel13.add(jScrollPane24, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 280, 220));
+
+        UserQuery.addTab("Records per person", jPanel13);
 
         getContentPane().add(UserQuery, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
 
@@ -6634,7 +6899,6 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         else
         {
             DefaultTableModel modelo = new DefaultTableModel();
-            Query1Table.setModel(modelo);
             modelo.setRowCount(0);
             modelo.setColumnCount(0);
             modelo.addColumn("District");
@@ -6643,13 +6907,13 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
                 ResultSet dangerous_places = ConnectDB.query("APP","user_queries.dangerous_places", Integer.parseInt(number_top));
                 while(dangerous_places.next())
                 {
-                    modelo.addRow(new Object[]{dangerous_places.getString("name_district"), String.valueOf(dangerous_places.getInt("quant_records"))});
+                    modelo.addRow(new Object[]{dangerous_places.getString("name_district"), dangerous_places.getInt("quant_record")});
                 }
                 
             } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this, ex.getMessage(),"Error", JOptionPane.ERROR_MESSAGE); 
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
             }
+            Table.setModel(modelo);
         }
     }//GEN-LAST:event_ButtonShowPlacesActionPerformed
 
@@ -6829,7 +7093,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         JPUserMenu.setVisible(true);
         JPLogged.setVisible(true);
         NumberTopField.setText(null);
-        Query1Table.removeAll();
+        Table.removeAll();
     }//GEN-LAST:event_ButtonRollbackQueryPlacesActionPerformed
 
     private void ButtonRollbackQueryRecordsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryRecordsMouseEntered
@@ -7264,24 +7528,20 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
             JOptionPane.showMessageDialog(this, "Fill the Date End Field.");   
         }
         else{
-            java.util.Date startDate = null;
-            java.util.Date endDate = null;
-            java.sql.Date startDateSQL = null;
-            java.sql.Date endDateSQL = null;
+            java.sql.Date startDate = null;
+            java.sql.Date endDate = null;
             try {
-                startDate = new SimpleDateFormat("dd/MM/yy").parse(DateStartField1.getText());
-                endDate = new SimpleDateFormat("dd/MM/yy").parse(DateEndField1.getText());
-                startDateSQL = new java.sql.Date(startDate.getTime());
-                endDateSQL = new java.sql.Date(endDate.getTime());
-                
-                ResultSet records = ConnectDB.records_expiring_between(startDateSQL, endDateSQL);
+                startDate =(java.sql.Date) new SimpleDateFormat("dd/MM/yy").parse(DateStartField1.getText());
+                endDate =(java.sql.Date) new SimpleDateFormat("dd/MM/yy").parse(DateEndField1.getText());
+
+                ResultSet records = ConnectDB.records_expiring_between(startDate, endDate);
                 DefaultListModel model = new DefaultListModel();
-                RecordsExpireList.setModel(model);
                 model.removeAllElements();
                 while(records.next())
                 {
-                    model.addElement(records.getString("record_number"));
+                    model.addElement(records.getInt("record_number"));
                 }
+                RecordsExpireList.setModel(model);
             } catch (SQLException ex) {
                 Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ParseException ex) {
@@ -8184,42 +8444,43 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
 
     private void ButtonShowUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowUsersActionPerformed
         DefaultTableModel modelo = new DefaultTableModel();
-        TableUsers.setModel(modelo);
         modelo.setRowCount(0);
         modelo.setColumnCount(0);
         modelo.addColumn("Username");
         modelo.addColumn("Type");
         try {
             ResultSet userList = ConnectDB.query("APP","user_queries.user_list");
+            int i = 0;
             while(userList.next())
             {
-                modelo.addRow(new Object[]{userList.getString("username"), userList.getString("user_type")});
+                modelo.addRow(new Object[]{userList.getString("username"), userList.getInt("user_type")});
             }
             
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this, ex.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
+        TableUsers.setModel(modelo);
     }//GEN-LAST:event_ButtonShowUsersActionPerformed
 
     private void ButtonShowBannedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowBannedActionPerformed
         DefaultTableModel modelo = (DefaultTableModel)TableBanned.getModel();
-        TableBanned.setModel(modelo);
         modelo.setRowCount(0);
         modelo.setColumnCount(0);
         modelo.addColumn("Username");
         modelo.addColumn("Is Permanent");
         modelo.addColumn("Description");
         try {
-            ResultSet bannedList = ConnectDB.query("APP","user_queries.users_banned");
+            ResultSet bannedList = ConnectDB.query("APP","user_queries.user_banned");
+            int i = 0;
             while(bannedList.next())
             {
-                modelo.addRow(new Object[]{bannedList.getString("username"), bannedList.getString("ispermanent"), 
-                    bannedList.getString("description")});
+                modelo.addRow(new Object[]{bannedList.getObject("username"), bannedList.getObject("ispermanent"), 
+                    bannedList.getObject("description")});
             }
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
+        TableBanned.setModel(modelo);
     }//GEN-LAST:event_ButtonShowBannedActionPerformed
 
     private void ButtonShowCataloguesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowCataloguesActionPerformed
@@ -9177,19 +9438,17 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
             Pictures v = new Pictures(null, true, paths.get(indexPictures));
             v.setVisible(true);
             }*/
-            ResultSet record = ConnectDB.query("APP","admin_record.getRecord",recordL);
-            record.next();
-            RecordDescriptionTextExpire.setText("Number:" + record.getString("numberr") + "\n" + 
-                                                "Crime Description:" + record.getString("description_crime") + "\n "+
-                                                //"Date Crime:" + record.getDate("date_crime").toString() + "\n" +
-                                                "Resolution" + record.getString("resolution") + "\n" +
-                                                //"Crime expiration date: " + record.getDate("crime_expiration_date").toString() + "\n" +
-                                                "id type: " + record.getInt("id_type") +"\n" +
-                                                "id veredict: " + record.getInt("id_veredict") +"\n"+
-                                                "id person: " + record.getInt("id_person") + "\n" +
-                                                "id district:" + record.getInt("id_district"));
+            ResultSet record = ConnectDB.query("APP","admin_record.getAll",recordL);
+            RecordDescriptionTextExpire.setText("Number:" + record.getString("numberr") + 
+                                                "Crime Description:" + record.getString("description_crime") +
+                                                "Date Crime:" + record.getDate("date_crime") +
+                                                "Resolution" + record.getString("resolution") +
+                                                "Crime expiration date: " + record.getDate("crime_expiration_date") +
+                                                "id type: " + record.getInt("id_type") +
+                                                "id veredict: " + record.getInt("id_veredict") +
+                                                "id person: " + record.getInt("id_person") +
+                                                "id district" + record.getInt("id_district"));
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this, ex.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);  
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_RecordsExpireListMouseClicked
@@ -9533,9 +9792,85 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         // TODO add your handling code here:
     }//GEN-LAST:event_BoxFilterActionPerformed
 
-    private void NumberTopFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NumberTopFieldActionPerformed
+    private void ButtonRollbackQueryExpire1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryExpire1MouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_NumberTopFieldActionPerformed
+    }//GEN-LAST:event_ButtonRollbackQueryExpire1MouseEntered
+
+    private void ButtonRollbackQueryExpire1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryExpire1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonRollbackQueryExpire1MouseExited
+
+    private void ButtonRollbackQueryExpire1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryExpire1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonRollbackQueryExpire1ActionPerformed
+
+    private void ButtonRollbackQueryExpire2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryExpire2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonRollbackQueryExpire2MouseEntered
+
+    private void ButtonRollbackQueryExpire2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryExpire2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonRollbackQueryExpire2MouseExited
+
+    private void ButtonRollbackQueryExpire2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryExpire2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonRollbackQueryExpire2ActionPerformed
+
+    private void ButtonRollbackQueryExpire3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryExpire3MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonRollbackQueryExpire3MouseEntered
+
+    private void ButtonRollbackQueryExpire3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryExpire3MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonRollbackQueryExpire3MouseExited
+
+    private void ButtonRollbackQueryExpire3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryExpire3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonRollbackQueryExpire3ActionPerformed
+
+    private void ButtonRollbackQueryExpire4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryExpire4MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonRollbackQueryExpire4MouseEntered
+
+    private void ButtonRollbackQueryExpire4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryExpire4MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonRollbackQueryExpire4MouseExited
+
+    private void ButtonRollbackQueryExpire4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryExpire4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonRollbackQueryExpire4ActionPerformed
+
+    private void BoxFilter1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoxFilter1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BoxFilter1ActionPerformed
+
+    private void ButtonShowRecords1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowRecords1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonShowRecords1ActionPerformed
+
+    private void RecordsExpireList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RecordsExpireList1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RecordsExpireList1MouseClicked
+
+    private void ButtonShowUsers1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowUsers1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonShowUsers1ActionPerformed
+
+    private void ButtonShowUsers2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowUsers2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonShowUsers2ActionPerformed
+
+    private void BoxFilter2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoxFilter2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BoxFilter2ActionPerformed
+
+    private void ButtonShowRecords2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowRecords2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonShowRecords2ActionPerformed
+
+    private void RecordsExpireList2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RecordsExpireList2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RecordsExpireList2MouseClicked
 
 
     public static void main(String args[]) {
@@ -9607,6 +9942,8 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     private javax.swing.JComboBox<String> BoxDistrictPerson;
     private javax.swing.JComboBox<String> BoxDistrictPerson1;
     private javax.swing.JComboBox<String> BoxFilter;
+    private javax.swing.JComboBox<String> BoxFilter1;
+    private javax.swing.JComboBox<String> BoxFilter2;
     private javax.swing.JComboBox<String> BoxFilterIdPerson;
     private javax.swing.JComboBox<String> BoxFilterLastNamePerson;
     private javax.swing.JComboBox<String> BoxFilterNamePerson;
@@ -9732,6 +10069,10 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     private javax.swing.JButton ButtonRollbackPersonDelete;
     private javax.swing.JButton ButtonRollbackQueryBanned;
     private javax.swing.JButton ButtonRollbackQueryExpire;
+    private javax.swing.JButton ButtonRollbackQueryExpire1;
+    private javax.swing.JButton ButtonRollbackQueryExpire2;
+    private javax.swing.JButton ButtonRollbackQueryExpire3;
+    private javax.swing.JButton ButtonRollbackQueryExpire4;
     private javax.swing.JButton ButtonRollbackQueryPlaces;
     private javax.swing.JButton ButtonRollbackQueryRecords;
     private javax.swing.JButton ButtonRollbackQueryUsers;
@@ -9744,8 +10085,12 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     private javax.swing.JButton ButtonShowListOfReports;
     private javax.swing.JButton ButtonShowPlaces;
     private javax.swing.JButton ButtonShowRecords;
+    private javax.swing.JButton ButtonShowRecords1;
+    private javax.swing.JButton ButtonShowRecords2;
     private javax.swing.JButton ButtonShowRecordsDate;
     private javax.swing.JButton ButtonShowUsers;
+    private javax.swing.JButton ButtonShowUsers1;
+    private javax.swing.JButton ButtonShowUsers2;
     private javax.swing.JButton ButtonSignUp;
     private javax.swing.JButton ButtonStatistics;
     private javax.swing.JButton ButtonUserCatalogues;
@@ -9825,6 +10170,8 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     private javax.swing.JLabel LabelBannedReason;
     private javax.swing.JLabel LabelChooseFilterRecords;
     private javax.swing.JLabel LabelChooseFilterRecords10;
+    private javax.swing.JLabel LabelChooseFilterRecords11;
+    private javax.swing.JLabel LabelChooseFilterRecords12;
     private javax.swing.JLabel LabelChooseFilterRecords2;
     private javax.swing.JLabel LabelChooseFilterRecords3;
     private javax.swing.JLabel LabelChooseFilterRecords4;
@@ -10059,7 +10406,6 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     private javax.swing.JButton PictureShowRecords;
     private javax.swing.JButton PictureUnapproved;
     private javax.swing.JPanel PlacesMoreRecords;
-    private javax.swing.JTable Query1Table;
     private javax.swing.JPanel RecordCatalogues;
     private javax.swing.JTextArea RecordDescriptionText;
     private javax.swing.JTextArea RecordDescriptionTextExpire;
@@ -10068,6 +10414,8 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     private javax.swing.JPanel Records;
     private javax.swing.JPanel RecordsConvictionsToExpireOrExpired;
     private javax.swing.JList<String> RecordsExpireList;
+    private javax.swing.JList<String> RecordsExpireList1;
+    private javax.swing.JList<String> RecordsExpireList2;
     private javax.swing.JList<String> RecordsList;
     private javax.swing.JButton RemoveBannedReason;
     private javax.swing.JButton RemoveCity;
@@ -10091,8 +10439,11 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     private javax.swing.JFormattedTextField StartDateSentenceCreateRecord;
     private javax.swing.JFormattedTextField StartDateSentenceCreateRecord1;
     private javax.swing.JFormattedTextField StartDateSentenceUnapproved;
+    private javax.swing.JTable Table;
     private javax.swing.JTable TableBanned;
     private javax.swing.JTable TableUsers;
+    private javax.swing.JTable TableUsers1;
+    private javax.swing.JTable TableUsers2;
     private javax.swing.JTable TableUsersPassword;
     private javax.swing.JTextArea UnapprovedCrimeDescriptionField;
     private javax.swing.JFormattedTextField UnapprovedDateCrimeField;
@@ -10123,6 +10474,10 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -10136,6 +10491,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
+    private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JScrollPane jScrollPane17;
@@ -10144,6 +10500,9 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane20;
     private javax.swing.JScrollPane jScrollPane21;
+    private javax.swing.JScrollPane jScrollPane22;
+    private javax.swing.JScrollPane jScrollPane23;
+    private javax.swing.JScrollPane jScrollPane24;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
