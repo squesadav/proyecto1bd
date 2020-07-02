@@ -15,8 +15,8 @@ public class Veredict {
     private String id;
     private int years;
     private int id_place;
-    private Date date_start;
-    private Date date_end;
+    private java.sql.Date date_start;
+    private java.sql.Date date_end;
 
     public Veredict(String id, int years, int id_place, Date date_start, Date date_end) {
         this.id = id;
@@ -50,7 +50,7 @@ public class Veredict {
         this.id_place = id_place;
     }
 
-    public Date getDate_start() {
+    public java.sql.Date getDate_start() {
         return date_start;
     }
 
@@ -58,7 +58,7 @@ public class Veredict {
         this.date_start = date_start;
     }
 
-    public Date getDate_end() {
+    public java.sql.Date getDate_end() {
         return date_end;
     }
 

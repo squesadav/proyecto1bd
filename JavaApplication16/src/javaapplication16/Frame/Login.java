@@ -651,11 +651,13 @@ public class Login extends javax.swing.JFrame {
         LineDateCrime10 = new javax.swing.JSeparator();
         FinishDateSentenceCreateRecord1 = new javax.swing.JFormattedTextField();
         LabelResolutionUnapproved5 = new javax.swing.JLabel();
-        BoxTypeSentenceCreateRecord1 = new javax.swing.JComboBox<>();
+        BoxPlaceCreateRecord1 = new javax.swing.JComboBox<>();
         LabelCrimeTypeUnapproved2 = new javax.swing.JLabel();
         ButtonConfirmRecordAdmin = new javax.swing.JButton();
         BoxTypeCrimeCreateRecord1 = new javax.swing.JComboBox<>();
         AddPicRecordAdmin = new javax.swing.JButton();
+        LabelResolutionUnapproved6 = new javax.swing.JLabel();
+        BoxDistrictCreateRecord1 = new javax.swing.JComboBox<>();
         CreateBanUser = new javax.swing.JPanel();
         ButtonRollbackBanUser = new javax.swing.JButton();
         IconCreateReacord2 = new javax.swing.JLabel();
@@ -806,11 +808,13 @@ public class Login extends javax.swing.JFrame {
         LineDateCrime7 = new javax.swing.JSeparator();
         FinishDateSentenceCreateRecord = new javax.swing.JFormattedTextField();
         LabelResolutionUnapproved3 = new javax.swing.JLabel();
-        BoxTypeSentenceCreateRecord = new javax.swing.JComboBox<>();
+        BoxPlaceCreateRecord = new javax.swing.JComboBox<>();
         LabelCrimeTypeUnapproved1 = new javax.swing.JLabel();
         ButtonConfirmRecordUser = new javax.swing.JButton();
         BoxTypeCrimeCreateRecord = new javax.swing.JComboBox<>();
         AddRecordUser = new javax.swing.JButton();
+        LabelCrimeTypeUnapproved3 = new javax.swing.JLabel();
+        BoxDistrictCreateRecord = new javax.swing.JComboBox<>();
         UserQuery = new javax.swing.JTabbedPane();
         PlacesMoreRecords = new javax.swing.JPanel();
         LabelTop = new javax.swing.JLabel();
@@ -3529,7 +3533,7 @@ public class Login extends javax.swing.JFrame {
                 ButtonCancelRecordAdminActionPerformed(evt);
             }
         });
-        CreateRecordAdmin.add(ButtonCancelRecordAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 470, 100, 40));
+        CreateRecordAdmin.add(ButtonCancelRecordAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 510, 100, 40));
 
         CheckBoxApprovedOrNotCreateRecord1.setBackground(new java.awt.Color(255, 255, 255));
         CheckBoxApprovedOrNotCreateRecord1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -3608,13 +3612,13 @@ public class Login extends javax.swing.JFrame {
         LabelResolutionUnapproved5.setBackground(new java.awt.Color(255, 255, 255));
         LabelResolutionUnapproved5.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         LabelResolutionUnapproved5.setForeground(new java.awt.Color(29, 41, 81));
-        LabelResolutionUnapproved5.setText("District:");
+        LabelResolutionUnapproved5.setText("Place:");
         CreateRecordAdmin.add(LabelResolutionUnapproved5, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 380, 80, 30));
 
-        BoxTypeSentenceCreateRecord1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        BoxTypeSentenceCreateRecord1.setForeground(new java.awt.Color(29, 41, 81));
-        BoxTypeSentenceCreateRecord1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
-        CreateRecordAdmin.add(BoxTypeSentenceCreateRecord1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 380, 120, 30));
+        BoxPlaceCreateRecord1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        BoxPlaceCreateRecord1.setForeground(new java.awt.Color(29, 41, 81));
+        BoxPlaceCreateRecord1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        CreateRecordAdmin.add(BoxPlaceCreateRecord1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 380, 120, 30));
 
         LabelCrimeTypeUnapproved2.setBackground(new java.awt.Color(255, 255, 255));
         LabelCrimeTypeUnapproved2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
@@ -3641,7 +3645,7 @@ public class Login extends javax.swing.JFrame {
                 ButtonConfirmRecordAdminActionPerformed(evt);
             }
         });
-        CreateRecordAdmin.add(ButtonConfirmRecordAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 470, 100, 40));
+        CreateRecordAdmin.add(ButtonConfirmRecordAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 510, 100, 40));
 
         BoxTypeCrimeCreateRecord1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         BoxTypeCrimeCreateRecord1.setForeground(new java.awt.Color(29, 41, 81));
@@ -3666,6 +3670,17 @@ public class Login extends javax.swing.JFrame {
             }
         });
         CreateRecordAdmin.add(AddPicRecordAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 40, 40, 40));
+
+        LabelResolutionUnapproved6.setBackground(new java.awt.Color(255, 255, 255));
+        LabelResolutionUnapproved6.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelResolutionUnapproved6.setForeground(new java.awt.Color(29, 41, 81));
+        LabelResolutionUnapproved6.setText("District:");
+        CreateRecordAdmin.add(LabelResolutionUnapproved6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 480, 80, 30));
+
+        BoxDistrictCreateRecord1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        BoxDistrictCreateRecord1.setForeground(new java.awt.Color(29, 41, 81));
+        BoxDistrictCreateRecord1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        CreateRecordAdmin.add(BoxDistrictCreateRecord1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 480, 120, 30));
 
         getContentPane().add(CreateRecordAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
 
@@ -5008,7 +5023,7 @@ public class Login extends javax.swing.JFrame {
                 ButtonCancelRecordUserActionPerformed(evt);
             }
         });
-        CreateRecord.add(ButtonCancelRecordUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 470, 100, 40));
+        CreateRecord.add(ButtonCancelRecordUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 510, 100, 40));
 
         CheckBoxApprovedOrNotCreateRecord.setBackground(new java.awt.Color(255, 255, 255));
         CheckBoxApprovedOrNotCreateRecord.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -5087,13 +5102,13 @@ public class Login extends javax.swing.JFrame {
         LabelResolutionUnapproved3.setBackground(new java.awt.Color(255, 255, 255));
         LabelResolutionUnapproved3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         LabelResolutionUnapproved3.setForeground(new java.awt.Color(29, 41, 81));
-        LabelResolutionUnapproved3.setText("Type of sentence:");
-        CreateRecord.add(LabelResolutionUnapproved3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 380, 160, 30));
+        LabelResolutionUnapproved3.setText("Place:");
+        CreateRecord.add(LabelResolutionUnapproved3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 380, 80, 30));
 
-        BoxTypeSentenceCreateRecord.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        BoxTypeSentenceCreateRecord.setForeground(new java.awt.Color(29, 41, 81));
-        BoxTypeSentenceCreateRecord.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
-        CreateRecord.add(BoxTypeSentenceCreateRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 380, 120, 30));
+        BoxPlaceCreateRecord.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        BoxPlaceCreateRecord.setForeground(new java.awt.Color(29, 41, 81));
+        BoxPlaceCreateRecord.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        CreateRecord.add(BoxPlaceCreateRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 380, 120, 30));
 
         LabelCrimeTypeUnapproved1.setBackground(new java.awt.Color(255, 255, 255));
         LabelCrimeTypeUnapproved1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
@@ -5120,7 +5135,7 @@ public class Login extends javax.swing.JFrame {
                 ButtonConfirmRecordUserActionPerformed(evt);
             }
         });
-        CreateRecord.add(ButtonConfirmRecordUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 470, 100, 40));
+        CreateRecord.add(ButtonConfirmRecordUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 510, 100, 40));
 
         BoxTypeCrimeCreateRecord.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         BoxTypeCrimeCreateRecord.setForeground(new java.awt.Color(29, 41, 81));
@@ -5145,6 +5160,17 @@ public class Login extends javax.swing.JFrame {
             }
         });
         CreateRecord.add(AddRecordUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 40, 40, 40));
+
+        LabelCrimeTypeUnapproved3.setBackground(new java.awt.Color(255, 255, 255));
+        LabelCrimeTypeUnapproved3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        LabelCrimeTypeUnapproved3.setForeground(new java.awt.Color(29, 41, 81));
+        LabelCrimeTypeUnapproved3.setText("District:");
+        CreateRecord.add(LabelCrimeTypeUnapproved3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 80, 30));
+
+        BoxDistrictCreateRecord.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        BoxDistrictCreateRecord.setForeground(new java.awt.Color(29, 41, 81));
+        BoxDistrictCreateRecord.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        CreateRecord.add(BoxDistrictCreateRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 470, 150, 30));
 
         getContentPane().add(CreateRecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
 
@@ -8282,39 +8308,60 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonConfirmRecordAdminMouseExited
 
     private void ButtonConfirmRecordAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmRecordAdminActionPerformed
-        /*String number_record = RecordNumberField.getText();
-        String crime_description = CrimeDescriptionCreateRecord.getText();
-        String date_crime = DateCrimeCreateRecord.getText();
-        String expire_date = ExpireDateCreateRecord.getText();
-        String resolution = BoxResolutionCreateRecord.getItemAt(BoxResolutionCreateRecord.getSelectedIndex());
+        try{
+        String number_record = RecordNumberField1.getText();
+        String crime_description = CrimeDescriptionCreateRecord1.getText();
+        String stringDatecrime = DateCrimeCreateRecord1.getText();
+        String expire_date = ExpireDateCreateRecord1.getText();
+        String years = YearsSentenceCreateRecord1.getText();
+        String start_date = StartDateSentenceCreateRecord1.getText();
+        String end_date = FinishDateSentenceCreateRecord1.getText();
+
+        java.sql.Date dateCrime = (java.sql.Date) new SimpleDateFormat("dd/MM/yyyy").parse(stringDatecrime);
+        java.sql.Date expireDateCrime =(java.sql.Date) new SimpleDateFormat("dd/MM/yyyy").parse(expire_date);
+        java.sql.Date startDate = (java.sql.Date)new SimpleDateFormat("dd/MM/yyyy").parse(start_date);
+        java.sql.Date endDate = (java.sql.Date)new SimpleDateFormat("dd/MM/yyyy").parse(end_date);
+
+        String idOffender = BoxOffender1.getItemAt(BoxOffender1.getSelectedIndex());
+        String typeOfCrime = BoxTypeCrimeCreateRecord1.getItemAt(BoxTypeCrimeCreateRecord1.getSelectedIndex());
+        String resolution = BoxResolutionCreateRecord1.getItemAt(BoxResolutionCreateRecord1.getSelectedIndex());
+        String idDistrict = BoxDistrictCreateRecord1.getItemAt(BoxDistrictCreateRecord1.getSelectedIndex());
+        String idPlace = BoxPlaceCreateRecord1.getItemAt(BoxPlaceCreateRecord1.getSelectedIndex());
         if(resolution == "Innocent"){
-            YearsSentenceCreateRecord.setEnabled(false);
-            StartDateSentenceCreateRecord.setEnabled(false);
-            FinishDateSentenceCreateRecord.setEnabled(false);
-            BoxTypeSentenceCreateRecord.setEnabled(false);
+            YearsSentenceCreateRecord1.setEnabled(false);
+            StartDateSentenceCreateRecord1.setEnabled(false);
+            FinishDateSentenceCreateRecord1.setEnabled(false);
         }
         String approved = "N";
-        String[] pictures = null; //Moficar para que aquí reciba los paths de las fotos;
+        String[] pictures = null; 
         ArrayList<Pictures> pics = null;
         if(number_record.isEmpty()){
             JOptionPane.showMessageDialog(this, "Fill the number of the record field.");
         } else if(crime_description.isEmpty()){
             JOptionPane.showMessageDialog(this, "Fill the crime description field.");
-        } else if(date_crime.isEmpty()){
+        } else if(stringDatecrime.isEmpty()){
             JOptionPane.showMessageDialog(this, "Fill the date of the crime field.");
         } else if(expire_date.isEmpty()){
             JOptionPane.showMessageDialog(this, "Fill the expire date field.");
+        }else if (BoxOffender1.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(this, "Fill the offender person field.");
+        }else if (BoxTypeCrimeCreateRecord1.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(this, "Fill the type of crime field.");
+        }else if (BoxResolutionCreateRecord1.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(this, "Fill the resolution of crime field.");
+        }else if (BoxPlaceCreateRecord1.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(this, "Fill the place of the sentence field.");
+        }else if (BoxDistrictCreateRecord1.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(this, "Fill the district of crime field.");
         } else {
-            //Falta crear una tupla en la tabla veredicto y utilizar ese id en la creación del expediente
-            try{
-                if(CheckBoxApprovedOrNotCreateRecord.isSelected())
+                if(CheckBoxApprovedOrNotCreateRecord1.isSelected())
                 {
                     approved = "Y";
                 }
-                var record = new BL.Record(number_record, crime_description, new SimpleDateFormat("dd/MM/yyyy").parse(date_crime),
-                        resolution, new SimpleDateFormat("dd/MM/yyyy").parse(expire_date), approved, CheckBoxApprovedOrNotCreateRecord.getSelectedIndex(), 
-                        BoxOffender.getSelectedIndex(), BoxVeredict.getSelectedIndex(), BoxDistrictRecord.getSelectedIndex());
-                
+                var veredict = new Veredict(number_record, Integer.parseInt(years), Integer.parseInt(idPlace), startDate, endDate);
+                var record = new BL.Record(number_record, crime_description, dateCrime,resolution, expireDateCrime, approved, 
+                    Integer.parseInt(typeOfCrime), Integer.parseInt(idOffender), Integer.parseInt(idDistrict));
+                ConnectDB.insert_veredict(veredict);
                 ConnectDB.insert_record(record);
                 for(String picture : pictures)
                 {
@@ -8323,30 +8370,11 @@ public class Login extends javax.swing.JFrame {
                     ConnectDB.insert_picture(pic);
                 }
                 JOptionPane.showMessageDialog(this, "The record was created successfully in the system.");
+                blockAll();
                 JPAdminMenu.setVisible(true);
-                AdminQuery.setVisible(false);
-                AdminConfiguration.setVisible(false);
-                UserCatalogues.setVisible(false);
-                PersonCatalogues.setVisible(false);
-                RecordCatalogues.setVisible(false);
-                CreatePersonAdmin.setVisible(false);
-                CreateRecordAdmin.setVisible(false);
-                CreateBanUser.setVisible(false);
-                AdminStatistics.setVisible(false);
-                JPUserMenu.setVisible(false);
-                JPWelcome.setVisible(false);
-                JPSignUp.setVisible(false);
-                UserQuery.setVisible(false);
-                UserConfiguration.setVisible(false);
-                CreateRecord.setVisible(false);
-                CreatePerson.setVisible(false);
-                JPLogin.setVisible(false);
                 JPLogged.setVisible(true);
-            }
-            catch(Exception e){
-                JOptionPane.showMessageDialog(this, ex.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);             
-            }
-        }*/
+        }
+    }catch(Exception e){}
     }//GEN-LAST:event_ButtonConfirmRecordAdminActionPerformed
 
     private void AddPicRecordAdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddPicRecordAdminMouseEntered
@@ -8384,7 +8412,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_AddRecordUserMouseEntered
 
     private void ButtonConfirmRecordUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmRecordUserActionPerformed
-       try{
+    try{
         String number_record = RecordNumberField.getText();
         String crime_description = CrimeDescriptionCreateRecord.getText();
         String stringDatecrime = DateCrimeCreateRecord.getText();
@@ -8392,25 +8420,24 @@ public class Login extends javax.swing.JFrame {
         String years = YearsSentenceCreateRecord.getText();
         String start_date = StartDateSentenceCreateRecord.getText();
         String end_date = FinishDateSentenceCreateRecord.getText();
-        String id_place = BoxPlaceCreateRecord.getText();
-        String id_district = BoxDistrictCreateRecord.getText();
 
-        java.util.Date dateCrime = new SimpleDateFormat("dd/MM/yyyy").parse(stringDatecrime);
-        java.util.Date expireDateCrime = new SimpleDateFormat("dd/MM/yyyy").parse(expire_date);
-        java.util.Date startDate = new SimpleDateFormat("dd/MM/yyyy").parse(start_date);
-        java.util.Date endDate = new SimpleDateFormat("dd/MM/yyyy").parse(end_date);
+        java.sql.Date dateCrime = (java.sql.Date) new SimpleDateFormat("dd/MM/yyyy").parse(stringDatecrime);
+        java.sql.Date expireDateCrime =(java.sql.Date) new SimpleDateFormat("dd/MM/yyyy").parse(expire_date);
+        java.sql.Date startDate = (java.sql.Date)new SimpleDateFormat("dd/MM/yyyy").parse(start_date);
+        java.sql.Date endDate = (java.sql.Date)new SimpleDateFormat("dd/MM/yyyy").parse(end_date);
 
         String idOffender = BoxOffender.getItemAt(BoxOffender.getSelectedIndex());
         String typeOfCrime = BoxTypeCrimeCreateRecord.getItemAt(BoxTypeCrimeCreateRecord.getSelectedIndex());
         String resolution = BoxResolutionCreateRecord.getItemAt(BoxResolutionCreateRecord.getSelectedIndex());
         String idDistrict = BoxDistrictCreateRecord.getItemAt(BoxDistrictCreateRecord.getSelectedIndex());
+        String idPlace = BoxPlaceCreateRecord.getItemAt(BoxPlaceCreateRecord.getSelectedIndex());
         if(resolution == "Innocent"){
             YearsSentenceCreateRecord.setEnabled(false);
             StartDateSentenceCreateRecord.setEnabled(false);
             FinishDateSentenceCreateRecord.setEnabled(false);
         }
         String approved = "N";
-        String[] pictures = null; //Moficar para que aquí reciba los paths de las fotos;
+        String[] pictures = null; 
         ArrayList<Pictures> pics = null;
         if(number_record.isEmpty()){
             JOptionPane.showMessageDialog(this, "Fill the number of the record field.");
@@ -8435,8 +8462,8 @@ public class Login extends javax.swing.JFrame {
                 {
                     approved = "Y";
                 }
-                var veredict = new Veredict(number_record, Integer.parseInt(years), Integer.parseInt(id_place), start_date, end_date);
-                var record = new BL.Record(number_record, crime_description, date_crime,resolution, expire_date, approved, 
+                var veredict = new Veredict(number_record, Integer.parseInt(years), Integer.parseInt(idPlace), startDate, endDate);
+                var record = new BL.Record(number_record, crime_description, dateCrime,resolution, expireDateCrime, approved, 
                     Integer.parseInt(typeOfCrime), Integer.parseInt(idOffender), Integer.parseInt(idDistrict));
                 ConnectDB.insert_veredict(veredict);
                 ConnectDB.insert_record(record);
@@ -9182,6 +9209,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> BoxCountry;
     private javax.swing.JComboBox<String> BoxCountryPersonRecords;
     private javax.swing.JComboBox<String> BoxDistrictAdminUpdate;
+    private javax.swing.JComboBox<String> BoxDistrictCreateRecord;
+    private javax.swing.JComboBox<String> BoxDistrictCreateRecord1;
     private javax.swing.JComboBox<String> BoxDistrictPerson;
     private javax.swing.JComboBox<String> BoxDistrictPerson1;
     private javax.swing.JComboBox<String> BoxFilter;
@@ -9215,6 +9244,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> BoxNewUserDistrict;
     private javax.swing.JComboBox<String> BoxOffender;
     private javax.swing.JComboBox<String> BoxOffender1;
+    private javax.swing.JComboBox<String> BoxPlaceCreateRecord;
+    private javax.swing.JComboBox<String> BoxPlaceCreateRecord1;
     private javax.swing.JComboBox<String> BoxReasonBanned;
     private javax.swing.JComboBox<String> BoxResolutionCreateRecord;
     private javax.swing.JComboBox<String> BoxResolutionCreateRecord1;
@@ -9226,8 +9257,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> BoxTypeCrimeCreateRecord1;
     private javax.swing.JComboBox<String> BoxTypeOfZone;
     private javax.swing.JComboBox<String> BoxTypeOfZone1;
-    private javax.swing.JComboBox<String> BoxTypeSentenceCreateRecord;
-    private javax.swing.JComboBox<String> BoxTypeSentenceCreateRecord1;
     private javax.swing.JComboBox<String> BoxTypeSentenceUnapproved;
     private javax.swing.JComboBox<String> BoxUserTypeUpdateUser;
     private javax.swing.JButton ButtonAdminConfiguration;
@@ -9424,6 +9453,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel LabelCrimeTypeUnapproved;
     private javax.swing.JLabel LabelCrimeTypeUnapproved1;
     private javax.swing.JLabel LabelCrimeTypeUnapproved2;
+    private javax.swing.JLabel LabelCrimeTypeUnapproved3;
     private javax.swing.JLabel LabelDateCrime;
     private javax.swing.JLabel LabelDateCrime1;
     private javax.swing.JLabel LabelDateCrimeUnapproved;
@@ -9493,6 +9523,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel LabelResolutionUnapproved3;
     private javax.swing.JLabel LabelResolutionUnapproved4;
     private javax.swing.JLabel LabelResolutionUnapproved5;
+    private javax.swing.JLabel LabelResolutionUnapproved6;
     private javax.swing.JLabel LabelResolutionUnapproved7;
     private javax.swing.JLabel LabelResolutionUnapproved8;
     private javax.swing.JLabel LabelResolutionUnapproved9;
