@@ -70,7 +70,6 @@ CREATE OR REPLACE PACKAGE BODY admin_place AS
     BEGIN
     OPEN rALL FOR
             SELECT id, name
-            INTO rAll
             FROM place;
         RETURN rAll;
     END;

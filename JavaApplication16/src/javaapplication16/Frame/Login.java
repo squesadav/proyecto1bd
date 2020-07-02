@@ -7563,7 +7563,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
 
     private void AddTypeCrimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddTypeCrimeActionPerformed
         String new_type = (String) JOptionPane.showInputDialog(null,"New type crime: ",JOptionPane.QUESTION_MESSAGE);
-        var type = new Types(" ");
+        Types type = new Types(new_type);
         try {
             ConnectDB.insert_type(type);
             JOptionPane.showMessageDialog(this, "The type was created successfully.");
@@ -7573,11 +7573,14 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     }//GEN-LAST:event_AddTypeCrimeActionPerformed
 
     private void RemoveTypeCrimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveTypeCrimeActionPerformed
-        int index_type_crime = BoxModifyTypeCrime.getSelectedIndex();
-        String type_crime = BoxModifyTypeCrime.getItemAt(index_type_crime);
+        int id_type_crime = 0;
+        try {
+            id_type_crime = ConnectDB.getIdType((String)BoxModifyTypeCrime.getSelectedItem());
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
         try{
-            int type_number = ConnectDB.getInt("APP", "admin_type.getId",type_crime);
-            ConnectDB.delete("APP", "admin_type.remove_type",type_number);
+            ConnectDB.delete("APP", "admin_type.remove_type",id_type_crime);
         }catch(Exception e){}
     }//GEN-LAST:event_RemoveTypeCrimeActionPerformed
 
