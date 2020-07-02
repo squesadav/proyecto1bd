@@ -8,6 +8,7 @@ CREATE OR REPLACE PACKAGE admin_country IS
     PROCEDURE remove_country(pnIdCountry NUMBER);
     FUNCTION getName (vId NUMBER) RETURN VARCHAR2;
     FUNCTION getAll RETURN sys_refcursor;
+    FUNCTION getId(vName VARCHAR2) RETURN NUMBER;
 END admin_country;
 /
 
@@ -48,6 +49,17 @@ CREATE OR REPLACE PACKAGE BODY admin_country AS
             SELECT id, name
             FROM country;
         RETURN rAll;
+    END;
+    
+    FUNCTION getId(vName VARCHAR2) RETURN NUMBER
+    AS
+        rid NUMBER(4);
+    BEGIN
+        SELECT id
+        INTO rid
+        FROM country
+        WHERE name = vName;
+    RETURN rid;
     END;
 END admin_country;
 /

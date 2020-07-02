@@ -19,6 +19,10 @@ ALTER TABLE state
 ALTER TABLE state
     ADD CONSTRAINT fk_state_country FOREIGN KEY(id_country) 
     references country(id);
+    
+ALTER TABLE state
+ADD CONSTRAINT STATE_UK_NAME UNIQUE (NAME)
+ENABLE;
 
 CREATE SEQUENCE seq_state
 START WITH 0

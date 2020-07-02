@@ -19,6 +19,9 @@ ALTER TABLE district
 ALTER TABLE district
     ADD CONSTRAINT fk_district_city FOREIGN KEY(id_city) 
     references city(id);
+ALTER TABLE DISTRICT
+ADD CONSTRAINT DISTRICT_UK_NAME UNIQUE (NAME)
+ENABLE;
 
 CREATE SEQUENCE seq_district
 START WITH 0

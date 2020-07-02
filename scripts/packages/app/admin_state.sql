@@ -9,7 +9,8 @@ CREATE OR REPLACE PACKAGE admin_state IS
     FUNCTION getName (vId NUMBER) RETURN VARCHAR2;
     FUNCTION getIdCountry (vId NUMBER) RETURN NUMBER;
     FUNCTION getAll RETURN sys_refcursor;
-    FUNCTION getInCountry(vIdCountry) RETURN sys_refcursor;
+    FUNCTION getAllInCountry(vIdCountry NUMBER) RETURN sys_refcursor;
+    FUNCTION getId(vName VARCHAR2) RETURN NUMBER;
 END admin_state;
 /
 
@@ -73,6 +74,17 @@ CREATE OR REPLACE PACKAGE BODY admin_state AS
                 WHERE id_country = vIdCountry;
             RETURN cstate;
         END;
-        
+
+    FUNCTION getId(vName VARCHAR2) RETURN NUMBER
+    AS
+        rid NUMBER(4);
+    BEGIN
+        SELECT id
+        INTO rid
+        FROM state
+        WHERE name = vName;
+    RETURN rid;
+    END;
+    
 END admin_state;
 /

@@ -22,6 +22,10 @@ ALTER TABLE place
     ADD CONSTRAINT fk_person_district FOREIGN KEY(id_district) 
     references district(id);
     
+ALTER TABLE place
+ADD CONSTRAINT PLACE_UK_NAME UNIQUE (NAME)
+ENABLE;
+    
 CREATE SEQUENCE seq_place
 START WITH 0
 INCREMENT BY 1
