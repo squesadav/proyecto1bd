@@ -74,6 +74,42 @@ void fillInUserCatalogues() throws SQLException
         }
     }
 
+void fillInAdminQueries() throws SQLException
+   {
+        BoxFilterIdPerson.removeAllItems();
+        BoxFilterIdPerson.addItem("Default");
+        
+        BoxFilterNamePerson.removeAllItems();
+        BoxFilterNamePerson.addItem("Default");
+        
+        BoxFilterLastNamePerson.removeAllItems();
+        BoxFilterLastNamePerson.addItem("Default");
+        
+        BoxFilterUsernamePerson.removeAllItems();
+        BoxFilterUsernamePerson.addItem("Default");
+        
+        ResultSet person = null;
+        ResultSet username = null;
+        try
+        {
+            person = ConnectDB.query("APP","admin_person.getAllForQueries");
+            username = ConnectDB.query("ADM", "adminUser.getAllUsernames");
+            
+        }
+        catch(Exception e){}
+        while(person.next())
+        {
+            BoxFilterIdPerson.addItem(person.getString("id"));
+            BoxFilterNamePerson.addItem(person.getString("name"));
+            BoxFilterLastNamePerson.addItem(person.getString("last_name"));
+            BoxFilterUsernamePerson.addItem(person.getString("id"));
+        }
+        while(username.next())
+        {
+            BoxFilterUsernamePerson.addItem(username.getString("username"));
+        }
+    }
+
 void fillInRecordCatalogues() throws SQLException
    {
         BoxModifyTypeCrime.removeAllItems();
@@ -98,6 +134,60 @@ void fillInRecordCatalogues() throws SQLException
         {
             BoxModifyPlace.addItem(places.getString("name"));
         }
+    }
+
+void fillInAdminConfiguration() throws SQLException
+   {
+        BoxAdminUserTypeUpdate.removeAllItems();
+        BoxAdminUserTypeUpdate.addItem("Default");
+        
+        BoxGenderAdminUpdate.removeAllItems();
+        BoxGenderAdminUpdate.addItem("Default");
+        
+        BoxDistrictAdminUpdate.removeAllItems();
+        BoxDistrictAdminUpdate.addItem("Default");
+        
+        BoxInstitutionAdminUpdate.removeAllItems();
+        BoxInstitutionAdminUpdate.addItem("Default");
+        
+        BoxTypeCrimeApproveRecords.removeAllItems();
+        BoxTypeCrimeApproveRecords.addItem("Default");
+        
+        ResultSet typeUser = null;
+        ResultSet genders = null;
+        ResultSet district = null;
+        ResultSet institution = null;
+        ResultSet type = null;
+        try
+        {
+            typeUser = ConnectDB.query("ADM","adminUser.getAllUserType");
+            genders = ConnectDB.query("APP", "admin_gender.getAll");
+            district = ConnectDB.query("APP","admin_district.getAll");
+            institution = ConnectDB.query("APP","admin_institution.getAll");
+            type = ConnectDB.query("APP","admin_type.getAll");
+        }
+        catch(Exception e){}
+        while(typeUser.next())
+        {
+            BoxModifyTypeCrime.addItem(typeUser.getString("description"));
+        }
+        while(genders.next())
+        {
+            BoxGenderAdminUpdate.addItem(genders.getString("name"));
+        }
+        while(district.next())
+        {
+            BoxDistrictAdminUpdate.addItem(district.getString("name"));
+        }
+        while(institution.next())
+        {
+            BoxInstitutionAdminUpdate.addItem(institution.getString("name"));
+        }
+        while(type.next())
+        {
+            BoxTypeCrimeApproveRecords.addItem(type.getString("name"));
+        }
+        
     }
         
 void fillInComboBox_CreatePersonAdmin() throws SQLException
@@ -142,24 +232,24 @@ void fillInComboBox_CreateRecordUser() throws SQLException
         BoxPlaceCreateRecord.removeAllItems();
         BoxPlaceCreateRecord.addItem("Default");
         ResultSet persons = null;
-        ResultSet districts = null;
         ResultSet types = null;
+        ResultSet districts = null;
         ResultSet places = null;
         try
         {
             persons = ConnectDB.query("APP", "admin_person.getAll");
-            districts = ConnectDB.query("APP","admin_district.getAll");
             types = ConnectDB.query("APP","admin_institution.getAll");
+            districts = ConnectDB.query("APP","admin_district.getAll");
             places = ConnectDB.query("APP","admin_place.getAll");
         }
         catch(Exception e){}
         while(persons.next())
         {
-            BoxGenderPerson.addItem(persons.getString("name"));
+            BoxOffender.addItem(persons.getString("name"));
         }
         while(districts.next())
         {
-            BoxDistrictPerson.addItem(districts.getString("name"));
+            BoxDistrictCreateRecord.addItem(districts.getString("name"));
         }
         while(types.next())
         {
@@ -346,9 +436,9 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         {
             BoxDistrictPerson.addItem(districts.getString("name"));
         }
-        while(institutions.next())
+        while(institutions.next())institutions
         {
-            BoxInstitutionPerson.addItem(institutions.getString("name"));
+            BoxInstitutionPerson.addItem(.getString("name"));
         }
     }
     
@@ -5157,7 +5247,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
                 ButtonCancelRecordUserActionPerformed(evt);
             }
         });
-        CreateRecord.add(ButtonCancelRecordUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 510, 100, 40));
+        CreateRecord.add(ButtonCancelRecordUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 470, 100, 40));
 
         CheckBoxApprovedOrNotCreateRecord.setBackground(new java.awt.Color(255, 255, 255));
         CheckBoxApprovedOrNotCreateRecord.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -5269,7 +5359,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
                 ButtonConfirmRecordUserActionPerformed(evt);
             }
         });
-        CreateRecord.add(ButtonConfirmRecordUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 510, 100, 40));
+        CreateRecord.add(ButtonConfirmRecordUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 470, 100, 40));
 
         BoxTypeCrimeCreateRecord.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         BoxTypeCrimeCreateRecord.setForeground(new java.awt.Color(29, 41, 81));
@@ -6224,7 +6314,12 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         Animacion.Animacion.mover_derecha(290, 1100, 1, 1, JPAdminMenu);
         blockAll();
         AdminQuery.setVisible(true);
-        //Rellenar la info;
+        try {
+            fillInAdminQueries();
+            //Rellenar la info;
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_ButtonAdminQueryActionPerformed
 
     private void ButtonAdminConfigurationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAdminConfigurationActionPerformed
@@ -6234,9 +6329,15 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         AdminConfiguration.setVisible(true);
         JPLogged.setVisible(true);
         UpdateUsernameField.setText(Username.getText());
-        //Agregar la información personal del usuario en UpdateAdminPersonalInfo
-        //Rellenar las comboBox de AdminCatalogues
-        //Rellenar la lista con la funcion de expedientes en ApproveReports
+        try {
+            fillInAdminConfiguration();
+            
+            //Agregar la información personal del usuario en UpdateAdminPersonalInfo
+            //Rellenar las comboBox de AdminCatalogues
+            //Rellenar la lista con la funcion de expedientes en ApproveReports
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_ButtonAdminConfigurationActionPerformed
 
     private void ButtonSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSignUpActionPerformed
@@ -6254,7 +6355,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     }//GEN-LAST:event_ButtonSignUpActionPerformed
 
     private void ButtonEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEnterActionPerformed
-        firstRunning = false;
+        /*firstRunning = false;
         String user_field = UsernameField.getText();
         String user_password = new String(PasswordField.getPassword());
         if(user_field.isEmpty()) {
@@ -6273,15 +6374,15 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
                 Animacion.Animacion.mover_izquierda(0, -1100, 1, 1, JPLogin);
                 blockAll();
                 JPLogged.setVisible(true);
-                JPAdminMenu.setVisible(true);
-            }
+                JPAdminMenu.setVisible(true);*/
+            /*}
             else if(type > 1){
                 Username.setText(user_field);
                 Animacion.Animacion.mover_derecha(290, 1100, 1, 1, JPWelcome);
-                Animacion.Animacion.mover_izquierda(0, -1100, 1, 1, JPLogin);
+                Animacion.Animacion.mover_izquierda(0, -1100, 1, 1, JPLogin);*/
                 blockAll();
                 JPLogged.setVisible(true);
-                JPUserMenu.setVisible(true);
+                JPUserMenu.setVisible(true);/*
             } else if (type == 0){
                 JOptionPane.showMessageDialog(this, "User or password incorrect","Error", JOptionPane.ERROR_MESSAGE);
              } else if (type == -1){
@@ -6289,7 +6390,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
             }
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }//GEN-LAST:event_ButtonEnterActionPerformed
 
     private void ButtonCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCloseActionPerformed
@@ -6538,10 +6639,11 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
                 {
                     modelo.addRow(new Object[]{dangerous_places.getString("name_district"), dangerous_places.getInt("quant_record")});
                 }
-                Table.setModel(modelo);
+                
             } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
             }
+            Table.setModel(modelo);
         }
     }//GEN-LAST:event_ButtonShowPlacesActionPerformed
 
@@ -6623,7 +6725,6 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         JPLogged.setVisible(true);
         CheckBoxApprovedOrNotCreateRecord.setEnabled(false);
         try {
-            //fillInComboBox_Offender();
             fillInComboBox_CreateRecordUser();
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
@@ -7148,23 +7249,34 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     }//GEN-LAST:event_ButtonRollbackLogActionPerformed
 
     private void ButtonShowRecordsDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowRecordsDateActionPerformed
-        java.sql.Date startDate = null;
-        java.sql.Date endDate = null;
-        try {
-            startDate =(java.sql.Date) new SimpleDateFormat("dd/MM/yy").parse(DateStartField1.getText());
-            endDate =(java.sql.Date) new SimpleDateFormat("dd/MM/yy").parse(DateEndField1.getText());
-            ResultSet records = ConnectDB.records_expiring_between(startDate, endDate);
-            DefaultListModel model = new DefaultListModel();
-            model.removeAllElements();
-            while(records.next())
-            {
-                model.addElement(records.getInt("record_number"));
+        if(DateStartField1.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(this, "Fill the Date Start Field.");   
+        }
+        else if(DateEndField1.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(this, "Fill the Date End Field.");   
+        }
+        else{
+            java.sql.Date startDate = null;
+            java.sql.Date endDate = null;
+            try {
+                startDate =(java.sql.Date) new SimpleDateFormat("dd/MM/yy").parse(DateStartField1.getText());
+                endDate =(java.sql.Date) new SimpleDateFormat("dd/MM/yy").parse(DateEndField1.getText());
+
+                ResultSet records = ConnectDB.records_expiring_between(startDate, endDate);
+                DefaultListModel model = new DefaultListModel();
+                model.removeAllElements();
+                while(records.next())
+                {
+                    model.addElement(records.getInt("record_number"));
+                }
+                RecordsExpireList.setModel(model);
+            } catch (SQLException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ParseException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
             }
-            RecordsExpireList.setModel(model);
-        } catch (SQLException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ParseException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_ButtonShowRecordsDateActionPerformed
 
@@ -8073,10 +8185,11 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
             {
                 modelo.addRow(new Object[]{userList.getString("username"), userList.getInt("user_type")});
             }
-            TableUsers.setModel(modelo);
+            
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
+        TableUsers.setModel(modelo);
     }//GEN-LAST:event_ButtonShowUsersActionPerformed
 
     private void ButtonShowBannedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowBannedActionPerformed
@@ -8094,10 +8207,10 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
                 modelo.addRow(new Object[]{bannedList.getObject("username"), bannedList.getObject("ispermanent"), 
                     bannedList.getObject("description")});
             }
-            TableBanned.setModel(modelo);
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
+        TableBanned.setModel(modelo);
     }//GEN-LAST:event_ButtonShowBannedActionPerformed
 
     private void ButtonShowCataloguesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowCataloguesActionPerformed
@@ -8746,6 +8859,11 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         blockAll();
         CreatePerson.setVisible(true);
         JPLogged.setVisible(true);
+        try {
+            fillInComboBox_Offender();
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_ButtonCreateOffenderActionPerformed
 
     private void ButtonCreateOffenderMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCreateOffenderMouseExited
