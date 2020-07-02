@@ -34,7 +34,6 @@ FUNCTION getAllBannedReason RETURN sys_refcursor;
 FUNCTION isBanned (vUsername VARCHAR2) RETURN VARCHAR2;
 FUNCTION checkLogin (vUsername VARCHAR2, vPassword VARCHAR2) RETURN NUMBER;
 FUNCTION getAllUsernames RETURN SYS_REFCURSOR;
-FUNCTION getAllUsernamesBanned RETURN SYS_REFCURSOR;
 FUNCTION getIdUsertype (vName VARCHAR2) RETURN NUMBER;
 
 END adminUser;

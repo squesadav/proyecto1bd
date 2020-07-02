@@ -14,7 +14,7 @@ CREATE OR REPLACE PACKAGE admin_person IS
     FUNCTION getIdGender (vId NUMBER) RETURN NUMBER;
     FUNCTION getIdInstitution (vId NUMBER) RETURN NUMBER;
     FUNCTION getIdDistrict (vId NUMBER) RETURN NUMBER;
-    FUNCTION getALL RETURN sys_refcursor;
+    FUNCTION getAll RETURN sys_refcursor;
     PROCEDURE updateAge (pnId NUMBER);
     PROCEDURE updateAllAges;
     FUNCTION getAll RETURN SYS_REFCURSOR;
