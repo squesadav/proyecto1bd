@@ -994,6 +994,12 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         IconUpdateUsername5 = new javax.swing.JLabel();
         LabelUserUpdateLogin2 = new javax.swing.JLabel();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        setUndecorated(true);
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         JPWelcome.setBackground(new java.awt.Color(255, 255, 255));
         JPWelcome.setForeground(new java.awt.Color(255, 255, 255));
         JPWelcome.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -1007,14 +1013,10 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         LabelWelcome.setBackground(new java.awt.Color(255, 255, 255));
         LabelWelcome.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 48)); // NOI18N
         LabelWelcome.setForeground(new java.awt.Color(29, 41, 81));
-        LabelWelcome.setText("Welcome");
-        JPWelcome.add(LabelWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 220, 70));
+        LabelWelcome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/Logo.jpeg"))); // NOI18N
+        JPWelcome.add(LabelWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 580, 530));
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(255, 255, 255));
-        setUndecorated(true);
-        setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(JPWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
 
         JPLogin.setBackground(new java.awt.Color(29, 41, 81));
         JPLogin.setForeground(new java.awt.Color(255, 255, 255));
