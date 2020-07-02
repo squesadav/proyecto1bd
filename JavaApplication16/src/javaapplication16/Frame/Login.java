@@ -5687,146 +5687,54 @@ public class Login extends javax.swing.JFrame {
 
     private void ButtonQueryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonQueryActionPerformed
         Animacion.Animacion.mover_derecha(290, 1100, 1, 1, JPUserMenu);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        CreatePerson.setVisible(false);
-        CreateRecord.setVisible(false);
+        blockAll();
         UserQuery.setVisible(true);
-        UserConfiguration.setVisible(false);
-        JPLogin.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonQueryActionPerformed
 
     private void ButtonConfigurationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfigurationActionPerformed
         Animacion.Animacion.mover_derecha(290, 1100, 1, 1, JPUserMenu);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        CreatePerson.setVisible(false);
-        CreateRecord.setVisible(false);
-        UserQuery.setVisible(false);
+        blockAll();
         UserConfiguration.setVisible(true);
-        JPLogin.setVisible(false);
         JPLogged.setVisible(true);
         UpdateUsernameField.setText(Username.getText());
         //Agregar la información personal del usuario en UpdatePersonalInfo
     }//GEN-LAST:event_ButtonConfigurationActionPerformed
 
     private void ButtonLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonLogOutActionPerformed
+        blockAll();
         JPWelcome.setVisible(true);
         JPLogin.setVisible(true);
-        JPUserMenu.setVisible(false);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        CreatePerson.setVisible(false);
-        CreateRecord.setVisible(false);
-        JPSignUp.setVisible(false);
-        JPLogged.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
         UsernameField.setText(null);
         PasswordField.setText(null);
     }//GEN-LAST:event_ButtonLogOutActionPerformed
 
     private void ButtonStatisticsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonStatisticsActionPerformed
         Animacion.Animacion.mover_derecha(290, 1100, 1, 1, JPAdminMenu);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
+        blockAll();
         AdminStatistics.setVisible(true);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        CreatePerson.setVisible(false);
-        CreateRecord.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        JPLogin.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonStatisticsActionPerformed
 
     private void ButtonLogOutAdminUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonLogOutAdminUserActionPerformed
+        blockAll();
         JPWelcome.setVisible(true);
-        JPUserMenu.setVisible(false);
-        JPAdminMenu.setVisible(false);
-        JPSignUp.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        CreatePerson.setVisible(false);
-        CreateRecord.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        JPLogged.setVisible(false);
         JPLogin.setVisible(true);
     }//GEN-LAST:event_ButtonLogOutAdminUserActionPerformed
 
     private void ButtonAdminQueryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAdminQueryActionPerformed
         Animacion.Animacion.mover_derecha(290, 1100, 1, 1, JPAdminMenu);
-        JPUserMenu.setVisible(false);
-        JPAdminMenu.setVisible(false);
+        blockAll();
         AdminQuery.setVisible(true);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        CreatePerson.setVisible(false);
-        CreateRecord.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        JPSignUp.setVisible(false);
-        JPLogged.setVisible(true);
-        JPLogin.setVisible(false);
-        CreatePersonAdmin.setVisible(false);
-        CreateRecordAdmin.setVisible(false);
-        DeletePerson.setVisible(false);
-        DeleteRecord.setVisible(false);
-        DeleteUser.setVisible(false);
-        CreateBanUser.setVisible(false);
-        DeleteBan.setVisible(false);
         //Rellenar la info;
     }//GEN-LAST:event_ButtonAdminQueryActionPerformed
 
     private void ButtonAdminConfigurationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAdminConfigurationActionPerformed
         Animacion.Animacion.mover_derecha(290, 1100, 1, 1, JPAdminMenu);
-        JPUserMenu.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        CreatePerson.setVisible(false);
-        CreateRecord.setVisible(false);
-        UserQuery.setVisible(false);
+        blockAll();
         UserConfiguration.setVisible(true);
-        AdminQuery.setVisible(false);
         AdminConfiguration.setVisible(true);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
         JPLogged.setVisible(true);
-        JPLogin.setVisible(false);
         UpdateUsernameField.setText(Username.getText());
         //Agregar la información personal del usuario en UpdateAdminPersonalInfo
         //Rellenar las comboBox de AdminCatalogues
@@ -5837,19 +5745,7 @@ public class Login extends javax.swing.JFrame {
         firstRunning = false;
         Animacion.Animacion.mover_derecha(290, 1100, 1, 1, JPWelcome);
         Animacion.Animacion.mover_izquierda(0, -1100, 1, 1, JPLogin);
-        JPUserMenu.setVisible(false);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        CreatePerson.setVisible(false);
-        CreateRecord.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        AdminQuery.setVisible(false);
+        blockAll();
         JPSignUp.setVisible(true);
         JPLogged.setVisible(false);
         try {
@@ -5877,53 +5773,17 @@ public class Login extends javax.swing.JFrame {
                 Username.setText(user_field);
                 Animacion.Animacion.mover_derecha(290, 1100, 1, 1, JPWelcome);
                 Animacion.Animacion.mover_izquierda(0, -1100, 1, 1, JPLogin);
+                blockAll();
                 JPLogged.setVisible(true);
-                JPUserMenu.setVisible(false);
-                JPSignUp.setVisible(false);
                 JPAdminMenu.setVisible(true);
-                AdminQuery.setVisible(false);
-                AdminConfiguration.setVisible(false);
-                UserCatalogues.setVisible(false);
-                PersonCatalogues.setVisible(false);
-                RecordCatalogues.setVisible(false);
-                AdminStatistics.setVisible(false);
-                CreatePerson.setVisible(false);
-                CreateRecord.setVisible(false);
-                UserQuery.setVisible(false);
-                UserConfiguration.setVisible(false);
-                CreatePersonAdmin.setVisible(false);
-                CreateRecordAdmin.setVisible(false);
-                DeletePerson.setVisible(false);
-                DeleteRecord.setVisible(false);
-                DeleteUser.setVisible(false);
-                CreateBanUser.setVisible(false);
-                DeleteBan.setVisible(false);
             }
             else if(type > 1){
                 Username.setText(user_field);
                 Animacion.Animacion.mover_derecha(290, 1100, 1, 1, JPWelcome);
                 Animacion.Animacion.mover_izquierda(0, -1100, 1, 1, JPLogin);
+                blockAll();
                 JPLogged.setVisible(true);
                 JPUserMenu.setVisible(true);
-                JPSignUp.setVisible(false);
-                JPAdminMenu.setVisible(false);
-                AdminQuery.setVisible(false);
-                AdminConfiguration.setVisible(false);
-                UserCatalogues.setVisible(false);
-                PersonCatalogues.setVisible(false);
-                RecordCatalogues.setVisible(false);
-                AdminStatistics.setVisible(false);
-                CreatePerson.setVisible(false);
-                CreateRecord.setVisible(false);
-                UserQuery.setVisible(false);
-                UserConfiguration.setVisible(false);
-                CreatePersonAdmin.setVisible(false);
-                CreateRecordAdmin.setVisible(false);
-                DeletePerson.setVisible(false);
-                DeleteRecord.setVisible(false);
-                DeleteUser.setVisible(false);
-                CreateBanUser.setVisible(false);
-                DeleteBan.setVisible(false);
             } else if (type == 0){
                 JOptionPane.showMessageDialog(this, "User or password incorrect","Error", JOptionPane.ERROR_MESSAGE);
              } else if (type == -1){
@@ -6032,20 +5892,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonSignUpMouseExited
 
     private void JPWelcomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPWelcomeMouseEntered
+        blockAll();
         JPWelcome.setVisible(true);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPUserMenu.setVisible(false);
-        CreatePerson.setVisible(false);
-        CreateRecord.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        AdminQuery.setVisible(false);
     }//GEN-LAST:event_JPWelcomeMouseEntered
 
     private void ButtonCancelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonCancelMouseEntered
@@ -6062,22 +5910,9 @@ public class Login extends javax.swing.JFrame {
     private void ButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelActionPerformed
         NewUsernameField.setText(null);
         NewUserPasswordField.setText(null);
+        blockAll();
         JPWelcome.setVisible(true);
         JPLogin.setVisible(true);
-        JPLogged.setVisible(false);
-        JPUserMenu.setVisible(false);
-        CreatePerson.setVisible(false);
-        CreateRecord.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPSignUp.setVisible(false);
     }//GEN-LAST:event_ButtonCancelActionPerformed
 
     private void ButtonJoinMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonJoinMouseEntered
@@ -6128,22 +5963,11 @@ public class Login extends javax.swing.JFrame {
                 user.setId_userType(2);
                 ConnectDB.insertUser(user);
                 JOptionPane.showMessageDialog(this, "The user was created successfully.");
+            blockAll();
             JPWelcome.setVisible(true);
-            JPUserMenu.setVisible(false);
-            JPAdminMenu.setVisible(false);
-            AdminQuery.setVisible(false);
-            AdminConfiguration.setVisible(false);
-            UserCatalogues.setVisible(false);
-            PersonCatalogues.setVisible(false);
-            RecordCatalogues.setVisible(false);
-            AdminStatistics.setVisible(false);
-            JPSignUp.setVisible(false);
             NewUsernameField.setText(null);
             NewUserPasswordField.setText(null);
-            UserQuery.setVisible(false);
-            UserConfiguration.setVisible(false);
             JPLogin.setVisible(true);
-            JPLogged.setVisible(false);
             }
             catch(Exception e){
                 JOptionPane.showMessageDialog(this, "The user was NOT created successfully. Try again.");
@@ -6152,56 +5976,19 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonJoinActionPerformed
 
     private void JPSignUpMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPSignUpMouseEntered
+        blockAll();
         JPSignUp.setVisible(true);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPUserMenu.setVisible(false);
-        CreatePerson.setVisible(false);
-        CreateRecord.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
     }//GEN-LAST:event_JPSignUpMouseEntered
 
     private void JPAdminMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPAdminMenuMouseEntered
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
+        blockAll();
         JPLogged.setVisible(true);
-        JPLogin.setVisible(false);
         JPAdminMenu.setVisible(true);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPUserMenu.setVisible(false);
-        CreatePerson.setVisible(false);
-        CreateRecord.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
     }//GEN-LAST:event_JPAdminMenuMouseEntered
 
     private void JPUserMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPUserMenuMouseEntered
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
+        blockAll();
         JPLogged.setVisible(true);
-        JPLogin.setVisible(false);
-        CreatePerson.setVisible(false);
-        CreateRecord.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
         JPUserMenu.setVisible(true);
     }//GEN-LAST:event_JPUserMenuMouseEntered
 
@@ -6217,22 +6004,9 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_JPLoginMouseEntered
 
     private void UserQueryMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UserQueryMouseEntered
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPUserMenu.setVisible(false);
-        CreatePerson.setVisible(false);
-        CreateRecord.setVisible(false);
-        JPLogin.setVisible(false);
+        blockAll();
         JPLogged.setVisible(true);
         UserQuery.setVisible(true);
-        UserConfiguration.setVisible(false);
     }//GEN-LAST:event_UserQueryMouseEntered
 
     @SuppressWarnings("empty-statement")
@@ -6300,22 +6074,8 @@ public class Login extends javax.swing.JFrame {
 
     private void ButtonCreateRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCreateRecordActionPerformed
         Animacion.Animacion.mover_derecha(290, 1100, 1, 1, JPUserMenu);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        CreatePersonAdmin.setVisible(false);
-        CreateRecordAdmin.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        JPLogin.setVisible(false);
+        blockAll();
         CreateRecord.setVisible(true);
-        CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
         CheckBoxApprovedOrNotCreateRecord.setEnabled(false);
         try {
@@ -6326,22 +6086,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonCreateRecordActionPerformed
 
     private void CreatePersonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CreatePersonMouseEntered
-        JPUserMenu.setVisible(false);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        CreatePersonAdmin.setVisible(false);
-        CreateRecordAdmin.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        CreateRecord.setVisible(false);
-        JPLogin.setVisible(false);
+        blockAll();
         CreatePerson.setVisible(true);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_CreatePersonMouseEntered
@@ -6355,22 +6100,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonCancelPersonMouseExited
 
     private void ButtonCancelPersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelPersonActionPerformed
-        JPWelcome.setVisible(false);
-        JPUserMenu.setVisible(false);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        CreatePersonAdmin.setVisible(false);
-        CreateRecordAdmin.setVisible(false);
-        AdminStatistics.setVisible(false);
+        blockAll();
         CreateRecord.setVisible(true);
-        CreatePerson.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
         IdPersonField.setText(null);
         NamePersonField.setText(null);
         MiddleNamePersonField.setText(null);
@@ -6417,21 +6148,8 @@ public class Login extends javax.swing.JFrame {
                 ConnectDB.insert_person(person);
                 JOptionPane.showMessageDialog(this, "The person was created successfully in the system.");
                 Animacion.Animacion.mover_derecha(290, 1100, 1, 1, CreatePerson);
-                JPAdminMenu.setVisible(false);
-                AdminQuery.setVisible(false);
-                AdminConfiguration.setVisible(false);
-                UserCatalogues.setVisible(false);
-                PersonCatalogues.setVisible(false);
-                RecordCatalogues.setVisible(false);
-                AdminStatistics.setVisible(false);
-                JPUserMenu.setVisible(false);
-                JPWelcome.setVisible(false);
-                JPSignUp.setVisible(false);
-                UserQuery.setVisible(false);
-                UserConfiguration.setVisible(false);
-                AdminQuery.setVisible(false);
+                blockAll();
                 CreateRecord.setVisible(true);
-                JPLogin.setVisible(false);
                 JPLogged.setVisible(true);
             }
             catch(Exception e){}
@@ -6448,21 +6166,9 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonRollbackQueryPlacesMouseExited
 
     private void ButtonRollbackQueryPlacesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryPlacesActionPerformed
-        JPWelcome.setVisible(false);
+        blockAll();
         JPUserMenu.setVisible(true);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        CreateRecord.setVisible(false);
-        CreatePerson.setVisible(false);
-        JPSignUp.setVisible(false);
         JPLogged.setVisible(true);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
         NumberTopField.setText(null);
         Table.removeAll();
     }//GEN-LAST:event_ButtonRollbackQueryPlacesActionPerformed
@@ -6476,21 +6182,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonRollbackQueryRecordsMouseExited
 
     private void ButtonRollbackQueryRecordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryRecordsActionPerformed
-        JPWelcome.setVisible(false);
+        blockAll();
         JPUserMenu.setVisible(true);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        CreateRecord.setVisible(false);
-        CreatePerson.setVisible(false);
-        JPSignUp.setVisible(false);
-        JPLogged.setVisible(true);
-        UserConfiguration.setVisible(false);
-        AdminQuery.setVisible(false);
         RecordsList.removeAll();
         RecordDescriptionText.setText(null);
         BoxFilter.setSelectedIndex(0);
@@ -6508,21 +6201,9 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonRollbackQueryUsersMouseExited
 
     private void ButtonRollbackQueryUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryUsersActionPerformed
-        JPWelcome.setVisible(false);
+        blockAll();
         JPUserMenu.setVisible(true);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        CreateRecord.setVisible(false);
-        CreatePerson.setVisible(false);
-        JPSignUp.setVisible(false);
-        JPLogin.setVisible(false);
         JPLogged.setVisible(true);
-        UserQuery.setVisible(false);
         UserConfiguration.setVisible(false);
     }//GEN-LAST:event_ButtonRollbackQueryUsersActionPerformed
 
@@ -6535,21 +6216,9 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonRollbackQueryBannedMouseExited
 
     private void ButtonRollbackQueryBannedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryBannedActionPerformed
-        JPWelcome.setVisible(false);
+        blockAll();
         JPUserMenu.setVisible(true);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        CreateRecord.setVisible(false);
-        CreatePerson.setVisible(false);
-        JPSignUp.setVisible(false);
         JPLogged.setVisible(true);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
     }//GEN-LAST:event_ButtonRollbackQueryBannedActionPerformed
 
     private void ButtonRollbackQueryExpireMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryExpireMouseEntered
@@ -6561,143 +6230,49 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonRollbackQueryExpireMouseExited
 
     private void ButtonRollbackQueryExpireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackQueryExpireActionPerformed
-        JPWelcome.setVisible(false);
+        blockAll();
         JPUserMenu.setVisible(true);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        CreateRecord.setVisible(false);
-        CreatePerson.setVisible(false);
-        JPSignUp.setVisible(false);
         JPLogged.setVisible(true);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
         RecordsExpireList.removeAll();
         RecordDescriptionTextExpire.setText(null);
     }//GEN-LAST:event_ButtonRollbackQueryExpireActionPerformed
 
     private void PlacesMoreRecordsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlacesMoreRecordsMouseEntered
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPUserMenu.setVisible(false);
-        CreatePerson.setVisible(false);
-        CreateRecord.setVisible(false);
-        JPLogin.setVisible(false);
+        blockAll();
         JPLogged.setVisible(true);
         UserQuery.setVisible(true);
-        UserConfiguration.setVisible(false);
         PlacesMoreRecords.setVisible(true);
-        Records.setVisible(false);
-        UsersList.setVisible(false);
-        BannedUsers.setVisible(false);
         RecordsConvictionsToExpireOrExpired.setVisible(false);
     }//GEN-LAST:event_PlacesMoreRecordsMouseEntered
 
     private void RecordsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RecordsMouseEntered
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPUserMenu.setVisible(false);
-        CreatePerson.setVisible(false);
-        CreateRecord.setVisible(false);
-        JPLogin.setVisible(false);
+        blockAll();
         JPLogged.setVisible(true);
         UserQuery.setVisible(true);
-        UserConfiguration.setVisible(false);
-        PlacesMoreRecords.setVisible(false);
         Records.setVisible(true);
-        UsersList.setVisible(false);
-        BannedUsers.setVisible(false);
         RecordsConvictionsToExpireOrExpired.setVisible(false);
     }//GEN-LAST:event_RecordsMouseEntered
 
     private void UsersListMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsersListMouseEntered
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPUserMenu.setVisible(false);
-        CreatePerson.setVisible(false);
-        CreateRecord.setVisible(false);
-        JPLogin.setVisible(false);
+        blockAll();
         JPLogged.setVisible(true);
         UserQuery.setVisible(true);
-        UserConfiguration.setVisible(false);
-        PlacesMoreRecords.setVisible(false);
-        Records.setVisible(false);
         UsersList.setVisible(true);
-        BannedUsers.setVisible(false);
         RecordsConvictionsToExpireOrExpired.setVisible(false);
     }//GEN-LAST:event_UsersListMouseEntered
 
     private void BannedUsersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BannedUsersMouseEntered
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPUserMenu.setVisible(false);
-        CreatePerson.setVisible(false);
-        CreateRecord.setVisible(false);
-        JPLogin.setVisible(false);
+        blockAll();
         JPLogged.setVisible(true);
         UserQuery.setVisible(true);
-        UserConfiguration.setVisible(false);
-        PlacesMoreRecords.setVisible(false);
-        Records.setVisible(false);
-        UsersList.setVisible(false);
         BannedUsers.setVisible(true);
         RecordsConvictionsToExpireOrExpired.setVisible(false);
     }//GEN-LAST:event_BannedUsersMouseEntered
 
     private void RecordsConvictionsToExpireOrExpiredMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RecordsConvictionsToExpireOrExpiredMouseEntered
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPUserMenu.setVisible(false);
-        CreatePerson.setVisible(false);
-        CreateRecord.setVisible(false);
-        JPLogin.setVisible(false);
+        blockAll();
         JPLogged.setVisible(true);
         UserQuery.setVisible(true);
-        UserConfiguration.setVisible(false);
-        AdminQuery.setVisible(false);
-        PlacesMoreRecords.setVisible(false);
-        Records.setVisible(false);
-        UsersList.setVisible(false);
-        BannedUsers.setVisible(false);
         RecordsConvictionsToExpireOrExpired.setVisible(true);
     }//GEN-LAST:event_RecordsConvictionsToExpireOrExpiredMouseEntered
 
@@ -6788,23 +6363,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonCancelUpdatesUserLoginMouseExited
 
     private void ButtonCancelUpdatesUserLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelUpdatesUserLoginActionPerformed
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
+        blockAll();
         JPUserMenu.setVisible(true);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        CreateRecord.setVisible(false);
-        CreatePerson.setVisible(false);
-        UpdatePersonalInfo.setVisible(false);
-        UpdateLoginInfo.setVisible(false);
-        JPLogin.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonCancelUpdatesUserLoginActionPerformed
 
@@ -6820,43 +6380,16 @@ public class Login extends javax.swing.JFrame {
         String new_username = UpdateUsernameField.getText();
         String actual_password = (String) JOptionPane.showInputDialog(null,"Current password: ",JOptionPane.QUESTION_MESSAGE);
         //Que revise si es la contraseña igual;
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
+        blockAll();
         JPUserMenu.setVisible(true);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        CreateRecord.setVisible(false);
-        CreatePerson.setVisible(false);
-        JPLogin.setVisible(false);
         JPLogged.setVisible(true);
         Username.setText(new_username);
     }//GEN-LAST:event_ButtonConfirmChangesActionPerformed
 
     private void UpdateLoginInfoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UpdateLoginInfoMouseEntered
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPUserMenu.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
+        blockAll();
         UserConfiguration.setVisible(true);
-        CreateRecord.setVisible(false);
-        CreatePerson.setVisible(false);
-        UpdatePersonalInfo.setVisible(false);
         UpdateLoginInfo.setVisible(true);
-        JPLogin.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_UpdateLoginInfoMouseEntered
 
@@ -6869,23 +6402,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonCancelUpdatesUserInfoMouseExited
 
     private void ButtonCancelUpdatesUserInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelUpdatesUserInfoActionPerformed
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
+        blockAll();
         JPUserMenu.setVisible(true);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        CreateRecord.setVisible(false);
-        CreatePerson.setVisible(false);
-        UpdatePersonalInfo.setVisible(false);
-        UpdateLoginInfo.setVisible(false);
-        JPLogin.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonCancelUpdatesUserInfoActionPerformed
 
@@ -6925,21 +6443,8 @@ public class Login extends javax.swing.JFrame {
                         BoxCommunityUpdate.getSelectedIndex());
                 ConnectDB.insert_person(person);
                 JOptionPane.showMessageDialog(this, "The person was updated successfully in the system.");
-                JPAdminMenu.setVisible(false);
-                AdminQuery.setVisible(false);
-                AdminConfiguration.setVisible(false);
-                UserCatalogues.setVisible(false);
-                PersonCatalogues.setVisible(false);
-                RecordCatalogues.setVisible(false);
-                AdminStatistics.setVisible(false);
+                blockAll();
                 JPUserMenu.setVisible(true);
-                JPWelcome.setVisible(false);
-                JPSignUp.setVisible(false);
-                UserQuery.setVisible(false);
-                UserConfiguration.setVisible(false);
-                CreateRecord.setVisible(false);
-                CreatePerson.setVisible(false);
-                JPLogin.setVisible(false);
                 JPLogged.setVisible(true);
             }
             catch(Exception e){
@@ -7020,21 +6525,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonRollbackReportListMouseExited
 
     private void ButtonRollbackReportListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackReportListActionPerformed
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
+        blockAll();
         JPUserMenu.setVisible(true);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        CreateRecord.setVisible(false);
-        CreatePerson.setVisible(false);
-        JPLogin.setVisible(false);
         JPLogged.setVisible(true);
         NewReportList.removeAll();
         ReportInformation.removeAll();
@@ -7049,36 +6541,15 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonRollbackUserListNotChangePasswordMouseExited
 
     private void ButtonRollbackUserListNotChangePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackUserListNotChangePasswordActionPerformed
+        blockAll();
         JPAdminMenu.setVisible(true);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPUserMenu.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        CreateRecord.setVisible(false);
-        CreatePerson.setVisible(false);
-        JPLogin.setVisible(false);
         JPLogged.setVisible(true);
         TableUsersPassword.removeAll();
     }//GEN-LAST:event_ButtonRollbackUserListNotChangePasswordActionPerformed
 
     private void AdminQueryMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AdminQueryMouseEntered
-        JPAdminMenu.setVisible(false);
+        blockAll();
         AdminQuery.setVisible(true);
-        JPUserMenu.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        CreateRecord.setVisible(false);
-        CreatePerson.setVisible(false);
-        JPLogin.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_AdminQueryMouseEntered
 
@@ -7108,21 +6579,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonRollbackLogMouseExited
 
     private void ButtonRollbackLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackLogActionPerformed
+        blockAll();
         JPAdminMenu.setVisible(true);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPUserMenu.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        CreateRecord.setVisible(false);
-        CreatePerson.setVisible(false);
-        JPLogin.setVisible(false);
         JPLogged.setVisible(true);
         LogUserList.removeAll();
         BoxLogStartDate.setSelectedIndex(0);
@@ -7142,21 +6600,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonCancelUpdatesUserLoginAdminMouseExited
 
     private void ButtonCancelUpdatesUserLoginAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelUpdatesUserLoginAdminActionPerformed
+        blockAll();
         JPAdminMenu.setVisible(true);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPUserMenu.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        CreateRecord.setVisible(false);
-        CreatePerson.setVisible(false);
-        JPLogin.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonCancelUpdatesUserLoginAdminActionPerformed
 
@@ -7197,21 +6642,8 @@ public class Login extends javax.swing.JFrame {
                     ConnectDB.editUsername(actual_username, new_username);
                     JOptionPane.showMessageDialog(this, "The user was updated successfully in the system.");
                     Animacion.Animacion.mover_derecha(290, 1100, 1, 1, CreatePerson);
+                    blockAll();
                     JPAdminMenu.setVisible(true);
-                    AdminQuery.setVisible(false);
-                    AdminConfiguration.setVisible(false);
-                    UserCatalogues.setVisible(false);
-                    PersonCatalogues.setVisible(false);
-                    RecordCatalogues.setVisible(false);
-                    AdminStatistics.setVisible(false);
-                    JPUserMenu.setVisible(false);
-                    JPWelcome.setVisible(false);
-                    JPSignUp.setVisible(false);
-                    UserQuery.setVisible(false);
-                    UserConfiguration.setVisible(false);
-                    CreateRecord.setVisible(false);
-                    CreatePerson.setVisible(false);
-                    JPLogin.setVisible(false);
                     JPLogged.setVisible(true);
                     Username.setText(new_username);
                 }
@@ -7231,21 +6663,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonCancelUpdatesAdminInfoMouseExited
 
     private void ButtonCancelUpdatesAdminInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelUpdatesAdminInfoActionPerformed
+        blockAll();
         JPAdminMenu.setVisible(true);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPUserMenu.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        CreateRecord.setVisible(false);
-        CreatePerson.setVisible(false);
-        JPLogin.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonCancelUpdatesAdminInfoActionPerformed
 
@@ -7288,21 +6707,8 @@ public class Login extends javax.swing.JFrame {
                 ConnectDB.update_person(person);
                 JOptionPane.showMessageDialog(this, "The person was updated successfully in the system.");
                 Animacion.Animacion.mover_derecha(290, 1100, 1, 1, CreatePerson);
+                blockAll();
                 JPAdminMenu.setVisible(true);
-                AdminQuery.setVisible(false);
-                AdminConfiguration.setVisible(false);
-                UserCatalogues.setVisible(false);
-                PersonCatalogues.setVisible(false);
-                RecordCatalogues.setVisible(false);
-                AdminStatistics.setVisible(false);
-                JPUserMenu.setVisible(false);
-                JPWelcome.setVisible(false);
-                JPSignUp.setVisible(false);
-                UserQuery.setVisible(false);
-                UserConfiguration.setVisible(false);
-                CreateRecord.setVisible(false);
-                CreatePerson.setVisible(false);
-                JPLogin.setVisible(false);
                 JPLogged.setVisible(true);
             }
             catch(Exception e){
@@ -7320,21 +6726,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonRollbackCataloguesMouseExited
 
     private void ButtonRollbackCataloguesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackCataloguesActionPerformed
+        blockAll();
         JPAdminMenu.setVisible(true);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPUserMenu.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        CreateRecord.setVisible(false);
-        CreatePerson.setVisible(false);
-        JPLogin.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonRollbackCataloguesActionPerformed
 
@@ -7347,21 +6740,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonCancelUnapprovedMouseExited
 
     private void ButtonCancelUnapprovedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelUnapprovedActionPerformed
+        blockAll();
         JPAdminMenu.setVisible(true);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPUserMenu.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        CreateRecord.setVisible(false);
-        CreatePerson.setVisible(false);
-        JPLogin.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonCancelUnapprovedActionPerformed
 
@@ -7445,39 +6825,14 @@ public class Login extends javax.swing.JFrame {
                 Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        blockAll();
         JPAdminMenu.setVisible(true);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPUserMenu.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        CreateRecord.setVisible(false);
-        CreatePerson.setVisible(false);
-        JPLogin.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonConfirmUnapprovedActionPerformed
 
     private void ButtonConfirmUserCatalogueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmUserCatalogueActionPerformed
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
+        blockAll();
         AdminConfiguration.setVisible(true);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        JPLogin.setVisible(false);
-        CreateRecord.setVisible(false);
-        CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonConfirmUserCatalogueActionPerformed
 
@@ -7556,20 +6911,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_RemoveBannedReasonActionPerformed
 
     private void ButtonConfirmPersonCatalogueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmPersonCatalogueActionPerformed
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
+        blockAll();
         AdminConfiguration.setVisible(true);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        JPLogin.setVisible(false);
-        CreateRecord.setVisible(false);
-        CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonConfirmPersonCatalogueActionPerformed
 
@@ -7791,20 +7134,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_RemoveCityMouseExited
 
     private void ButtonCancelRecordCatalogueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelRecordCatalogueActionPerformed
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
+        blockAll();
         AdminConfiguration.setVisible(true);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        JPLogin.setVisible(false);
-        CreateRecord.setVisible(false);
-        CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonCancelRecordCatalogueActionPerformed
 
@@ -7968,37 +7299,15 @@ public class Login extends javax.swing.JFrame {
 
     private void ButtonUserCataloguesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonUserCataloguesActionPerformed
         Animacion.Animacion.mover_derecha(290, 1100, 1, 1, AdminConfiguration);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
+        blockAll();
         UserCatalogues.setVisible(true);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        JPLogin.setVisible(false);
-        CreateRecord.setVisible(false);
-        CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonUserCataloguesActionPerformed
 
     private void ButtonPersonCataloguesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonPersonCataloguesActionPerformed
         Animacion.Animacion.mover_derecha(290, 1100, 1, 1, AdminConfiguration);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        UserCatalogues.setVisible(false);
+        blockAll();
         PersonCatalogues.setVisible(true);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        JPLogin.setVisible(false);
-        CreateRecord.setVisible(false);
-        CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
         try {
             fillInPersonCatalogues();
@@ -8009,19 +7318,8 @@ public class Login extends javax.swing.JFrame {
 
     private void ButtonRecordCataloguesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRecordCataloguesActionPerformed
         Animacion.Animacion.mover_derecha(290, 1100, 1, 1, AdminConfiguration);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
+        blockAll();
         RecordCatalogues.setVisible(true);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        JPLogin.setVisible(false);
-        CreateRecord.setVisible(false);
-        CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonRecordCataloguesActionPerformed
 
@@ -8302,22 +7600,8 @@ public class Login extends javax.swing.JFrame {
 
     private void ButtonBanUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBanUserActionPerformed
         Animacion.Animacion.mover_derecha(290, 1100, 1, 1, AdminConfiguration);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        CreatePersonAdmin.setVisible(false);
-        CreateRecordAdmin.setVisible(false);
+        blockAll();
         CreateBanUser.setVisible(true);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        JPLogin.setVisible(false);
-        CreateRecord.setVisible(false);
-        CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonBanUserActionPerformed
 
@@ -8331,22 +7615,8 @@ public class Login extends javax.swing.JFrame {
 
     private void ButtonPersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonPersonActionPerformed
         Animacion.Animacion.mover_derecha(290, 1100, 1, 1, AdminConfiguration);
-        JPAdminMenu.setVisible(false);
-        JPUserMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
+        blockAll();
         CreatePersonAdmin.setVisible(true);
-        CreateRecordAdmin.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        JPLogin.setVisible(false);
-        CreatePerson.setVisible(false);
-        CreateRecord.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonPersonActionPerformed
 
@@ -8360,22 +7630,8 @@ public class Login extends javax.swing.JFrame {
 
     private void ButtonRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRecordActionPerformed
         Animacion.Animacion.mover_derecha(290, 1100, 1, 1, AdminConfiguration);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        CreatePersonAdmin.setVisible(false);
+        blockAll();
         CreateRecordAdmin.setVisible(true);
-        CreateBanUser.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        JPLogin.setVisible(false);
-        CreateRecord.setVisible(false);
-        CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
         //Llenar las combo box
     }//GEN-LAST:event_ButtonRecordActionPerformed
@@ -8389,23 +7645,9 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonRollbackCreateSystemMouseExited
 
     private void ButtonRollbackCreateSystemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackCreateSystemActionPerformed
+        blockAll();
         JPAdminMenu.setVisible(true);
-        JPUserMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        CreatePersonAdmin.setVisible(false);
         CreateRecordAdmin.setVisible(true);
-        CreateBanUser.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        JPLogin.setVisible(false);
-        CreateRecord.setVisible(false);
-        CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonRollbackCreateSystemActionPerformed
 
@@ -8419,26 +7661,9 @@ public class Login extends javax.swing.JFrame {
 
     private void ButtonDeleteBanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonDeleteBanActionPerformed
         Animacion.Animacion.mover_derecha(290, 1100, 1, 1, AdminConfiguration);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        CreatePersonAdmin.setVisible(false);
-        CreateRecordAdmin.setVisible(false);
+        blockAll();
         CreateBanUser.setVisible(true);
-        DeletePerson.setVisible(false);
-        DeleteRecord.setVisible(false);
-        DeleteUser.setVisible(false);
         DeleteBan.setVisible(true);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        JPLogin.setVisible(false);
-        CreateRecord.setVisible(false);
-        CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonDeleteBanActionPerformed
 
@@ -8452,26 +7677,8 @@ public class Login extends javax.swing.JFrame {
 
     private void ButtonDeletePersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonDeletePersonActionPerformed
         Animacion.Animacion.mover_derecha(290, 1100, 1, 1, AdminConfiguration);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        CreatePersonAdmin.setVisible(false);
-        CreateRecordAdmin.setVisible(false);
-        CreateBanUser.setVisible(false);
+        blockAll();
         DeletePerson.setVisible(true);
-        DeleteRecord.setVisible(false);
-        DeleteUser.setVisible(false);
-        DeleteBan.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        JPLogin.setVisible(false);
-        CreateRecord.setVisible(false);
-        CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonDeletePersonActionPerformed
 
@@ -8485,26 +7692,8 @@ public class Login extends javax.swing.JFrame {
 
     private void ButtonDeleteRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonDeleteRecordActionPerformed
         Animacion.Animacion.mover_derecha(290, 1100, 1, 1, AdminConfiguration);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        CreatePersonAdmin.setVisible(false);
-        CreateRecordAdmin.setVisible(false);
-        CreateBanUser.setVisible(false);
-        DeletePerson.setVisible(false);
+        blockAll();
         DeleteRecord.setVisible(true);
-        DeleteUser.setVisible(false);
-        DeleteBan.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        JPLogin.setVisible(false);
-        CreateRecord.setVisible(false);
-        CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonDeleteRecordActionPerformed
 
@@ -8517,26 +7706,9 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonRollbackDeleteSystemMouseExited
 
     private void ButtonRollbackDeleteSystemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackDeleteSystemActionPerformed
+        blockAll();
         JPAdminMenu.setVisible(true);
-        AdminQuery.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        CreatePersonAdmin.setVisible(false);
-        CreateRecordAdmin.setVisible(false);
         CreateBanUser.setVisible(true);
-        DeletePerson.setVisible(false);
-        DeleteRecord.setVisible(false);
-        DeleteUser.setVisible(false);
-        DeleteBan.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        JPLogin.setVisible(false);
-        CreateRecord.setVisible(false);
-        CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonRollbackDeleteSystemActionPerformed
 
@@ -8550,26 +7722,8 @@ public class Login extends javax.swing.JFrame {
 
     private void ButtonDeleteUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonDeleteUserActionPerformed
         Animacion.Animacion.mover_derecha(290, 1100, 1, 1, AdminConfiguration);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        CreatePersonAdmin.setVisible(false);
-        CreateRecordAdmin.setVisible(false);
-        CreateBanUser.setVisible(false);
-        DeletePerson.setVisible(false);
-        DeleteRecord.setVisible(false);
+        blockAll();
         DeleteUser.setVisible(true);
-        DeleteBan.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        JPLogin.setVisible(false);
-        CreateRecord.setVisible(false);
-        CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonDeleteUserActionPerformed
 
@@ -8662,26 +7816,8 @@ public class Login extends javax.swing.JFrame {
 
     private void ButtonCreateOffender1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCreateOffender1ActionPerformed
         Animacion.Animacion.mover_derecha(290, 1100, 1, 1, CreateRecordAdmin);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
+        blockAll();
         CreatePersonAdmin.setVisible(true);
-        CreateBanUser.setVisible(false);
-        DeletePerson.setVisible(false);
-        DeleteRecord.setVisible(false);
-        DeleteUser.setVisible(false);
-        DeleteBan.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        JPLogin.setVisible(false);
-        CreateRecord.setVisible(false);
-        CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonCreateOffender1ActionPerformed
 
@@ -8706,24 +7842,9 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonCancelRecordAdminMouseExited
 
     private void ButtonCancelRecordAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelRecordAdminActionPerformed
-        JPUserMenu.setVisible(false);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
+        blockAll();
         AdminConfiguration.setVisible(true);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        CreatePersonAdmin.setVisible(false);
-        CreateRecordAdmin.setVisible(false);
-        CreateBanUser.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
         CreateRecord.setVisible(true);
-        JPLogin.setVisible(false);
-        CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonCancelRecordAdminActionPerformed
 
@@ -8828,24 +7949,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_CreateRecordAdminMouseEntered
 
     private void CreateRecordMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CreateRecordMouseEntered
-        JPUserMenu.setVisible(false);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        CreatePersonAdmin.setVisible(false);
-        CreateRecordAdmin.setVisible(false);
-        CreateBanUser.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
+        blockAll();
         CreateRecord.setVisible(true);
-        JPLogin.setVisible(false);
-        CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_CreateRecordMouseEntered
 
@@ -8942,24 +8047,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_BoxResolutionCreateRecordActionPerformed
 
     private void ButtonCancelRecordUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelRecordUserActionPerformed
+        blockAll();
         JPUserMenu.setVisible(true);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        CreatePersonAdmin.setVisible(false);
-        CreateRecordAdmin.setVisible(false);
-        CreateBanUser.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        CreateRecord.setVisible(false);
-        JPLogin.setVisible(false);
-        CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonCancelRecordUserActionPerformed
 
@@ -8985,22 +8074,8 @@ public class Login extends javax.swing.JFrame {
 
     private void ButtonCreateOffenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCreateOffenderActionPerformed
         Animacion.Animacion.mover_derecha(290, 1100, 1, 1, CreateRecord);
-        JPAdminMenu.setVisible(false);
-        JPUserMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPUserMenu.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        AdminQuery.setVisible(false);
+        blockAll();
         CreatePerson.setVisible(true);
-        JPLogin.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonCreateOffenderActionPerformed
 
@@ -9052,23 +8127,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_PictureNewRecordActionPerformed
 
     private void ButtonRollbackCreateRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackCreateRecordActionPerformed
+        blockAll();
         JPUserMenu.setVisible(true);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        CreatePersonAdmin.setVisible(false);
-        CreateRecordAdmin.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        CreateRecord.setVisible(false);
-        JPLogin.setVisible(false);
-        CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonRollbackCreateRecordActionPerformed
 
@@ -9089,24 +8149,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonRollbackBanUserMouseExited
 
     private void ButtonRollbackBanUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackBanUserActionPerformed
-        JPUserMenu.setVisible(false);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
+        blockAll();
         AdminConfiguration.setVisible(true);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        CreatePersonAdmin.setVisible(false);
-        CreateRecordAdmin.setVisible(false);
-        CreateBanUser.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        CreateRecord.setVisible(false);
-        JPLogin.setVisible(false);
-        CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonRollbackBanUserActionPerformed
 
@@ -9120,47 +8164,15 @@ public class Login extends javax.swing.JFrame {
 
     private void ButtonConfirmBannedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmBannedActionPerformed
         JOptionPane.showMessageDialog(this, "The user was banned of the system succefully.");
-        JPUserMenu.setVisible(false);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
+        blockAll();
         AdminConfiguration.setVisible(true);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        CreatePersonAdmin.setVisible(false);
-        CreateRecordAdmin.setVisible(false);
-        CreateBanUser.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        CreateRecord.setVisible(false);
-        JPLogin.setVisible(false);
-        CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
         //Falta crear el baneo en la base
     }//GEN-LAST:event_ButtonConfirmBannedActionPerformed
 
     private void CreateBanUserMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CreateBanUserMouseEntered
-        JPUserMenu.setVisible(false);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        CreatePersonAdmin.setVisible(false);
-        CreateRecordAdmin.setVisible(false);
+        blockAll();
         CreateBanUser.setVisible(true);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        CreateRecord.setVisible(false);
-        JPLogin.setVisible(false);
-        CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_CreateBanUserMouseEntered
 
@@ -9173,28 +8185,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonRollbackDeleteUserMouseExited
 
     private void ButtonRollbackDeleteUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackDeleteUserActionPerformed
-        JPUserMenu.setVisible(false);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
+        blockAll();
         AdminConfiguration.setVisible(true);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        CreatePersonAdmin.setVisible(false);
-        CreateRecordAdmin.setVisible(false);
-        CreateBanUser.setVisible(false);
-        DeleteUser.setVisible(false);
-        DeletePerson.setVisible(false);
-        DeleteRecord.setVisible(false);
-        DeleteBan.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        CreateRecord.setVisible(false);
-        JPLogin.setVisible(false);
-        CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonRollbackDeleteUserActionPerformed
 
@@ -9208,28 +8200,8 @@ public class Login extends javax.swing.JFrame {
 
     private void ButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonDeleteActionPerformed
         //Borrar el usuario de la base;
-        JPUserMenu.setVisible(false);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
+        blockAll();
         AdminConfiguration.setVisible(true);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        CreatePersonAdmin.setVisible(false);
-        CreateRecordAdmin.setVisible(false);
-        CreateBanUser.setVisible(false);
-        DeleteUser.setVisible(false);
-        DeletePerson.setVisible(false);
-        DeleteRecord.setVisible(false);
-        DeleteBan.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        CreateRecord.setVisible(false);
-        JPLogin.setVisible(false);
-        CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonDeleteActionPerformed
 
@@ -9242,54 +8214,14 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonRollbackPersonDeleteMouseEntered
 
     private void ButtonRollbackPersonDeleteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRollbackPersonDeleteMouseExited
-        JPUserMenu.setVisible(false);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
+        blockAll();
         AdminConfiguration.setVisible(true);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        CreatePersonAdmin.setVisible(false);
-        CreateRecordAdmin.setVisible(false);
-        CreateBanUser.setVisible(false);
-        DeleteUser.setVisible(false);
-        DeletePerson.setVisible(false);
-        DeleteRecord.setVisible(false);
-        DeleteBan.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        CreateRecord.setVisible(false);
-        JPLogin.setVisible(false);
-        CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonRollbackPersonDeleteMouseExited
 
     private void ButtonRollbackPersonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackPersonDeleteActionPerformed
-        JPUserMenu.setVisible(false);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
+        blockAll();
         AdminConfiguration.setVisible(true);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        CreatePersonAdmin.setVisible(false);
-        CreateRecordAdmin.setVisible(false);
-        CreateBanUser.setVisible(false);
-        DeleteUser.setVisible(false);
-        DeletePerson.setVisible(false);
-        DeleteRecord.setVisible(false);
-        DeleteBan.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        CreateRecord.setVisible(false);
-        JPLogin.setVisible(false);
-        CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonRollbackPersonDeleteActionPerformed
 
@@ -9303,28 +8235,8 @@ public class Login extends javax.swing.JFrame {
 
     private void ButtonPersonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonPersonDeleteActionPerformed
         //Eliminar persona de la base;
-        JPUserMenu.setVisible(false);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
+        blockAll();
         AdminConfiguration.setVisible(true);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        CreatePersonAdmin.setVisible(false);
-        CreateRecordAdmin.setVisible(false);
-        CreateBanUser.setVisible(false);
-        DeleteUser.setVisible(false);
-        DeletePerson.setVisible(false);
-        DeleteRecord.setVisible(false);
-        DeleteBan.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        CreateRecord.setVisible(false);
-        JPLogin.setVisible(false);
-        CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonPersonDeleteActionPerformed
 
@@ -9337,28 +8249,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonRollbackRecordDeleteMouseExited
 
     private void ButtonRollbackRecordDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackRecordDeleteActionPerformed
-        JPUserMenu.setVisible(false);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
+        blockAll();
         AdminConfiguration.setVisible(true);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        CreatePersonAdmin.setVisible(false);
-        CreateRecordAdmin.setVisible(false);
-        CreateBanUser.setVisible(false);
-        DeleteUser.setVisible(false);
-        DeletePerson.setVisible(false);
-        DeleteRecord.setVisible(false);
-        DeleteBan.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        CreateRecord.setVisible(false);
-        JPLogin.setVisible(false);
-        CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonRollbackRecordDeleteActionPerformed
 
@@ -9372,80 +8264,20 @@ public class Login extends javax.swing.JFrame {
 
     private void ButtonRecordDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRecordDeleteActionPerformed
         //Eliminar de la base de datos;
-        JPUserMenu.setVisible(false);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
+        blockAll();        
         AdminConfiguration.setVisible(true);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        CreatePersonAdmin.setVisible(false);
-        CreateRecordAdmin.setVisible(false);
-        CreateBanUser.setVisible(false);
-        DeleteUser.setVisible(false);
-        DeletePerson.setVisible(false);
-        DeleteRecord.setVisible(false);
-        DeleteBan.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        CreateRecord.setVisible(false);
-        JPLogin.setVisible(false);
-        CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonRecordDeleteActionPerformed
 
     private void DeleteRecordMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeleteRecordMouseEntered
-        JPUserMenu.setVisible(false);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        CreatePersonAdmin.setVisible(false);
-        CreateRecordAdmin.setVisible(false);
-        CreateBanUser.setVisible(false);
-        DeleteUser.setVisible(false);
-        DeletePerson.setVisible(false);
+        blockAll();
         DeleteRecord.setVisible(true);
-        DeleteBan.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        CreateRecord.setVisible(false);
-        JPLogin.setVisible(false);
-        CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_DeleteRecordMouseEntered
 
     private void DeletePersonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeletePersonMouseEntered
-        JPUserMenu.setVisible(false);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        CreatePersonAdmin.setVisible(false);
-        CreateRecordAdmin.setVisible(false);
-        CreateBanUser.setVisible(false);
-        DeleteUser.setVisible(false);
+        blockAll();
         DeletePerson.setVisible(true);
-        DeleteRecord.setVisible(false);
-        DeleteBan.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        CreateRecord.setVisible(false);
-        JPLogin.setVisible(false);
-        CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_DeletePersonMouseEntered
 
@@ -9458,28 +8290,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonRollbackDeleteBanMouseExited
 
     private void ButtonRollbackDeleteBanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRollbackDeleteBanActionPerformed
-        JPUserMenu.setVisible(false);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
+        blockAll();
         AdminConfiguration.setVisible(true);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        CreatePersonAdmin.setVisible(false);
-        CreateRecordAdmin.setVisible(false);
-        CreateBanUser.setVisible(false);
-        DeleteUser.setVisible(false);
-        DeletePerson.setVisible(false);
-        DeleteRecord.setVisible(false);
-        DeleteBan.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        CreateRecord.setVisible(false);
-        JPLogin.setVisible(false);
-        CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonRollbackDeleteBanActionPerformed
 
@@ -9493,54 +8305,14 @@ public class Login extends javax.swing.JFrame {
 
     private void ButtonBanDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBanDeleteActionPerformed
         //Eliminar el baneo al usuario;
-        JPUserMenu.setVisible(false);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
+        blockAll();
         AdminConfiguration.setVisible(true);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        CreatePersonAdmin.setVisible(false);
-        CreateRecordAdmin.setVisible(false);
-        CreateBanUser.setVisible(false);
-        DeleteUser.setVisible(false);
-        DeletePerson.setVisible(false);
-        DeleteRecord.setVisible(false);
-        DeleteBan.setVisible(false);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        CreateRecord.setVisible(false);
-        JPLogin.setVisible(false);
-        CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_ButtonBanDeleteActionPerformed
 
     private void DeleteBanMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeleteBanMouseEntered
-        JPUserMenu.setVisible(false);
-        JPAdminMenu.setVisible(false);
-        AdminQuery.setVisible(false);
-        AdminConfiguration.setVisible(false);
-        UserCatalogues.setVisible(false);
-        PersonCatalogues.setVisible(false);
-        RecordCatalogues.setVisible(false);
-        CreatePersonAdmin.setVisible(false);
-        CreateRecordAdmin.setVisible(false);
-        CreateBanUser.setVisible(false);
-        DeleteUser.setVisible(false);
-        DeletePerson.setVisible(false);
-        DeleteRecord.setVisible(false);
+        blockAll();
         DeleteBan.setVisible(true);
-        AdminStatistics.setVisible(false);
-        JPWelcome.setVisible(false);
-        JPSignUp.setVisible(false);
-        UserQuery.setVisible(false);
-        UserConfiguration.setVisible(false);
-        CreateRecord.setVisible(false);
-        JPLogin.setVisible(false);
-        CreatePerson.setVisible(false);
         JPLogged.setVisible(true);
     }//GEN-LAST:event_DeleteBanMouseEntered
 
