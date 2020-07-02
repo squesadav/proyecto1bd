@@ -179,16 +179,12 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     {
         BoxOffender1.removeAllItems();
         BoxOffender1.addItem("Default");
-
         BoxTypeCrimeCreateRecord1.removeAllItems();
         BoxTypeCrimeCreateRecord1.addItem("Default");
-
         BoxDistrictCreateRecord1.removeAllItems();
         BoxDistrictCreateRecord1.addItem("Default");
-
         BoxPlaceCreateRecord1.removeAllItems();
         BoxPlaceCreateRecord1.addItem("Default");
-
         ResultSet persons = null;
         ResultSet districts = null;
         ResultSet types = null;
@@ -203,11 +199,11 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
         catch(Exception e){}
         while(persons.next())
         {
-            BoxGenderPerson1.addItem(persons.getString("name"));
+            BoxOffender1.addItem(persons.getString("name"));
         }
         while(districts.next())
         {
-            BoxDistrictPerson1.addItem(districts.getString("name"));
+            BoxDistrictCreateRecord1.addItem(districts.getString("name"));
         }
         while(types.next())
         {
