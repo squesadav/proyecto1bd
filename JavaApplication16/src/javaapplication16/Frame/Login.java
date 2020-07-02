@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
@@ -21,6 +22,7 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.DefaultPieDataset;
 
 public class Login extends javax.swing.JFrame {
     int indexPictures;
@@ -7507,19 +7509,24 @@ public class Login extends javax.swing.JFrame {
 
     private void ButtonEnterReportsZone1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEnterReportsZone1ActionPerformed
         try {
-            ResultSet records = ConnectDB.query("ADM","statics.records_clasification");
-            DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+            ResultSet records = ConnectDB.query("ADM","statistics.records_classification");
+            DefaultPieDataset dataset = new DefaultPieDataset();
             float per = 0;
             while(records.next())
             {
                 per = records.getFloat("percentage");
-                dataset.addValue(new Double(per), records.getString("name"), records.getString("name"));
+                dataset.setValue(records.getString("name") + " / " + records.getString("quantity") + " / " + String.valueOf(per) + "%", new Double(per));
             }
-            var chart = ChartFactory.createBarChart("Records by zone", "Type", "Quantity",dataset, PlotOrientation.VERTICAL, 
-                    true,true, false);
+            JFreeChart chart = ChartFactory.createPieChart("Records by classification", dataset, 
+                    false,true, false);
             ChartPanel panel = new ChartPanel(chart);
-            jPanel1.add(panel);
+            JFrame ventana = new JFrame("Records by classification");
+            ventana.setVisible(true);
+            ventana.setSize(800, 600);
+            ventana.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            ventana.add(panel);
         } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);           
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_ButtonEnterReportsZone1ActionPerformed

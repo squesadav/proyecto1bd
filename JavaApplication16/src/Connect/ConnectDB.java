@@ -675,10 +675,9 @@ public class ConnectDB {
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
         CallableStatement stmnt = con.prepareCall("{? = call "+ function +"} ");
-        
-        
+ 
         stmnt.registerOutParameter(1, OracleTypes.CURSOR);
-        stmnt.executeQuery(); 
+        stmnt.executeQuery();
         ResultSet result = (ResultSet) stmnt.getObject(1);
         return result;
     }
