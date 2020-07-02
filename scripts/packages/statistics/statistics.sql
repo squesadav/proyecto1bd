@@ -61,9 +61,9 @@ CREATE OR REPLACE PACKAGE BODY statistics IS
                 INNER JOIN app.state s ON ci.id_state = s.id
                 INNER JOIN app.country co ON s.id_country = co.id
                 WHERE r.approved = 'Y' AND 
-                      ci.id = NVL(vIdCity, ci.id) AND
-                      s.id = NVL(vIdState, s.id) AND
-                      co.id = NVL(vIdCountry, co.id)
+                      (ci.id = NVL(vIdCity, ci.id) OR vIdCity < 1) AND
+                      (s.id = NVL(vIdState, s.id) OR vIdState < 1) AND
+                      (co.id = NVL(vIdCountry, co.id) OR vIdCountry < 1)
                 GROUP BY d.name, ci.name, s.name, co.name
                 ORDER BY quantity DESC;
             RETURN cdistrict;
@@ -81,8 +81,8 @@ CREATE OR REPLACE PACKAGE BODY statistics IS
                 INNER JOIN app.state s ON ci.id_state = s.id
                 INNER JOIN app.country co ON s.id_country = co.id
                 WHERE r.approved = 'Y' AND 
-                      s.id = NVL(vIdState, s.id) AND
-                      co.id = NVL(vIdCountry, co.id)
+                      (s.id = NVL(vIdState, s.id) OR vIdState < 1) AND
+                      (co.id = NVL(vIdCountry, co.id) OR vIdCountry < 1)
                 GROUP BY ci.name, s.name, co.name
                 ORDER BY quantity DESC;
             RETURN ccity;
@@ -93,14 +93,14 @@ CREATE OR REPLACE PACKAGE BODY statistics IS
         cstate sys_refcursor;
         BEGIN
             OPEN cstate FOR
-                SELECT s.name city, co.name country, count(s.id) quantity, round((ratio_to_report(count(s.id)) over ())*100, 2) percentage
+                SELECT s.name state, co.name country, count(s.id) quantity, round((ratio_to_report(count(s.id)) over ())*100, 2) percentage
                 FROM app.record r
                 INNER JOIN app.district d ON r.id_district = d.id
                 INNER JOIN app.city ci ON d.id_city = ci.id
                 INNER JOIN app.state s ON ci.id_state = s.id
                 INNER JOIN app.country co ON s.id_country = co.id
                 WHERE r.approved = 'Y' AND 
-                      co.id = NVL(vIdCountry, co.id)
+                      (co.id = NVL(vIdCountry, co.id) OR vIdCountry < 1)
                 GROUP BY s.name, co.name
                 ORDER BY quantity DESC;
             RETURN cstate;
@@ -239,9 +239,9 @@ CREATE OR REPLACE PACKAGE BODY statistics IS
                 INNER JOIN app.state s ON ci.id_state = s.id
                 INNER JOIN app.country co ON s.id_country = co.id
                 WHERE p.id IN (SELECT id_person FROM app.record WHERE approved = 'Y') AND
-                      ci.id = NVL(vIdCity, ci.id) AND
-                      s.id = NVL(vIdState, s.id) AND
-                      co.id = NVL(vIdCountry, co.id)
+                      (ci.id = NVL(vIdCity, ci.id) OR vIdCity < 1) AND
+                      (s.id = NVL(vIdState, s.id) OR vIdState < 1) AND
+                      (co.id = NVL(vIdCountry, co.id) OR vIdCountry < 1)
                 GROUP BY d.name, ci.name, s.name, co.name
                 ORDER BY quantity DESC;
             RETURN cdistrict;
@@ -259,8 +259,8 @@ CREATE OR REPLACE PACKAGE BODY statistics IS
                 INNER JOIN app.state s ON ci.id_state = s.id
                 INNER JOIN app.country co ON s.id_country = co.id
                 WHERE p.id IN (SELECT id_person FROM app.record WHERE approved = 'Y') AND
-                      s.id = NVL(vIdState, s.id) AND
-                      co.id = NVL(vIdCountry, co.id)
+                      (s.id = NVL(vIdState, s.id) OR vIdState < 1)AND
+                      (co.id = NVL(vIdCountry, co.id) OR vIdCountry < 1)
                 GROUP BY ci.name, s.name, co.name
                 ORDER BY quantity DESC;
             RETURN ccity;
@@ -278,7 +278,7 @@ CREATE OR REPLACE PACKAGE BODY statistics IS
                 INNER JOIN app.state s ON ci.id_state = s.id
                 INNER JOIN app.country co ON s.id_country = co.id
                 WHERE p.id IN (SELECT id_person FROM app.record WHERE approved = 'Y') AND
-                      co.id = NVL(vIdCountry, co.id)
+                      (co.id = NVL(vIdCountry, co.id) OR vIdCountry < 1)
                 GROUP BY s.name, co.name
                 ORDER BY quantity DESC;
             RETURN cstate;

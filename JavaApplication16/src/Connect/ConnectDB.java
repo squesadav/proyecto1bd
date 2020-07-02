@@ -748,7 +748,7 @@ public class ConnectDB {
         String uPass = "ADM";
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ ? = call statistics.records_by_district(?,?,?) } ");
+        CallableStatement stmnt = con.prepareCall("{ ? = call statistics.records_by_district(?, ?, ?) } ");
         
         stmnt.registerOutParameter(1, OracleTypes.CURSOR);
         stmnt.setInt(2, idCity);
@@ -766,7 +766,7 @@ public class ConnectDB {
         String uPass = "ADM";
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ ? = call statistics.records_by_city(?,?,?) } ");
+        CallableStatement stmnt = con.prepareCall("{ ? = call statistics.records_by_city(?,?) } ");
         
         stmnt.registerOutParameter(1, OracleTypes.CURSOR);
         stmnt.setInt(2, idState);
@@ -783,7 +783,7 @@ public class ConnectDB {
         String uPass = "ADM";
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ ? = call statistics.criminals_by_city(?,?,?) } ");
+        CallableStatement stmnt = con.prepareCall("{ ? = call statistics.criminals_by_district(?,?,?) } ");
         
         stmnt.registerOutParameter(1, OracleTypes.CURSOR);
         stmnt.setInt(2, idCity);
@@ -801,7 +801,7 @@ public class ConnectDB {
         String uPass = "ADM";
         
         Connection con = DriverManager.getConnection(host, uName, uPass);
-        CallableStatement stmnt = con.prepareCall("{ ? = call statistics.criminals_by_city(?,?,?) } ");
+        CallableStatement stmnt = con.prepareCall("{ ? = call statistics.criminals_by_city(?,?) } ");
         
         stmnt.registerOutParameter(1, OracleTypes.CURSOR);
         stmnt.setInt(2, idState);
@@ -896,6 +896,7 @@ public class ConnectDB {
 
         public static int getIdDistrict(String name) throws SQLException
     {
+        if (name.toLowerCase().equals("null")) return 0;
         String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "APP";
         String uPass = "APP";
@@ -913,6 +914,7 @@ public class ConnectDB {
     
     public static int getIdCity(String name) throws SQLException
     {
+        if (name.toLowerCase().equals("null")) return 0;
         String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "APP";
         String uPass = "APP";
@@ -930,6 +932,7 @@ public class ConnectDB {
     
     public static int getIdState(String name) throws SQLException
     {
+        if (name.toLowerCase().equals("null")) return 0;
         String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "APP";
         String uPass = "APP";
@@ -947,6 +950,7 @@ public class ConnectDB {
     
     public static int getIdCountry(String name) throws SQLException
     {
+        if (name.toLowerCase().equals("null")) return 0;
         String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "APP";
         String uPass = "APP";
@@ -964,6 +968,7 @@ public class ConnectDB {
     
     public static int getIdType(String name) throws SQLException
     {
+        if (name.toLowerCase().equals("null")) return 0;
         String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "APP";
         String uPass = "APP";
@@ -981,6 +986,7 @@ public class ConnectDB {
 
     public static int getIdPlace(String name) throws SQLException
     {
+        if (name.toLowerCase().equals("null")) return 0;
         String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "APP";
         String uPass = "APP";
@@ -998,6 +1004,7 @@ public class ConnectDB {
     
     public static int getIdGender(String name) throws SQLException
     {
+        if (name.toLowerCase().equals("null")) return 0;
         String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "APP";
         String uPass = "APP";
@@ -1015,6 +1022,7 @@ public class ConnectDB {
     
     public static int getIdInstitution(String name) throws SQLException
     {
+        if (name.toLowerCase().equals("null")) return 0;
         String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "APP";
         String uPass = "APP";
@@ -1032,6 +1040,7 @@ public class ConnectDB {
     
     public static int getIdUserType(String name) throws SQLException
     {
+        if (name.toLowerCase().equals("null")) return 0;
         String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
         String uName = "ADM";
         String uPass = "ADM";

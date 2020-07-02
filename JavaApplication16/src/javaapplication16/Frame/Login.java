@@ -58,6 +58,83 @@ public class Login extends javax.swing.JFrame {
         UserConfiguration.setVisible(false);
     }
 
+        void fillInComboBoxStatistics1() throws SQLException
+    {
+        BoxTypeOfZone.removeAllItems();
+        BoxCity.removeAllItems();
+        BoxState.removeAllItems();
+        BoxCountry.removeAllItems();
+        BoxTypeOfZone.addItem("Null");
+        BoxTypeOfZone.addItem("District");
+        BoxTypeOfZone.addItem("City");
+        BoxTypeOfZone.addItem("State");
+        BoxTypeOfZone.addItem("Country");        
+        BoxCity.addItem("Null");
+        BoxState.addItem("Null");
+        BoxCountry.addItem("Null");       
+        ResultSet city = null;
+        ResultSet state= null;
+        ResultSet country = null;
+        try
+        {
+            city = ConnectDB.query("APP", "admin_city.getAll");
+            state = ConnectDB.query("APP","admin_state.getAll");
+            country = ConnectDB.query("APP","admin_country.getAll");
+        }
+        catch(Exception e){}
+        while(city.next())
+        {
+            BoxCity.addItem(city.getString("name"));
+        }
+        while(state.next())
+        {
+            BoxState.addItem(state.getString("name"));
+        }
+        while(country.next())
+        {
+            BoxCountry.addItem(country.getString("name"));
+        }
+    }
+        
+        void fillInComboBoxStatistics2() throws SQLException
+    {
+        BoxTypeOfZone1.removeAllItems();
+        BoxCityPersonRecords.removeAllItems();
+        BoxStatePersonRecords.removeAllItems();
+        BoxCountryPersonRecords.removeAllItems();
+        BoxTypeOfZone1.addItem("Null");
+        BoxTypeOfZone1.addItem("District");
+        BoxTypeOfZone1.addItem("City");
+        BoxTypeOfZone1.addItem("State");
+        BoxTypeOfZone1.addItem("Country");        
+        BoxCityPersonRecords.addItem("Null");
+        BoxStatePersonRecords.addItem("Null");
+        BoxCountryPersonRecords.addItem("Null");       
+        ResultSet city = null;
+        ResultSet state= null;
+        ResultSet country = null;
+        try
+        {
+            city = ConnectDB.query("APP", "admin_city.getAll");
+            state = ConnectDB.query("APP","admin_state.getAll");
+            country = ConnectDB.query("APP","admin_country.getAll");
+        }
+        catch(Exception e){}
+        while(city.next())
+        {
+            BoxCityPersonRecords.addItem(city.getString("name"));
+        }
+        while(state.next())
+        {
+            BoxStatePersonRecords.addItem(state.getString("name"));
+        }
+        while(country.next())
+        {
+            BoxCountryPersonRecords.addItem(country.getString("name"));
+        }
+    }
+    
+    
     void fillInComboBox_signIn() throws SQLException
     {
         BoxGenderNewUser.removeAllItems();
@@ -637,7 +714,6 @@ public class Login extends javax.swing.JFrame {
         LabelNewUsername2 = new javax.swing.JLabel();
         LabelNewUsername3 = new javax.swing.JLabel();
         LabelNewUsername4 = new javax.swing.JLabel();
-        ButtonRefreshTotalRecordsByZone = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         ButtonEnterReportsZone2 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
@@ -4058,6 +4134,11 @@ public class Login extends javax.swing.JFrame {
         BoxCountry.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         BoxCountry.setForeground(new java.awt.Color(29, 41, 81));
         BoxCountry.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        BoxCountry.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BoxCountryActionPerformed(evt);
+            }
+        });
         jPanel2.add(BoxCountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 160, 30));
 
         ButtonEnterReportsZone.setBackground(new java.awt.Color(255, 255, 255));
@@ -4079,7 +4160,7 @@ public class Login extends javax.swing.JFrame {
                 ButtonEnterReportsZoneActionPerformed(evt);
             }
         });
-        jPanel2.add(ButtonEnterReportsZone, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 120, 30));
+        jPanel2.add(ButtonEnterReportsZone, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, 120, 30));
 
         BoxState.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         BoxState.setForeground(new java.awt.Color(29, 41, 81));
@@ -4094,6 +4175,11 @@ public class Login extends javax.swing.JFrame {
         BoxTypeOfZone.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         BoxTypeOfZone.setForeground(new java.awt.Color(29, 41, 81));
         BoxTypeOfZone.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        BoxTypeOfZone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BoxTypeOfZoneActionPerformed(evt);
+            }
+        });
         jPanel2.add(BoxTypeOfZone, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 50, 160, 30));
 
         LabelNewUsername1.setBackground(new java.awt.Color(255, 255, 255));
@@ -4119,27 +4205,6 @@ public class Login extends javax.swing.JFrame {
         LabelNewUsername4.setForeground(new java.awt.Color(29, 41, 81));
         LabelNewUsername4.setText("Type of zone:");
         jPanel2.add(LabelNewUsername4, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 20, 100, 30));
-
-        ButtonRefreshTotalRecordsByZone.setBackground(new java.awt.Color(255, 255, 255));
-        ButtonRefreshTotalRecordsByZone.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        ButtonRefreshTotalRecordsByZone.setForeground(new java.awt.Color(29, 41, 81));
-        ButtonRefreshTotalRecordsByZone.setText("Refresh");
-        ButtonRefreshTotalRecordsByZone.setBorder(null);
-        ButtonRefreshTotalRecordsByZone.setContentAreaFilled(false);
-        ButtonRefreshTotalRecordsByZone.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                ButtonRefreshTotalRecordsByZoneMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                ButtonRefreshTotalRecordsByZoneMouseExited(evt);
-            }
-        });
-        ButtonRefreshTotalRecordsByZone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonRefreshTotalRecordsByZoneActionPerformed(evt);
-            }
-        });
-        jPanel2.add(ButtonRefreshTotalRecordsByZone, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 120, 30));
 
         AdminStatistics.addTab("Total records by zone", jPanel2);
 
@@ -5843,6 +5908,11 @@ public class Login extends javax.swing.JFrame {
         blockAll();
         AdminStatistics.setVisible(true);
         JPLogged.setVisible(true);
+        try {
+        fillInComboBoxStatistics1();
+        fillInComboBoxStatistics2(); 
+        }
+        catch (Exception e) {}
     }//GEN-LAST:event_ButtonStatisticsActionPerformed
 
     private void ButtonLogOutAdminUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonLogOutAdminUserActionPerformed
@@ -7352,43 +7422,60 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonEnterReportsZoneMouseExited
 
     private void ButtonEnterReportsZoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEnterReportsZoneActionPerformed
-        int index_country = BoxCountry.getSelectedIndex();
-        int index_state = BoxState.getSelectedIndex();
-        int index_city = BoxCity.getSelectedIndex();
-        int index_district = BoxTypeOfZone.getSelectedIndex();
-        if(index_country== 0){
-            JOptionPane.showMessageDialog(this, "Choose a valid option.");
+        String name_country = (String) BoxCountry.getSelectedItem();
+        String name_state = (String) BoxState.getSelectedItem();
+        String name_city = (String)BoxCity.getSelectedItem();
+        String type_zone = (String) BoxTypeOfZone.getSelectedItem();
+        if("Null".equals(type_zone)){
+            JOptionPane.showMessageDialog(this, "Choose a valid option type of zone.");
         }
         try {
             ResultSet records = null;
-            if(index_district > 0)
-            {
-                records = ConnectDB.records_by_district(index_city, index_state, index_country);
+            String graphName = "";
+            String valueName = "";
+            if(null != type_zone)
+            switch (type_zone) {
+                case "District":
+                    records = ConnectDB.records_by_district(ConnectDB.getIdCity(name_city), ConnectDB.getIdState(name_state), ConnectDB.getIdCountry(name_country));
+                    graphName = "Records by district";
+                    valueName = "district";
+                    break;
+                case "City":
+                    records = ConnectDB.records_by_city(ConnectDB.getIdState(name_state), ConnectDB.getIdCountry(name_country));
+                    graphName = "Records by city";
+                    valueName = "city";
+                    break;
+                case "State":
+                    records = ConnectDB.query("ADM", "statistics.records_by_state", ConnectDB.getIdCountry(name_country));
+                    graphName = "Records by state";
+                    valueName = "state";
+                    break;
+                case "Country":
+                    records = ConnectDB.query("ADM", "statistics.records_by_country");
+                    graphName = "Records by country";
+                    valueName = "country";
+                    break;
+                default:              
+                    break;
             }
-            else if(index_city > 0)
-            {
-                records = ConnectDB.records_by_city(index_state, index_country);
-            }
-            else if(index_state > 0)
-            {
-                records = ConnectDB.query("ADM", "statistics.records_by_state", index_country);
-            }
-            else if(index_state > 0)
-            {
-                records = ConnectDB.query("ADM", "statistics.records_by_state", index_country);
-            }
-            DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+            
+            DefaultPieDataset dataset = new DefaultPieDataset();
             float per = 0;
             while(records.next())
             {
                 per = records.getFloat("percentage");
-                dataset.addValue(new Double(per),records.getString("name"), "Quantity");
+                dataset.setValue(records.getString(valueName) + " / " + records.getString("quantity") + " / " + String.valueOf(per) + "%", new Double(per));
             }
-            var chart = ChartFactory.createBarChart("Records by zone", "Zones", "Quantity",dataset, PlotOrientation.VERTICAL, 
-                    true,true, false);
+            JFreeChart chart = ChartFactory.createPieChart(graphName, dataset, 
+                    false,true, false);
             ChartPanel panel = new ChartPanel(chart);
-            jPanel1.add(panel);
+            JFrame ventana = new JFrame(graphName);
+            ventana.setVisible(true);
+            ventana.setSize(800, 600);
+            ventana.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            ventana.add(panel);
         } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(),"Error", JOptionPane.ERROR_MESSAGE); 
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_ButtonEnterReportsZoneActionPerformed
@@ -7402,10 +7489,62 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonEnterPersonRecordsMouseExited
 
     private void ButtonEnterPersonRecordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEnterPersonRecordsActionPerformed
-        int index_country = BoxCountryPersonRecords.getSelectedIndex();
-        int index_state = BoxStatePersonRecords.getSelectedIndex();
-        int index_city = BoxCityPersonRecords.getSelectedIndex();
-        int index_district = BoxTypeOfZone1.getSelectedIndex();
+        String name_country = (String) BoxCountryPersonRecords.getSelectedItem();
+        String name_state = (String) BoxStatePersonRecords.getSelectedItem();
+        String name_city = (String)BoxCityPersonRecords.getSelectedItem();
+        String type_zone = (String) BoxTypeOfZone1.getSelectedItem();
+        if("Null".equals(type_zone)){
+            JOptionPane.showMessageDialog(this, "Choose a valid option type of zone.");
+        }
+        try {
+            ResultSet records = null;
+            String graphName = "";
+            String valueName = "";
+            if(null != type_zone)
+            switch (type_zone) {
+                case "District":
+                    records = ConnectDB.criminals_by_district(ConnectDB.getIdCity(name_city), ConnectDB.getIdState(name_state), ConnectDB.getIdCountry(name_country));
+                    graphName = "Persons with records by district";
+                    valueName = "district";
+                    break;
+                case "City":
+                    records = ConnectDB.criminals_by_city(ConnectDB.getIdState(name_state), ConnectDB.getIdCountry(name_country));
+                    graphName = "Persons with records by city";
+                    valueName = "city";
+                    break;
+                case "State":
+                    records = ConnectDB.query("ADM", "statistics.criminals_by_state", ConnectDB.getIdCountry(name_country));
+                    graphName = "Persons with records by state";
+                    valueName = "state";
+                    break;
+                case "Country":
+                    records = ConnectDB.query("ADM", "statistics.criminals_by_country");
+                    graphName = "Persons with records by country";
+                    valueName = "country";
+                    break;
+                default:              
+                    break;
+            }
+            
+            DefaultPieDataset dataset = new DefaultPieDataset();
+            float per = 0;
+            while(records.next())
+            {
+                per = records.getFloat("percentage");
+                dataset.setValue(records.getString(valueName) + " / " + records.getString("quantity") + " / " + String.valueOf(per) + "%", new Double(per));
+            }
+            JFreeChart chart = ChartFactory.createPieChart(graphName, dataset, 
+                    false,true, false);
+            ChartPanel panel = new ChartPanel(chart);
+            JFrame ventana = new JFrame(graphName);
+            ventana.setVisible(true);
+            ventana.setSize(800, 600);
+            ventana.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            ventana.add(panel);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(),"Error", JOptionPane.ERROR_MESSAGE); 
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
         //Aquí es donde se llama la función de la base de datos con los filtros y se agrega en la lista los valores
     }//GEN-LAST:event_ButtonEnterPersonRecordsActionPerformed
 
@@ -7664,62 +7803,6 @@ public class Login extends javax.swing.JFrame {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_ButtonEnterReportsZone1ActionPerformed
-
-    private void ButtonRefreshTotalRecordsByZoneMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRefreshTotalRecordsByZoneMouseEntered
-        ButtonRefreshTotalRecordsByZone.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(29,41,81), 2));
-    }//GEN-LAST:event_ButtonRefreshTotalRecordsByZoneMouseEntered
-
-    private void ButtonRefreshTotalRecordsByZoneMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonRefreshTotalRecordsByZoneMouseExited
-        ButtonRefreshTotalRecordsByZone.setBorder(null);
-    }//GEN-LAST:event_ButtonRefreshTotalRecordsByZoneMouseExited
-
-    private void ButtonRefreshTotalRecordsByZoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRefreshTotalRecordsByZoneActionPerformed
-        try{
-            BoxTypeOfZone.removeAllItems();
-            BoxTypeOfZone.addItem("Default");
-            BoxState.removeAllItems();
-            BoxState.addItem("Default");
-            BoxCity.removeAllItems();
-            BoxCity.addItem("Default");
-            ResultSet districts = null;
-            ResultSet countries = null;
-            ResultSet states = null;
-            ResultSet cities = null;
-            countries = ConnectDB.query("APP","admin_country.getAll");
-            while(countries.next())
-            {
-                BoxCountry.addItem(countries.getString("name"));
-            }
-            int index_country = BoxCountry.getSelectedIndex();
-            int index_state = BoxState.getSelectedIndex();
-            int index_city = BoxCity.getSelectedIndex();
-            int index_district = BoxTypeOfZone.getSelectedIndex();
-            if(index_country !=0)
-            {
-                states = ConnectDB.query("APP","admin_state.getAllInCountry", index_country);
-            }
-            else if(index_country == 0)
-            {
-                BoxCountry.removeAllItems();
-                BoxCountry.addItem("Default");
-            }
-
-            cities = ConnectDB.query("APP","admin_cities.getAll");
-            districts = ConnectDB.query("APP","admin_institution.getAll");
-            while(districts.next())
-            {
-                BoxTypeOfZone.addItem(districts.getString("name"));
-            }
-            while(states.next())
-            {
-                BoxState.addItem(states.getString("name"));
-            }
-            while(cities.next())
-            {
-                BoxCity.addItem(cities.getString("name"));
-            }
-        }catch(Exception e){}
-    }//GEN-LAST:event_ButtonRefreshTotalRecordsByZoneActionPerformed
 
     private void BoxResolutionUnapprovedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoxResolutionUnapprovedActionPerformed
         int resolution = BoxResolutionUnapproved.getSelectedIndex();
@@ -8513,7 +8596,7 @@ public class Login extends javax.swing.JFrame {
 
     private void ButtonEnterReportsZone2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEnterReportsZone2ActionPerformed
         try {
-            ResultSet records = ConnectDB.query("ADM","statistics.users_by_range");
+            ResultSet records = ConnectDB.query("ADM","statistics.users_age_range");
             DefaultPieDataset dataset = new DefaultPieDataset();
             float per = 0;
             while(records.next())
@@ -8551,12 +8634,12 @@ public class Login extends javax.swing.JFrame {
             while(records.next())
             {
                 per = records.getFloat("percentage");
-                dataset.setValue(records.getString("record_type") + " / " + records.getString("quantity") + " / " + String.valueOf(per) + "%", new Double(per));
+                dataset.setValue(records.getString("record_type") + " / " + records.getString("avg_years_of_sentence") + " / " + String.valueOf(per) + "%", new Double(per));
             }
-            JFreeChart chart = ChartFactory.createPieChart("Average record type years", dataset, 
+            JFreeChart chart = ChartFactory.createPieChart("Average record type years of sentence", dataset, 
                     false,true, false);
             ChartPanel panel = new ChartPanel(chart);
-            JFrame ventana = new JFrame("Average record type years");
+            JFrame ventana = new JFrame("Average record type years of sentence");
             ventana.setVisible(true);
             ventana.setSize(800, 600);
             ventana.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -8647,12 +8730,12 @@ public class Login extends javax.swing.JFrame {
             while(records.next())
             {
                 per = records.getFloat("percentage");
-                dataset.setValue(records.getString("record_type") + " / " + records.getString("quantity") + " / " + String.valueOf(per) + "%", new Double(per));
+                dataset.setValue(records.getString("record_type") + " / " + records.getString("avg_years_of_sentence") + " / " + String.valueOf(per) + "%", new Double(per));
             }
-            JFreeChart chart = ChartFactory.createPieChart("Average record type years", dataset, 
+            JFreeChart chart = ChartFactory.createPieChart("Average years in jail by type", dataset, 
                     false,true, false);
             ChartPanel panel = new ChartPanel(chart);
-            JFrame ventana = new JFrame("Average record type years");
+            JFrame ventana = new JFrame("Average years in jail by type");
             ventana.setVisible(true);
             ventana.setSize(800, 600);
             ventana.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -8694,6 +8777,14 @@ public class Login extends javax.swing.JFrame {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_ButtonEnterReportsZone7ActionPerformed
+
+    private void BoxTypeOfZoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoxTypeOfZoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BoxTypeOfZoneActionPerformed
+
+    private void BoxCountryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoxCountryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BoxCountryActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -8868,7 +8959,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton ButtonRecordCatalogues;
     private javax.swing.JButton ButtonRecordDelete;
     private javax.swing.JButton ButtonRefresh;
-    private javax.swing.JButton ButtonRefreshTotalRecordsByZone;
     private javax.swing.JButton ButtonRollbackBanUser;
     private javax.swing.JButton ButtonRollbackCatalogues;
     private javax.swing.JButton ButtonRollbackCreateRecord;
