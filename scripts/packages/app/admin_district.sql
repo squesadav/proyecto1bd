@@ -9,6 +9,8 @@ CREATE OR REPLACE PACKAGE admin_district IS
     FUNCTION getName (vId NUMBER) RETURN VARCHAR2;
     FUNCTION getIdCity (vId NUMBER) RETURN NUMBER;
     FUNCTION getAll RETURN sys_refcursor;
+    FUNCTION getAllInCity(vIdCity NUMBER) RETURN sys_refcursor;
+    FUNCTION getId(vName VARCHAR2) RETURN NUMBER;
 END admin_district;
 /
 
@@ -59,6 +61,39 @@ CREATE OR REPLACE PACKAGE BODY admin_district AS
             SELECT id, name, id_city
             FROM district;
         RETURN rAll;
+    END;
+
+    FUNCTION getAllInCountry(vIdCountry NUMBER) RETURN sys_refcursor
+    AS
+        cstate sys_refcursor;
+    BEGIN
+            OPEN cstate FOR
+                SELECT name
+                FROM state
+                WHERE id_country = vIdCountry;
+            RETURN cstate;
+    END;
+
+    FUNCTION getAllInCity(vIdCity NUMBER) RETURN sys_refcursor
+    AS
+        ccity sys_refcursor;
+    BEGIN
+            OPEN ccity FOR
+                SELECT name
+                FROM district
+                WHERE id_city = vIdCity;
+            RETURN ccity;
+    END;
+    
+    FUNCTION getId(vName VARCHAR2) RETURN NUMBER
+    AS
+        rid NUMBER(4);
+    BEGIN
+        SELECT id
+        INTO rid
+        FROM district
+        WHERE name = vName;
+    RETURN rid;
     END;
 END admin_district;
 /

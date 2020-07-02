@@ -8,6 +8,7 @@ CREATE OR REPLACE PACKAGE admin_gender IS
     PROCEDURE remove_gender(pnIdGender NUMBER);
     FUNCTION getName (vId NUMBER) RETURN VARCHAR2;
     FUNCTION getAll RETURN sys_refcursor;
+    FUNCTION getId(vName VARCHAR2) RETURN NUMBER;
 
 END admin_gender;
 /
@@ -51,6 +52,17 @@ CREATE OR REPLACE PACKAGE BODY admin_gender AS
             FROM gender;
         RETURN rAll;
     END;
-
+    
+    FUNCTION getId(vName VARCHAR2) RETURN NUMBER
+    AS
+        rid NUMBER(4);
+    BEGIN
+        SELECT id
+        INTO rid
+        FROM gender
+        WHERE name = vName;
+    RETURN rid;
+    END;
+    
 END admin_gender;
 /

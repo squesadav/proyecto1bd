@@ -7,6 +7,7 @@ CREATE OR REPLACE PACKAGE admin_type IS
     PROCEDURE remove_type(pnIdType NUMBER);
     FUNCTION getName (vId NUMBER) RETURN VARCHAR2;
     FUNCTION getAll RETURN SYS_REFCURSOR;
+    FUNCTION getId(vName VARCHAR2) RETURN NUMBER;
 END admin_type;
 /
 
@@ -49,5 +50,16 @@ CREATE OR REPLACE PACKAGE BODY admin_type AS
                 FROM type;
             RETURN ctype;
         END;
+
+    FUNCTION getId(vName VARCHAR2) RETURN NUMBER
+    AS
+        rid NUMBER(4);
+    BEGIN
+        SELECT id
+        INTO rid
+        FROM type
+        WHERE name = vName;
+    RETURN rid;
+    END;
 END admin_type;
 /

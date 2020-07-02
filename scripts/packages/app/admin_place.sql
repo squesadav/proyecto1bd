@@ -8,6 +8,7 @@ CREATE OR REPLACE PACKAGE admin_place IS
     PROCEDURE remove_place(pnIdPlace NUMBER);
     FUNCTION getName (vId NUMBER) RETURN VARCHAR2;
     FUNCTION get_id_district (vId NUMBER) RETURN NUMBER;
+    FUNCTION getId(vName VARCHAR2) RETURN NUMBER;
 END admin_place;
 /
 
@@ -50,6 +51,17 @@ CREATE OR REPLACE PACKAGE BODY admin_place AS
             FROM place
             WHERE id = vId;
         RETURN rid;
+    END;
+    
+    FUNCTION getId(vName VARCHAR2) RETURN NUMBER
+    AS
+        rid NUMBER(4);
+    BEGIN
+        SELECT id
+        INTO rid
+        FROM place
+        WHERE name = vName;
+    RETURN rid;
     END;
 END admin_place;
 /
