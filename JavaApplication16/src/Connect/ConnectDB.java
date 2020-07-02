@@ -310,7 +310,7 @@ public class ConnectDB {
         stmnt.setString(2, person.getName());
         stmnt.setString(3, person.getMiddle_name());
         stmnt.setString(4, person.getLast_name());
-        stmnt.setDate(5, (Date) person.getBirthday());
+        stmnt.setDate(5, person.getBirthday());
         stmnt.setInt(6, person.getId_gender());
         stmnt.setInt(7, person.getId_institution());
         stmnt.setInt(8, person.getId_district());

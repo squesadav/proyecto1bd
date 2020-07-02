@@ -9,7 +9,6 @@ import java.sql.ResultSet;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import javax.swing.JOptionPane;
 import org.jfree.chart.JFreeChart;
 import java.util.logging.Level;
@@ -1071,7 +1070,7 @@ public class Login extends javax.swing.JFrame {
         LabelLastNameNewUser.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         LabelLastNameNewUser.setForeground(new java.awt.Color(29, 41, 81));
         LabelLastNameNewUser.setText("Last name:");
-        JPSignUp.add(LabelLastNameNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 260, 90, 30));
+        JPSignUp.add(LabelLastNameNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 260, 120, 30));
 
         LabelNewUserGender.setBackground(new java.awt.Color(255, 255, 255));
         LabelNewUserGender.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
@@ -1095,7 +1094,7 @@ public class Login extends javax.swing.JFrame {
         LabelInstitutionNewUser.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         LabelInstitutionNewUser.setForeground(new java.awt.Color(29, 41, 81));
         LabelInstitutionNewUser.setText("Institution:");
-        JPSignUp.add(LabelInstitutionNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 400, 90, 30));
+        JPSignUp.add(LabelInstitutionNewUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 400, 100, 30));
 
         LineNewUsername.setForeground(new java.awt.Color(29, 41, 81));
         JPSignUp.add(LineNewUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 220, 20));
@@ -1135,6 +1134,11 @@ public class Login extends javax.swing.JFrame {
         MiddleNameNewUserField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         MiddleNameNewUserField.setForeground(new java.awt.Color(29, 41, 81));
         MiddleNameNewUserField.setBorder(null);
+        MiddleNameNewUserField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MiddleNameNewUserFieldActionPerformed(evt);
+            }
+        });
         JPSignUp.add(MiddleNameNewUserField, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 210, 220, 30));
 
         LineNewUserLastName.setForeground(new java.awt.Color(29, 41, 81));
@@ -1208,6 +1212,11 @@ public class Login extends javax.swing.JFrame {
         NewUserBirthday.setBorder(null);
         NewUserBirthday.setForeground(new java.awt.Color(29, 41, 81));
         NewUserBirthday.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        NewUserBirthday.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NewUserBirthdayActionPerformed(evt);
+            }
+        });
         JPSignUp.add(NewUserBirthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, 130, 30));
 
         getContentPane().add(JPSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
@@ -3565,7 +3574,7 @@ public class Login extends javax.swing.JFrame {
         LabelVeredictUnapproved5.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         LabelVeredictUnapproved5.setForeground(new java.awt.Color(29, 41, 81));
         LabelVeredictUnapproved5.setText("Years of sentence:");
-        CreateRecordAdmin.add(LabelVeredictUnapproved5, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 240, 160, 30));
+        CreateRecordAdmin.add(LabelVeredictUnapproved5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, 170, 30));
 
         LineDateCrime9.setForeground(new java.awt.Color(29, 41, 81));
         CreateRecordAdmin.add(LineDateCrime9, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 310, 110, 20));
@@ -6230,9 +6239,20 @@ public class Login extends javax.swing.JFrame {
         String new_user_password = NewUserPasswordField.getText();
         String new_user_id = IdNewUserField.getText();
         String new_user_name = NameNewUserField.getText();
-        String new_user_middle_name = MiddleNameNewUserField.getText();
+        String new_user_middle_name;
+        try {
+        new_user_middle_name = MiddleNameNewUserField.getText(); 
+        }
+        catch (NullPointerException e) {
+            new_user_middle_name = " ";
+        }
         String new_user_last_name = LastNameNewUserField.getText();
-        String new_user_birthday = NewUserBirthday.getText();
+        java.util.Date new_user_birthday = null;
+        try {
+        new_user_birthday = new SimpleDateFormat("dd/MM/yy").parse(NewUserBirthday.getText());
+        }
+        catch (Exception e){}
+        java.sql.Date new_user_birthday_sql = new java.sql.Date(new_user_birthday.getTime());
         if(new_user.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Fill the username field.");
         } else if(new_user_password.isEmpty()) {
@@ -6241,8 +6261,6 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Fill the id field.");
         } else if(new_user_name.isEmpty()){
             JOptionPane.showMessageDialog(this, "Fill the name field.");
-        } else if(new_user_middle_name.isEmpty()){
-            new_user_middle_name = null;
         } else if(new_user_last_name.isEmpty()){
             JOptionPane.showMessageDialog(this, "Fill the last name field.");
         } else if(BoxGenderNewUser.getSelectedIndex() == 0){
@@ -6255,21 +6273,22 @@ public class Login extends javax.swing.JFrame {
             
             try{
                 Person person = new Person(Integer.parseInt(new_user_id), new_user_name, new_user_middle_name, 
-                    new_user_last_name, new SimpleDateFormat("dd/MM/yyyy").parse(new_user_birthday),
-                    BoxGenderNewUser.getSelectedIndex(), BoxInstitutionNewUser.getSelectedIndex(), 
-                    BoxNewUserDistrict.getSelectedIndex());
+                    new_user_last_name, new_user_birthday_sql,
+                    ConnectDB.getIdGender((String)BoxGenderNewUser.getSelectedItem()), ConnectDB.getIdInstitution((String)BoxInstitutionNewUser.getSelectedItem()), 
+                    ConnectDB.getIdDistrict((String)BoxNewUserDistrict.getSelectedItem()));
                 User user = new User(new_user, new_user_password, person);
                 user.setId_userType(2);
                 ConnectDB.insert_person(person);
                 ConnectDB.insertUser(user);
                 JOptionPane.showMessageDialog(this, "The user was created successfully.");
-            blockAll();
-            JPWelcome.setVisible(true);
-            NewUsernameField.setText(null);
-            NewUserPasswordField.setText(null);
-            JPLogin.setVisible(true);
+                blockAll();
+                JPWelcome.setVisible(true);
+                NewUsernameField.setText(null);
+                NewUserPasswordField.setText(null);
+                JPLogin.setVisible(true);
             }
             catch(Exception e){
+                JOptionPane.showMessageDialog(this, e.getMessage());
                 JOptionPane.showMessageDialog(this, "The user was NOT created successfully. Try again.");
             }
         }
@@ -6423,19 +6442,26 @@ public class Login extends javax.swing.JFrame {
     private void ButtonConfirmPersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmPersonActionPerformed
         String offender_id = IdPersonField.getText();
         String offender_name = NamePersonField.getText();
-        String offender_middle_name = MiddleNamePersonField.getText();
         String offender_last_name = LastNamePersonField.getText();
-        String offender_birthday = BirthdayPersonField.getText();
+        String middle_name;
+        try {
+        middle_name = MiddleNamePersonField.getText(); 
+        }
+        catch (NullPointerException e) {
+            middle_name = " ";
+        }
+        java.util.Date birthday = null;
+        try {
+        birthday = new SimpleDateFormat("dd/MM/yy").parse(BirthdayPersonField.getText());
+        }
+        catch (Exception e){}
+        java.sql.Date birthday_sql = new java.sql.Date(birthday.getTime());
         if(offender_id.isEmpty()){
             JOptionPane.showMessageDialog(this, "Fill the id field.");
         } else if(offender_name.isEmpty()){
             JOptionPane.showMessageDialog(this, "Fill the name field.");
-        } else if(offender_middle_name.isEmpty()){
-            offender_middle_name = null;
         } else if(offender_last_name.isEmpty()){
             JOptionPane.showMessageDialog(this, "Fill the last name field.");
-        } else if(offender_birthday.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Fill the birthday field.");
         } else if(BoxGenderPerson.getSelectedIndex() == 0){
             JOptionPane.showMessageDialog(this, "Choose a valid option.");
         } else if(BoxDistrictPerson.getSelectedIndex() == 0){
@@ -6444,7 +6470,7 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Choose a valid option.");
         } else {
              try{
-                Person person = new Person(Integer.parseInt(offender_id), offender_name, offender_middle_name, offender_last_name, new SimpleDateFormat("dd/MM/yyyy").parse(offender_birthday), BoxGenderNewUser.getSelectedIndex(), BoxInstitutionNewUser.getSelectedIndex(), BoxNewUserDistrict.getSelectedIndex());
+                Person person = new Person(Integer.parseInt(offender_id), offender_name, middle_name, offender_last_name, birthday_sql, BoxGenderNewUser.getSelectedIndex(), BoxInstitutionNewUser.getSelectedIndex(), BoxNewUserDistrict.getSelectedIndex());
                 ConnectDB.insert_person(person);
                 JOptionPane.showMessageDialog(this, "The person was created successfully in the system.");
                 Animacion.Animacion.mover_derecha(290, 1100, 1, 1, CreatePerson);
@@ -6718,15 +6744,24 @@ public class Login extends javax.swing.JFrame {
     private void ButtonConfirmChangesUpdatePersonalInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmChangesUpdatePersonalInfoActionPerformed
         String id = IdUpdateField.getText();
         String name = NameUpdateField.getText();
-        String middle_name = MiddleNameUpdateField.getText();
         String last_name = LastNameUpdateField.getText();
-        String birthday = BirthdayUpdateField.getText();
+        String middle_name;
+        try {
+        middle_name = MiddleNameUpdateField.getText(); 
+        }
+        catch (NullPointerException e) {
+            middle_name = " ";
+        }
+        java.util.Date birthday = null;
+        try {
+        birthday = new SimpleDateFormat("dd/MM/yy").parse(BirthdayUpdateField.getText());
+        }
+        catch (Exception e){}
+        java.sql.Date birthday_sql = new java.sql.Date(birthday.getTime());
         if(id.isEmpty()){
             JOptionPane.showMessageDialog(this, "Fill the id of the person field.");
         } else if(name.isEmpty()){
             JOptionPane.showMessageDialog(this, "Fill the name of the person field.");
-        } else if(middle_name.isEmpty()){
-            middle_name = null;
         } else if(last_name.isEmpty()){
             JOptionPane.showMessageDialog(this, "Fill the expire date field.");
         }else if(BoxGenderUpdate.getSelectedIndex() == 0){
@@ -6738,7 +6773,7 @@ public class Login extends javax.swing.JFrame {
         } else {
             try{
                 Person person = new Person(Integer.parseInt(id), name, middle_name, 
-                        last_name, new SimpleDateFormat("dd/MM/yyyy").parse(birthday), 
+                        last_name, birthday_sql, 
                         BoxGenderUpdate.getSelectedIndex(), BoxInstitutionUpdate.getSelectedIndex(), 
                         BoxCommunityUpdate.getSelectedIndex());
                 ConnectDB.insert_person(person);
@@ -6979,19 +7014,26 @@ public class Login extends javax.swing.JFrame {
     private void ButtonConfirmChangesUpdateAdminPersonalInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmChangesUpdateAdminPersonalInfoActionPerformed
         String id = UpdateAdminIdField.getText();
         String new_name = UpdateAdminNameField.getText();
-        String new_middle_name = UpdateAdminMiddleNameField.getText();
         String new_last_name = UpdateAdminLastNameField.getText();
-        String new_birthday = UpdateAdminBirthdayField.getText();
+        String middle_name;
+        try {
+        middle_name = UpdateAdminMiddleNameField.getText(); 
+        }
+        catch (NullPointerException e) {
+            middle_name = " ";
+        }
+        java.util.Date birthday = null;
+        try {
+        birthday = new SimpleDateFormat("dd/MM/yy").parse(UpdateAdminBirthdayField.getText());
+        }
+        catch (Exception e){}
+        java.sql.Date birthday_sql = new java.sql.Date(birthday.getTime());
         if(id.isEmpty()){
             JOptionPane.showMessageDialog(this, "Fill the id field.");
         } else if(new_name.isEmpty()){
             JOptionPane.showMessageDialog(this, "Fill the name field.");
-        } else if(new_middle_name.isEmpty()){
-            new_middle_name = null;
         } else if(new_last_name.isEmpty()){
             JOptionPane.showMessageDialog(this, "Fill the last name field.");
-        } else if(new_birthday.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Fill the birthday field.");
         } else if(BoxGenderAdminUpdate.getSelectedIndex() == 0){
             JOptionPane.showMessageDialog(this, "Choose a valid option.");
         } else if(BoxDistrictAdminUpdate.getSelectedIndex() == 0){
@@ -7000,8 +7042,8 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Choose a valid option.");
         } else {
              try{
-                Person person = new Person(Integer.parseInt(id), new_name, new_middle_name, 
-                        new_last_name, new SimpleDateFormat("dd/MM/yyyy").parse(new_birthday), 
+                Person person = new Person(Integer.parseInt(id), new_name, middle_name, 
+                        new_last_name, birthday_sql, 
                         BoxGenderAdminUpdate.getSelectedIndex(), BoxInstitutionAdminUpdate.getSelectedIndex(), 
                         BoxDistrictAdminUpdate.getSelectedIndex());
                 ConnectDB.update_person(person);
@@ -8085,19 +8127,26 @@ public class Login extends javax.swing.JFrame {
     private void ButtonConfirmPerson1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmPerson1ActionPerformed
         String offender_id = IdPersonField1.getText();
         String offender_name = NamePersonField1.getText();
-        String offender_middle_name = MiddleNamePersonField1.getText();
         String offender_last_name = LastNamePersonField1.getText();
-        String offender_birthday = BirthdayPersonField1.getText();
+        String middle_name;
+        try {
+        middle_name = MiddleNamePersonField1.getText(); 
+        }
+        catch (NullPointerException e) {
+            middle_name = " ";
+        }
+        java.util.Date birthday = null;
+        try {
+        birthday = new SimpleDateFormat("dd/MM/yy").parse(BirthdayPersonField1.getText());
+        }
+        catch (Exception e){}
+        java.sql.Date birthday_sql = new java.sql.Date(birthday.getTime());
         if(offender_id.isEmpty()){
             JOptionPane.showMessageDialog(this, "Fill the id field.");
         } else if(offender_name.isEmpty()){
             JOptionPane.showMessageDialog(this, "Fill the name field.");
-        } else if(offender_middle_name.isEmpty()){
-            offender_middle_name = null;
         } else if(offender_last_name.isEmpty()){
             JOptionPane.showMessageDialog(this, "Fill the last name field.");
-        } else if(offender_birthday.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Fill the birthday field.");
         } else if(BoxGenderPerson1.getSelectedIndex() == 0){
             JOptionPane.showMessageDialog(this, "Choose a valid option.");
         } else if(BoxDistrictPerson1.getSelectedIndex() == 0){
@@ -8106,7 +8155,7 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Choose a valid option.");
         } else {
              try{
-                Person person = new Person(Integer.parseInt(offender_id), offender_name, offender_middle_name, offender_last_name, new SimpleDateFormat("dd/MM/yyyy").parse(offender_birthday), BoxGenderNewUser.getSelectedIndex(), BoxInstitutionNewUser.getSelectedIndex(), BoxNewUserDistrict.getSelectedIndex());
+                Person person = new Person(Integer.parseInt(offender_id), offender_name, middle_name, offender_last_name, birthday_sql, BoxGenderNewUser.getSelectedIndex(), BoxInstitutionNewUser.getSelectedIndex(), BoxNewUserDistrict.getSelectedIndex());
                 ConnectDB.insert_person(person);
                 JOptionPane.showMessageDialog(this, "The person was created successfully in the system.");
                 Animacion.Animacion.mover_derecha(290, 1100, 1, 1, CreatePerson);
@@ -8233,7 +8282,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonConfirmRecordAdminMouseExited
 
     private void ButtonConfirmRecordAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmRecordAdminActionPerformed
-       /* String number_record = RecordNumberField.getText();
+        /*String number_record = RecordNumberField.getText();
         String crime_description = CrimeDescriptionCreateRecord.getText();
         String date_crime = DateCrimeCreateRecord.getText();
         String expire_date = ExpireDateCreateRecord.getText();
@@ -8245,7 +8294,7 @@ public class Login extends javax.swing.JFrame {
             BoxTypeSentenceCreateRecord.setEnabled(false);
         }
         String approved = "N";
-        //String[] pictures = null; /Moficar para que aquí reciba los paths de las fotos;
+        String[] pictures = null; //Moficar para que aquí reciba los paths de las fotos;
         ArrayList<Pictures> pics = null;
         if(number_record.isEmpty()){
             JOptionPane.showMessageDialog(this, "Fill the number of the record field.");
@@ -8294,7 +8343,9 @@ public class Login extends javax.swing.JFrame {
                 JPLogin.setVisible(false);
                 JPLogged.setVisible(true);
             }
-            catch(Exception e){}
+            catch(Exception e){
+                JOptionPane.showMessageDialog(this, ex.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);             
+            }
         }*/
     }//GEN-LAST:event_ButtonConfirmRecordAdminActionPerformed
 
@@ -8333,7 +8384,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_AddRecordUserMouseEntered
 
     private void ButtonConfirmRecordUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmRecordUserActionPerformed
-        String number_record = RecordNumberField.getText();
+        /*String number_record = RecordNumberField.getText();
         String crime_description = CrimeDescriptionCreateRecord.getText();
         String stringDatecrime = DateCrimeCreateRecord.getText();
         String expire_date = ExpireDateCreateRecord.getText();
@@ -8397,7 +8448,7 @@ public class Login extends javax.swing.JFrame {
                 JPLogged.setVisible(true);
             }
             catch(Exception e){}
-        }
+        }*/
     }//GEN-LAST:event_ButtonConfirmRecordUserActionPerformed
 
     private void ButtonConfirmRecordUserMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonConfirmRecordUserMouseExited
@@ -8560,8 +8611,8 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "You can´t banned yourself.");
         }
         try {
-            Banned banned = new Banned(ispermanent, new SimpleDateFormat("dd/MM/yyyy").parse(DateStart),
-                    new SimpleDateFormat("dd/MM/yyyy").parse(DateEnd), username,bannedReason);
+            Banned banned = new Banned(ispermanent, new SimpleDateFormat("dd/MM/yy").parse(DateStart),
+                    new SimpleDateFormat("dd/MM/yy").parse(DateEnd), username,bannedReason);
             ConnectDB.insertBanned(banned);
             JOptionPane.showMessageDialog(this, "The user was banned of the system succefully.");
             blockAll();
@@ -9050,6 +9101,14 @@ public class Login extends javax.swing.JFrame {
     private void BoxCountryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoxCountryActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BoxCountryActionPerformed
+
+    private void MiddleNameNewUserFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MiddleNameNewUserFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MiddleNameNewUserFieldActionPerformed
+
+    private void NewUserBirthdayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewUserBirthdayActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NewUserBirthdayActionPerformed
 
 
     public static void main(String args[]) {
