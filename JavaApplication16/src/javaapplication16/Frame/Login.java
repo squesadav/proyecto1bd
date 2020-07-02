@@ -3720,18 +3720,18 @@ public class Login extends javax.swing.JFrame {
         IconCreateReacord2.setText("Create Ban User");
         IconCreateReacord2.setMaximumSize(new java.awt.Dimension(240, 128));
         IconCreateReacord2.setMinimumSize(new java.awt.Dimension(240, 128));
-        CreateBanUser.add(IconCreateReacord2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 300, 90));
+        CreateBanUser.add(IconCreateReacord2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 300, 90));
 
         LabelResolutionUnapproved7.setBackground(new java.awt.Color(255, 255, 255));
         LabelResolutionUnapproved7.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         LabelResolutionUnapproved7.setForeground(new java.awt.Color(29, 41, 81));
         LabelResolutionUnapproved7.setText("List of users");
-        CreateBanUser.add(LabelResolutionUnapproved7, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 100, 30));
+        CreateBanUser.add(LabelResolutionUnapproved7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, 120, 30));
 
         BoxReasonBanned.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         BoxReasonBanned.setForeground(new java.awt.Color(29, 41, 81));
         BoxReasonBanned.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
-        CreateBanUser.add(BoxReasonBanned, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 410, 120, 30));
+        CreateBanUser.add(BoxReasonBanned, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 420, 120, 30));
 
         ButtonConfirmBanned.setBackground(new java.awt.Color(255, 255, 255));
         ButtonConfirmBanned.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
@@ -3765,45 +3765,45 @@ public class Login extends javax.swing.JFrame {
         ListUsersForBan.setSelectionBackground(new java.awt.Color(204, 204, 204));
         jScrollPane15.setViewportView(ListUsersForBan);
 
-        CreateBanUser.add(jScrollPane15, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 280, -1));
+        CreateBanUser.add(jScrollPane15, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, 280, -1));
 
         CheckBoxPermanency.setBackground(new java.awt.Color(255, 255, 255));
         CheckBoxPermanency.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         CheckBoxPermanency.setForeground(new java.awt.Color(29, 41, 81));
         CheckBoxPermanency.setLabel("Permanent");
-        CreateBanUser.add(CheckBoxPermanency, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, -1, -1));
+        CreateBanUser.add(CheckBoxPermanency, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 350, -1, -1));
 
         LabelResolutionUnapproved8.setBackground(new java.awt.Color(255, 255, 255));
         LabelResolutionUnapproved8.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         LabelResolutionUnapproved8.setForeground(new java.awt.Color(29, 41, 81));
         LabelResolutionUnapproved8.setText("Reason of banned:");
-        CreateBanUser.add(LabelResolutionUnapproved8, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 410, 160, 30));
+        CreateBanUser.add(LabelResolutionUnapproved8, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, 210, 30));
 
         LabelChooseFilterRecords9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         LabelChooseFilterRecords9.setForeground(new java.awt.Color(29, 41, 81));
         LabelChooseFilterRecords9.setText("End Date:");
-        CreateBanUser.add(LabelChooseFilterRecords9, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 350, -1, 30));
+        CreateBanUser.add(LabelChooseFilterRecords9, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 380, -1, 30));
 
         DateStartField2.setBorder(null);
         DateStartField2.setForeground(new java.awt.Color(29, 41, 81));
         DateStartField2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
-        CreateBanUser.add(DateStartField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 350, 110, 30));
+        CreateBanUser.add(DateStartField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 370, 110, 30));
 
         LineDateCrime13.setForeground(new java.awt.Color(29, 41, 81));
-        CreateBanUser.add(LineDateCrime13, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 380, 110, 20));
+        CreateBanUser.add(LineDateCrime13, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 400, 110, 20));
 
         DateEndField2.setBorder(null);
         DateEndField2.setForeground(new java.awt.Color(29, 41, 81));
         DateEndField2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
-        CreateBanUser.add(DateEndField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 350, 110, 30));
+        CreateBanUser.add(DateEndField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 370, 110, 30));
 
         LineDateCrime14.setForeground(new java.awt.Color(29, 41, 81));
-        CreateBanUser.add(LineDateCrime14, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 380, 110, 20));
+        CreateBanUser.add(LineDateCrime14, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 400, 110, 20));
 
         LabelChooseFilterRecords10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         LabelChooseFilterRecords10.setForeground(new java.awt.Color(29, 41, 81));
         LabelChooseFilterRecords10.setText("Start Date:");
-        CreateBanUser.add(LabelChooseFilterRecords10, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, -1, 30));
+        CreateBanUser.add(LabelChooseFilterRecords10, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, -1, 30));
 
         getContentPane().add(CreateBanUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 760, 530));
 
