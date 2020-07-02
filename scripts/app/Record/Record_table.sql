@@ -11,7 +11,7 @@ CREATE TABLE record(
     picture                 VARCHAR2(50),
     approved                VARCHAR2(1),
     id_type                 NUMBER(3),
-    id_veredict             NUMBER(4),
+    id_veredict             VARCHAR2(10),
     id_person               NUMBER(9),
     id_district             NUMBER(4),
     creation_date           DATE,
@@ -37,3 +37,5 @@ ALTER TABLE record
 ALTER TABLE record
     ADD CONSTRAINT fk_record_district FOREIGN KEY(id_district) 
     references district(id);
+    
+alter table record drop constraint fk_record_veredict;
