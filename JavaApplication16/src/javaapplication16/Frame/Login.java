@@ -8384,24 +8384,26 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_AddRecordUserMouseEntered
 
     private void ButtonConfirmRecordUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmRecordUserActionPerformed
-        /*String number_record = RecordNumberField.getText();
+       try{
+        String number_record = RecordNumberField.getText();
         String crime_description = CrimeDescriptionCreateRecord.getText();
         String stringDatecrime = DateCrimeCreateRecord.getText();
         String expire_date = ExpireDateCreateRecord.getText();
         String years = YearsSentenceCreateRecord.getText();
         String start_date = StartDateSentenceCreateRecord.getText();
         String end_date = FinishDateSentenceCreateRecord.getText();
-        try {
-            Date dateCrime = new SimpleDateFormat("dd/MM/yyyy").parse(stringDatecrime);
-            Date expireDateCrime = new SimpleDateFormat("dd/MM/yyyy").parse(expire_date);
-            Date startDate = new SimpleDateFormat("dd/MM/yyyy").parse(start_date);
-            Date endDate = new SimpleDateFormat("dd/MM/yyyy").parse(end_date);
-        } catch (ParseException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        String id_place = BoxPlaceCreateRecord.getText();
+        String id_district = BoxDistrictCreateRecord.getText();
+
+        java.util.Date dateCrime = new SimpleDateFormat("dd/MM/yyyy").parse(stringDatecrime);
+        java.util.Date expireDateCrime = new SimpleDateFormat("dd/MM/yyyy").parse(expire_date);
+        java.util.Date startDate = new SimpleDateFormat("dd/MM/yyyy").parse(start_date);
+        java.util.Date endDate = new SimpleDateFormat("dd/MM/yyyy").parse(end_date);
+
         String idOffender = BoxOffender.getItemAt(BoxOffender.getSelectedIndex());
         String typeOfCrime = BoxTypeCrimeCreateRecord.getItemAt(BoxTypeCrimeCreateRecord.getSelectedIndex());
         String resolution = BoxResolutionCreateRecord.getItemAt(BoxResolutionCreateRecord.getSelectedIndex());
+        String idDistrict = BoxDistrictCreateRecord.getItemAt(BoxDistrictCreateRecord.getSelectedIndex());
         if(resolution == "Innocent"){
             YearsSentenceCreateRecord.setEnabled(false);
             StartDateSentenceCreateRecord.setEnabled(false);
@@ -8424,17 +8426,19 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Fill the type of crime field.");
         }else if (BoxResolutionCreateRecord.getSelectedIndex() == 0){
             JOptionPane.showMessageDialog(this, "Fill the resolution of crime field.");
+        }else if (BoxPlaceCreateRecord.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(this, "Fill the place of the sentence field.");
+        }else if (BoxDistrictCreateRecord.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(this, "Fill the district of crime field.");
         } else {
-            try{
                 if(CheckBoxApprovedOrNotCreateRecord.isSelected())
                 {
                     approved = "Y";
                 }
-                var veredict = new Veredict(Integer.parseInt(years));
-                var record = new BL.Record(number_record, crime_description, new SimpleDateFormat("dd/MM/yyyy").parse(date_crime),
-                    resolution, new SimpleDateFormat("dd/MM/yyyy").parse(expire_date), approved, CheckBoxApprovedOrNotCreateRecord.getSelectedIndex(),
-                   BoxOffender.getSelectedIndex(), BoxVeredict.getSelectedIndex(), BoxDistrictRecord.getSelectedIndex());
-
+                var veredict = new Veredict(number_record, Integer.parseInt(years), Integer.parseInt(id_place), start_date, end_date);
+                var record = new BL.Record(number_record, crime_description, date_crime,resolution, expire_date, approved, 
+                    Integer.parseInt(typeOfCrime), Integer.parseInt(idOffender), Integer.parseInt(idDistrict));
+                ConnectDB.insert_veredict(veredict);
                 ConnectDB.insert_record(record);
                 for(String picture : pictures)
                 {
@@ -8446,9 +8450,8 @@ public class Login extends javax.swing.JFrame {
                 blockAll();
                 JPAdminMenu.setVisible(true);
                 JPLogged.setVisible(true);
-            }
-            catch(Exception e){}
-        }*/
+        }
+    }catch(Exception e){}
     }//GEN-LAST:event_ButtonConfirmRecordUserActionPerformed
 
     private void ButtonConfirmRecordUserMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonConfirmRecordUserMouseExited
@@ -8738,6 +8741,7 @@ public class Login extends javax.swing.JFrame {
         String record = ListRecordsDelete.getSelectedValue();
         try {
             ConnectDB.delete("APP", "admin_record.remove_record",record);
+            ConnectDB.delete("APP", "admin_veredict.remove_veredict",record);
             JOptionPane.showMessageDialog(this, "The record was deleted successfully in the system.");
             blockAll();
             AdminConfiguration.setVisible(true);
