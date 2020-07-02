@@ -8027,6 +8027,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     private void ButtonShowUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowUsersActionPerformed
         DefaultTableModel modelo = (DefaultTableModel)TableUsers.getModel();
         modelo.setRowCount(0);
+        modelo.setColumnCount(0);
         modelo.addColumn("Username");
         modelo.addColumn("Type");
         try {
@@ -8045,6 +8046,7 @@ void fillInComboBox_CreateRecordAdmin() throws SQLException
     private void ButtonShowBannedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonShowBannedActionPerformed
         DefaultTableModel modelo = (DefaultTableModel)TableBanned.getModel();
         modelo.setRowCount(0);
+        modelo.setColumnCount(0);
         modelo.addColumn("Username");
         modelo.addColumn("Is Permanent");
         modelo.addColumn("Description");
