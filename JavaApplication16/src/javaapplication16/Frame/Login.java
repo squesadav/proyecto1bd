@@ -135,16 +135,12 @@ void fillInComboBox_CreateRecordUser() throws SQLException
     {
         BoxOffender.removeAllItems();
         BoxOffender.addItem("Default");
-
         BoxTypeCrimeCreateRecord.removeAllItems();
         BoxTypeCrimeCreateRecord.addItem("Default");
-
         BoxDistrictCreateRecord.removeAllItems();
         BoxDistrictCreateRecord.addItem("Default");
-
         BoxPlaceCreateRecord.removeAllItems();
         BoxPlaceCreateRecord.addItem("Default");
-
         ResultSet persons = null;
         ResultSet districts = null;
         ResultSet types = null;
