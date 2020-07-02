@@ -630,7 +630,7 @@ public class Login extends javax.swing.JFrame {
         ButtonEnterReportsZone = new javax.swing.JButton();
         BoxState = new javax.swing.JComboBox<>();
         BoxCity = new javax.swing.JComboBox<>();
-        BoxDistrict = new javax.swing.JComboBox<>();
+        BoxTypeOfZone = new javax.swing.JComboBox<>();
         LabelNewUsername1 = new javax.swing.JLabel();
         LabelNewUsername2 = new javax.swing.JLabel();
         LabelNewUsername3 = new javax.swing.JLabel();
@@ -645,7 +645,7 @@ public class Login extends javax.swing.JFrame {
         ButtonEnterPersonRecords = new javax.swing.JButton();
         BoxStatePersonRecords = new javax.swing.JComboBox<>();
         BoxCityPersonRecords = new javax.swing.JComboBox<>();
-        BoxDistrictPersonRecords = new javax.swing.JComboBox<>();
+        BoxTypeOfZone1 = new javax.swing.JComboBox<>();
         LabelNewUsername5 = new javax.swing.JLabel();
         LabelNewUsername6 = new javax.swing.JLabel();
         LabelNewUsername7 = new javax.swing.JLabel();
@@ -4091,10 +4091,10 @@ public class Login extends javax.swing.JFrame {
         BoxCity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
         jPanel2.add(BoxCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, 160, 30));
 
-        BoxDistrict.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        BoxDistrict.setForeground(new java.awt.Color(29, 41, 81));
-        BoxDistrict.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
-        jPanel2.add(BoxDistrict, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 50, 160, 30));
+        BoxTypeOfZone.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        BoxTypeOfZone.setForeground(new java.awt.Color(29, 41, 81));
+        BoxTypeOfZone.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        jPanel2.add(BoxTypeOfZone, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 50, 160, 30));
 
         LabelNewUsername1.setBackground(new java.awt.Color(255, 255, 255));
         LabelNewUsername1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
@@ -4117,7 +4117,7 @@ public class Login extends javax.swing.JFrame {
         LabelNewUsername4.setBackground(new java.awt.Color(255, 255, 255));
         LabelNewUsername4.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         LabelNewUsername4.setForeground(new java.awt.Color(29, 41, 81));
-        LabelNewUsername4.setText("District:");
+        LabelNewUsername4.setText("Type of zone:");
         jPanel2.add(LabelNewUsername4, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 20, 100, 30));
 
         ButtonRefreshTotalRecordsByZone.setBackground(new java.awt.Color(255, 255, 255));
@@ -4234,10 +4234,10 @@ public class Login extends javax.swing.JFrame {
         BoxCityPersonRecords.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
         jPanel5.add(BoxCityPersonRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, 160, 30));
 
-        BoxDistrictPersonRecords.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        BoxDistrictPersonRecords.setForeground(new java.awt.Color(29, 41, 81));
-        BoxDistrictPersonRecords.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
-        jPanel5.add(BoxDistrictPersonRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 50, 160, 30));
+        BoxTypeOfZone1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        BoxTypeOfZone1.setForeground(new java.awt.Color(29, 41, 81));
+        BoxTypeOfZone1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        jPanel5.add(BoxTypeOfZone1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 50, 160, 30));
 
         LabelNewUsername5.setBackground(new java.awt.Color(255, 255, 255));
         LabelNewUsername5.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
@@ -4260,7 +4260,7 @@ public class Login extends javax.swing.JFrame {
         LabelNewUsername8.setBackground(new java.awt.Color(255, 255, 255));
         LabelNewUsername8.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         LabelNewUsername8.setForeground(new java.awt.Color(29, 41, 81));
-        LabelNewUsername8.setText("District:");
+        LabelNewUsername8.setText("Type of zone:");
         jPanel5.add(LabelNewUsername8, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 20, 100, 30));
 
         AdminStatistics.addTab("Total people with records by place of residence", jPanel5);
@@ -7366,7 +7366,7 @@ public class Login extends javax.swing.JFrame {
         int index_country = BoxCountry.getSelectedIndex();
         int index_state = BoxState.getSelectedIndex();
         int index_city = BoxCity.getSelectedIndex();
-        int index_district = BoxDistrict.getSelectedIndex();
+        int index_district = BoxTypeOfZone.getSelectedIndex();
         if(index_country== 0){
             JOptionPane.showMessageDialog(this, "Choose a valid option.");
         }
@@ -7416,7 +7416,7 @@ public class Login extends javax.swing.JFrame {
         int index_country = BoxCountryPersonRecords.getSelectedIndex();
         int index_state = BoxStatePersonRecords.getSelectedIndex();
         int index_city = BoxCityPersonRecords.getSelectedIndex();
-        int index_district = BoxDistrictPersonRecords.getSelectedIndex();
+        int index_district = BoxTypeOfZone1.getSelectedIndex();
         //Aquí es donde se llama la función de la base de datos con los filtros y se agrega en la lista los valores
     }//GEN-LAST:event_ButtonEnterPersonRecordsActionPerformed
 
@@ -7686,8 +7686,8 @@ public class Login extends javax.swing.JFrame {
 
     private void ButtonRefreshTotalRecordsByZoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRefreshTotalRecordsByZoneActionPerformed
         try{
-            BoxDistrict.removeAllItems();
-            BoxDistrict.addItem("Default");
+            BoxTypeOfZone.removeAllItems();
+            BoxTypeOfZone.addItem("Default");
             BoxState.removeAllItems();
             BoxState.addItem("Default");
             BoxCity.removeAllItems();
@@ -7704,7 +7704,7 @@ public class Login extends javax.swing.JFrame {
             int index_country = BoxCountry.getSelectedIndex();
             int index_state = BoxState.getSelectedIndex();
             int index_city = BoxCity.getSelectedIndex();
-            int index_district = BoxDistrict.getSelectedIndex();
+            int index_district = BoxTypeOfZone.getSelectedIndex();
             if(index_country !=0)
             {
                 states = ConnectDB.query("APP","admin_state.getAllInCountry", index_country);
@@ -7719,7 +7719,7 @@ public class Login extends javax.swing.JFrame {
             districts = ConnectDB.query("APP","admin_institution.getAll");
             while(districts.next())
             {
-                BoxDistrict.addItem(districts.getString("name"));
+                BoxTypeOfZone.addItem(districts.getString("name"));
             }
             while(states.next())
             {
@@ -8151,7 +8151,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_AddRecordUserMouseEntered
 
     private void ButtonConfirmRecordUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonConfirmRecordUserActionPerformed
-        /*String number_record = RecordNumberField.getText();
+        String number_record = RecordNumberField.getText();
         String crime_description = CrimeDescriptionCreateRecord.getText();
         String date_crime = DateCrimeCreateRecord.getText();
         String expire_date = ExpireDateCreateRecord.getText();
@@ -8163,7 +8163,7 @@ public class Login extends javax.swing.JFrame {
             BoxTypeSentenceCreateRecord.setEnabled(false);
         }
         String approved = "N";
-        String[] pictures = null; /Moficar para que aquí reciba los paths de las fotos;
+        String[] pictures = null; //Moficar para que aquí reciba los paths de las fotos;
         ArrayList<Pictures> pics = null;
         if(number_record.isEmpty()){
             JOptionPane.showMessageDialog(this, "Fill the number of the record field.");
@@ -8179,11 +8179,11 @@ public class Login extends javax.swing.JFrame {
                 {
                     approved = "Y";
                 }
-                var record = new BL.Record(number_record, crime_description, new SimpleDateFormat("dd/MM/yyyy").parse(date_crime),
-                    resolution, new SimpleDateFormat("dd/MM/yyyy").parse(expire_date), approved, CheckBoxApprovedOrNotCreateRecord.getSelectedIndex(),
-                    BoxOffender.getSelectedIndex(), BoxVeredict.getSelectedIndex(), BoxDistrictRecord.getSelectedIndex());
+                //var record = new BL.Record(number_record, crime_description, new SimpleDateFormat("dd/MM/yyyy").parse(date_crime),
+                    //resolution, new SimpleDateFormat("dd/MM/yyyy").parse(expire_date), approved, CheckBoxApprovedOrNotCreateRecord.getSelectedIndex(),
+                   // BoxOffender.getSelectedIndex(), BoxVeredict.getSelectedIndex(), BoxDistrictRecord.getSelectedIndex());
 
-                ConnectDB.insert_record(record);
+                //ConnectDB.insert_record(record);
                 for(String picture : pictures)
                 {
                     Pictures pic = new BL.Pictures(picture,number_record);
@@ -8191,25 +8191,12 @@ public class Login extends javax.swing.JFrame {
                     ConnectDB.insert_picture(pic);
                 }
                 JOptionPane.showMessageDialog(this, "The record was created successfully in the system.");
+                blockAll();
                 JPAdminMenu.setVisible(true);
-                AdminQuery.setVisible(false);
-                AdminConfiguration.setVisible(false);
-                UserCatalogues.setVisible(false);
-                PersonCatalogues.setVisible(false);
-                RecordCatalogues.setVisible(false);
-                AdminStatistics.setVisible(false);
-                JPUserMenu.setVisible(false);
-                JPWelcome.setVisible(false);
-                JPSignUp.setVisible(false);
-                UserQuery.setVisible(false);
-                UserConfiguration.setVisible(false);
-                CreateRecord.setVisible(false);
-                CreatePerson.setVisible(false);
-                JPLogin.setVisible(false);
                 JPLogged.setVisible(true);
             }
             catch(Exception e){}
-        }*/
+        }
     }//GEN-LAST:event_ButtonConfirmRecordUserActionPerformed
 
     private void ButtonConfirmRecordUserMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonConfirmRecordUserMouseExited
@@ -8773,11 +8760,9 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> BoxCommunityUpdate;
     private javax.swing.JComboBox<String> BoxCountry;
     private javax.swing.JComboBox<String> BoxCountryPersonRecords;
-    private javax.swing.JComboBox<String> BoxDistrict;
     private javax.swing.JComboBox<String> BoxDistrictAdminUpdate;
     private javax.swing.JComboBox<String> BoxDistrictPerson;
     private javax.swing.JComboBox<String> BoxDistrictPerson1;
-    private javax.swing.JComboBox<String> BoxDistrictPersonRecords;
     private javax.swing.JComboBox<String> BoxFilter;
     private javax.swing.JComboBox<String> BoxFilterIdPerson;
     private javax.swing.JComboBox<String> BoxFilterLastNamePerson;
@@ -8818,6 +8803,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> BoxTypeCrimeApproveRecords;
     private javax.swing.JComboBox<String> BoxTypeCrimeCreateRecord;
     private javax.swing.JComboBox<String> BoxTypeCrimeCreateRecord1;
+    private javax.swing.JComboBox<String> BoxTypeOfZone;
+    private javax.swing.JComboBox<String> BoxTypeOfZone1;
     private javax.swing.JComboBox<String> BoxTypeSentenceCreateRecord;
     private javax.swing.JComboBox<String> BoxTypeSentenceCreateRecord1;
     private javax.swing.JComboBox<String> BoxTypeSentenceUnapproved;
