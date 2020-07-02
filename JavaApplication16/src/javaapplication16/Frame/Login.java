@@ -3346,7 +3346,7 @@ public class Login extends javax.swing.JFrame {
         LabelRecordNumber1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         LabelRecordNumber1.setForeground(new java.awt.Color(29, 41, 81));
         LabelRecordNumber1.setText("Record number:");
-        CreateRecordAdmin.add(LabelRecordNumber1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 140, 30));
+        CreateRecordAdmin.add(LabelRecordNumber1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 190, 30));
 
         LabelCrimeDescription1.setBackground(new java.awt.Color(255, 255, 255));
         LabelCrimeDescription1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
@@ -3364,7 +3364,7 @@ public class Login extends javax.swing.JFrame {
         LabelDateCrime1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         LabelDateCrime1.setForeground(new java.awt.Color(29, 41, 81));
         LabelDateCrime1.setText("Date crime:");
-        CreateRecordAdmin.add(LabelDateCrime1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 100, 30));
+        CreateRecordAdmin.add(LabelDateCrime1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 110, 30));
 
         LineNumberRecord1.setForeground(new java.awt.Color(29, 41, 81));
         CreateRecordAdmin.add(LineNumberRecord1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 220, 20));
@@ -3385,7 +3385,7 @@ public class Login extends javax.swing.JFrame {
         BoxOffender1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         BoxOffender1.setForeground(new java.awt.Color(29, 41, 81));
         BoxOffender1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
-        CreateRecordAdmin.add(BoxOffender1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, 160, 30));
+        CreateRecordAdmin.add(BoxOffender1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, 160, 30));
 
         IconCreateReacord1.setBackground(new java.awt.Color(255, 255, 255));
         IconCreateReacord1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 18)); // NOI18N
@@ -3470,7 +3470,7 @@ public class Login extends javax.swing.JFrame {
                 ButtonCreateOffender1ActionPerformed(evt);
             }
         });
-        CreateRecordAdmin.add(ButtonCreateOffender1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 363, 40, 40));
+        CreateRecordAdmin.add(ButtonCreateOffender1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 360, 40, 40));
 
         RemovePicRecordAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/RemovePic.png"))); // NOI18N
         RemovePicRecordAdmin.setContentAreaFilled(false);
@@ -3493,7 +3493,7 @@ public class Login extends javax.swing.JFrame {
         LabelResolutionUnapproved4.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         LabelResolutionUnapproved4.setForeground(new java.awt.Color(29, 41, 81));
         LabelResolutionUnapproved4.setText("Resolution:");
-        CreateRecordAdmin.add(LabelResolutionUnapproved4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, 90, 30));
+        CreateRecordAdmin.add(LabelResolutionUnapproved4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, 110, 30));
 
         LabelVeredictUnapproved4.setBackground(new java.awt.Color(255, 255, 255));
         LabelVeredictUnapproved4.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
@@ -3559,7 +3559,7 @@ public class Login extends javax.swing.JFrame {
                 BoxResolutionCreateRecord1ActionPerformed(evt);
             }
         });
-        CreateRecordAdmin.add(BoxResolutionCreateRecord1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 170, 140, 30));
+        CreateRecordAdmin.add(BoxResolutionCreateRecord1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 170, 140, 30));
 
         LabelVeredictUnapproved5.setBackground(new java.awt.Color(255, 255, 255));
         LabelVeredictUnapproved5.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
@@ -3579,13 +3579,13 @@ public class Login extends javax.swing.JFrame {
         LabelExpireDateUnapproved7.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         LabelExpireDateUnapproved7.setForeground(new java.awt.Color(29, 41, 81));
         LabelExpireDateUnapproved7.setText("Start date:");
-        CreateRecordAdmin.add(LabelExpireDateUnapproved7, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, 100, 30));
+        CreateRecordAdmin.add(LabelExpireDateUnapproved7, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, 100, 30));
 
         LabelExpireDateUnapproved8.setBackground(new java.awt.Color(255, 255, 255));
         LabelExpireDateUnapproved8.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         LabelExpireDateUnapproved8.setForeground(new java.awt.Color(29, 41, 81));
         LabelExpireDateUnapproved8.setText("Finish date:");
-        CreateRecordAdmin.add(LabelExpireDateUnapproved8, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, 100, 30));
+        CreateRecordAdmin.add(LabelExpireDateUnapproved8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 340, 110, 30));
 
         LineDateCrime10.setForeground(new java.awt.Color(29, 41, 81));
         LineDateCrime10.setOpaque(true);
@@ -3599,19 +3599,19 @@ public class Login extends javax.swing.JFrame {
         LabelResolutionUnapproved5.setBackground(new java.awt.Color(255, 255, 255));
         LabelResolutionUnapproved5.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         LabelResolutionUnapproved5.setForeground(new java.awt.Color(29, 41, 81));
-        LabelResolutionUnapproved5.setText("Type of sentence:");
-        CreateRecordAdmin.add(LabelResolutionUnapproved5, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 380, 160, 30));
+        LabelResolutionUnapproved5.setText("District:");
+        CreateRecordAdmin.add(LabelResolutionUnapproved5, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 380, 80, 30));
 
         BoxTypeSentenceCreateRecord1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         BoxTypeSentenceCreateRecord1.setForeground(new java.awt.Color(29, 41, 81));
         BoxTypeSentenceCreateRecord1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
-        CreateRecordAdmin.add(BoxTypeSentenceCreateRecord1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 380, 120, 30));
+        CreateRecordAdmin.add(BoxTypeSentenceCreateRecord1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 380, 120, 30));
 
         LabelCrimeTypeUnapproved2.setBackground(new java.awt.Color(255, 255, 255));
         LabelCrimeTypeUnapproved2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         LabelCrimeTypeUnapproved2.setForeground(new java.awt.Color(29, 41, 81));
         LabelCrimeTypeUnapproved2.setText("Type of crime:");
-        CreateRecordAdmin.add(LabelCrimeTypeUnapproved2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, 120, 30));
+        CreateRecordAdmin.add(LabelCrimeTypeUnapproved2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, -1, 30));
 
         ButtonConfirmRecordAdmin.setBackground(new java.awt.Color(255, 255, 255));
         ButtonConfirmRecordAdmin.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
@@ -3637,7 +3637,7 @@ public class Login extends javax.swing.JFrame {
         BoxTypeCrimeCreateRecord1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         BoxTypeCrimeCreateRecord1.setForeground(new java.awt.Color(29, 41, 81));
         BoxTypeCrimeCreateRecord1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
-        CreateRecordAdmin.add(BoxTypeCrimeCreateRecord1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 420, 150, 30));
+        CreateRecordAdmin.add(BoxTypeCrimeCreateRecord1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, 150, 30));
 
         AddPicRecordAdmin.setBackground(new java.awt.Color(255, 255, 255));
         AddPicRecordAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication16/Image/AddPic.png"))); // NOI18N
