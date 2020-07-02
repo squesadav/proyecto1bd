@@ -894,4 +894,157 @@ public class ConnectDB {
         ResultSet result = (ResultSet) stmnt.getObject(1);
         return result;
     }
+
+        public static int getIdDistrict(String name) throws SQLException
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ ? = call admin_district.getId(?) } ");
+        
+        stmnt.registerOutParameter(1, OracleTypes.NUMBER);
+        stmnt.setString(2, name);
+        stmnt.executeQuery(); 
+        
+        int result = (int) stmnt.getInt(1);
+        return result;
+    }
+    
+    public static int getIdCity(String name) throws SQLException
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ ? = call admin_city.getId(?) } ");
+        
+        stmnt.registerOutParameter(1, OracleTypes.NUMBER);
+        stmnt.setString(2, name);
+        stmnt.executeQuery(); 
+        
+        int result = (int) stmnt.getInt(1);
+        return result;
+    }
+    
+    public static int getIdState(String name) throws SQLException
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ ? = call admin_state.getId(?) } ");
+        
+        stmnt.registerOutParameter(1, OracleTypes.NUMBER);
+        stmnt.setString(2, name);
+        stmnt.executeQuery(); 
+        
+        int result = (int) stmnt.getInt(1);
+        return result;
+    }
+    
+    public static int getIdCountry(String name) throws SQLException
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ ? = call admin_country.getId(?) } ");
+        
+        stmnt.registerOutParameter(1, OracleTypes.NUMBER);
+        stmnt.setString(2, name);
+        stmnt.executeQuery(); 
+        
+        int result = (int) stmnt.getInt(1);
+        return result;
+    }
+    
+    public static int getIdType(String name) throws SQLException
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ ? = call admin_type.getId(?) } ");
+        
+        stmnt.registerOutParameter(1, OracleTypes.NUMBER);
+        stmnt.setString(2, name);
+        stmnt.executeQuery(); 
+        
+        int result = (int) stmnt.getInt(1);
+        return result;
+    }
+
+    public static int getIdPlace(String name) throws SQLException
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ ? = call admin_place.getId(?) } ");
+        
+        stmnt.registerOutParameter(1, OracleTypes.NUMBER);
+        stmnt.setString(2, name);
+        stmnt.executeQuery(); 
+        
+        int result = (int) stmnt.getInt(1);
+        return result;
+    }
+    
+    public static int getIdGender(String name) throws SQLException
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ ? = call admin_gender.getId(?) } ");
+        
+        stmnt.registerOutParameter(1, OracleTypes.NUMBER);
+        stmnt.setString(2, name);
+        stmnt.executeQuery(); 
+        
+        int result = (int) stmnt.getInt(1);
+        return result;
+    }
+    
+    public static int getIdInstitution(String name) throws SQLException
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
+        String uName = "APP";
+        String uPass = "APP";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ ? = call admin_institution.getId(?) } ");
+        
+        stmnt.registerOutParameter(1, OracleTypes.NUMBER);
+        stmnt.setString(2, name);
+        stmnt.executeQuery(); 
+        
+        int result = (int) stmnt.getInt(1);
+        return result;
+    }
+    
+    public static int getIdUserType(String name) throws SQLException
+    {
+        String host = "jdbc:oracle:thin:@localhost:1521:PROYECTO1";
+        String uName = "ADM";
+        String uPass = "ADM";
+        
+        Connection con = DriverManager.getConnection(host, uName, uPass);
+        CallableStatement stmnt = con.prepareCall("{ ? = call adminUser.getIdUsertype(?) } ");
+        
+        stmnt.registerOutParameter(1, OracleTypes.NUMBER);
+        stmnt.setString(2, name);
+        stmnt.executeQuery(); 
+        
+        int result = (int) stmnt.getInt(1);
+        return result;
+    }
 }
