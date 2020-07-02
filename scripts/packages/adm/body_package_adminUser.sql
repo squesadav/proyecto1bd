@@ -296,6 +296,15 @@ FUNCTION getAllUsernames RETURN sys_refcursor
             FROM appuser;
         RETURN rAll;
     END;
+
+FUNCTION getAllUsernamesBanned RETURN sys_refcursor
+        AS rAll sys_refcursor;
+    BEGIN
+    OPEN rALL FOR
+            SELECT username
+            FROM banned;
+        RETURN rAll;
+    END;
     
 FUNCTION getIdUsertype(vName VARCHAR2) RETURN NUMBER
 AS
