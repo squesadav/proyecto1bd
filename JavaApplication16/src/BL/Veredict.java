@@ -12,24 +12,25 @@ import java.util.Date;
  * @author Sebas
  */
 public class Veredict {
-    private int id;
+    private String id;
     private int years;
     private int id_place;
     private Date date_start;
     private Date date_end;
 
-    public Veredict(int years, int id_place, Date date_start, Date ate_end) {
+    public Veredict(String id, int years, int id_place, Date date_start, Date date_end) {
+        this.id = id;
         this.years = years;
         this.id_place = id_place;
         this.date_start = date_start;
         this.date_end = date_end;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

@@ -20,13 +20,13 @@ public class Record {
     private Date crime_expiration_date;
     private String approved;
     private int id_type;
-    private int id_veredict;
+    private String id_veredict;
     private int id_person;
     private int id_district;
     private ArrayList<Pictures> pictures;
 
-    public Record(String number, String description_crime, Date date_crime, String resolution, Date crime_expiration_date, 
-            String approved, int id_type, int id_veredict, int id_person, int id_district) {
+    public Record(String number, String description_crime, Date date_crime, String resolution, 
+        Date crime_expiration_date, String approved, int id_type, int id_person, int id_district) {
         this.number = number;
         this.description_crime = description_crime;
         this.date_crime = date_crime;
@@ -34,7 +34,7 @@ public class Record {
         this.crime_expiration_date = crime_expiration_date;
         this.approved = approved;
         this.id_type = id_type;
-        this.id_veredict = id_veredict;
+        this.id_veredict = numberr;
         this.id_person = id_person;
         this.id_district = id_district;
         this.pictures = null;
